@@ -17,7 +17,7 @@ $(document).ready(function() {
 
      $('#screen-btn-submit').on('click', function() {
         console.log(ratings);
-     })
+     });
 
     $('.sidebar').sidebar({
         dimPage: false,
@@ -90,7 +90,7 @@ $(document).ready(function() {
             });
             ratings = {};
             for (var x = 1; x <= 3; x++) {
-                $('#step-' + x).removeClass('compvared');
+                $('#step-' + x).removeClass('completed');
                 $('#step-' + x).removeClass('active');
 
                 if (x == curScreen)
@@ -132,7 +132,7 @@ $(document).ready(function() {
     $('#screen-btn').on('click', function() {
         if (curScreen <= 4) {
             showScreen(++curScreen);
-            $('#step-' + (curScreen - 1)).addClass('compvared');
+            $('#step-' + (curScreen - 1)).addClass('completed');
 
         }
 
