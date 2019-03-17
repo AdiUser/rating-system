@@ -15209,3 +15209,37 @@ body {
   breakpoint-xl: 1200px;
 }
 /*# sourceMappingURL=style.css.map */
+
+.paddRight10 {
+  padding-right: 10px;
+}
+.paddTop10 {
+  padding-right: 10px;
+}
+.paddBottom10 {
+  padding-right: 10px;
+}
+.paddLeft10 {
+  padding-right: 10px;
+}
+
+.list-prev {
+    margin-bottom: 8px;
+}
+.img-section img {
+    width: 60px;
+    border-radius: 50%;
+}
+.info-section {
+    padding: 0 10px;
+}
+.info-section .name a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #3e3939;
+}
+.info-section .city, .state {
+    padding: 0 10px 0 0;
+    font-weight: 500;
+    font-size: .96em;
+}
