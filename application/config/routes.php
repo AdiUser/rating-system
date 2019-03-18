@@ -54,3 +54,6 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['add-university'] = 'welcome/add_university';
+$route['faculty'] = 'welcome/faculty';
+
+

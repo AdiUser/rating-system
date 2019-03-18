@@ -23,6 +23,10 @@
                   <a class="nav-link" href="add-university">
                     <i class="nav-icon icon-drop"></i> Add University</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="faculty">
+                    <i class="nav-icon icon-drop"></i>Faculty</a>
+                </li>
                 <?php
               }
             ?>

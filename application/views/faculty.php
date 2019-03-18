@@ -16,7 +16,7 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>CoreUI Free Bootstrap Admin Template</title>
+    <title>Faculty</title>
     <!-- Icons-->
     <link href="assets/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
     <link href="assets/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
@@ -165,7 +165,7 @@
                       <div class="card-header">
                           <i class="fa fa-align-justify"></i>
                           <!-- <i class="icons font-2xl d-block mt-5 cui-file"></i> -->
-                          Add Universities
+                          Add Faculty
                       </div>
                       <div class="card-body">
                           <div id="accordion" role="tablist">
@@ -173,133 +173,59 @@
                                   <div class="card-header" id="headingThree" role="tab">
                                       <h5 class="mb-0">
                                           <a class="" data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                                            <i class="icons font-1xl mt-5 cui-user-follow paddRight10"></i>Add University Data</a>
+                                            <i class="icons font-1xl mt-5 cui-user-follow paddRight10"></i></i>Add University Data</a>
                                       </h5>
                                   </div>
                                   <div class="collapse show" id="collapseThree" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion" style="">
                                     <div class="card-body">
-                                        <div class="card">
-                                       <form class="form" method="post">
+                                    <div class="card">
+                                       
                                         <div class="card-body">
                                           <div class="row">
                                               <div class="col-md-7">
-                                                <div class="form-group" method="post">
+                                                <div class="form-group">
                                                   <label for="company">University Name</label>
-                                                  <input class="form-control" name="uname" id="company" type="text" placeholder="Enter your university name">
+                                                  <input class="form-control" id="company" type="text" placeholder="Enter your university name">
                                                 </div>
                                               </div>
                                               <div class="col-md-5">
-                                                <div class="form-group" method="post">
+                                                <div class="form-group">
                                                   <label for="vat">University Code</label>
-                                                  <input class="form-control" name="ucode" id="vat" type="text" placeholder="PL1234567890">
+                                                  <input class="form-control" id="vat" type="text" placeholder="PL1234567890">
                                                 </div>
                                               </div>
                                             </div>
                                             
                                             <div class="row">
                                               <div class="col-md-4">
-                                                <div class="form-group" method="post">
-                                                  <label for="street">State</label>
-                                                  <input class="form-control" name="ustate" id="street" type="text" placeholder="Select State name">
-                                                </div>
-                                              </div>
-                                              <div class="col-md-4">
-                                                <div class="form-group" method="post">
-                                                  <label for="street">District</label>
-                                                  <input class="form-control" name="udistrict" id="street" type="text" placeholder="Enter district name">
-                                                </div>
-                                              </div>
-                                              <div class="col-md-4">
-                                                <div class="form-group" method="post">
-                                                  <label for="street">Postal Code</label>
-                                                  <input class="form-control" name="postal" id="street" type="text" placeholder="Enter postal code">
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div class="row">
-                                            <div class="col-md">
-                                                <div class="form-group" method="post">
-                                                  <label for="company">University Address</label>
-                                                  <input class="form-control" name="uaddress" id="company" type="text" placeholder="Enter your university address">
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div class="row">
-                                            <div class="col-md-5">
-                                                <div class="form-group" method="post">
-                                                  <label for="company">Contact Number</label>
-                                                  <input class="form-control" name="ucontact" id="company" type="text" placeholder="Enter your university address">
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div class="row">
-                                            <div class="col-md">
-                                                <div class="form-group" method="post">
-                                                  <label for="company">Email</label>
-                                                  <input class="form-control" name="email" id="company" type="text" placeholder="Enter university email address">
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div class="row">
-                                              <div class="col-md-12">
                                                 <div class="form-group">
-                                                  <div class="row">
-                                                    <div class="col-md-4"><label for="">Is this a Central University</label></div>
-                                                    <div class="col-md-5">
-                                                  <label class="switch switch-label switch-pill switch-outline-success-alt"> 
-                                                  <input class="switch-input" type="checkbox">
-                                                  <span class="switch-slider" data-checked="✓" data-unchecked="✕"></span>
-                                                  </label>
+                                                  <label for="street">State</label>
+                                                  <input class="form-control" id="street" type="text" placeholder="Select State name">
                                                 </div>
+                                              </div>
+                                              <div class="col-md-4">
+                                                <div class="form-group">
+                                                  <label for="street">District</label>
+                                                  <input class="form-control" id="street" type="text" placeholder="Enter district name">
                                                 </div>
+                                              </div>
+                                              <div class="col-md-4">
+                                                <div class="form-group">
+                                                  <label for="street">Postal Code</label>
+                                                  <input class="form-control" id="street" type="text" placeholder="Enter postal code">
                                                 </div>
                                               </div>
                                             </div>
                                         </div>
                                         <div class="card-footer">
-                                          <button class="btn btn-sm btn-primary" type="submit" name="submit">
+                                          <button class="btn btn-sm btn-primary" type="submit">
                                               <i class="fa fa-dot-circle-o"></i> Submit</button>
                                           <button class="btn btn-sm btn-danger" type="reset">
                                               <i class="fa fa-ban"></i> Reset</button>
-                                        </div>
-                                        <?php
-                                        $servername = "localhost";
-                                        $username = "root";
-                                        $password = "";
-                                        $dbname = "aicte";
-                                        
-                                        // Create connection
-                                        $conn = mysqli_connect($servername, $username, $password, $dbname);
-                                        // Check connection
-                                        if (!$conn) {
-                                            die("Connection failed: " . mysqli_connect_error());
-                                        }
-                                            if(isset($_POST['submit']))
-                                            {
-                                            $university_code=$_POST['ucode'];
-                                            $university_name=$_POST['uname'];
-                                            $state=$_POST['ustate'];
-                                            $postal_code=$_POST['postal'];
-                                            $district=$_POST['udistrict'];
-                                            $contact=$_POST['ucontact'];
-                                            $university_address=$_POST['uaddress'];
-                                            $email=$_POST['email'];
-                                            $sql = "INSERT INTO aicte_admin (university_code, university_name,`state`,district,postal_code,contact,university_address, email)
-                                            VALUES ('$university_code', '$university_name','$state','$district','$postal_code','$contact',' $university_address', '$email')";
-                                            
-                                        if (mysqli_query($conn, $sql)) {
-                                            
-                                        } else {
-                                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                                        }
-                                      }
-                                        mysqli_close($conn);
-                                       ?>
-                                           </form>
-                                        </div> 
                                       </div>
-                                      
-                              </div>
+                                    </div> 
+                                  </div>
+                                  </div>
                               </div>
                               <div class="card mb-0">
                                   <div class="card-header" id="headingOne" role="tab">
