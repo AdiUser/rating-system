@@ -26,4 +26,8 @@ class Welcome extends CI_Controller {
 
 		$this->load->view("add_university");
 	}
+	public function faculty() {
+
+		$this->load->view("faculty");
+	}
 }
