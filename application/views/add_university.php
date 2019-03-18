@@ -216,6 +216,21 @@
                                                 </div>
                                               </div>
                                             </div>
+                                            <div class="row">
+                                              <div class="col-md-12">
+                                                <div class="form-group">
+                                                  <div class="row">
+                                                    <div class="col-md-4"><label for="">Is this a Central University</label></div>
+                                                    <div class="col-md-5">
+                                                  <label class="switch switch-label switch-pill switch-outline-success-alt"> 
+                                                  <input class="switch-input" type="checkbox">
+                                                  <span class="switch-slider" data-checked="✓" data-unchecked="✕"></span>
+                                                  </label>
+                                                </div>
+                                                </div>
+                                                </div>
+                                              </div>
+                                            </div>
                                         </div>
                                         <div class="card-footer">
                                           <button class="btn btn-sm btn-primary" type="submit">
