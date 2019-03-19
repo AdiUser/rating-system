@@ -49,6 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
@@ -57,4 +58,5 @@ $route['add-university'] = 'welcome/add_university';
 $route['faculty'] = 'welcome/faculty';
 $route['HOD/faculty-list'] = 'welcome/HOD_show_faculty';
 $route['HOD/add-faculty'] = 'welcome/HOD_add_faculty';
+$route['upload-file'] = 'welcome/import';
 
