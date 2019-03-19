@@ -33,6 +33,10 @@ class Welcome extends CI_Controller {
 
 	public function HOD_show_faculty() {
 
-		$this->load->view("h_o_d_faculty_view");
+		$this->load->view("faculty_list");
+	}
+
+	public function HOD_add_faculty() {
+		$this->load->view("add_faculty");
 	}
 }

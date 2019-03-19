@@ -3,7 +3,7 @@
     $accessControll = 0;
 
 ?>
- <div class="sidebar">
+ <div class="sidebar" style="z-index: 1">
         <nav class="sidebar-nav">
           <ul class="nav">
             <!-- basic admin features. -->

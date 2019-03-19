@@ -27,6 +27,8 @@
     <link href="/rating-system/assets/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css" />
+    <link rel="stylesheet" href="/rating-system/assets/css/user-model.css">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
     <script>
@@ -43,7 +45,7 @@
     </script>
   </head>
   <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
-    <header class="app-header navbar">
+    <header class="app-header navbar" style="z-index: 1">
       <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -180,7 +182,7 @@
                       <img src="https://via.placeholder.com/50" alt="">
                     </div> 
                     <div class="faculty-name">
-                      Tiger Nixon     
+                      <a href="#" class="f-name" data-target="faculty-id">Tiger Nixon</a>     
                     </div>   
                   </div>
                 
@@ -1003,6 +1005,171 @@
         <a href="https://coreui.io">CoreUI</a>
       </div>
     </footer>
+    <div id="user-model">
+      <div class="user-info d-flex">
+        <div class="user-img">
+          <img src="https://via.placeholder.com/150" alt="">
+        </div>
+        <div class="user-text-info">
+          <div class="name">
+            Aditya Saxena
+          </div>
+          <div class="date-joining">
+            2nd April, 2014
+          </div>
+          <div class="level">
+            Lecturer - 9A 
+          </div>
+        </div>
+         <div class="institute-logo">
+        <img src="https://via.placeholder.com/150" alt="">
+      </div>
+      </div>
+      <hr>
+      <div class="options-area">
+        <div class="row">
+              <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h5>Qualifications and activities to verify</h5>
+              </div>
+              <div class="card-body">
+                <table class="table table-bordered verify-table">
+                  <thead>
+                    <th>Qualification/Activity</th>
+                    <th>Proof</th>
+                    <th>Verify</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Completed Master's degree.</td>
+                      <td><a href=""><i class="icons font-1xl d-block cui-file"></i></a></td>
+                      <td>
+                        <button class="btn btn-block btn-sm btn-success v-btn" type="button">Verify</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Completed 3 weeks of MOOC Training</td>
+                      <td><a href=""><i class="icons font-1xl d-block cui-file"></i></a></td>
+                      <td><button class="btn btn-block btn-sm btn-success v-btn" type="button">Verify</button></td>
+                    </tr>
+                    <tr>
+                      <td>Done 5 Weeks of service on Lecturer Level 9A level.</td>
+                      <td><a href=""><i class="icons font-1xl d-block cui-file"></i></a></td>
+                      <td><button class="btn btn-block btn-sm btn-success v-btn" type="button">Verify</button></td>
+                    </tr>
+                    <tr>
+                      <td>Participated in CSIT Development Drive</td>
+                      <td><a href=""><i class="icons font-1xl d-block cui-file"></i></a></td>
+                      <td><button class="btn btn-block btn-sm btn-success v-btn" type="button">Verify</button></td>
+                    </tr>
+                    <tr>
+                      <td>Completed two eight weeks duration MOOCS courses with E-Certification by NPTEL -AICTE</td>
+                      <td><a href=""><i class="icons font-1xl d-block cui-file"></i></a></td>
+                      <td><button class="btn btn-block btn-sm btn-success v-btn" type="button">Verify</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h5>Canditate Qualifications for next level</h5>    
+              </div>
+              <div class="card-body">
+                <div class="qualifications-list">
+                  <div class="q-list-item d-flex">
+                    <div class="list-icon green"><i class="icons font-2xl cui-circle-check"></i></div>
+                    <div class="list-text">Master’s degree with First Class or equivalent in a relevant subject and has cleared the National Eligibility Test (NET) or some similar test</div>
+                  </div> 
+                  <div class="q-list-item d-flex">
+                    <div class="list-icon green"><i class="icons font-2xl cui-circle-check"></i></div>
+                    <div class="list-text">Minimum qualifications for Lecturer (Senior Scale) + Master's Degree with first class or equivalent either at Bachelor's or Masterl's level.</div>
+                  </div> 
+                  <div class="q-list-item d-flex">
+                    <div class="list-icon green"><i class="icons font-2xl cui-circle-check"></i></div>
+                    <div class="list-text">Completed two such eight weeks duration MOOCS courses with E-Certification by NPTELAICTE
+                    </div>
+                  </div>
+                  <div class="q-list-item d-flex">
+                    <div class="list-icon red"><i class="icons font-2xl cui-circle-x"></i></div>
+                    <div class="list-text">Completed two such eight weeks duration MOOCS courses with E-Certification by NPTELAICTE
+                    </div>
+                  </div> 
+                </div>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h5>Add/Edit Department Activities</h5>
+              </div>
+              <div class="card-body">
+                <table class="table table-bordered">
+                  <thead>
+                    <th>Activity Name </th>
+                    <th>Semister</th>
+                    <th>Points</th>
+                    <th>Settings</th>
+                  </thead>
+                  <tbody id="dept-activities-item">
+                    <tr id="abc">
+                      <td>Supported in Department Level Hackathon</td>
+                      <td>2</td>
+                      <td>3</td>
+                      <td>
+                        <button class="btn btn-danger dept-activities-delete-old" data-delete="abc"> 
+                          <i class="icons font-1xl d-block cui-circle-x"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr id="xyz">
+                      <td><input type="text" name="activity[]" class="form-control" placeholder="Enter Activity name..."></td>
+                      <td>
+                        <select name="semister[]" id="" class="form-control">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                        </select>
+                      </td>
+                      <td><input type="number" name="points[]" class="form-control"></td>
+                      <td><button class="btn btn-danger dept-activities-delete-new" data-delete="xyz" >
+                        <i class="icons font-1xl d-block cui-circle-x"></i>
+                      </button></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="row">
+                  <div class="col-md-3">
+                    <button class="btn btn-pill btn-block btn-info" type="button" id="dept-activities-add">Add More...</button>
+                  </div>
+                  <div class="col-md-3">
+                  <button class="btn btn-pill btn-block btn-success" type="button">Save <i class="icons font-1xl cui-check paddLeft10"></i></button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+     
+
+      <hr>
+    </div>
     <!-- CoreUI and necessary plugins-->
     <script src="/rating-system/assets/jquery/dist/jquery.min.js"></script>
     <script src="/rating-system/assets/popper.js/dist/umd/popper.min.js"></script>
@@ -1011,18 +1178,65 @@
     <script src="/rating-system/assets/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
     <script src="/rating-system/assets/@coreui/coreui/dist/js/coreui.min.js"></script>
     <!-- Plugins and scripts required by this view-->
-    <script src="/rating-system/assets/chart.js/dist/Chart.min.js"></script>
     <script src="/rating-system/assets/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.bootstrap4.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script>
+     <script type="text/javascript" src="/rating-system/assets/js/tooltips.js" class="view-script"></script>
     <script>
         
 $(document).ready(function() {
-    $('#example').DataTable();
-} );
+    $("#example").DataTable();
+    $("#user-model").iziModal({
+      fullscreen: true,
+      width: "90%",
+      onOpening: function(modal) {
+      //  console.log(event.target.dataset.target);
+      }
+    });
+    $("#user-model").iziModal("open");
+    $(".f-name").on('click', function(event){
+        event.preventDefault();
+        $("#user-model").iziModal("open");
+    });
+
+    $(document).on("click", ".dept-activities-delete-new", function() {
+      $("#"+$(this)[0].dataset.delete).remove();
+      console.log($(this)[0].dataset.delete);
+    }); 
+
+     $(".dept-activities-delete-old").on("click", function() {
+      console.log($(this)[0].dataset.delete);
+    }); 
+
+    $("#dept-activities-add").on("click", function() {
+      var id = "str"+ Math.random().toString().split(".")[1];
+      var txt = '<tr id="'+id+'">'+
+                      '<td><input type="text" name="activity[]" class="form-control" placeholder="Enter Activity name..."></td>'+
+                      '<td>'+
+                        '<select name="semister[]" id="" class="form-control">'+
+                          '<option value="1">1</option>'+
+                          '<option value="2">2</option>'+
+                          '<option value="3">3</option>'+
+                          '<option value="4">4</option>'+
+                          '<option value="5">5</option>'+
+                          '<option value="6">6</option>'+
+                          '<option value="7">7</option>'+
+                          '<option value="8">8</option>'+
+                        '</select>'+
+                      '</td>'+
+                      '<td><input type="number" name="points[]" class="form-control"></td>'+
+                      '<td><button class="btn btn-danger dept-activities-delete-new" data-delete="'+id+'" >'+
+                        '<i class="icons font-1xl d-block cui-circle-x"></i>'+
+                      '</button></td>'+
+                   ' </tr>';
+      $("#dept-activities-item").append(txt);
+    });
+
+    
+});
       </script>
-    <script src="/rating-system/assets/js/main.js"></script>
   </body>
 </html>

@@ -55,5 +55,6 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['add-university'] = 'welcome/add_university';
 $route['faculty'] = 'welcome/faculty';
-$route['HOD/faculty'] = 'welcome/HOD_show_faculty';
+$route['HOD/faculty-list'] = 'welcome/HOD_show_faculty';
+$route['HOD/add-faculty'] = 'welcome/HOD_add_faculty';
 
