@@ -20,22 +20,22 @@
               if ($accessControll == 0) {
                 ?>
                 <li class="nav-item">
-                  <a class="nav-link" href="add-university">
+                  <a class="nav-link" href="/rating-system/add-university">
                     <i class="nav-icon icon-drop"></i> Add University</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="faculty">
+                  <a class="nav-link" href="/rating-system/faculty">
                     <i class="nav-icon icon-drop"></i>Faculty</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="facultyQualifications">
+                  <a class="nav-link" href="/rating-system/facultyQualifications">
                     <i class="nav-icon icon-drop"></i>Qualifications</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="HOD/faculty-list">
                     <i class="nav-icon icon-drop"></i>Faculty LIst</a>
                 </li>
-                <a class="nav-link" href="faculty_activity">
+                <a class="nav-link" href="/rating-system/faculty_activity">
                     <i class="nav-icon icon-drop"></i>Activities</a>
                 </li>
                 <?php

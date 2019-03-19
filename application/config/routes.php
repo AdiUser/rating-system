@@ -58,10 +58,7 @@ $route['add-university'] = 'welcome/add_university';
 $route['faculty'] = 'welcome/faculty';
 $route['HOD/faculty-list'] = 'welcome/HOD_show_faculty';
 $route['HOD/add-faculty'] = 'welcome/HOD_add_faculty';
-<<<<<<< HEAD
 $route['facultyQualifications'] = 'welcome/facultyQualifications';
 $route['faculty_activity'] = 'welcome/faculty_activity';
-=======
 $route['upload-file'] = 'welcome/import';
 
->>>>>>> f8bf370d5f7da0f0c8c31fcbe6232a271bc32880

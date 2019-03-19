@@ -167,71 +167,205 @@
                           <!-- <i class="icons font-2xl d-block mt-5 cui-file"></i> -->
                           Add Qualifications
                       </div>
+                      <form action="/rating-system/facultyQualifications" method="post">
                       <div class="card-body">
                       <form action="facultyQualifications.php" method="post">
+                      <table class="table-responsive-sm table-bordered">
+                      <thead>
+                      <tr>
+                      <td>Qualification</td>
+                      <td>Proof</td>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                      <td>
                       <div class="form-check" style="margin-bottom:5px">
                           <label class="form-check-label">
                             <input type="checkbox" class="form-check-input" name="qualification[]" value="29">B. E. / B. Tech. / B. S. in relevant discipline with First Class or equivalent.
                           </label>
                         </div>
+                        </td>
+                        <td>
+                          <div class="form-group row">
+                                
+                                    <div class="col-md-9">
+                                      <input id="file-input" type="file" name="upload_file">
+                                    </div>
+                             </div>
+                          </td>
+                        </tr>
+                        <tr>
+                        <td>
                         <div class="form-check" style="margin-bottom:5px">
                           <label class="form-check-label">
                             <input type="checkbox" class="form-check-input" name="qualification[]"  value="30">B. Pharm. with First Class or equivalent
                           </label>
                         </div>
+                        </td>
+                        <td>
+                          <div class="form-group row">
+                                    <div class="col-md-9">
+                                      <input id="file-input" type="file" name="upload_file">
+                                    </div>
+                             </div>
+                          </td>
+                        </tr>
+                        <tr>
+                        <td>
                         <div class="form-check" style="margin-bottom:5px">
                           <label class="form-check-label">
                             <input type="checkbox" class="form-check-input" name="qualification[]"  value="31">A minimum 4-year Bachelor’s Degree in HMCT with First Class or equivalent.
                           </label>
                         </div>
+                        </td>
+                        <td>
+                          <div class="form-group row">
+                                    <div class="col-md-9">
+                                      <input id="file-input" type="file" name="upload_file">
+                                    </div>
+                             </div>
+                          </td>
+                        </tr>
+                        <tr>
+                        <td>
                         <div class="form-check" style="margin-bottom:5px">
                           <label class="form-check-label">
                             <input type="checkbox" class="form-check-input" name="qualification[]"  value="32">B.Arch. or a 4-year Degree in an allied field with First Class or equivalent
                           </label>
                         </div>
+                        </td>
+                        <td>
+                          <div class="form-group row">
+                                    <div class="col-md-9">
+                                      <input id="file-input" type="file" name="upload_file">
+                                    </div>
+                             </div>
+                          </td>
+                        </tr>
+                        <tr>
+                        <td>
                         <div class="form-check" style="margin-bottom:5px">
                           <label class="form-check-label">
                             <input type="checkbox" class="form-check-input" name="qualification[]"  value="33">Bachelor’s degree in appropriate discipline of Fine Arts (Applied Arts, Painting and Sculpture) or equivalent with First Class or equivalent
                           </label>
                         </div>
+                        </td>
+                        <td>
+                          <div class="form-group row">
+                                    <div class="col-md-9">
+                                      <input id="file-input" type="file" name="upload_file">
+                                    </div>
+                             </div>
+                          </td>
+                        </tr>
+                        <tr>
+                        <td>
                         <div class="form-check" style="margin-bottom:5px">
                           <label class="form-check-label">
                             <input type="checkbox" class="form-check-input" name="qualification[]"  value="34">Bachelor’s degree in design or a minimum 4-year Diploma in any one of the streams of Design, Fine Arts, Applied Arts and Architecture or Bachelor’s degree in Engineering with First Class or equivalent
                           </label>
                         </div>
+                        </td>
+                        <td>
+                          <div class="form-group row">
+                                    <div class="col-md-9">
+                                      <input id="file-input" type="file" name="upload_file">
+                                    </div>
+                             </div>
+                          </td>
+                          </tr>
+                          <tr>
+                          <td>
                         <div class="form-check" style="margin-bottom:5px">
                           <label class="form-check-label">
                             <input type="checkbox" class="form-check-input" name="qualification[]"  value="35">Master’s degree in appropriate subject with First Class or equivalent at Bachelor’s or Master’s level
                           </label>
                         </div>
+                        </td>
+                        <td>
+                          <div class="form-group row">
+                                    <div class="col-md-9">
+                                      <input id="file-input" type="file" name="upload_file">
+                                    </div>
+                             </div>
+                          </td>
+                          </tr>
+                          <tr>
+                          <td>
                         <div class="form-check" style="margin-bottom:5px">
                           <label class="form-check-label">
                             <input type="checkbox" class="form-check-input" name="qualification[]"  value="">Option 7
                           </label>
                         </div>
+                        </td>
+                        <td>
+                          <div class="form-group row">
+                                    <div class="col-md-9">
+                                      <input id="file-input" type="file" name="upload_file">
+                                    </div>
+                             </div>
+                          </td>
+                          </tr>
+                          <tr>
+                          <td>
                         <div class="form-check" style="margin-bottom:5px">
                           <label class="form-check-label">
                             <input type="checkbox" class="form-check-input" name="qualification[]" value="">Option 8
                           </label>
                         </div>
+                        </td>
+                        <td>
+                          <div class="form-group row">
+                                    <div class="col-md-9">
+                                      <input id="file-input" type="file" name="upload_file">
+                                    </div>
+                             </div>
+                          </td>
+                          </tr>
+                          <tr>
+                          <td>
                         <div class="form-check" style="margin-bottom:5px">
                           <label class="form-check-label">
                             <input type="checkbox" class="form-check-input" name="qualification[]" value="">Option 9
                           </label>
                         </div>
+                        </td>
+                        <td>
+                          <div class="form-group row">
+                                    <div class="col-md-9">
+                                      <input id="file-input" type="file" name="upload_file">
+                                    </div>
+                             </div>
+                          </td>
+                          </tr>
+                          <tr>
+                          <td>
                         <div class="form-check" style="margin-bottom:5px">
                           <label class="form-check-label">
                             <input type="checkbox" class="form-check-input" name="qualification[]" value="">Option 10
                           </label>
                         </div>
-                        </form>
+                        </td>
+                        <td>
+                          <div class="form-group row">
+                                    <div class="col-md-9">
+                                      <input id="file-input" type="file" name="upload_file">
+                                    </div>
+                             </div>
+                          </td>
+                          </tr>
+                        </tbody>
+                        </table>
                         </div>
                         <div class="card-footer">
                               <button class="btn btn-sm btn-primary" name="submit" type="submit">
                                   <i class="fa fa-dot-circle-o"></i> Submit</button>
                                     <button class="btn btn-sm btn-danger" type="reset">
                                       <i class="fa fa-ban"></i> Reset</button>
-                        </div>                     
+                        </div>  
+                        </form>
+                   
                    <?php 
                     $servername = "localhost";
                     $username = "root";
@@ -247,14 +381,13 @@
                         if(isset($_POST['submit']))
                         {
                           
-                          //$qualification=$_POST['qualification'];
-                          if(!empty($_POST['qualification'])){
-
-                            foreach($_POST['qualification'] as $selected){
+                          $qualification=array($_POST['qualification']);
+                         
+                          if(!empty($qualification)){
+                          $val = implode(",", $qualification[0]);
 
                         $sql = "INSERT INTO input_qualification (qualification)
-                        VALUES ('$selected')";
-                      }
+                        VALUES ('$val')";
                         
                     if (mysqli_query($conn, $sql)) {
                       

@@ -67,8 +67,11 @@ class Welcome extends CI_Controller {
 			
 			echo "<pre>";
 			print_r($sheetData);
+
+			
 	
 		}
 	}
+	
 
 }

@@ -1196,7 +1196,7 @@ $(document).ready(function() {
       //  console.log(event.target.dataset.target);
       }
     });
-    $("#user-model").iziModal("open");
+    //$("#user-model").iziModal("open");
     $(".f-name").on('click', function(event){
         event.preventDefault();
         $("#user-model").iziModal("open");
