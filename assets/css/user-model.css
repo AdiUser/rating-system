@@ -1,0 +1,41 @@
+.user-info {
+    padding: 20px;
+}
+.user-img img {
+    width: 100px;
+    height: auto;
+}
+.user-text-info {
+    padding: 0px 15px;
+}
+.user-text-info .name{
+    font-size: 1.8em;
+}
+.user-text-info  .date-joining {
+    font-size: 1.3em;
+    font-weight: 400;
+}
+.institute-logo img {
+  position: absolute;
+  right:20px;
+  width: 100px;
+  height: auto;
+}
+.options-area {
+  padding: 0 15px;
+}
+.q-list-item {
+  padding: 8px 0 0 0;
+}
+.q-list-item .list-icon {
+  padding: 10px 10px;
+}
+.q-list-item .green {
+  color:#4CAF50;
+}
+.q-list-item .red {
+ color: #F44336; 
+}
+.q-list-item .list-text {
+  font-size: 1.2em;
+}

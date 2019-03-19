@@ -16,7 +16,7 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>AICTE</title>
+    <title>Qualifications</title>
     <!-- Icons-->
     <link href="assets/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
     <link href="assets/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
@@ -165,259 +165,141 @@
                       <div class="card-header">
                           <i class="fa fa-align-justify"></i>
                           <!-- <i class="icons font-2xl d-block mt-5 cui-file"></i> -->
-                          Add Universities
+                          Add Qualifications
                       </div>
                       <div class="card-body">
-                          <div id="accordion" role="tablist">
-                             <div class="card mb-0">
-                                  <div class="card-header" id="headingThree" role="tab">
-                                      <h5 class="mb-0">
-                                          <a class="" data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                                            <i class="icons font-1xl mt-5 cui-user-follow paddRight10"></i>Add University Data</a>
-                                      </h5>
-                                  </div>
-                                  <div class="collapse show" id="collapseThree" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion" style="">
-                                    <div class="card-body">
-                                        <div class="card">
-                                       <form class="form" method="post">
-                                        <div class="card-body">
-                                          <div class="row">
-                                              <div class="col-md-7">
-                                                <div class="form-group" method="post">
-                                                  <label for="company">University Name</label>
-                                                  <input class="form-control" name="uname" id="company" type="text" placeholder="Enter your university name">
-                                                </div>
-                                              </div>
-                                              <div class="col-md-5">
-                                                <div class="form-group" method="post">
-                                                  <label for="vat">University Code</label>
-                                                  <input class="form-control" name="ucode" id="vat" type="text" placeholder="PL1234567890">
-                                                </div>
-                                              </div>
-                                            </div>
-                                            
-                                            <div class="row">
-                                              <div class="col-md-4">
-                                                <div class="form-group" method="post">
-                                                  <label for="street">State</label>
-                                                  <input class="form-control" name="ustate" id="street" type="text" placeholder="Select State name">
-                                                </div>
-                                              </div>
-                                              <div class="col-md-4">
-                                                <div class="form-group" method="post">
-                                                  <label for="street">District</label>
-                                                  <input class="form-control" name="udistrict" id="street" type="text" placeholder="Enter district name">
-                                                </div>
-                                              </div>
-                                              <div class="col-md-4">
-                                                <div class="form-group" method="post">
-                                                  <label for="street">Postal Code</label>
-                                                  <input class="form-control" name="postal" id="street" type="text" placeholder="Enter postal code">
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div class="row">
-                                            <div class="col-md">
-                                                <div class="form-group" method="post">
-                                                  <label for="company">University Address</label>
-                                                  <input class="form-control" name="uaddress" id="company" type="text" placeholder="Enter your university address">
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div class="row">
-                                            <div class="col-md-5">
-                                                <div class="form-group" method="post">
-                                                  <label for="company">Contact Number</label>
-                                                  <input class="form-control" name="ucontact" id="company" type="text" placeholder="Enter your university address">
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div class="row">
-                                            <div class="col-md">
-                                                <div class="form-group" method="post">
-                                                  <label for="company">Email</label>
-                                                  <input class="form-control" name="email" id="company" type="text" placeholder="Enter university email address">
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div class="row">
-                                              <div class="col-md-12">
-                                                <div class="form-group">
-                                                  <div class="row">
-                                                    <div class="col-md-4"><label for="">Is this a Central University</label></div>
-                                                    <div class="col-md-5">
-                                                  <label class="switch switch-label switch-pill switch-outline-success-alt"> 
-                                                  <input class="switch-input" type="checkbox">
-                                                  <span class="switch-slider" data-checked="✓" data-unchecked="✕"></span>
-                                                  </label>
-                                                </div>
-                                                </div>
-                                                </div>
-                                              </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-footer">
-                                          <button class="btn btn-sm btn-primary" type="submit" name="submit">
-                                              <i class="fa fa-dot-circle-o"></i> Submit</button>
-                                          <button class="btn btn-sm btn-danger" type="reset">
-                                              <i class="fa fa-ban"></i> Reset</button>
-                                        </div>
-                                        <?php
-                                        $servername = "localhost";
-                                        $username = "root";
-                                        $password = "";
-                                        $dbname = "aicte";
-                                        
-                                        // Create connection
-                                        $conn = mysqli_connect($servername, $username, $password, $dbname);
-                                        // Check connection
-                                        if (!$conn) {
-                                            die("Connection failed: " . mysqli_connect_error());
-                                        }
-                                            if(isset($_POST['submit']))
-                                            {
-                                            $university_code=$_POST['ucode'];
-                                            $university_name=$_POST['uname'];
-                                            $state=$_POST['ustate'];
-                                            $postal_code=$_POST['postal'];
-                                            $district=$_POST['udistrict'];
-                                            $contact=$_POST['ucontact'];
-                                            $university_address=$_POST['uaddress'];
-                                            $email=$_POST['email'];
-                                            $sql = "INSERT INTO aicte_admin (university_code, university_name,`state`,district,postal_code,contact,university_address, email)
-                                            VALUES ('$university_code', '$university_name','$state','$district','$postal_code','$contact',' $university_address', '$email')";
-                                            
-                                        if (mysqli_query($conn, $sql)) {
-                                            
-                                        } else {
-                                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                                        }
-                                      }
-                                        mysqli_close($conn);
-                                       ?>
-                                           </form>
-                                        </div> 
-                                      </div>
-                                      
-                              </div>
-                              </div>
-                              <div class="card mb-0">
-                                  <div class="card-header" id="headingOne" role="tab">
-                                      <h5 class="mb-0">
-                                          <a data-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
-                                            <i class=" cui-file h5 paddRight10"></i>Upload an Excel File</a>
-                                      </h5>
-                                  </div>
-                                  <div class="collapse" id="collapseOne" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" style="">
-                                      <div class="card-body">
-                                          <div class="card">
-                                              
-                                              <div class="card-body">
-                                                  <form action="" method="post">
-                                                     <div class="form-group row">
-                                                      <label class="col-md-3 col-form-label" for="file-input">File input</label>
-                                                      <div class="col-md-9">
-                                                      <input id="file-input" type="file" name="file-input">
-                                                      </div>
-                                                      </div>
-                                                  </form>
-                                              </div>
-                                              <div class="card-footer">
-                                                  <button class="btn btn-sm btn-primary" type="submit">
-                                                      <i class="fa fa-dot-circle-o"></i>
-                                                      Submit
-                                                  </button>
-                                                  <button class="btn btn-sm btn-danger" type="reset">
-                                                      <i class="fa fa-ban"></i>
-                                                      Reset
-                                                  </button>
-                                              </div>
-                                          </div>
-                                      </div></div>
-                                  </div>
-                              </div>
+                      <form action="facultyQualifications.php" method="post">
+                      <div class="form-check" style="margin-bottom:5px">
+                          <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="qualification[]" value="29">B. E. / B. Tech. / B. S. in relevant discipline with First Class or equivalent.
+                          </label>
+                        </div>
+                        <div class="form-check" style="margin-bottom:5px">
+                          <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="qualification[]"  value="30">B. Pharm. with First Class or equivalent
+                          </label>
+                        </div>
+                        <div class="form-check" style="margin-bottom:5px">
+                          <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="qualification[]"  value="31">A minimum 4-year Bachelor’s Degree in HMCT with First Class or equivalent.
+                          </label>
+                        </div>
+                        <div class="form-check" style="margin-bottom:5px">
+                          <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="qualification[]"  value="32">B.Arch. or a 4-year Degree in an allied field with First Class or equivalent
+                          </label>
+                        </div>
+                        <div class="form-check" style="margin-bottom:5px">
+                          <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="qualification[]"  value="33">Bachelor’s degree in appropriate discipline of Fine Arts (Applied Arts, Painting and Sculpture) or equivalent with First Class or equivalent
+                          </label>
+                        </div>
+                        <div class="form-check" style="margin-bottom:5px">
+                          <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="qualification[]"  value="34">Bachelor’s degree in design or a minimum 4-year Diploma in any one of the streams of Design, Fine Arts, Applied Arts and Architecture or Bachelor’s degree in Engineering with First Class or equivalent
+                          </label>
+                        </div>
+                        <div class="form-check" style="margin-bottom:5px">
+                          <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="qualification[]"  value="35">Master’s degree in appropriate subject with First Class or equivalent at Bachelor’s or Master’s level
+                          </label>
+                        </div>
+                        <div class="form-check" style="margin-bottom:5px">
+                          <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="qualification[]"  value="">Option 7
+                          </label>
+                        </div>
+                        <div class="form-check" style="margin-bottom:5px">
+                          <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="qualification[]" value="">Option 8
+                          </label>
+                        </div>
+                        <div class="form-check" style="margin-bottom:5px">
+                          <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="qualification[]" value="">Option 9
+                          </label>
+                        </div>
+                        <div class="form-check" style="margin-bottom:5px">
+                          <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="qualification[]" value="">Option 10
+                          </label>
+                        </div>
+                        </form>
+                        </div>
+                        <div class="card-footer">
+                              <button class="btn btn-sm btn-primary" name="submit" type="submit">
+                                  <i class="fa fa-dot-circle-o"></i> Submit</button>
+                                    <button class="btn btn-sm btn-danger" type="reset">
+                                      <i class="fa fa-ban"></i> Reset</button>
+                        </div>                     
+                   <?php 
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "";
+                    $dbname = "aicte";
+                    
+                    // Create connection
+                    $conn = mysqli_connect($servername, $username, $password, $dbname);
+                    // Check connection
+                    if (!$conn) {
+                        die("Connection failed: " . mysqli_connect_error());
+                    }
+                        if(isset($_POST['submit']))
+                        {
+                          
+                          //$qualification=$_POST['qualification'];
+                          if(!empty($_POST['qualification'])){
 
-                             
-                          </div>
-                      </div>
-                </div>  
+                            foreach($_POST['qualification'] as $selected){
+
+                        $sql = "INSERT INTO input_qualification (qualification)
+                        VALUES ('$selected')";
+                      }
+                        
+                    if (mysqli_query($conn, $sql)) {
+                      
+                    } else {
+                        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                    }
+                  }
+                }
+                    mysqli_close($conn);
+                   ?>
+
+                </div> 
+                </div> 
                 <div class="col-md-4">
                   <div class="card">
                     <div class="card-header">
-                      <strong>Recently Added Universities</strong>
+                      <strong>Recently Added Qualifications</strong>
                     </div>
                     <div class="card-body">
-                      <div class="list-prev d-flex">
-                        <div class="img-section">
-                          <img src="https://via.placeholder.com/90" alt="">
-                        </div>
-                        <div class="info-section">
-                          <div class="name"><a href="">
-                            Graphic Era Deemed to be University
-                            </a>
-                          </div>
-                          <div class="location d-flex">
-                            <div class="city">
-                              Dehradun
-                            </div>
-                            <div class="state">
-                              Uttrakhand
-                            </div>
-                          </div>
-
-                        </div>
-                      </div><hr>
-
-                      <div class="list-prev d-flex">
-                        <div class="img-section">
-                          <img src="https://via.placeholder.com/90" alt="">
-                        </div>
-                        <div class="info-section">
-                          <div class="name"><a href="">
-                            DIT University
-                            </a>
-                          </div>
-                          <div class="location d-flex">
-                            <div class="city">
-                              Dehradun
-                            </div>
-                            <div class="state">
-                              Uttrakhand
-                            </div>
-                          </div>
-
-                        </div>
-                      </div><hr>
-
-                      <div class="list-prev d-flex">
-                        <div class="img-section">
-                          <img src="https://via.placeholder.com/90" alt="">
-                        </div>
-                        <div class="info-section">
-                          <div class="name"><a href="">
-                            Dehradun University
-                            </a>
-                          </div>
-                          <div class="location d-flex">
-                            <div class="city">
-                              Dehradun
-                            </div>
-                            <div class="state">
-                              Uttrakhand
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
+                    <div class="qualifications-list">
+                  <div class="q-list-item d-flex">
+                    <div class="list-icon green"><i class="icons font-2xl cui-circle-check"></i></div>
+                    <div class="list-text">Master’s degree with First Class or equivalent in a relevant subject and has cleared the National Eligibility Test (NET) or some similar test</div>
+                  </div> 
+                  <div class="q-list-item d-flex">
+                    <div class="list-icon green"><i class="icons font-2xl cui-circle-check"></i></div>
+                    <div class="list-text">Minimum qualifications for Lecturer (Senior Scale) + Master's Degree with first class or equivalent either at Bachelor's or Masterl's level.</div>
+                  </div> 
+                  <div class="q-list-item d-flex">
+                    <div class="list-icon green"><i class="icons font-2xl cui-circle-check"></i></div>
+                    <div class="list-text">Completed two such eight weeks duration MOOCS courses with E-Certification by NPTELAICTE
                     </div>
-                    <div class="card-footer">
-                      <button class="btn btn-block btn-sm btn-ghost-primary active" type="button" aria-pressed="true">View All</button>
+                  </div>
+                  <div class="q-list-item d-flex">
+                    <div class="list-icon red"><i class="icons font-2xl cui-circle-x"></i></div>
+                    <div class="list-text">Completed two such eight weeks duration MOOCS courses with E-Certification by NPTELAICTE
+                    </div>
+                  </div> 
+                </div>
                     </div>
                   </div>
                 </div>      
               </div>  
           </div>
-        </div>
+        
       </main>
       <aside class="aside-menu">
         <ul class="nav nav-tabs" role="tablist">

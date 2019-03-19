@@ -16,15 +16,15 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>AICTE</title>
+    <title>CoreUI Free Bootstrap Admin Template</title>
     <!-- Icons-->
-    <link href="assets/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
-    <link href="assets/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
-    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="assets/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <link href="/rating-system/assets/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
+    <link href="/rating-system/assets/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+    <link href="/rating-system/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/rating-system/assets/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
     <!-- Main styles for this application-->
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
+    <link href="/rating-system/assets/css/style.css" rel="stylesheet">
+    <link href="/rating-system/assets/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
     <script>
@@ -46,8 +46,8 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="assets/img/brand/logo.svg" width="89" height="25" alt="CoreUI Logo">
-        <img class="navbar-brand-minimized" src="assets/img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo">
+        <img class="navbar-brand-full" src="/rating-system/assets/img/brand/logo.svg" width="89" height="25" alt="CoreUI Logo">
+        <img class="navbar-brand-minimized" src="/rating-system/assets/img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo">
       </a>
       <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
         <span class="navbar-toggler-icon"></span>
@@ -82,7 +82,7 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            <img class="img-avatar" src="assets/img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
+            <img class="img-avatar" src="/rating-system/assets/img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
           </a>
           <div class="dropdown-menu dropdown-menu-right">
             <div class="dropdown-header text-center">
@@ -165,7 +165,7 @@
                       <div class="card-header">
                           <i class="fa fa-align-justify"></i>
                           <!-- <i class="icons font-2xl d-block mt-5 cui-file"></i> -->
-                          Add Universities
+                          Add Faculty
                       </div>
                       <div class="card-body">
                           <div id="accordion" role="tablist">
@@ -173,7 +173,7 @@
                                   <div class="card-header" id="headingThree" role="tab">
                                       <h5 class="mb-0">
                                           <a class="" data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                                            <i class="icons font-1xl mt-5 cui-user-follow paddRight10"></i>Add University Data</a>
+                                            <i class="icons font-1xl mt-5 cui-user-follow paddRight10"></i>Add Faculty Account</a>
                                       </h5>
                                   </div>
                                   <div class="collapse show" id="collapseThree" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion" style="">
@@ -182,119 +182,61 @@
                                        <form class="form" method="post">
                                         <div class="card-body">
                                           <div class="row">
-                                              <div class="col-md-7">
-                                                <div class="form-group" method="post">
-                                                  <label for="company">University Name</label>
-                                                  <input class="form-control" name="uname" id="company" type="text" placeholder="Enter your university name">
-                                                </div>
-                                              </div>
-                                              <div class="col-md-5">
-                                                <div class="form-group" method="post">
-                                                  <label for="vat">University Code</label>
-                                                  <input class="form-control" name="ucode" id="vat" type="text" placeholder="PL1234567890">
-                                                </div>
-                                              </div>
-                                            </div>
-                                            
-                                            <div class="row">
-                                              <div class="col-md-4">
-                                                <div class="form-group" method="post">
-                                                  <label for="street">State</label>
-                                                  <input class="form-control" name="ustate" id="street" type="text" placeholder="Select State name">
-                                                </div>
-                                              </div>
-                                              <div class="col-md-4">
-                                                <div class="form-group" method="post">
-                                                  <label for="street">District</label>
-                                                  <input class="form-control" name="udistrict" id="street" type="text" placeholder="Enter district name">
-                                                </div>
-                                              </div>
-                                              <div class="col-md-4">
-                                                <div class="form-group" method="post">
-                                                  <label for="street">Postal Code</label>
-                                                  <input class="form-control" name="postal" id="street" type="text" placeholder="Enter postal code">
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div class="row">
-                                            <div class="col-md">
-                                                <div class="form-group" method="post">
-                                                  <label for="company">University Address</label>
-                                                  <input class="form-control" name="uaddress" id="company" type="text" placeholder="Enter your university address">
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div class="row">
                                             <div class="col-md-5">
                                                 <div class="form-group" method="post">
-                                                  <label for="company">Contact Number</label>
-                                                  <input class="form-control" name="ucontact" id="company" type="text" placeholder="Enter your university address">
+                                                  <label for="vat">University Code</label>
+                                                  <input class="form-control" name="ucode" id="vat" type="text" placeholder="PL1234567890" disabled="">
                                                 </div>
                                               </div>
-                                            </div>
-                                            <div class="row">
-                                            <div class="col-md">
+                                              <div class="col-md-7">
                                                 <div class="form-group" method="post">
-                                                  <label for="company">Email</label>
-                                                  <input class="form-control" name="email" id="company" type="text" placeholder="Enter university email address">
+                                                  <label for="company">Department</label>
+                                                  <input class="form-control" name="uname" id="company" type="text" value="Human Science" disabled="">
                                                 </div>
                                               </div>
                                             </div>
                                             <div class="row">
-                                              <div class="col-md-12">
+                                              <div class="col-md-6">
                                                 <div class="form-group">
-                                                  <div class="row">
-                                                    <div class="col-md-4"><label for="">Is this a Central University</label></div>
-                                                    <div class="col-md-5">
-                                                  <label class="switch switch-label switch-pill switch-outline-success-alt"> 
-                                                  <input class="switch-input" type="checkbox">
-                                                  <span class="switch-slider" data-checked="✓" data-unchecked="✕"></span>
-                                                  </label>
+                                                  <label for="">Faculty Name</label>
+                                                  <input type="text" class="form-control" name="faculty-name" placeholder="Enter Faculty name...">
                                                 </div>
+                                              </div>
+                                              <div class="col-md-6">
+                                                <div class="form-group">
+                                                  <label for="">Faculty Level</label>
+                                                  <select name="faculty_level" id="" class="form-control">
+                                                    <option value="" disabled="" selected="">Select Faculty Level</option>
+                                                    <option value="9A">Lecturer - 9A</option>
+                                                    <option value="10">Lecturer -10</option>
+                                                    <option value="11">Lecturer - 11</option>
+                                                    <option value="13A1">Lecturer - 13A1</option>
+                                                  </select>
                                                 </div>
+                                              </div>
+                                            </div>
+                                            <div class="row">
+                                              <div class="col-md-6">
+                                                <div class="form-group">
+                                                  <label for="">Faculty Email</label>
+                                                  <input type="text" class="form-control" placeholder="Enter Faculty email...">
+                                                </div>
+                                              </div>
+                                               <div class="col-md-6">
+                                                <div class="form-group">
+                                                  <label for="">Joining Date</label>
+                                                  <input type="date" name="joing-date" class="form-control">
                                                 </div>
                                               </div>
                                             </div>
                                         </div>
                                         <div class="card-footer">
-                                          <button class="btn btn-sm btn-primary" type="submit" name="submit">
+                                          <button class="btn btn-sm btn-primary" type="submit" name="faculty-single-input">
                                               <i class="fa fa-dot-circle-o"></i> Submit</button>
                                           <button class="btn btn-sm btn-danger" type="reset">
                                               <i class="fa fa-ban"></i> Reset</button>
                                         </div>
-                                        <?php
-                                        $servername = "localhost";
-                                        $username = "root";
-                                        $password = "";
-                                        $dbname = "aicte";
-                                        
-                                        // Create connection
-                                        $conn = mysqli_connect($servername, $username, $password, $dbname);
-                                        // Check connection
-                                        if (!$conn) {
-                                            die("Connection failed: " . mysqli_connect_error());
-                                        }
-                                            if(isset($_POST['submit']))
-                                            {
-                                            $university_code=$_POST['ucode'];
-                                            $university_name=$_POST['uname'];
-                                            $state=$_POST['ustate'];
-                                            $postal_code=$_POST['postal'];
-                                            $district=$_POST['udistrict'];
-                                            $contact=$_POST['ucontact'];
-                                            $university_address=$_POST['uaddress'];
-                                            $email=$_POST['email'];
-                                            $sql = "INSERT INTO aicte_admin (university_code, university_name,`state`,district,postal_code,contact,university_address, email)
-                                            VALUES ('$university_code', '$university_name','$state','$district','$postal_code','$contact',' $university_address', '$email')";
-                                            
-                                        if (mysqli_query($conn, $sql)) {
-                                            
-                                        } else {
-                                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                                        }
-                                      }
-                                        mysqli_close($conn);
-                                       ?>
+                                       
                                            </form>
                                         </div> 
                                       </div>
@@ -344,7 +286,7 @@
                 <div class="col-md-4">
                   <div class="card">
                     <div class="card-header">
-                      <strong>Recently Added Universities</strong>
+                      <strong>Recently Added Faculties</strong>
                     </div>
                     <div class="card-body">
                       <div class="list-prev d-flex">
@@ -444,7 +386,7 @@
               <div class="list-group-item list-group-item-accent-secondary bg-light text-center font-weight-bold text-muted text-uppercase small">Today</div>
               <div class="list-group-item list-group-item-accent-warning list-group-item-divider">
                 <div class="avatar float-right">
-                  <img class="img-avatar" src="assets/img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="/rating-system/assets/img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
                 </div>
                 <div>Meeting with
                   <strong>Lucas</strong>
@@ -456,7 +398,7 @@
               </div>
               <div class="list-group-item list-group-item-accent-info">
                 <div class="avatar float-right">
-                  <img class="img-avatar" src="assets/img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="/rating-system/assets/img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
                 </div>
                 <div>Skype with
                   <strong>Megan</strong>
@@ -477,19 +419,19 @@
                   <i class="icon-home"></i>  creativeLabs HQ</small>
                 <div class="avatars-stack mt-2">
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="assets/img/avatars/2.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="/rating-system/assets/img/avatars/2.jpg" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="assets/img/avatars/3.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="/rating-system/assets/img/avatars/3.jpg" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="assets/img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="/rating-system/assets/img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="assets/img/avatars/5.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="/rating-system/assets/img/avatars/5.jpg" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="assets/img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="/rating-system/assets/img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
                   </div>
                 </div>
               </div>
@@ -511,25 +453,25 @@
                   <i class="icon-home"></i>  creativeLabs HQ</small>
                 <div class="avatars-stack mt-2">
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="assets/img/avatars/2.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="/rating-system/assets/img/avatars/2.jpg" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="assets/img/avatars/3.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="/rating-system/assets/img/avatars/3.jpg" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="assets/img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="/rating-system/assets/img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="assets/img/avatars/5.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="/rating-system/assets/img/avatars/5.jpg" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="assets/img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="/rating-system/assets/img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="assets/img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="/rating-system/assets/img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="assets/img/avatars/8.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="/rating-system/assets/img/avatars/8.jpg" alt="admin@bootstrapmaster.com">
                   </div>
                 </div>
               </div>
@@ -539,7 +481,7 @@
             <div class="message">
               <div class="py-3 pb-5 mr-3 float-left">
                 <div class="avatar">
-                  <img class="img-avatar" src="assets/img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="/rating-system/assets/img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
                   <span class="avatar-status badge-success"></span>
                 </div>
               </div>
@@ -554,7 +496,7 @@
             <div class="message">
               <div class="py-3 pb-5 mr-3 float-left">
                 <div class="avatar">
-                  <img class="img-avatar" src="assets/img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="/rating-system/assets/img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
                   <span class="avatar-status badge-success"></span>
                 </div>
               </div>
@@ -569,7 +511,7 @@
             <div class="message">
               <div class="py-3 pb-5 mr-3 float-left">
                 <div class="avatar">
-                  <img class="img-avatar" src="assets/img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="/rating-system/assets/img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
                   <span class="avatar-status badge-success"></span>
                 </div>
               </div>
@@ -584,7 +526,7 @@
             <div class="message">
               <div class="py-3 pb-5 mr-3 float-left">
                 <div class="avatar">
-                  <img class="img-avatar" src="assets/img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="/rating-system/assets/img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
                   <span class="avatar-status badge-success"></span>
                 </div>
               </div>
@@ -599,7 +541,7 @@
             <div class="message">
               <div class="py-3 pb-5 mr-3 float-left">
                 <div class="avatar">
-                  <img class="img-avatar" src="assets/img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="/rating-system/assets/img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
                   <span class="avatar-status badge-success"></span>
                 </div>
               </div>
@@ -716,15 +658,16 @@
       </div>
     </footer>
     <!-- CoreUI and necessary plugins-->
-    <script src="assets/jquery/dist/jquery.min.js"></script>
-    <script src="assets/popper.js/dist/umd/popper.min.js"></script>
-    <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="assets/pace-progress/pace.min.js"></script>
-    <script src="assets/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
-    <script src="assets/@coreui/coreui/dist/js/coreui.min.js"></script>
+    <script src="/rating-system/assets/jquery/dist/jquery.min.js"></script>
+    <script src="/rating-system/assets/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/rating-system/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/rating-system/assets/pace-progress/pace.min.js"></script>
+    <script src="/rating-system/assets/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+    <script src="/rating-system/assets/@coreui/coreui/dist/js/coreui.min.js"></script>
     <!-- Plugins and scripts required by this view-->
-    <script src="assets/chart.js/dist/Chart.min.js"></script>
-    <script src="assets/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="/rating-system/assets/chart.js/dist/Chart.min.js"></script>
+    <script src="/rating-system/assets/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
+   
+    <script src="/rating-system/assets/js/main.js"></script>
   </body>
 </html>

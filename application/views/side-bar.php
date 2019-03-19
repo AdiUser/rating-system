@@ -3,7 +3,7 @@
     $accessControll = 0;
 
 ?>
- <div class="sidebar">
+ <div class="sidebar" style="z-index: 1">
         <nav class="sidebar-nav">
           <ul class="nav">
             <!-- basic admin features. -->
@@ -26,6 +26,17 @@
                 <li class="nav-item">
                   <a class="nav-link" href="faculty">
                     <i class="nav-icon icon-drop"></i>Faculty</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="facultyQualifications">
+                    <i class="nav-icon icon-drop"></i>Qualifications</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="HOD/faculty-list">
+                    <i class="nav-icon icon-drop"></i>Faculty LIst</a>
+                </li>
+                <a class="nav-link" href="faculty_activity">
+                    <i class="nav-icon icon-drop"></i>Activities</a>
                 </li>
                 <?php
               }
