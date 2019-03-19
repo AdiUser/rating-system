@@ -311,16 +311,14 @@
                                   <div class="collapse" id="collapseOne" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" style="">
                                       <div class="card-body">
                                           <div class="card">
-                                              
+                                              <form action="/rating-system/upload-file" method="post" enctype='multipart/form-data'>
                                               <div class="card-body">
-                                                  <form action="" method="post">
                                                      <div class="form-group row">
                                                       <label class="col-md-3 col-form-label" for="file-input">File input</label>
                                                       <div class="col-md-9">
-                                                      <input id="file-input" type="file" name="file-input">
+                                                      <input id="file-input" type="file" name="upload_file">
                                                       </div>
                                                       </div>
-                                                  </form>
                                               </div>
                                               <div class="card-footer">
                                                   <button class="btn btn-sm btn-primary" type="submit">
@@ -332,6 +330,7 @@
                                                       Reset
                                                   </button>
                                               </div>
+                                            </form>
                                           </div>
                                       </div></div>
                                   </div>

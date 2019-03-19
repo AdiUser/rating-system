@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 class Welcome extends CI_Controller {
 
 	/**
@@ -47,6 +50,7 @@ class Welcome extends CI_Controller {
 
 		$this->load->view("faculty_activity");
 	}
+
 	public function import(){
 		$file_mimes = array('text/x-comma-separated-values', 'text/comma-separated-values', 'application/octet-stream', 'application/vnd.ms-excel', 'application/x-csv', 'text/x-csv', 'text/csv', 'application/csv', 'application/excel', 'application/vnd.msexcel', 'text/plain', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 		if(isset($_FILES['upload_file']['name']) && in_array($_FILES['upload_file']['type'], $file_mimes)) {
@@ -64,7 +68,7 @@ class Welcome extends CI_Controller {
 			echo "<pre>";
 			print_r($sheetData);
 	
-	}
+		}
 	}
 
 }
