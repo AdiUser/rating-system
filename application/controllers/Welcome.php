@@ -44,30 +44,32 @@ class Welcome extends CI_Controller {
 	}
 	public function facultyQualifications() {
 		$department_id=1;
-			$level=11;
-			$arr=$this->db->where(['department'=>$department_id,'level'=>$level])
-			->get('min_requirements')->result();
-			$ids_to_show = array();
-			$ids_verbose = array();
-			foreach($arr as $key=>$val) {
-				$ids = explode(",", $val->qualifications);
-				foreach($ids as $key=>$x) {
-					if (!in_array($x, $ids_to_show))
-						array_push($ids_to_show, $x);
-				}
+		$level=11;
+		$faculty_id = "FACT5672";
+		$arr=$this->db->where(['department'=>$department_id,'level'=>$level])
+		->get('min_requirements')->result();
+		$ids_to_show = array();
+		$ids_verbose = array();
+		foreach($arr as $key=>$val) {
+			$ids = explode(",", $val->qualifications);
+			foreach($ids as $key=>$x) {
+				if (!in_array($x, $ids_to_show))
+					array_push($ids_to_show, $x);
 			}
+		}
+		
 
-			foreach($ids_to_show as $key=>$val) {
-				$data = $this->db->where(['id'=>$val])
-						->get('min_qualifications')
-						->result();
-				if ($data) {
-					array_push($ids_verbose, ['id'=> $data[0]->id,'name'=>$data[0]->qualification_name]);
-				}
-				else {
-					die('error occured');
-				}
+		foreach($ids_to_show as $key=>$val) {
+			$data = $this->db->where(['id'=>$val])
+					->get('min_qualifications')
+					->result();
+			if ($data) {
+				array_push($ids_verbose, ['id'=> $data[0]->id,'name'=>$data[0]->qualification_name]);
 			}
+			else {
+				die('error occured');
+			}
+		}
 		$data['qualifications'] = $ids_verbose;
 		$this->load->view("facultyQualifications", $data);
 	}

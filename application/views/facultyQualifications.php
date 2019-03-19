@@ -219,6 +219,7 @@
                     $username = "root";
                     $password = "";
                     $dbname = "aicte";
+                    $faculty_id = "FACT5672";
                     
                     // Create connection
                     $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -226,24 +227,62 @@
                     if (!$conn) {
                         die("Connection failed: " . mysqli_connect_error());
                     }
-                        if(isset($_POST['submit']))
-                        {
+                        if(isset($_POST['submit'])) {
                           
-                          $qualification=array($_POST['qualification']);
+                          $qualification = array($_POST['qualification']);
                          
                           if(!empty($qualification)){
                           $val = implode(",", $qualification[0]);
+                          $count = "SELECT COUNT(*) AS count from input_qualification where faculty_id='$faculty_id'";
+                          echo "<br>".$count;
+                          $xx = mysqli_query($conn, $count);
+                          if ($xx) {
+                            $count = mysqli_fetch_assoc($xx);
+                            if ($count['count'] == 1) {
+                              // update
+                              $sql = "SELECT qualification from input_qualification  WHERE faculty_id = '$faculty_id' ";
+                              $qual = mysqli_query($conn,$sql);
+                              if($qual) {
+                                $ids = mysqli_fetch_assoc($qual);
+                                echo "<pre>".print_r($ids, true);
+                                $collection_ids = $ids['qualification'] . "," . $val;
+                                echo "<br>--".$collection_ids . "--";
+                                
+                                
 
-                        $sql = "INSERT INTO input_qualification (qualification)
-                        VALUES ('$val')";
-                        
-                    if (mysqli_query($conn, $sql)) {
-                      
-                    } else {
-                        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                    }
-                  }
-                }
+                                $sql = "UPDATE input_qualification SET qualification = '$collection_ids' WHERE faculty_id = '$faculty_id'";
+                                echo "<br>".$sql;
+                                if(mysqli_query($conn, $sql)) {
+                                  // success msg.
+                                }
+                                else {
+                                  die('error! 35');
+                                }
+                              }
+                              else {
+                                die("error! 33");
+                              }
+                              
+                            }
+                            else {
+                              // insert
+                              $sql = "INSERT INTO input_qualification (faculty_id,qualification)
+                                  VALUES ('$faculty_id','$val')";
+                                  
+                              if (mysqli_query($conn, $sql)) {
+                                
+                              } else {
+                                  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                              }
+                            }
+                          }
+                          else {
+                            die("error! 34");
+                          }
+                          
+                              
+                        }
+                      }
                     mysqli_close($conn);
                    ?>
 
