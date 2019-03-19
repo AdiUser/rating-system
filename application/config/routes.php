@@ -61,7 +61,3 @@ $route['HOD/add-faculty'] = 'welcome/HOD_add_faculty';
 $route['facultyQualifications'] = 'welcome/facultyQualifications';
 $route['faculty_activity'] = 'welcome/faculty_activity';
 $route['upload-file'] = 'welcome/import';
-<<<<<<< HEAD
-
-=======
->>>>>>> f7c6ab452e67b42b4c3e6e93ba3b9ad16900f8af
