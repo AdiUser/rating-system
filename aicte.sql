@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2019 at 07:17 AM
+-- Generation Time: Mar 20, 2019 at 11:38 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -135,11 +135,18 @@ INSERT INTO `faculty_dept` (`id`, `name`) VALUES
 
 CREATE TABLE `institute` (
   `serial` int(2) NOT NULL,
-  `parent_university_id` int(10) NOT NULL,
-  `institute_id` int(10) NOT NULL,
-  `institute_name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `parent_university_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `institute_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `institute_name` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `state` varchar(10) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `institute`
+--
+
+INSERT INTO `institute` (`serial`, `parent_university_code`, `institute_code`, `institute_name`, `state`) VALUES
+(1, 'GEUDDN', 'GEHUDDN', 'Graphic Era Hill Uni', 'Uttrakhand');
 
 -- --------------------------------------------------------
 
@@ -555,12 +562,41 @@ INSERT INTO `test` (`serial`, `firstname`, `lastname`, `email`) VALUES
 --
 
 CREATE TABLE `university` (
-  `serial` int(2) NOT NULL,
-  `university_code` int(10) NOT NULL,
-  `university_name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `state` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `serial` int(5) NOT NULL,
+  `university_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `university_name` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `state` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `is_state_university` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `university`
+--
+
+INSERT INTO `university` (`serial`, `university_code`, `university_name`, `state`, `is_state_university`) VALUES
+(1, 'GEUDDN', 'Graphic Era Universi', 'Uttrakhand', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_login`
+--
+
+CREATE TABLE `user_login` (
+  `id` int(11) NOT NULL,
+  `code` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `role` enum('admin','university','institute','faculty','student','head-of-department') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_login`
+--
+
+INSERT INTO `user_login` (`id`, `code`, `username`, `password`, `role`) VALUES
+(1, 'GEUDDN', 'geu', '61dfe5971515d0d8ba5f6c5f99e5700c', 'university'),
+(2, 'GEHUDDN', 'gehu', '4a6a6e51843d2ba4a67c344825ab4ab1', 'institute');
 
 --
 -- Indexes for dumped tables
@@ -645,6 +681,12 @@ ALTER TABLE `university`
   ADD PRIMARY KEY (`serial`);
 
 --
+-- Indexes for table `user_login`
+--
+ALTER TABLE `user_login`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -682,7 +724,7 @@ ALTER TABLE `faculty_dept`
 -- AUTO_INCREMENT for table `institute`
 --
 ALTER TABLE `institute`
-  MODIFY `serial` int(2) NOT NULL AUTO_INCREMENT;
+  MODIFY `serial` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `min_qualifications`
@@ -724,7 +766,13 @@ ALTER TABLE `test`
 -- AUTO_INCREMENT for table `university`
 --
 ALTER TABLE `university`
-  MODIFY `serial` int(2) NOT NULL AUTO_INCREMENT;
+  MODIFY `serial` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `user_login`
+--
+ALTER TABLE `user_login`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
