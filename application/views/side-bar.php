@@ -44,6 +44,14 @@
                     <i class="nav-icon icon-drop"></i>Univesity Admin</a>
                 </li>
                 <li class="nav-item">
+                <a class="nav-link" href="/rating-system/add_institution">
+                    <i class="nav-icon icon-drop"></i>Add Institutions</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/rating-system/add_department">
+                    <i class="nav-icon icon-drop"></i>Add Department</a>
+                </li>
+                <li class="nav-item">
                 <a class="nav-link" href="/rating-system/add_hod">
                     <i class="nav-icon icon-drop"></i>Create HOD Account</a>
                 </li>

@@ -196,7 +196,7 @@
                                                   <label for="company">Name</label>
                                               </div>
                                               <div class="col-md-8">
-                                                  <input class="form-control" id="company" type="text" placeholder="Enter faculty name">
+                                                  <input class="form-control" id="company" type="text" placeholder="Enter HOD name">
                                               </div>
                                           </div>
                                               <div class="form-group row">

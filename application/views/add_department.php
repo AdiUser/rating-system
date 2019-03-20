@@ -16,7 +16,7 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>Activity</title>
+    <title>Department</title>
     <!-- Icons-->
     <link href="assets/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
     <link href="assets/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
@@ -143,7 +143,8 @@
           <li class="breadcrumb-item">
             <a href="#">Admin</a>
           </li>
-          <li class="breadcrumb-item active">Dashboard</li>
+          <li class="breadcrumb-item active">
+          <a href="add_department">Department</a></li>
           <!-- Breadcrumb Menu-->
           <li class="breadcrumb-menu d-md-down-none">
             <div class="btn-group" role="group" aria-label="Button group">
@@ -163,21 +164,16 @@
                 <div class="col-md-8 offset-md-0">
                    <div class="card">
                    <div class="card-header">
-                <h5>Add/Edit Department Activities</h5>
+                <h5>Add/Edit Department</h5>
               </div>
               <div class="card-body">
                 <table class="table table-bordered">
                   <thead>
-                    <tr><th>Activity Name </th>
-                    <th>Semester</th>
-                    <th>Points</th>
-                    <th>Settings</th>
+                    <tr><th>Department Name</th>
                   </tr></thead>
                   <tbody id="dept-activities-item">
                     <tr id="abc">
                       <td>Supported in Department Level Hackathon</td>
-                      <td>2</td>
-                      <td>3</td>
                       <td>
                         <button class="btn btn-danger dept-activities-delete-old" data-delete="abc"> 
                           <i class="icons font-1xl d-block cui-circle-x"></i>
@@ -185,7 +181,12 @@
                       </td>
                     </tr>
                     
-                  <tr id="str12185407188466757"><td><input type="text" name="activity[]" class="form-control" placeholder="Enter Activity name..."></td><td><select name="semister[]" id="" class="form-control"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select></td><td><input type="number" name="points[]" class="form-control"></td><td><button class="btn btn-danger dept-activities-delete-new" data-delete="str12185407188466757"><i class="icons font-1xl d-block cui-circle-x"></i></button></td> </tr></tbody>
+                  <tr id="str12185407188466757">
+                  <td>
+                  <input type="text" name="activity[]" class="form-control" placeholder="Enter Department name...">
+                  </td>
+                  </tr>
+                  </tbody>
                 </table>
                 <div class="row">
                   <div class="col-md-3">
