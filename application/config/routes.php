@@ -60,12 +60,13 @@ $route['login'] = 'welcome/login';
 $route['login-user'] = 'api/login_user';
 $route['HOD/save-activities'] = 'api/save_activities';
 $route['HOD/delete-activity'] = 'api/delete_activity';
-$route['update-faculty-profile']='api/add_faculty_profile';
+$route['update-faculty-profile']='api/update_faculty_profile';
 
 $route['user/dashboard'] = 'welcome/dashboard';
 $route['add-university'] = 'welcome/add_university';
 $route['faculty'] = 'welcome/faculty';
 $route['add_hod'] = 'welcome/add_hod';
+$route['hod_details'] = 'welcome/hod_details';
 $route['university_admin'] = 'welcome/university_admin';
 $route['add_institution'] = 'welcome/add_institution';
 $route['add_department'] = 'welcome/add_department';

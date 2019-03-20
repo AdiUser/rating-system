@@ -181,16 +181,6 @@
                                     <div class="card">
                                        
                                         <div class="card-body">
-                                        <div class="row" style="margin-bottom:20px">
-                                          <div class="col-md-3">
-                                            <div class="media">
-                                              <img src="./assets/index.jpg" style="width:100%">
-                                            </div>
-                                          </div>
-                                          <div class="col-md-9">
-                                            <button class="btn btn-primary" type="button" style="margin-top:80px">+ Upload</button>
-                                          </div>
-                                        </div>
                                           <div class="form-group row">
                                               <div class="col-md-2">
                                                   <label for="company">Name</label>
@@ -199,31 +189,7 @@
                                                   <input class="form-control" id="company" type="text" placeholder="Enter HOD name">
                                               </div>
                                           </div>
-                                              <div class="form-group row">
-                                                  <div class="col-md-2">
-                                                      <label for="vat">Contact</label>
-                                                  </div>
-                                                  <div class="col-md-5">
-                                                    <input class="form-control" id="vat" type="text" placeholder="Contact">
-                                                  </div>
-                                              </div>
                                             
-                                            <div class="form-group row">
-                                              <div class="col-md-2">
-                                                  <label for="street">Address</label>
-                                              </div>
-                                              <div class="col-md-8">
-                                                  <input class="form-control" id="street" type="text" placeholder="Enter your address">
-                                              </div>
-                                            </div>
-                                            <div class="form-group row">
-                                              <div class="col-md-2">
-                                                  <label for="street">Email</label>
-                                              </div>
-                                              <div class="col-md-8">
-                                                  <input class="form-control" id="street" type="text" placeholder="Enter email">
-                                              </div>
-                                            </div>
                                             <div class="form-group row">
                                               <div class="col-md-2">
                                                   <label for="street">Date Of Joining</label>
