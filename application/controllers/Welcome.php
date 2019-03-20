@@ -78,7 +78,6 @@ class Welcome extends CI_Controller {
 			}
 		}
 		
-
 		foreach($ids_to_show as $key=>$val) {
 			$data = $this->db->where(['id'=>$val])
 					->get('min_qualifications')
@@ -120,14 +119,13 @@ class Welcome extends CI_Controller {
 	
 		}
 	}
-	
 
 	public function import(){
 		echo "<pre>".print_r($this->load_file($_FILES['upload_file']), true);
 	}
 
 	public function detail_load($qualification_id){
-				}
+	}
 
 	
 }

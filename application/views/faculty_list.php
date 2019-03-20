@@ -1112,28 +1112,20 @@
                 <h5>Add/Edit Department Activities</h5>
               </div>
               <div class="card-body">
+              <form id="activity" method="post">
                 <table class="table table-bordered">
                   <thead>
                     <th>Activity Name </th>
-                    <th>Semister</th>
+                    <th>Semester</th>
                     <th>Points</th>
                     <th>Settings</th>
                   </thead>
                   <tbody id="dept-activities-item">
-                    <tr id="abc">
-                      <td>Supported in Department Level Hackathon</td>
-                      <td>2</td>
-                      <td>3</td>
-                      <td>
-                        <button class="btn btn-danger dept-activities-delete-old" data-delete="abc"> 
-                          <i class="icons font-1xl d-block cui-circle-x"></i>
-                        </button>
-                      </td>
-                    </tr>
                     <tr id="xyz">
-                      <td><input type="text" name="activity[]" class="form-control" placeholder="Enter Activity name..."></td>
                       <td>
-                        <select name="semister[]" id="" class="form-control">
+                      <input type="text" name="activity[]" class="form-control" placeholder="Enter Activity name..."></td>
+                      <td>
+                        <select name="semester[]" id="" class="form-control">
                           <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
@@ -1148,6 +1140,7 @@
                       <td><button class="btn btn-danger dept-activities-delete-new" data-delete="xyz" >
                         <i class="icons font-1xl d-block cui-circle-x"></i>
                       </button></td>
+                      
                     </tr>
                   </tbody>
                 </table>
@@ -1156,10 +1149,33 @@
                     <button class="btn btn-pill btn-block btn-info" type="button" id="dept-activities-add">Add More...</button>
                   </div>
                   <div class="col-md-3">
-                  <button class="btn btn-pill btn-block btn-success" type="button">Save <i class="icons font-1xl cui-check paddLeft10"></i></button>
+                     <button class="btn btn-pill btn-block btn-success" type="button">Save <i class="icons font-1xl cui-check paddLeft10"></i></button>
 
                   </div>
                 </div>
+                </form>
+
+                <script>
+                        $(function(){
+                          $("#activity").submit(function(){
+                              dataString = $("#activity").serialize();
+
+                              $.ajax({
+                                  type: "POST",
+                                  url: "Welcome.php",
+                                  data: dataString,
+                                  success: function(data){
+                                      // alert('Successful!');
+                                      $('#xyz').prepend(data);
+                                  }
+
+                              });
+
+                              return false;  //stop the actual form post !important!
+
+                          });
+                      });
+                </script>
               </div>
             </div>
             
@@ -1216,7 +1232,7 @@ $(document).ready(function() {
       var txt = '<tr id="'+id+'">'+
                       '<td><input type="text" name="activity[]" class="form-control" placeholder="Enter Activity name..."></td>'+
                       '<td>'+
-                        '<select name="semister[]" id="" class="form-control">'+
+                        '<select name="semester[]" id="" class="form-control">'+
                           '<option value="1">1</option>'+
                           '<option value="2">2</option>'+
                           '<option value="3">3</option>'+

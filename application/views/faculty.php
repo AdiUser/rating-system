@@ -27,6 +27,8 @@
     <link href="assets/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+    <script src="assets/jquery/dist/jquery.min.js"></script>
+
     <script>
       window.dataLayer = window.dataLayer || [];
 
@@ -183,13 +185,48 @@
                                         <div class="card-body">
                                         <div class="row" style="margin-bottom:20px">
                                           <div class="col-md-3">
-                                            <div class="media">
-                                              <img src="./assets/index.jpg" style="width:100%;">
+                                            <div class="medi">
+                                              <img id="user-img" src="./assets/index.jpg" style="max-width:120px;max-height: 110px;border-radius: 50%">
                                             </div>
                                           </div>
                                           <div class="col-md-9">
-                                            <button class="btn btn-primary" type="button" style="margin-top:80px">+ Upload</button>
+                                          <form action="" id="pic-upload">
+                                            <input type="file" id = "pic" onchange="readURL(this);" name="file_upload" style="display: none;">
+                                          </form>
+                                            <button class="btn btn-primary" type="button" style="margin-top:80px" id="upload-btn">+ Upload</button>
                                           </div>
+                                          <script>
+                                            $("#upload-btn").on("click", function() {
+                                              $("#pic").click();
+                                            })
+
+                                            function readURL(input) {
+                                                if (input.files && input.files[0]) {
+                                                    var reader = new FileReader();
+
+                                                    reader.onload = function (e) {
+                                                        $('#user-img')
+                                                            .attr('src', e.target.result)
+                                                            .width(120)
+                                                            .height(120);
+                                                    };
+
+                                                    reader.readAsDataURL(input.files[0]);
+                                                    $.ajax({
+                                                      method: "POST",
+                                                      url: "Welcome.php",
+                                                      data: new FormData(this),
+                                                      success: function(data){
+                                                        if(data =='true')
+                                                        window.location.reload();
+                                                        else
+                                                        alert('Error! Please Try Again')
+                                                      }
+                                                    })
+                                                }
+                                            }
+
+                                          </script>
                                         </div>
                                           <div class="form-group row">
                                               <div class="col-md-2">
@@ -697,8 +734,7 @@
     <script src="assets/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
     <script src="assets/@coreui/coreui/dist/js/coreui.min.js"></script>
     <!-- Plugins and scripts required by this view-->
-    <script src="assets/chart.js/dist/Chart.min.js"></script>
     <script src="assets/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <!--<script src="assets/js/main.js"></script> -->
   </body>
 </html>
