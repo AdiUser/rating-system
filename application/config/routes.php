@@ -55,6 +55,12 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = 'welcome/login';
+
+//ajax route.
+$route['login-user'] = 'api/login_user';
+
+
+$route['user/dashboard'] = 'welcome/dashboard';
 $route['add-university'] = 'welcome/add_university';
 $route['faculty'] = 'welcome/faculty';
 $route['add_hod'] = 'welcome/add_hod';
