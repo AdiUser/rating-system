@@ -141,9 +141,9 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item">Home</li>
           <li class="breadcrumb-item">
-            <a href="#">Admin</a>
+            <a href="faculty">Faculty</a>
           </li>
-          <li class="breadcrumb-item active">Dashboard</li>
+          
           <!-- Breadcrumb Menu-->
           <li class="breadcrumb-menu d-md-down-none">
             <div class="btn-group" role="group" aria-label="Button group">
@@ -165,7 +165,7 @@
                       <div class="card-header">
                           <i class="fa fa-align-justify"></i>
                           <!-- <i class="icons font-2xl d-block mt-5 cui-file"></i> -->
-                          Add Faculty
+                          Faculty Details
                       </div>
                       <div class="card-body">
                           <div id="accordion" role="tablist">
@@ -173,7 +173,7 @@
                                   <div class="card-header" id="headingThree" role="tab">
                                       <h5 class="mb-0">
                                           <a class="" data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                                            <i class="icons font-1xl mt-5 cui-user-follow paddRight10"></i></i>Add University Data</a>
+                                            <i class="icons font-1xl mt-5 cui-user-follow paddRight10"></i></i>Add Faculty Details</a>
                                       </h5>
                                   </div>
                                   <div class="collapse show" id="collapseThree" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion" style="">
@@ -181,39 +181,87 @@
                                     <div class="card">
                                        
                                         <div class="card-body">
-                                          <div class="row">
-                                              <div class="col-md-7">
-                                                <div class="form-group">
-                                                  <label for="company">University Name</label>
-                                                  <input class="form-control" id="company" type="text" placeholder="Enter your university name">
-                                                </div>
+                                        <div class="row" style="margin-bottom:20px">
+                                          <div class="col-md-3">
+                                            <div class="media" style="height:120px;width:120px">
+                                              <img src="./assets/index.jpg">
+                                            </div>
+                                          </div>
+                                          <div class="col-md-9">
+                                            <button class="btn btn-primary" type="button" style="margin-top:80px">+ Upload</button>
+                                          </div>
+                                        </div>
+                                          <div class="form-group row">
+                                              <div class="col-md-2">
+                                                  <label for="company">Name</label>
                                               </div>
-                                              <div class="col-md-5">
-                                                <div class="form-group">
-                                                  <label for="vat">University Code</label>
-                                                  <input class="form-control" id="vat" type="text" placeholder="PL1234567890">
-                                                </div>
+                                              <div class="col-md-8">
+                                                  <input class="form-control" id="company" type="text" placeholder="Enter faculty name">
+                                              </div>
+                                          </div>
+                                              <div class="form-group row">
+                                                  <div class="col-md-2">
+                                                      <label for="vat">Contact</label>
+                                                  </div>
+                                                  <div class="col-md-5">
+                                                    <input class="form-control" id="vat" type="text" placeholder="Contact">
+                                                  </div>
+                                              </div>
+                                            
+                                            <div class="form-group row">
+                                              <div class="col-md-2">
+                                                  <label for="street">Address</label>
+                                              </div>
+                                              <div class="col-md-8">
+                                                  <input class="form-control" id="street" type="text" placeholder="Enter your address">
                                               </div>
                                             </div>
-                                            
-                                            <div class="row">
-                                              <div class="col-md-4">
-                                                <div class="form-group">
-                                                  <label for="street">State</label>
-                                                  <input class="form-control" id="street" type="text" placeholder="Select State name">
-                                                </div>
+                                            <div class="form-group row">
+                                              <div class="col-md-2">
+                                                  <label for="street">Email</label>
                                               </div>
-                                              <div class="col-md-4">
-                                                <div class="form-group">
-                                                  <label for="street">District</label>
-                                                  <input class="form-control" id="street" type="text" placeholder="Enter district name">
-                                                </div>
+                                              <div class="col-md-8">
+                                                  <input class="form-control" id="street" type="text" placeholder="Enter email">
                                               </div>
-                                              <div class="col-md-4">
-                                                <div class="form-group">
-                                                  <label for="street">Postal Code</label>
-                                                  <input class="form-control" id="street" type="text" placeholder="Enter postal code">
-                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                              <div class="col-md-2">
+                                                  <label for="street">Date Of Joining</label>
+                                              </div>
+                                              <div class="col-md-5">
+                                                  <input class="form-control" id="street" type="text" placeholder="dd/mm/yyyy">
+                                              </div>
+                                            </div>
+                                            <div class="form-group row">
+                                              <div class="col-md-2">
+                                                  <label for="street">Department</label>
+                                              </div>
+                                              <div class="col-md-8">
+                                                  <input class="form-control" id="street" type="text" placeholder="Enter department">
+                                              </div>
+                                            </div>
+                                            <div class="form-group row">
+                                              <div class="col-md-2">
+                                                  <label for="street">Subject</label>
+                                              </div>
+                                              <div class="col-md-8">
+                                                  <input class="form-control" id="street" type="text" placeholder="Enter suject">
+                                              </div>
+                                            </div>
+                                            <div class="form-group row">
+                                              <div class="col-md-2">
+                                                  <label for="street">Level</label>
+                                              </div>
+                                              <div class="col-md-8">
+                                                  <input class="form-control" id="street" type="text" placeholder="Enter level">
+                                              </div>
+                                            </div>
+                                            <div class="form-group row">
+                                              <div class="col-md-2">
+                                                  <label for="street">Faculty ID</label>
+                                              </div>
+                                              <div class="col-md-8">
+                                                  <input class="form-control" id="street" type="text" placeholder="Enter faculty Id">
                                               </div>
                                             </div>
                                         </div>
