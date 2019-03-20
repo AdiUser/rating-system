@@ -27,6 +27,7 @@
     <link href="assets/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+    <script src="assets/jquery/dist/jquery.min.js"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
 
@@ -195,12 +196,13 @@
                                           if(isset($faculty_details[0]))
                                               $d = $faculty_details[0];  
                                         ?>
+                                        <form id="faculty_form" method="post">
                                           <div class="form-group row">
                                               <div class="col-md-2">
                                                   <label for="company">Name</label>
                                               </div>
                                               <div class="col-md-8">
-                                                  <input class="form-control" id="company" type="text" placeholder="Enter HOD name"value="<?=$d->name?$d->name:''?>"> 
+                                                  <input class="form-control" name="faculty_name" id="company" type="text" placeholder="Enter HOD name"value="<?=$d->name?$d->name:''?>"> 
                                               </div>
                                           </div>
                                               <div class="form-group row">
@@ -208,7 +210,7 @@
                                                       <label for="vat">Contact</label>
                                                   </div>
                                                   <div class="col-md-5">
-                                                    <input class="form-control" id="vat" type="text" placeholder="Contact" value="<?=$d->contact?$d->contact:''?>"> 
+                                                    <input class="form-control" name="faculty_contact" id="vat" type="text" placeholder="Contact" value="<?=$d->contact?$d->contact:''?>"> 
                                                   </div>
                                               </div>
                                             
@@ -217,7 +219,7 @@
                                                   <label for="street">Address</label>
                                               </div>
                                               <div class="col-md-8">
-                                                  <input class="form-control" id="street" type="text" placeholder="Enter your address" value="<?=$d->address?$d->address:''?>"> 
+                                                  <input class="form-control" name="faculty_address" id="street" type="text" placeholder="Enter your address" value="<?=$d->address?$d->address:''?>"> 
                                               </div>
                                             </div>
                                             <div class="form-group row">
@@ -225,7 +227,7 @@
                                                   <label for="street">Email</label>
                                               </div>
                                               <div class="col-md-8">
-                                                  <input class="form-control" id="street" type="text" placeholder="Enter email"value="<?=$d->email?$d->email:''?>"> 
+                                                  <input class="form-control" id="street" name="faculty_email" type="text" placeholder="Enter email"value="<?=$d->email?$d->email:''?>"> 
                                               </div>
                                             </div>
                                             <div class="form-group row">
@@ -260,9 +262,10 @@
                                                   <input class="form-control" id="street" type="text" placeholder="Enter faculty Id" value="<?=$d->faculty_id?$d->faculty_id:''?>" disabled>
                                               </div>
                                             </div>
+                                            </form>
                                         </div>
                                         <div class="card-footer">
-                                          <button class="btn btn-sm btn-primary" type="submit">
+                                          <button class="btn btn-sm btn-primary"  id="faculty_submit" type="submit">
                                               <i class="fa fa-dot-circle-o"></i> Submit</button>
                                           <button class="btn btn-sm btn-danger" type="reset">
                                               <i class="fa fa-ban"></i> Reset</button>
@@ -278,35 +281,31 @@
                                             <i class=" cui-file h5 paddRight10"></i>Upload an Excel File</a>
                                       </h5>
                                   </div>
-                                  <div class="collapse" id="collapseOne" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" style="">
-                                      <div class="card-body">
-                                          <div class="card">
-                                              
-                                              <div class="card-body">
-                                                  <form action="" method="post">
-                                                     <div class="form-group row">
-                                                      <label class="col-md-3 col-form-label" for="file-input">File input</label>
-                                                      <div class="col-md-9">
-                                                      <input id="file-input" type="file" name="file-input">
-                                                      </div>
-                                                      </div>
-                                                  </form>
-                                              </div>
-                                              <div class="card-footer">
-                                                  <button class="btn btn-sm btn-primary" type="submit">
-                                                      <i class="fa fa-dot-circle-o"></i>
-                                                      Submit
-                                                  </button>
-                                                  <button class="btn btn-sm btn-danger" type="reset">
-                                                      <i class="fa fa-ban"></i>
-                                                      Reset
-                                                  </button>
-                                              </div>
-                                          </div>
-                                      </div></div>
+                                 
                                   </div>
                               </div>
-
+                              <script>
+                                                $('#faculty_submit').on("click", function(){
+                                                  var formData = $("#faculty_form").serialize();
+                                                  
+                                                  $.ajax({
+                                                    method: "POST",
+                                                    url: "update-hod-profile",
+                                                    data: formData,
+                                                    beforeSend: function() {
+                                                      alert(formData);
+                                                    },
+                                                    success: function(data){
+                                                      if(data=='1') {
+                                                        alert('SUCCESS');
+                                                      }
+                                                      else{
+                                                        alert('ERROR');
+                                                      }
+                                                    }
+                                                  })
+                                                })
+                                              </script>
                              
                           </div>
                       </div>
@@ -686,15 +685,15 @@
       </div>
     </footer>
     <!-- CoreUI and necessary plugins-->
-    <script src="assets/jquery/dist/jquery.min.js"></script>
+    
     <script src="assets/popper.js/dist/umd/popper.min.js"></script>
     <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/pace-progress/pace.min.js"></script>
     <script src="assets/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
     <script src="assets/@coreui/coreui/dist/js/coreui.min.js"></script>
     <!-- Plugins and scripts required by this view-->
-    <script src="assets/chart.js/dist/Chart.min.js"></script>
+  
     <script src="assets/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    
   </body>
 </html>
