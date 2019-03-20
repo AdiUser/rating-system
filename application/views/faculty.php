@@ -246,7 +246,7 @@
                                                       <label for="vat">Contact</label>
                                                   </div>
                                                   <div class="col-md-5">
-                                                    <input class="form-control" name="faculty_contact" id="vat" type="text" placeholder="Contact" value="<?=$faculty_details[0]->contact?$faculty_details[0]->contact:''?>">
+                                                    <input class="form-control" name="faculty_contact" id="vat" type="text" placeholder="Contact" value="<?=$d->contact?$d->contact:''?>">
                                                   </div>
                                               </div>
                                             
@@ -255,7 +255,8 @@
                                                   <label for="street">Address</label>
                                               </div>
                                               <div class="col-md-8">
-                                                  <input class="form-control" name="faculty_address" id="street" type="text" placeholder="Enter your address">
+                                                  <input class="form-control" name="faculty_address" id="street" type="text" placeholder="Enter your address"
+                                                  value="<?=$d->address?$d->address:''?>">
                                               </div>
                                             </div>
                                             <div class="form-group row">
@@ -263,7 +264,8 @@
                                                   <label for="street">Email</label>
                                               </div>
                                               <div class="col-md-8">
-                                                  <input class="form-control" name="faculty_email" id="street" type="text" placeholder="Enter email">
+                                                  <input class="form-control" name="faculty_email" id="street" type="text" placeholder="Enter email"
+                                                  value="<?=$d->email?$d->email:''?>">
                                               </div>
                                             </div>
                                             <div class="form-group row">
@@ -271,7 +273,7 @@
                                                   <label for="street">Date Of Joining</label>
                                               </div>
                                               <div class="col-md-5">
-                                                  <input class="form-control" name="joining_date" id="street" type="date" placeholder="dd/mm/yyyy" value="<?=$faculty_details[0]->date_of_joining?>" disabled> 
+                                                  <input class="form-control" name="joining_date" id="street" type="date" placeholder="dd/mm/yyyy" value="<?=$d->date_of_joining?$d->date_of_joining:''?>" disabled> 
                                               </div>
                                             </div>
                                             <div class="form-group row">
@@ -279,7 +281,7 @@
                                                   <label for="street">Department</label>
                                               </div>
                                               <div class="col-md-8">
-                                                  <input class="form-control" name="department" id="street" type="text" placeholder="Enter department" value="<?=$faculty_details[0]->department_name?>" disabled>
+                                                  <input class="form-control" name="department" id="street" type="text" placeholder="Enter department" value="<?=$d->department_name?$d->department_name:''?>" disabled>
                                               </div>
                                             </div>
                                             <div class="form-group row">
@@ -287,7 +289,7 @@
                                                   <label for="street">Level</label>
                                               </div>
                                               <div class="col-md-5">
-                                                  <input class="form-control" name="level" id="street" type="text" placeholder="Enter level" value="<?=$faculty_details[0]->level?>" disabled>
+                                                  <input class="form-control" name="level" id="street" type="text" placeholder="Enter level" value="<?=$d->level?$d->level:''?>" disabled>
                                               </div>
                                             </div>
                                             <div class="form-group row">
@@ -296,7 +298,7 @@
                                               </div>
                                               <div class="col-md-5">
                                                   <input class="form-control"
-                                                  name="faculty_id" id="street" type="text" placeholder="Enter faculty Id" value="<?=$faculty_details[0]->faculty_id?>" disabled>
+                                                  name="faculty_id" id="street" type="text" placeholder="Enter faculty Id" value="<?=$d->faculty_id?$d->faculty_id:''?>" disabled>
                                               </div>
                                             </div>
                                             </form>

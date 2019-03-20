@@ -135,4 +135,39 @@ class Api extends CI_Controller {
 			echo 0;
 		}
 	}
+
+	public function update_hod_profile() {
+		$faculty_id = "FACT101"; // from session
+
+		$name=$this->input->post("faculty_name");
+		$contact= $this->input->post("faculty_contact");
+		$address=$this->input->post("faculty_address");
+		$email=$this->input->post("faculty_email");
+		//$date_of_joining = $this->input->post("joining_date");
+		//$department=$this->input->post("department");
+		//$subject= $this->input->post("subject");
+		//$level=$this->input->post("level");
+		//$faculty_id = $this->input->post("faculty_id");
+
+		$faculty_details=array(
+			"name"=>$name,
+			"contact"=>$contact,
+			"address"=>$address,
+			"email"=>$email,
+			//"date_of_joining"=>$date_of_joining,
+			//"department"=>$department,
+			//"subject"=>$subject,
+			//"level"=>$level,
+			//"faculty_id"=>$faculty_id
+		);
+
+		$sql = $this->db->set($faculty_details)->where("faculty_id", $faculty_id)->update('faculty');
+		//print_r($this->db->last_query());    
+		if($this->db->affected_rows() == 1){
+			echo 1;
+		}
+		else{
+			echo 0;
+		}
+	}
 }
