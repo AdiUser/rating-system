@@ -24,6 +24,9 @@ class Welcome extends CI_Controller {
 	public function index() {
 		$this->load->view('dashboard');
 	}
+	public function login() {
+		$this->load->view("login");
+	}
 
 	public function add_university() {
 

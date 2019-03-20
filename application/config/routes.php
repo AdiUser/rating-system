@@ -54,6 +54,7 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['login'] = 'welcome/login';
 $route['add-university'] = 'welcome/add_university';
 $route['faculty'] = 'welcome/faculty';
 $route['HOD/faculty-list'] = 'welcome/HOD_show_faculty';
