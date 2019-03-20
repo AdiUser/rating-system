@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2019 at 11:38 AM
+-- Generation Time: Mar 20, 2019 at 01:46 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -88,20 +88,40 @@ CREATE TABLE `departmental_activities` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `departments`
+--
+
+CREATE TABLE `departments` (
+  `id` int(10) NOT NULL,
+  `university_code` int(10) DEFAULT NULL,
+  `department_name` varchar(100) DEFAULT NULL,
+  `department_code` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `faculty`
 --
 
 CREATE TABLE `faculty` (
   `serial` int(2) NOT NULL,
-  `university_id` int(10) NOT NULL,
+  `university_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `qualification` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `date_of_joining` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `department` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `subject` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `level` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `faculty_id` varchar(20) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `faculty`
+--
+
+INSERT INTO `faculty` (`serial`, `university_code`, `name`, `qualification`, `date_of_joining`, `department`, `level`, `faculty_id`) VALUES
+(1, 'geuddn', 'Aditya Saxena', '26', '01:01:2018 23:21', '1', '1', 'FACT101'),
+(2, 'geuddn', 'Aman Misra', '26', '03:04:2018 20:00', '1', '1', 'FACT102');
 
 -- --------------------------------------------------------
 
@@ -147,6 +167,32 @@ CREATE TABLE `institute` (
 
 INSERT INTO `institute` (`serial`, `parent_university_code`, `institute_code`, `institute_name`, `state`) VALUES
 (1, 'GEUDDN', 'GEHUDDN', 'Graphic Era Hill Uni', 'Uttrakhand');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `levels`
+--
+
+CREATE TABLE `levels` (
+  `id` int(11) NOT NULL,
+  `level_id` varchar(10) NOT NULL,
+  `level_name` varchar(100) NOT NULL,
+  `level_package_group` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `levels`
+--
+
+INSERT INTO `levels` (`id`, `level_id`, `level_name`, `level_package_group`) VALUES
+(1, '9A', 'Lecturer', '56100'),
+(2, '10', 'Lecturer', '57700'),
+(3, '11', 'Lecturer (Senior Scale)', '68900'),
+(4, '12', 'Lecturer (Selection Grade -I)', '79800'),
+(5, '13A1', 'Lecturer (Selection Grade -II) ', '131400'),
+(6, '13A1', 'Head of the Department\r\n(HoD)', '131400'),
+(7, '13A1', 'Principal', '131400');
 
 -- --------------------------------------------------------
 
@@ -621,6 +667,12 @@ ALTER TABLE `departmental_activities`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `departments`
+--
+ALTER TABLE `departments`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `faculty`
 --
 ALTER TABLE `faculty`
@@ -637,6 +689,12 @@ ALTER TABLE `faculty_dept`
 --
 ALTER TABLE `institute`
   ADD PRIMARY KEY (`serial`);
+
+--
+-- Indexes for table `levels`
+--
+ALTER TABLE `levels`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `min_qualifications`
@@ -709,10 +767,16 @@ ALTER TABLE `departmental_activities`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `departments`
+--
+ALTER TABLE `departments`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
-  MODIFY `serial` int(2) NOT NULL AUTO_INCREMENT;
+  MODIFY `serial` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `faculty_dept`
@@ -725,6 +789,12 @@ ALTER TABLE `faculty_dept`
 --
 ALTER TABLE `institute`
   MODIFY `serial` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `levels`
+--
+ALTER TABLE `levels`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `min_qualifications`
