@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2019 at 03:11 PM
+-- Generation Time: Mar 20, 2019 at 08:46 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 5.6.39
 
@@ -21,6 +21,18 @@ SET time_zone = "+00:00";
 --
 -- Database: `aicte`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `acr_points`
+--
+
+CREATE TABLE `acr_points` (
+  `serial` int(11) NOT NULL,
+  `faculty_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `points` int(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -132,7 +144,7 @@ CREATE TABLE `faculty` (
 --
 
 INSERT INTO `faculty` (`serial`, `university_code`, `name`, `contact`, `qualification`, `date_of_joining`, `department`, `level`, `faculty_id`, `address`, `email`) VALUES
-(1, 'geuddn', 'Aditya Saxena', '987654212', '26', '2019-03-06', '1', '1', 'FACT101', 'asdsd', 'asdasd@ada.com'),
+(1, 'geuddn', 'faculty2', '1242312312', '26', '2019-03-06', '1', '1', 'FACT101', 'asdSDsad', 'SAFsdfDSF'),
 (2, 'geuddn', 'Aman Misra', '', '26', '2019-03-14', '1', '1', 'FACT102', '', '');
 
 -- --------------------------------------------------------
@@ -671,6 +683,12 @@ INSERT INTO `user_login` (`id`, `code`, `username`, `password`, `role`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `acr_points`
+--
+ALTER TABLE `acr_points`
+  ADD PRIMARY KEY (`serial`);
 
 --
 -- Indexes for table `activity`

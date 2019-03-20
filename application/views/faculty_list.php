@@ -814,6 +814,67 @@
             </div>
             
           </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h5>ACR</h5>
+              </div>
+              <div class="card-body">
+              <form id="activity" method="post">
+                <table class="table table-bordered">
+                  <thead>
+                    <th>Activity Name </th>
+                    <th>Year</th>
+                    <th>Points</th>
+                  </thead>
+                  <!--Change the Functions Accordingly to add acr points in acr_points database -->
+                  <tbody id="dept-activities-item">   
+                  </tbody>
+                </table>
+                <div class="row">
+                  <div class="col-md-3">
+                    <button class="btn btn-pill btn-block btn-info" type="button" id="dept-activities-add">Add More...</button>
+                  </div>
+                  <div class="col-md-3">
+                     <button class="btn btn-pill btn-block btn-success" id="activity-save-btn"" type="submit">Save <i class="icons font-1xl cui-check paddLeft10"></i></button>
+
+                  </div>
+                </div>
+                </form>
+
+                <script>
+                        $(function(){
+                          $("#activity-save-btn").on("click", function(){
+                             var dataString = $("#activity").serialize();
+
+                              $.ajax({
+                                  type: "POST",
+                                  url: "/rating-system/HOD/save-activities",
+                                  data: dataString,
+                                  beforeSend: function() {
+                                    alert(dataString);
+                                  },
+                                  success: function(data){
+                                      // alert('Successful!');
+                                      alert(data);
+                                      $("#dept-activities-item").prepend(data);
+                                      $("#activity").trigger("reset");
+                                  },
+                                  error: function(a,b,c) {
+                                    alert("Error");
+                                  }
+
+                              });
+
+                              return false;  //stop the actual form post !important!
+
+                          });
+                      });
+                </script>
+              </div>
+            </div>
+            
+          </div>
         </div>
       </div>
      
