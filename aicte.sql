@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2019 at 11:44 AM
+-- Generation Time: Mar 20, 2019 at 07:17 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -63,7 +63,27 @@ CREATE TABLE `aicte_admin` (
 INSERT INTO `aicte_admin` (`serial`, `university_code`, `university_name`, `state`, `district`, `postal_code`, `contact`, `university_address`, `email`, `verfied`, `excel`) VALUES
 (1, 123, 'abc', '', 'abc', 0, 123, ' abc', 'xyz', 0, ''),
 (2, 12345678, 'graphic era deemed t', '', 'uttarakhan', 0, 1122334455, ' clement town, dehra', 'geuddn@gmail.com', 0, ''),
-(3, 0, '', '', '', 0, 0, ' ', '', 0, '');
+(3, 0, '', '', '', 0, 0, ' ', '', 0, ''),
+(4, 0, '', '', '', 0, 0, ' ', '', 0, ''),
+(5, 0, '', '', '', 0, 0, ' ', '', 0, ''),
+(6, 0, '', '', '', 0, 0, ' ', '', 0, ''),
+(7, 0, '', '', '', 0, 0, ' ', '', 0, ''),
+(8, 0, '', '', '', 0, 0, ' ', '', 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `departmental_activities`
+--
+
+CREATE TABLE `departmental_activities` (
+  `id` int(11) NOT NULL,
+  `hod_id` varchar(100) NOT NULL,
+  `faculty_id` varchar(100) NOT NULL,
+  `semister` int(11) NOT NULL,
+  `activity_name` text NOT NULL,
+  `points` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -485,6 +505,23 @@ CREATE TABLE `student` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `student_feedback`
+--
+
+CREATE TABLE `student_feedback` (
+  `id` int(11) NOT NULL,
+  `student_id` varchar(100) NOT NULL,
+  `faculty_id` varchar(100) NOT NULL,
+  `semister` int(11) NOT NULL,
+  `activity_name` text NOT NULL,
+  `points` int(11) NOT NULL,
+  `keywords` text NOT NULL,
+  `remarks` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `test`
 --
 
@@ -542,6 +579,12 @@ ALTER TABLE `aicte_admin`
   ADD PRIMARY KEY (`serial`);
 
 --
+-- Indexes for table `departmental_activities`
+--
+ALTER TABLE `departmental_activities`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `faculty`
 --
 ALTER TABLE `faculty`
@@ -584,6 +627,12 @@ ALTER TABLE `student`
   ADD PRIMARY KEY (`serial`);
 
 --
+-- Indexes for table `student_feedback`
+--
+ALTER TABLE `student_feedback`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `test`
 --
 ALTER TABLE `test`
@@ -609,7 +658,13 @@ ALTER TABLE `activity`
 -- AUTO_INCREMENT for table `aicte_admin`
 --
 ALTER TABLE `aicte_admin`
-  MODIFY `serial` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `serial` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `departmental_activities`
+--
+ALTER TABLE `departmental_activities`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `faculty`
@@ -652,6 +707,12 @@ ALTER TABLE `rating`
 --
 ALTER TABLE `student`
   MODIFY `serial` int(2) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `student_feedback`
+--
+ALTER TABLE `student_feedback`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `test`
