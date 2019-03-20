@@ -183,8 +183,8 @@
                                         <div class="card-body">
                                         <div class="row" style="margin-bottom:20px">
                                           <div class="col-md-3">
-                                            <div class="media" style="height:120px;width:120px">
-                                              <img src="./assets/index.jpg">
+                                            <div class="media">
+                                              <img src="./assets/index.jpg" style="width:100%">
                                             </div>
                                           </div>
                                           <div class="col-md-9">

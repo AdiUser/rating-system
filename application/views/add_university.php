@@ -185,7 +185,7 @@
                                               <div class="col-md-7">
                                                 <div class="form-group" method="post">
                                                   <label for="company">University Name</label>
-                                                  <input class="form-control" name="uname" id="company" type="text" placeholder="Enter your university name">
+                                                  <input class="form-control" name="uname" id="company" type="text" placeholder="Enter university name">
                                                 </div>
                                               </div>
                                               <div class="col-md-5">
@@ -220,7 +220,7 @@
                                             <div class="col-md">
                                                 <div class="form-group" method="post">
                                                   <label for="company">University Address</label>
-                                                  <input class="form-control" name="uaddress" id="company" type="text" placeholder="Enter your university address">
+                                                  <input class="form-control" name="uaddress" id="company" type="text" placeholder="Enter university address">
                                                 </div>
                                               </div>
                                             </div>
@@ -228,18 +228,17 @@
                                             <div class="col-md-5">
                                                 <div class="form-group" method="post">
                                                   <label for="company">Contact Number</label>
-                                                  <input class="form-control" name="ucontact" id="company" type="text" placeholder="Enter your university address">
+                                                  <input class="form-control" name="ucontact" id="company" type="text" placeholder="Contact">
                                                 </div>
                                               </div>
-                                            </div>
-                                            <div class="row">
-                                            <div class="col-md">
+                                              <div class="col-md-7">
                                                 <div class="form-group" method="post">
                                                   <label for="company">Email</label>
                                                   <input class="form-control" name="email" id="company" type="text" placeholder="Enter university email address">
                                                 </div>
                                               </div>
                                             </div>
+                                            
                                             <div class="row">
                                               <div class="col-md-12">
                                                 <div class="form-group">
