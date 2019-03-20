@@ -33,6 +33,15 @@ class Welcome extends CI_Controller {
 
 		$this->load->view("faculty");
 	}
+	public function add_hod() {
+
+		$this->load->view("add_hod");
+	}
+
+	public function university_admin() {
+
+		$this->load->view("university_admin");
+	}
 
 	public function HOD_show_faculty() {
 

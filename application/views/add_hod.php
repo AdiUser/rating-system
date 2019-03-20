@@ -165,7 +165,7 @@
                       <div class="card-header">
                           <i class="fa fa-align-justify"></i>
                           <!-- <i class="icons font-2xl d-block mt-5 cui-file"></i> -->
-                          Faculty Details
+                          HOD Details
                       </div>
                       <div class="card-body">
                           <div id="accordion" role="tablist">
@@ -173,7 +173,7 @@
                                   <div class="card-header" id="headingThree" role="tab">
                                       <h5 class="mb-0">
                                           <a class="" data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                                            <i class="icons font-1xl mt-5 cui-user-follow paddRight10"></i></i>Add Faculty Details</a>
+                                            <i class="icons font-1xl mt-5 cui-user-follow paddRight10"></i></i>Add HOD Details</a>
                                       </h5>
                                   </div>
                                   <div class="collapse show" id="collapseThree" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion" style="">
