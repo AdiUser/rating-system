@@ -174,7 +174,7 @@
                                   <div class="card-header" id="headingThree" role="tab">
                                       <h5 class="mb-0">
                                           <a class="" data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                                            <i class="icons font-1xl mt-5 cui-user-follow paddRight10"></i>Add University Data</a>
+                                            <i class="icons font-1xl mt-5 cui-user-follow paddRight10"></i>Add Institution Data</a>
                                       </h5>
                                   </div>
                                   <div class="collapse show" id="collapseThree" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion" style="">
@@ -184,8 +184,8 @@
                                         <div class="card-body">
                                         <div class="row" style="margin-bottom:20px">
                                           <div class="col-md-3">
-                                            <div class="media" style="height:120px;width:120px">
-                                              <img src="./assets/index.jpg">
+                                            <div class="media">
+                                              <img src="./assets/index.jpg" style="width:100%">
                                             </div>
                                           </div>
                                           <div class="col-md-9">
@@ -240,42 +240,26 @@
                                             <div class="row">
                                             <div class="col-md">
                                                 <div class="form-group" method="post">
-                                                  <label for="company">University Address</label>
-                                                  <input class="form-control" name="uaddress" id="company" type="text" placeholder="Enter your university address">
+                                                  <label for="company">Institution Address</label>
+                                                  <input class="form-control" name="uaddress" id="company" type="text" placeholder="Enter your institution address">
                                                 </div>
                                               </div>
                                             </div>
                                             <div class="row">
-                                            <div class="col-md-5">
+                                              <div class="col-md-5">
                                                 <div class="form-group" method="post">
                                                   <label for="company">Contact Number</label>
-                                                  <input class="form-control" name="ucontact" id="company" type="text" placeholder="Enter your university address">
+                                                  <input class="form-control" name="ucontact" id="company" type="text" placeholder="Contact">
                                                 </div>
                                               </div>
-                                            </div>
-                                            <div class="row">
-                                            <div class="col-md">
+                                              <div class="col-md-7">
                                                 <div class="form-group" method="post">
                                                   <label for="company">Email</label>
-                                                  <input class="form-control" name="email" id="company" type="text" placeholder="Enter university email address">
+                                                  <input class="form-control" name="email" id="company" type="text" placeholder="Enter institution email address">
                                                 </div>
                                               </div>
                                             </div>
-                                            <div class="row">
-                                              <div class="col-md-12">
-                                                <div class="form-group">
-                                                  <div class="row">
-                                                    <div class="col-md-4"><label for="">Is this a Central University</label></div>
-                                                    <div class="col-md-5">
-                                                  <label class="switch switch-label switch-pill switch-outline-success-alt"> 
-                                                  <input class="switch-input" type="checkbox">
-                                                  <span class="switch-slider" data-checked="✓" data-unchecked="✕"></span>
-                                                  </label>
-                                                </div>
-                                                </div>
-                                                </div>
-                                              </div>
-                                            </div>
+                                           
                                         </div>
                                         <div class="card-footer">
                                           <button class="btn btn-sm btn-primary" type="submit" name="submit">
@@ -283,39 +267,6 @@
                                           <button class="btn btn-sm btn-danger" type="reset">
                                               <i class="fa fa-ban"></i> Reset</button>
                                         </div>
-                                        <?php
-                                        $servername = "localhost";
-                                        $username = "root";
-                                        $password = "";
-                                        $dbname = "aicte";
-                                        
-                                        // Create connection
-                                        $conn = mysqli_connect($servername, $username, $password, $dbname);
-                                        // Check connection
-                                        if (!$conn) {
-                                            die("Connection failed: " . mysqli_connect_error());
-                                        }
-                                            if(isset($_POST['submit']))
-                                            {
-                                            $university_code=$_POST['ucode'];
-                                            $university_name=$_POST['uname'];
-                                            $state=$_POST['ustate'];
-                                            $postal_code=$_POST['postal'];
-                                            $district=$_POST['udistrict'];
-                                            $contact=$_POST['ucontact'];
-                                            $university_address=$_POST['uaddress'];
-                                            $email=$_POST['email'];
-                                            $sql = "INSERT INTO aicte_admin (university_code, university_name,`state`,district,postal_code,contact,university_address, email)
-                                            VALUES ('$university_code', '$university_name','$state','$district','$postal_code','$contact',' $university_address', '$email')";
-                                            
-                                        if (mysqli_query($conn, $sql)) {
-                                            
-                                        } else {
-                                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                                        }
-                                      }
-                                        mysqli_close($conn);
-                                       ?>
                                            </form>
                                         </div> 
                                       </div>
