@@ -79,7 +79,6 @@
     <!-- Bootstrap core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.4/js/mdb.min.js"></script>
 </head>
 
 <body>
@@ -134,24 +133,25 @@
                 <div class="w3_info">
                     <h2>Login to your Account</h2>
                     <p>Enter your details to login.</p>
-                    <form action="#" method="post">
+                    <p style="color: red" id="msg"></p>
+                    <form action="#" method="post" id="login-form">
                         <label>Institute/University Code</label>
                         <div class="input-group">
                             <span class="fa fa-envelope" aria-hidden="true"></span>
-                            <input type="text" id="code" placeholder="Enter Your Institute/University Code" required="">
+                            <input type="text" id="code" name="code" placeholder="Enter Your Institute/University Code" required="">
                         </div>
-                        <label>Email Address</label>
+                        <label>Username</label>
                         <div class="input-group">
                             <span class="fa fa-envelope" aria-hidden="true"></span>
-                            <input type="email" id="email-Field" placeholder="Enter Your Email" required="">
+                            <input type="text" name="username" placeholder="Enter Your Email" required="">
                         </div>
                         <label>Password</label>
                         <div class="input-group">
                             <span class="fa fa-lock" aria-hidden="true"></span>
-                            <input type="Password" id="password-Field" placeholder="Enter Password" required="">
+                            <input type="Password" name="password" id="password-Field" placeholder="Enter Password" required="">
                         </div>
 
-                        <button class="btn btn-danger btn-block ld-over-inverse" id="signin-btn" type="button">
+                        <button class="btn btn-danger btn-block ld-over-inverse" id="login-btn" type="submit">
 
                         Login
                     <div class="ld ld-ring ld-spin" style="font-size: 1.5em" ></div>
@@ -172,8 +172,34 @@
         <!-- footer -->
     </div>
 
-    <!-- JS Code -->
-    
+<script>
+    $("#login-form").submit(function(e) {
+        e.preventDefault();
+        var form = $(this);
+        $.ajax({
+            method: "POST",
+            url: "login-user",
+            data: form.serialize(),
+            beforeSend: function() {
+                $("#login-btn").addClass('running');
+            },
+            success: function(data){
+                alert(data);
+                if (data != 0) {
+                    window.location.href = 'user/dashboard';
+                }
+                else {
+                    $("#msg").html("Invalid Credentials, please try again.")
+                }
+                $("#login-btn").removeClass('running');
+            },
+            error: function() { 
+                alert("Error posting feed.");
+                $("#login-btn").removeClass('running'); 
+            } 
+        });
+    });
+</script>    
  
 </body>
 

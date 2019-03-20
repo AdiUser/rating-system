@@ -24,6 +24,12 @@ class Welcome extends CI_Controller {
 	public function index() {
 		$this->load->view('dashboard');
 	}
+	public function dashboard() {
+		$data["user"] = $this->session->user;
+		$data["organisation"] = $this->session->organisation;
+
+		$this->load->view("dashboard", $data);
+	}
 	public function login() {
 		$this->load->view("login");
 	}
@@ -127,7 +133,7 @@ class Welcome extends CI_Controller {
 	}
 
 	public function detail_load($qualification_id){
-				}
+	}
 
 	
 }
