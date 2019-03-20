@@ -39,8 +39,12 @@ class Welcome extends CI_Controller {
 		$this->load->view("add_university");
 	}
 	public function faculty() {
-
-		$this->load->view("faculty");
+		$faculty_id = "fac101"; // will come from session
+		$res = $this->db->where(["faculty_id" => $faculty_id])->get("faculty")->result();
+		if (sizeof($res) >0 ) {
+			$data["faculty_details"] = $res;
+		}
+		$this->load->view("faculty", $data);
 	}
 	public function add_hod() {
 

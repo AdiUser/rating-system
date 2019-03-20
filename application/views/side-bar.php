@@ -9,9 +9,8 @@
             <!-- basic admin features. -->
             <li class="nav-title">Admin Dashboard</li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="/rating-system/user/dashboard">
                 <i class="nav-icon icon-speedometer"></i> Dashboard
-                <span class="badge badge-primary">NEW</span>
               </a>
             </li>
             <!-- // -->

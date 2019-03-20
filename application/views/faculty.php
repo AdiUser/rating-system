@@ -228,12 +228,13 @@
 
                                           </script>
                                         </div>
+                                            <form id="faculty_form" method="post">
                                           <div class="form-group row">
                                               <div class="col-md-2">
                                                   <label for="company">Name</label>
                                               </div>
                                               <div class="col-md-8">
-                                                  <input class="form-control" id="company" type="text" placeholder="Enter faculty name">
+                                                  <input class="form-control" name="faculty_name" id="company" type="text" placeholder="Enter faculty name" value="<?=$faculty_details[0]->name?>"> 
                                               </div>
                                           </div>
                                               <div class="form-group row">
@@ -241,7 +242,7 @@
                                                       <label for="vat">Contact</label>
                                                   </div>
                                                   <div class="col-md-5">
-                                                    <input class="form-control" id="vat" type="text" placeholder="Contact">
+                                                    <input class="form-control" name="faculty_contact" id="vat" type="text" placeholder="Contact">
                                                   </div>
                                               </div>
                                             
@@ -250,7 +251,7 @@
                                                   <label for="street">Address</label>
                                               </div>
                                               <div class="col-md-8">
-                                                  <input class="form-control" id="street" type="text" placeholder="Enter your address">
+                                                  <input class="form-control" name="faculty_address" id="street" type="text" placeholder="Enter your address">
                                               </div>
                                             </div>
                                             <div class="form-group row">
@@ -258,7 +259,7 @@
                                                   <label for="street">Email</label>
                                               </div>
                                               <div class="col-md-8">
-                                                  <input class="form-control" id="street" type="text" placeholder="Enter email">
+                                                  <input class="form-control" name="faculty_email" id="street" type="text" placeholder="Enter email">
                                               </div>
                                             </div>
                                             <div class="form-group row">
@@ -266,7 +267,7 @@
                                                   <label for="street">Date Of Joining</label>
                                               </div>
                                               <div class="col-md-5">
-                                                  <input class="form-control" id="street" type="text" placeholder="dd/mm/yyyy">
+                                                  <input class="form-control" name="joining_date" id="street" type="date" placeholder="dd/mm/yyyy" value="<?=$faculty_details[0]->date_of_joining?>"> 
                                               </div>
                                             </div>
                                             <div class="form-group row">
@@ -274,15 +275,7 @@
                                                   <label for="street">Department</label>
                                               </div>
                                               <div class="col-md-8">
-                                                  <input class="form-control" id="street" type="text" placeholder="Enter department">
-                                              </div>
-                                            </div>
-                                            <div class="form-group row">
-                                              <div class="col-md-2">
-                                                  <label for="street">Subject</label>
-                                              </div>
-                                              <div class="col-md-8">
-                                                  <input class="form-control" id="street" type="text" placeholder="Enter suject">
+                                                  <input class="form-control" name="department" id="street" type="text" placeholder="Enter department" value="">
                                               </div>
                                             </div>
                                             <div class="form-group row">
@@ -290,7 +283,7 @@
                                                   <label for="street">Level</label>
                                               </div>
                                               <div class="col-md-5">
-                                                  <input class="form-control" id="street" type="text" placeholder="Enter level">
+                                                  <input class="form-control" name="level" id="street" type="text" placeholder="Enter level">
                                               </div>
                                             </div>
                                             <div class="form-group row">
@@ -298,13 +291,18 @@
                                                   <label for="street">Faculty ID</label>
                                               </div>
                                               <div class="col-md-5">
-                                                  <input class="form-control" id="street" type="text" placeholder="Enter faculty Id">
+                                                  <input class="form-control"
+                                                  name="faculty_id" id="street" type="text" placeholder="Enter faculty Id">
                                               </div>
                                             </div>
+                                            </form>
+                                           
+                                            
                                         </div>
                                         <div class="card-footer">
-                                          <button class="btn btn-sm btn-primary" type="submit">
+                                          <button class="btn btn-sm btn-primary" id="faculty_submit" type="submit">
                                               <i class="fa fa-dot-circle-o"></i> Submit</button>
+                                              
                                           <button class="btn btn-sm btn-danger" type="reset">
                                               <i class="fa fa-ban"></i> Reset</button>
                                       </div>
@@ -312,41 +310,29 @@
                                   </div>
                                   </div>
                               </div>
-                              <div class="card mb-0">
-                                  <div class="card-header" id="headingOne" role="tab">
-                                      <h5 class="mb-0">
-                                          <a data-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
-                                            <i class=" cui-file h5 paddRight10"></i>Upload an Excel File</a>
-                                      </h5>
-                                  </div>
-                                  <div class="collapse" id="collapseOne" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" style="">
-                                      <div class="card-body">
-                                          <div class="card">
-                                              
-                                              <div class="card-body">
-                                                  <form action="" method="post">
-                                                     <div class="form-group row">
-                                                      <label class="col-md-3 col-form-label" for="file-input">File input</label>
-                                                      <div class="col-md-9">
-                                                      <input id="file-input" type="file" name="file-input">
-                                                      </div>
-                                                      </div>
-                                                  </form>
-                                              </div>
-                                              <div class="card-footer">
-                                                  <button class="btn btn-sm btn-primary" type="submit">
-                                                      <i class="fa fa-dot-circle-o"></i>
-                                                      Submit
-                                                  </button>
-                                                  <button class="btn btn-sm btn-danger" type="reset">
-                                                      <i class="fa fa-ban"></i>
-                                                      Reset
-                                                  </button>
-                                              </div>
-                                          </div>
-                                      </div></div>
-                                  </div>
                               </div>
+                              <script>
+                                                $('#faculty_submit').on("click", function(){
+                                                  var formData = $("#faculty_form").serialize();
+                                                  
+                                                  $.ajax({
+                                                    method: "POST",
+                                                    url: "update-faculty-profile",
+                                                    data: formData,
+                                                    beforeSend: function() {
+                                                      alert(formData);
+                                                    },
+                                                    success: function(data){
+                                                      if(data=='1') {
+                                                        alert('SUCCESS');
+                                                      }
+                                                      else{
+                                                        alert('ERROR');
+                                                      }
+                                                    }
+                                                  })
+                                                })
+                                              </script>
 
                              
                           </div>

@@ -46,7 +46,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="assets/img/AICTE_Logo.png" width="60" height="50" alt="CoreUI Logo">
+        <img class="navbar-brand-full" src="assets/img/AICTE_Logo.png" width="60" height="50" alt="">
        <p style="margin:18px;font-weight:bold">AICTE</p>
       </a>
       <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
@@ -174,28 +174,7 @@
                                                 </div>
                                               </div>
                                             </div>
-                                            <div class="row">
-                                            <div class="col-md">
-                                                <div class="form-group" method="post">
-                                                  <label for="company">University Address</label>
-                                                  <input class="form-control" name="uaddress" id="company" type="text" placeholder="Enter university address">
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div class="row">
-                                            <div class="col-md-5">
-                                                <div class="form-group" method="post">
-                                                  <label for="company">Contact Number</label>
-                                                  <input class="form-control" name="ucontact" id="company" type="text" placeholder="Contact">
-                                                </div>
-                                              </div>
-                                              <div class="col-md-7">
-                                                <div class="form-group" method="post">
-                                                  <label for="company">Email</label>
-                                                  <input class="form-control" name="email" id="company" type="text" placeholder="Enter university email address">
-                                                </div>
-                                              </div>
-                                            </div>
+
                                             
                                             <div class="row">
                                               <div class="col-md-12">
@@ -204,14 +183,25 @@
                                                     <div class="col-md-4"><label for="">Is this a Central University</label></div>
                                                     <div class="col-md-5">
                                                   <label class="switch switch-label switch-pill switch-outline-success-alt"> 
-                                                  <input class="switch-input" type="checkbox">
+                                                  <input class="switch-input" id="toggle-inpt" type="checkbox">
                                                   <span class="switch-slider" data-checked="✓" data-unchecked="✕"></span>
                                                   </label>
+                                                  <input type="text" name="isState" id="hidden-toggle-inpt" style="display: none">
                                                 </div>
                                                 </div>
                                                 </div>
                                               </div>
                                             </div>
+                                            <script>
+                                              $("#toggle-inpt").on("change", function() {
+                                                if ($(this).prop("checked") === true){ 
+                                                    $("#hidden-toggle-inpt").val("1");
+                                                }
+                                                 else {
+                                                    $("#hidden-toggle-inpt").val("0");
+                                                  }
+                                              })
+                                            </script>
                                         </div>
                                         <div class="card-footer">
                                           <button class="btn btn-sm btn-primary" type="submit" name="submit">
@@ -238,11 +228,11 @@
                                             $state=$_POST['ustate'];
                                             $postal_code=$_POST['postal'];
                                             $district=$_POST['udistrict'];
-                                            $contact=$_POST['ucontact'];
-                                            $university_address=$_POST['uaddress'];
-                                            $email=$_POST['email'];
-                                            $sql = "INSERT INTO aicte_admin (university_code, university_name,`state`,district,postal_code,contact,university_address, email)
-                                            VALUES ('$university_code', '$university_name','$state','$district','$postal_code','$contact',' $university_address', '$email')";
+                                            $isState = $_POST['isState'];
+
+                                            $sql = "INSERT INTO university_admin (university_code, university_name,`state`,district,postal_code,is_state)
+                                            VALUES ('$university_code', '$university_name','$state','$district','$postal_code','$isState')";
+
                                             
                                         if (mysqli_query($conn, $sql)) {
                                             
@@ -258,39 +248,6 @@
                                       
                               </div>
                               </div>
-                              <div class="card mb-0">
-                                  <div class="card-header" id="headingOne" role="tab">
-                                      <h5 class="mb-0">
-                                          <a data-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
-                                            <i class=" cui-file h5 paddRight10"></i>Upload an Excel File</a>
-                                      </h5>
-                                  </div>
-                                  <div class="collapse" id="collapseOne" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" style="">
-                                      <div class="card-body">
-                                          <div class="card">
-                                              <form action="/rating-system/upload-file" method="post" enctype='multipart/form-data'>
-                                              <div class="card-body">
-                                                     <div class="form-group row">
-                                                      <label class="col-md-3 col-form-label" for="file-input">File input</label>
-                                                      <div class="col-md-9">
-                                                      <input id="file-input" type="file" name="upload_file">
-                                                      </div>
-                                                      </div>
-                                              </div>
-                                              <div class="card-footer">
-                                                  <button class="btn btn-sm btn-primary" type="submit">
-                                                      <i class="fa fa-dot-circle-o"></i>
-                                                      Submit
-                                                  </button>
-                                                  <button class="btn btn-sm btn-danger" type="reset">
-                                                      <i class="fa fa-ban"></i>
-                                                      Reset
-                                                  </button>
-                                              </div>
-                                            </form>
-                                          </div>
-                                      </div></div>
-                                  </div>
                               </div>
 
                              
@@ -303,6 +260,7 @@
                       <strong>Recently Added Universities</strong>
                     </div>
                     <div class="card-body">
+                    
                       <div class="list-prev d-flex">
                         <div class="img-section">
                           <img src="assets/img/geu.jpg" alt="">
