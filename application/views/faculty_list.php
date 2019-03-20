@@ -31,6 +31,8 @@
     <link rel="stylesheet" href="/rating-system/assets/css/user-model.css">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+    <script src="/rating-system/assets/jquery/dist/jquery.min.js"></script>
+
     <script>
       window.dataLayer = window.dataLayer || [];
 
@@ -1121,27 +1123,7 @@
                     <th>Settings</th>
                   </thead>
                   <tbody id="dept-activities-item">
-                    <tr id="xyz">
-                      <td>
-                      <input type="text" name="activity[]" class="form-control" placeholder="Enter Activity name..."></td>
-                      <td>
-                        <select name="semester[]" id="" class="form-control">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                          <option value="8">8</option>
-                        </select>
-                      </td>
-                      <td><input type="number" name="points[]" class="form-control"></td>
-                      <td><button class="btn btn-danger dept-activities-delete-new" data-delete="xyz" >
-                        <i class="icons font-1xl d-block cui-circle-x"></i>
-                      </button></td>
-                      
-                    </tr>
+                    
                   </tbody>
                 </table>
                 <div class="row">
@@ -1149,7 +1131,7 @@
                     <button class="btn btn-pill btn-block btn-info" type="button" id="dept-activities-add">Add More...</button>
                   </div>
                   <div class="col-md-3">
-                     <button class="btn btn-pill btn-block btn-success" type="button">Save <i class="icons font-1xl cui-check paddLeft10"></i></button>
+                     <button class="btn btn-pill btn-block btn-success" id="activity-save-btn"" type="submit">Save <i class="icons font-1xl cui-check paddLeft10"></i></button>
 
                   </div>
                 </div>
@@ -1157,16 +1139,24 @@
 
                 <script>
                         $(function(){
-                          $("#activity").submit(function(){
-                              dataString = $("#activity").serialize();
+                          $("#activity-save-btn").on("click", function(){
+                             var dataString = $("#activity").serialize();
 
                               $.ajax({
                                   type: "POST",
-                                  url: "Welcome.php",
+                                  url: "/rating-system/HOD/save-activities",
                                   data: dataString,
+                                  beforeSend: function() {
+                                    alert(dataString);
+                                  },
                                   success: function(data){
                                       // alert('Successful!');
-                                      $('#xyz').prepend(data);
+                                      alert(data);
+                                      $("#dept-activities-item").prepend(data);
+                                      $("#activity").trigger("reset");
+                                  },
+                                  error: function(a,b,c) {
+                                    alert("Error");
                                   }
 
                               });
@@ -1187,7 +1177,6 @@
       <hr>
     </div>
     <!-- CoreUI and necessary plugins-->
-    <script src="/rating-system/assets/jquery/dist/jquery.min.js"></script>
     <script src="/rating-system/assets/popper.js/dist/umd/popper.min.js"></script>
     <script src="/rating-system/assets/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/rating-system/assets/pace-progress/pace.min.js"></script>
@@ -1218,9 +1207,28 @@ $(document).ready(function() {
         $("#user-model").iziModal("open");
     });
 
-    $(document).on("click", ".dept-activities-delete-new", function() {
-      $("#"+$(this)[0].dataset.delete).remove();
-      console.log($(this)[0].dataset.delete);
+    $(document).on("click", ".dept-activities-delete-new", function(e) {
+      e.preventDefault();
+      console.log($(this)[0].dataset);
+      var dataset = $(this)[0].dataset;
+      $.ajax({
+        method: "GET",
+        url: "/rating-system/HOD/delete-activity",
+        data: {id: dataset.id},
+        beforeSend: function() {
+          alert(dataset.id);
+        },
+        success: function(data) {
+          alert('SUCCESS');
+          alert(dataset.delete);
+          $("#"+dataset.delete).remove();
+
+          // SHOW FANCY ALERT BOX.
+        },
+        error: function() {
+          alert("ERROR!");
+        }
+      });
     }); 
 
      $(".dept-activities-delete-old").on("click", function() {
@@ -1230,7 +1238,8 @@ $(document).ready(function() {
     $("#dept-activities-add").on("click", function() {
       var id = "str"+ Math.random().toString().split(".")[1];
       var txt = '<tr id="'+id+'">'+
-                      '<td><input type="text" name="activity[]" class="form-control" placeholder="Enter Activity name..."></td>'+
+                      '<td><input type="text" name="activity[]" class="form-control" placeholder="Enter Activity name..."><input type="text" value="'+id+'" name="field-id[]" style="display: none">'+'</td>'+
+                      
                       '<td>'+
                         '<select name="semester[]" id="" class="form-control">'+
                           '<option value="1">1</option>'+
@@ -1248,6 +1257,7 @@ $(document).ready(function() {
                         '<i class="icons font-1xl d-block cui-circle-x"></i>'+
                       '</button></td>'+
                    ' </tr>';
+                   console.log(txt)
       $("#dept-activities-item").append(txt);
     });
 

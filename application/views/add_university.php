@@ -46,64 +46,22 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="assets/img/brand/logo.svg" width="89" height="25" alt="CoreUI Logo">
-        <img class="navbar-brand-minimized" src="assets/img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo">
+        <img class="navbar-brand-full" src="assets/img/AICTE_Logo.png" width="60" height="50" alt="CoreUI Logo">
+       <p style="margin:18px;font-weight:bold">AICTE</p>
       </a>
       <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <ul class="nav navbar-nav d-md-down-none">
-        <li class="nav-item px-3">
-          <a class="nav-link" href="#">Dashboard</a>
-        </li>
-        <li class="nav-item px-3">
-          <a class="nav-link" href="#">Users</a>
-        </li>
-        <li class="nav-item px-3">
-          <a class="nav-link" href="#">Settings</a>
-        </li>
-      </ul>
       <ul class="nav navbar-nav ml-auto">
-        <li class="nav-item d-md-down-none">
-          <a class="nav-link" href="#">
-            <i class="icon-bell"></i>
-            <span class="badge badge-pill badge-danger">5</span>
-          </a>
-        </li>
-        <li class="nav-item d-md-down-none">
-          <a class="nav-link" href="#">
-            <i class="icon-list"></i>
-          </a>
-        </li>
-        <li class="nav-item d-md-down-none">
-          <a class="nav-link" href="#">
-            <i class="icon-location-pin"></i>
-          </a>
-        </li>
+       
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            <img class="img-avatar" src="assets/img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
+            <img class="img-avatar" src="assets/img/AICTE_Logo.png" alt="">
           </a>
           <div class="dropdown-menu dropdown-menu-right">
             <div class="dropdown-header text-center">
               <strong>Account</strong>
             </div>
-            <a class="dropdown-item" href="#">
-              <i class="fa fa-bell-o"></i> Updates
-              <span class="badge badge-info">42</span>
-            </a>
-            <a class="dropdown-item" href="#">
-              <i class="fa fa-envelope-o"></i> Messages
-              <span class="badge badge-success">42</span>
-            </a>
-            <a class="dropdown-item" href="#">
-              <i class="fa fa-tasks"></i> Tasks
-              <span class="badge badge-danger">42</span>
-            </a>
-            <a class="dropdown-item" href="#">
-              <i class="fa fa-comments"></i> Comments
-              <span class="badge badge-warning">42</span>
-            </a>
             <div class="dropdown-header text-center">
               <strong>Settings</strong>
             </div>
@@ -347,7 +305,7 @@
                     <div class="card-body">
                       <div class="list-prev d-flex">
                         <div class="img-section">
-                          <img src="https://via.placeholder.com/90" alt="">
+                          <img src="assets/img/geu.jpg" alt="">
                         </div>
                         <div class="info-section">
                           <div class="name"><a href="">
@@ -368,7 +326,7 @@
 
                       <div class="list-prev d-flex">
                         <div class="img-section">
-                          <img src="https://via.placeholder.com/90" alt="">
+                          <img src="assets/img/dit.png" alt="">
                         </div>
                         <div class="info-section">
                           <div class="name"><a href="">
@@ -387,26 +345,7 @@
                         </div>
                       </div><hr>
 
-                      <div class="list-prev d-flex">
-                        <div class="img-section">
-                          <img src="https://via.placeholder.com/90" alt="">
-                        </div>
-                        <div class="info-section">
-                          <div class="name"><a href="">
-                            Dehradun University
-                            </a>
-                          </div>
-                          <div class="location d-flex">
-                            <div class="city">
-                              Dehradun
-                            </div>
-                            <div class="state">
-                              Uttrakhand
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
+                      
                     </div>
                     <div class="card-footer">
                       <button class="btn btn-block btn-sm btn-ghost-primary active" type="button" aria-pressed="true">View All</button>

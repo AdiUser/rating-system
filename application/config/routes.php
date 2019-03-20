@@ -58,7 +58,8 @@ $route['login'] = 'welcome/login';
 
 //ajax route.
 $route['login-user'] = 'api/login_user';
-
+$route['HOD/save-activities'] = 'api/save_activities';
+$route['HOD/delete-activity'] = 'api/delete_activity';
 
 $route['user/dashboard'] = 'welcome/dashboard';
 $route['add-university'] = 'welcome/add_university';
