@@ -67,6 +67,7 @@ $route['add-institute'] = 'welcome/add_institute';
 $route['add-institution'] = 'welcome/add_institution';
 $route['add-department'] = 'welcome/add_department';
 $route['add_hod'] = 'welcome/add_hod';
+$route['faculty_promotion'] = 'welcome/faculty_promotion';
 $route['add_institution'] = 'welcome/add_institution';
 $route['user/dashboard'] = 'welcome/dashboard';
 $route['add-university'] = 'welcome/add_university';

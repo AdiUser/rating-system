@@ -49,6 +49,9 @@
                 <li class="nav-item">
                   <a class="nav-link" href="HOD/faculty-list">
                     <i class="nav-icon icon-drop"></i>Faculty List</a>
+                </li><li class="nav-item">
+                  <a class="nav-link" href="/rating-system/faculty_promotion">
+                    <i class="nav-icon icon-drop"></i>Promotions</a>
                 </li>
 
                   <?php

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2019 at 08:46 PM
+-- Generation Time: Mar 21, 2019 at 07:27 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 5.6.39
 
@@ -170,6 +170,23 @@ INSERT INTO `faculty_dept` (`id`, `name`) VALUES
 (5, 'Fine Arts'),
 (6, 'Design'),
 (7, 'Sciences and Humanities');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faculty_promotion`
+--
+
+CREATE TABLE `faculty_promotion` (
+  `id` int(2) NOT NULL,
+  `faculty_id` int(10) DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `position` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `promotion_to` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `service_years` int(50) DEFAULT NULL,
+  `feedback_score` int(50) DEFAULT NULL,
+  `salary` int(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -678,7 +695,11 @@ CREATE TABLE `user_login` (
 
 INSERT INTO `user_login` (`id`, `code`, `username`, `password`, `role`) VALUES
 (1, 'GEUDDN', 'geu', '61dfe5971515d0d8ba5f6c5f99e5700c', 'university'),
-(2, 'GEHUDDN', 'gehu', '4a6a6e51843d2ba4a67c344825ab4ab1', 'institute');
+(2, 'GEHUDDN', 'gehu', '4a6a6e51843d2ba4a67c344825ab4ab1', 'institute'),
+(3, 'GEU', 'admin1', 'e10adc3949ba59abbe56e057f20f883e', 'university'),
+(4, 'GEUDDN', 'faculty1', '9256f177e09e1f3f6f860a86373b3aad', 'faculty'),
+(5, 'GEUDDN', 'student', 'e13dd027be0f2152ce387ac0ea83d863', 'student'),
+(6, 'GEUDDN', 'hod1', '9256f177e09e1f3f6f860a86373b3aad', 'head-of-department');
 
 --
 -- Indexes for dumped tables
@@ -724,6 +745,12 @@ ALTER TABLE `faculty`
 -- Indexes for table `faculty_dept`
 --
 ALTER TABLE `faculty_dept`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `faculty_promotion`
+--
+ALTER TABLE `faculty_promotion`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -833,6 +860,12 @@ ALTER TABLE `faculty_dept`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `faculty_promotion`
+--
+ALTER TABLE `faculty_promotion`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `institute`
 --
 ALTER TABLE `institute`
@@ -890,7 +923,7 @@ ALTER TABLE `university`
 -- AUTO_INCREMENT for table `user_login`
 --
 ALTER TABLE `user_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

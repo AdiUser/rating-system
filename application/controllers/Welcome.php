@@ -38,6 +38,7 @@ class Welcome extends CI_Controller {
 
 		$this->load->view("add_university");
 	}
+	
 	public function faculty() {
 		$faculty_id = "FACT101"; // will come from session
 		$data = array();
@@ -167,5 +168,8 @@ class Welcome extends CI_Controller {
 	public function detail_load($qualification_id){
 	}
 
-	
+	public function faculty_promotion() {
+
+		$this->load->view("faculty_promotion");
+	}
 }
