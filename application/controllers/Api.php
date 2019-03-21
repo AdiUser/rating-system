@@ -22,6 +22,19 @@ class Api extends CI_Controller {
 			echo 0;
 		}
 	}
+	public function delete_department() {
+		$id = $this->input->get("id");
+		$res = $this->db->set('is_active', 0)
+				->where(array('id' => $id))
+				->update('departments');
+		//$res = $this->db->replace("departmental_activities", array('isActive' => 0));
+		if ($res) {
+			echo 1;
+		}
+		else {
+			echo 0;
+		}
+	}
 	public function save_activities() {
 		$hod_id = "4567"; // from session.
 		$faculty_id = "5678"; // from form.
@@ -53,6 +66,40 @@ class Api extends CI_Controller {
 
 		
 		if ($count == sizeof($p)) {
+			echo $str;
+		}
+		else {
+			echo 0;
+		}
+	}
+
+	public function save_departments() {
+		$hod_id = "4567"; // from session.
+		$faculty_id = "5678"; // from form.
+		$org_id = $this->session->user[0]->code;
+		$name = $this->input->post("name");
+		$code = $this->input->post("code");
+		$field_id = $this->input->post("field-id");
+		$insert_ids = array();
+		$count = 0;
+		$str = "";
+		foreach($name as $key=>$val) {
+			$details = array(
+				"org_id" => $org_id,
+				"department_name" => $name[$key],
+				"department_code" => $code[$key]
+			);
+			$res = $this->db->insert("departments", $details);
+			$idx = $this->db->insert_id();
+			array_push($insert_ids, $idx);
+			if ($res) {
+				$count++;
+				$str .= '<tr id="'.$field_id[$key].'"><td>'.$name[$key].'</td><td>'.$code[$key].'</td>';
+				$str .= '<td><button class="btn btn-danger dept-delete-new" data-id="'.$idx.'" data-delete="'.$field_id[$key].'"><i class="icons font-1xl d-block cui-circle-x"></i></button></td></tr>'; 
+			}
+		}
+
+		if ($count == sizeof($name)) {
 			echo $str;
 		}
 		else {
@@ -168,6 +215,62 @@ class Api extends CI_Controller {
 		}
 		else{
 			echo 0;
+		}
+	}
+
+	public function update_university_profile() {
+		$user = $this->session->user[0];
+		
+		$details = array (
+			"university_name" => $this->input->get("name"),
+			"address" => $this->input->get("address"),
+			"contact" => $this->input->get("contact"),
+			"email" => $this->input->get("email"),
+			"district" => $this->input->get("district"),
+			"postal_code" => $this->input->get("postal_code")
+		);
+		$res = $this->db->set($details)->where("university_code", $user->code)->update("university");
+		if ($this->db->affected_rows() == 1) {
+			$this->session->set_userdata("organisation", $this->getUserOrganisation($user->code));
+
+			echo 1;
+		}
+		else {
+			echo 0;
+		}
+
+	}
+
+	public function save_university_image() {
+
+		$user = $this->session->user[0];
+
+		$config['upload_path']="assets/img";
+        $config['allowed_types']='gif|jpg|png|PNG|JPEG|JPG';
+        $config['encrypt_name'] = TRUE;
+         
+        $this->load->library('upload',$config);
+        if($this->upload->do_upload("file_upload")){
+            $data = array('upload_data' => $this->upload->data());
+ 
+            $title= $this->input->post('title');
+            $image= $data['upload_data']['file_name']; 
+            $details = array(
+			"logo" => "assets/img/".$image
+			);
+
+			$res = $this->db->set($details)->where("university_code", $user->code)->update("university");
+			if ($this->db->affected_rows() == 1) {
+				$this->session->set_userdata("organisation", $this->getUserOrganisation($user->code));
+				echo 1;
+			}
+			else {
+				echo 0;
+			}
+		}
+		else {
+			 echo  $this->upload->display_errors();
+
 		}
 	}
 }

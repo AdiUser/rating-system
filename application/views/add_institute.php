@@ -145,32 +145,8 @@
                                             </div>
 
                                             
-                                            <div class="row">
-                                              <div class="col-md-12">
-                                                <div class="form-group">
-                                                  <div class="row">
-                                                    <div class="col-md-4"><label for="">Is this a Central Institute</label></div>
-                                                    <div class="col-md-5">
-                                                  <label class="switch switch-label switch-pill switch-outline-success-alt"> 
-                                                  <input class="switch-input" id="toggle-inpt" type="checkbox">
-                                                  <span class="switch-slider" data-checked="✓" data-unchecked="✕"></span>
-                                                  </label>
-                                                  <input type="text" name="isState" id="hidden-toggle-inpt" style="display: none">
-                                                </div>
-                                                </div>
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <script>
-                                              $("#toggle-inpt").on("change", function() {
-                                                if ($(this).prop("checked") === true){ 
-                                                    $("#hidden-toggle-inpt").val("1");
-                                                }
-                                                 else {
-                                                    $("#hidden-toggle-inpt").val("0");
-                                                  }
-                                              })
-                                            </script>
+                                            
+                                            
                                         </div>
                                         <div class="card-footer">
                                           <button class="btn btn-sm btn-primary" type="submit" name="submit">
@@ -192,18 +168,19 @@
                                         }
                                             if(isset($_POST['submit']))
                                             {
-                                            $Institute_code=$_POST['ucode'];
-                                            $Institute_name=$_POST['uname'];
+                                            $institute_code=$_POST['ucode'];
+                                            $institute_name=$_POST['uname'];
                                             $state=$_POST['ustate'];
                                             $postal_code=$_POST['postal'];
                                             $district=$_POST['udistrict'];
-                                            $isState = $_POST['isState'];
 
-                                            $sql = "INSERT INTO Institute_admin (Institute_code, Institute_name,`state`,district,postal_code,is_state)
-                                            VALUES ('$Institute_code', '$Institute_name','$state','$district','$postal_code','$isState')";
+                                            $sql = "INSERT INTO institute (parent_university_code,institute_code, institute_name,`state`,district,postal_code)
+                                            VALUES ('$parent_university', '$institute_code', '$institute_name','$state','$district','$postal_code')";
+                                            $p = md5($institute_code);
+                                            $create_login = "INSERT INTO user_login (code, username, password, role) values ('$institute_code', '$institute_code', '$p', 'institute')";
 
                                             
-                                        if (mysqli_query($conn, $sql)) {
+                                        if (mysqli_query($conn, $sql) && mysqli_query($conn, $create_login)) {
                                             
                                         } else {
                                             echo "Error: " . $sql . "<br>" . mysqli_error($conn);

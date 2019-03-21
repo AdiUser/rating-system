@@ -15260,3 +15260,8 @@ td {
 #example {
   background-color:#fff;
 }
+
+.media img {
+  max-width: 120px;
+  border-radius: 50%;
+}

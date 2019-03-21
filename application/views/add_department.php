@@ -95,36 +95,29 @@
                 <h5>Add/Edit Department</h5>
               </div>
               <div class="card-body">
+                 <form id="departments" method="post">
                 <table class="table table-bordered">
                   <thead>
-                    <tr><th>Department Name</th>
-                  </tr></thead>
-                  <tbody id="dept-activities-item">
-                    <tr id="abc">
-                      <td>Supported in Department Level Hackathon</td>
-                      <td>
-                        <button class="btn btn-danger dept-activities-delete-old" data-delete="abc"> 
-                          <i class="icons font-1xl d-block cui-circle-x"></i>
-                        </button>
-                      </td>
-                    </tr>
+                    <th>Department Name </th>
+                    <th>Department Code</th>
+                    <th>Settings</th>
+                  </thead>
+                  <tbody id="dept-item">
                     
-                  <tr id="str12185407188466757">
-                  <td>
-                  <input type="text" name="activity[]" class="form-control" placeholder="Enter Department name...">
-                  </td>
-                  </tr>
                   </tbody>
                 </table>
                 <div class="row">
                   <div class="col-md-3">
-                    <button class="btn btn-pill btn-block btn-info" type="button" id="dept-activities-add">Add More...</button>
+                    <button class="btn btn-pill btn-block btn-info" type="button" id="dept-add">Add More...</button>
                   </div>
                   <div class="col-md-3">
-                  <button class="btn btn-pill btn-block btn-success" type="button">Save <i class="icons font-1xl cui-check paddLeft10"></i></button>
+                     <button class="btn btn-pill btn-block btn-success" id="departments-save-btn" type="submit">Save <i class="icons font-1xl cui-check paddLeft10"></i></button>
 
                   </div>
                 </div>
+                </form>
+
+               
               </div>
                  
               </div>  
@@ -142,6 +135,83 @@
     </footer>
     <!-- CoreUI and necessary plugins-->
     <script src="assets/jquery/dist/jquery.min.js"></script>
+    <script>
+        $(function(){
+          $("#departments-save-btn").on("click", function(){
+             var dataString = $("#departments").serialize();
+
+              $.ajax({
+                  type: "POST",
+                  url: "save-department",
+                  data: dataString,
+                  beforeSend: function() {
+                    alert(dataString);
+                  },
+                  success: function(data){
+                      // alert('Successful!');
+                      alert(data);
+                      $("#dept-item").prepend(data);
+                      $("#departments").trigger("reset");
+                  },
+                  error: function(a,b,c) {
+                    alert("Error");
+                  }
+
+              });
+
+              return false;  //stop the actual form post !important!
+
+          });
+      });
+    </script>
+    <script>
+      $(document).ready(function(){
+          $(document).on("click", ".dept-delete-new", function(e) {
+          e.preventDefault();
+          console.log($(this)[0].dataset);
+          var dataset = $(this)[0].dataset;
+          $.ajax({
+            method: "GET",
+            url: "delete-department",
+            data: {id: dataset.id},
+            beforeSend: function() {
+              alert(dataset.id);
+            },
+            success: function(data) {
+              alert('SUCCESS');
+              alert(dataset.delete);
+              $("#"+dataset.delete).remove();
+
+              // SHOW FANCY ALERT BOX.
+            },
+            error: function() {
+              alert("ERROR!");
+            }
+          });
+        }); 
+
+         $(".dept-delete-old").on("click", function() {
+          console.log($(this)[0].dataset.delete);
+        }); 
+
+        $("#dept-add").on("click", function() {
+          var id = "str"+ Math.random().toString().split(".")[1];
+          var txt = '<tr id="'+id+'">'+
+                          '<td><input type="text" name="name[]" class="form-control" placeholder="Enter Department Name..."><input type="text" value="'+id+'" name="field-id[]" style="display: none">'+'</td>'+
+                          
+                          '<td>'+
+                            '<input type="text" name="code[]" class="form-control" placeholder="Enter Department Code...">'+
+                          '</td>'+
+                          '<td><button class="btn btn-danger dept-delete-new" data-delete="'+id+'" >'+
+                            '<i class="icons font-1xl d-block cui-circle-x"></i>'+
+                          '</button></td>'+
+                       ' </tr>';
+                       console.log(txt)
+          $("#dept-item").append(txt);
+        });
+
+      })
+    </script>
     <script src="assets/popper.js/dist/umd/popper.min.js"></script>
     <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/pace-progress/pace.min.js"></script>
@@ -150,6 +220,5 @@
     <!-- Plugins and scripts required by this view-->
     <script src="assets/chart.js/dist/Chart.min.js"></script>
     <script src="assets/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
-    <script src="assets/js/main.js"></script>
   </body>
 </html>

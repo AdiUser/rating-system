@@ -27,6 +27,8 @@
     <link href="assets/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+        <script src="assets/jquery/dist/jquery.min.js"></script>
+
     <script>
       window.dataLayer = window.dataLayer || [];
 
@@ -106,33 +108,89 @@
                                             <i class="icons font-1xl mt-5 cui-user-follow paddRight10"></i>Add University Data</a>
                                       </h5>
                                   </div>
+                                    <?php $o = $org[0]; ?>
+
                                   <div class="collapse show" id="collapseThree" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion" style="">
                                     <div class="card-body">
                                         <div class="card">
-                                       <form class="form" method="post">
                                         <div class="card-body">
                                         <div class="row" style="margin-bottom:20px">
                                           <div class="col-md-3">
-                                            <div class="media" style="height:120px;width:120px">
-                                              <img src="./assets/index.jpg">
+                                            <div class="media">
+                                              <img src="<?=isset($o->logo)?$o->logo:'./assets/index.jpg'?>" id="user-img">
+
                                             </div>
                                           </div>
                                           <div class="col-md-9">
-                                            <h2 style="text-align:center">University Name</h2>
-                                            <button class="btn btn-primary" type="button" style="margin-top:50px">+ Upload</button>
+                                            <form action="" id="img-submit">
+                                            <input type="file" id="pic" onchange="readURL(this);" name="file_upload" style="display: none;">
+                                            </form>
+                                            <!-- <h2 style="text-align:center"><?=$o->university_name?></h2> -->
+                                            <button class="btn btn-primary"id="upload-btn" type="button" style="margin-top:50px">+ Upload</button>
                                           </div>
                                         </div>
+                                        <script>
+                                            $("#upload-btn").on("click", function() {
+                                              $("#pic").click();
+                                            });
+
+                                            function readURL(input) {
+                                                if (input.files && input.files[0]) {
+                                                    var reader = new FileReader();
+
+                                                    reader.onload = function (e) {
+                                                        $('#user-img')
+                                                            .attr('src', e.target.result)
+                                                            .width(120)
+                                                            .height(120);
+                                                    };
+
+                                                    reader.readAsDataURL(input.files[0]);
+                                                    console.log($("#pic").val());
+                                                    $("#img-submit").submit();
+                                                    
+                                                }
+                                            }
+                                            $("#img-submit").submit(function(e) {
+                                              e.preventDefault();
+                                              $.ajax({
+                                                method: "POST",
+                                                url: "save-university-img",
+                                                data: new FormData(this),
+                                                processData:false,
+                                                contentType:false,
+                                                cache:false,
+                                                async:false,
+                                                beforeSend: function(){
+                                                  var formData = new FormData(this);
+                                                  for (var [key, value] of formData.entries()) { 
+                                                    console.log(key, value);
+                                                  }
+                                                },
+                                                success: function(data) {
+                                                  alert(data);
+                                                },
+                                                error: function() {
+                                                  alert("error");
+                                                }
+
+                                              });
+                                            });
+
+                                          </script>
+                                            <form class="form" id="details">
+
                                           <div class="row">
                                               <div class="col-md-7">
                                                 <div class="form-group" method="post">
                                                   <label for="company">University Name</label>
-                                                  <input class="form-control" name="uname" id="company" type="text" placeholder="Enter your university name">
+                                                  <input class="form-control" name="name" type="text" placeholder="Enter your University name" value="<?=isset($o->university_name)?$o->university_name:''?>" required>
                                                 </div>
                                               </div>
                                               <div class="col-md-5">
                                                 <div class="form-group" method="post">
                                                   <label for="vat">University Code</label>
-                                                  <input class="form-control" name="ucode" id="vat" type="text" placeholder="PL1234567890">
+                                                  <input class="form-control" name="ucode" id="vat" type="text" placeholder="University Code..." value="<?=isset($o->university_code)?$o->university_code:''?>" disabled required>
                                                 </div>
                                               </div>
                                             </div>
@@ -141,19 +199,19 @@
                                               <div class="col-md-4">
                                                 <div class="form-group" method="post">
                                                   <label for="street">State</label>
-                                                  <input class="form-control" name="ustate" id="street" type="text" placeholder="Select State name">
+                                                  <input class="form-control" name="state" id="street" type="text" placeholder="Enter State..." value="<?=isset($o->state)?$o->state:''?>" required>
                                                 </div>
                                               </div>
                                               <div class="col-md-4">
                                                 <div class="form-group" method="post">
                                                   <label for="street">District</label>
-                                                  <input class="form-control" name="udistrict" id="street" type="text" placeholder="Enter district name">
+                                                  <input class="form-control" name="district" id="street" type="text" placeholder="Enter district name" value="<?=isset($o->district)?$o->district:''?>" required>
                                                 </div>
                                               </div>
                                               <div class="col-md-4">
                                                 <div class="form-group" method="post">
                                                   <label for="street">Postal Code</label>
-                                                  <input class="form-control" name="postal" id="street" type="text" placeholder="Enter postal code">
+                                                  <input class="form-control" name="postal_code" id="street" type="text" placeholder="Enter postal code" value="<?=isset($o->postal_code)?$o->postal_code:''?>" required>
                                                 </div>
                                               </div>
                                             </div>
@@ -161,7 +219,7 @@
                                             <div class="col-md">
                                                 <div class="form-group" method="post">
                                                   <label for="company">University Address</label>
-                                                  <input class="form-control" name="uaddress" id="company" type="text" placeholder="Enter your university address">
+                                                  <input class="form-control" name="address" id="company" type="text" placeholder="Enter your university address" value="<?=isset($o->address)?$o->address:''?>" required>
                                                 </div>
                                               </div>
                                             </div>
@@ -169,7 +227,7 @@
                                             <div class="col-md-5">
                                                 <div class="form-group" method="post">
                                                   <label for="company">Contact Number</label>
-                                                  <input class="form-control" name="ucontact" id="company" type="text" placeholder="Enter your university address">
+                                                  <input class="form-control" name="contact" id="company" type="text" placeholder="Enter contact number..." value="<?=isset($o->contact)?$o->contact:''?>" required>
                                                 </div>
                                               </div>
                                             </div>
@@ -177,66 +235,39 @@
                                             <div class="col-md">
                                                 <div class="form-group" method="post">
                                                   <label for="company">Email</label>
-                                                  <input class="form-control" name="email" id="company" type="text" placeholder="Enter university email address">
+                                                  <input class="form-control" name="email" id="company" type="text" placeholder="Enter university email address" value="<?=isset($o->email)?$o->email:''?>">
                                                 </div>
                                               </div>
                                             </div>
-                                            <div class="row">
-                                              <div class="col-md-12">
-                                                <div class="form-group">
-                                                  <div class="row">
-                                                    <div class="col-md-4"><label for="">Is this a Central University</label></div>
-                                                    <div class="col-md-5">
-                                                  <label class="switch switch-label switch-pill switch-outline-success-alt"> 
-                                                  <input class="switch-input" type="checkbox">
-                                                  <span class="switch-slider" data-checked="✓" data-unchecked="✕"></span>
-                                                  </label>
-                                                </div>
-                                                </div>
-                                                </div>
-                                              </div>
-                                            </div>
+                                          </form>
+                                            
                                         </div>
                                         <div class="card-footer">
-                                          <button class="btn btn-sm btn-primary" type="submit" name="submit">
-                                              <i class="fa fa-dot-circle-o"></i> Submit</button>
+                                          <button class="btn btn-sm btn-primary" id="update-details-btn">
+                                              <i class="fa fa-dot-circle-o"></i> Update Details</button>
                                           <button class="btn btn-sm btn-danger" type="reset">
                                               <i class="fa fa-ban"></i> Reset</button>
                                         </div>
-                                        <?php
-                                        $servername = "localhost";
-                                        $username = "root";
-                                        $password = "";
-                                        $dbname = "aicte";
-                                        
-                                        // Create connection
-                                        $conn = mysqli_connect($servername, $username, $password, $dbname);
-                                        // Check connection
-                                        if (!$conn) {
-                                            die("Connection failed: " . mysqli_connect_error());
-                                        }
-                                            if(isset($_POST['submit']))
-                                            {
-                                            $university_code=$_POST['ucode'];
-                                            $university_name=$_POST['uname'];
-                                            $state=$_POST['ustate'];
-                                            $postal_code=$_POST['postal'];
-                                            $district=$_POST['udistrict'];
-                                            $contact=$_POST['ucontact'];
-                                            $university_address=$_POST['uaddress'];
-                                            $email=$_POST['email'];
-                                            $sql = "INSERT INTO aicte_admin (university_code, university_name,`state`,district,postal_code,contact,university_address, email)
-                                            VALUES ('$university_code', '$university_name','$state','$district','$postal_code','$contact',' $university_address', '$email')";
-                                            
-                                        if (mysqli_query($conn, $sql)) {
-                                            
-                                        } else {
-                                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                                        }
-                                      }
-                                        mysqli_close($conn);
-                                       ?>
-                                           </form>
+                                        <script>
+                                          $("#update-details-btn").on("click",function(e){
+                                            e.preventDefault();
+                                            var formData = $("#details").serialize();
+                                            $.ajax({
+                                              method: "GET",
+                                              url: "update-university-profile",
+                                              data: formData,
+                                              beforeSend: function() {
+                                                alert(formData);
+                                              },
+                                              success: function() {
+                                                alert("done");
+                                              },
+                                              error: function(){
+                                                alert("error");
+                                              }
+                                            });
+                                          });
+                                        </script>
                                         </div> 
                                       </div>
                                       
@@ -335,7 +366,6 @@
       </div>
     </footer>
     <!-- CoreUI and necessary plugins-->
-    <script src="assets/jquery/dist/jquery.min.js"></script>
     <script src="assets/popper.js/dist/umd/popper.min.js"></script>
     <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/pace-progress/pace.min.js"></script>
@@ -344,6 +374,5 @@
     <!-- Plugins and scripts required by this view-->
     <script src="assets/chart.js/dist/Chart.min.js"></script>
     <script src="assets/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
-    <script src="assets/js/main.js"></script>
   </body>
 </html>

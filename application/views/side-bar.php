@@ -34,7 +34,7 @@
                   }
                 ?>
                  <li class="nav-item">
-                    <a class="nav-link" href="/rating-system/university-admin">
+                    <a class="nav-link" href="/rating-system/university-details">
                       <i class="nav-icon icon-drop"></i>Edit Univesity Details</a>
                   </li>
                
@@ -102,6 +102,10 @@
                           <a class="nav-link" href="/rating-system/add-university">
                           <i class="nav-icon icon-drop"></i> Add University</a>
                         </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="/rating-system/faculty-list">
+                          <i class="nav-icon icon-drop"></i>Faculty List</a>
+                      </li>
                                  
                       <?php
                     }

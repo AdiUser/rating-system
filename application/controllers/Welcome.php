@@ -74,20 +74,28 @@ class Welcome extends CI_Controller {
 	}
 	public function add_institution() {
 
-		$this->load->view("add_institution");
+		$this->load->view("add_institution", $data);
 	}
 	public function add_institute() {
-
-		$this->load->view("add_institute");
+		$data["user"] = $this->session->user;
+		$data["org"]  = $this->session->organisation;
+		$data["parent_university"] = $data["user"][0]->code;
+		$this->load->view("add_institute", $data);
 	}
 	public function add_department() {
 
 		$this->load->view("add_department");
 	}
 
-	public function university_admin() {
 
-		$this->load->view("university_admin");
+	//university details.
+	public function university_admin() {
+		$user = $this->session->user[0];
+		$org = $this->session->organisation[0];
+		$data["user"] = $user;
+		$data["org"] = $org;
+		echo json_encode($org);
+		$this->load->view("university_admin",$data);
 	}
 	public function institute_admin() {
 

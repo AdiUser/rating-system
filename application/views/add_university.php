@@ -27,6 +27,8 @@
     <link href="assets/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+        <script src="assets/jquery/dist/jquery.min.js"></script>
+
     <script>
       window.dataLayer = window.dataLayer || [];
 
@@ -169,7 +171,8 @@
                                                  else {
                                                     $("#hidden-toggle-inpt").val("0");
                                                   }
-                                              })
+                                                  alert($("#hidden-toggle-inpt").val());
+                                              });
                                             </script>
                                         </div>
                                         <div class="card-footer">
@@ -199,11 +202,13 @@
                                             $district=$_POST['udistrict'];
                                             $isState = $_POST['isState'];
 
-                                            $sql = "INSERT INTO university_admin (university_code, university_name,`state`,district,postal_code,is_state)
+                                            $sql = "INSERT INTO university (university_code, university_name,`state`,district,postal_code,is_state_university)
                                             VALUES ('$university_code', '$university_name','$state','$district','$postal_code','$isState')";
+                                           $p = md5($university_code);
+                                            $create_login = "INSERT INTO user_login (code, username, password, role) values ('$university_code','$university_code','$p','university')";
 
                                             
-                                        if (mysqli_query($conn, $sql)) {
+                                        if (mysqli_query($conn, $sql) && mysqli_query($conn, $create_login)) {
                                             
                                         } else {
                                             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -217,6 +222,23 @@
                                       
                               </div>
                               </div>
+                              <div class="card mb-0">
+                                <div class="card-header" id="headingTwo" role="tab">
+                                  <h5 class="mb-0">
+                                  <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Add Universities via Excel</a>
+                                  </h5>
+                                  </div>
+                                  <div class="collapse" id="collapseTwo" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                                    <div class="card-body">
+                                      <div class="form-group row">
+                                        <label class="col-md-3 col-form-label" for="file-input">File input</label>
+                                        <div class="col-md-9">
+                                        <input id="file-input" type="file" name="file-input">
+                                        </div>
+                                      </div>  
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
 
                              
@@ -291,15 +313,12 @@
       </div>
     </footer>
     <!-- CoreUI and necessary plugins-->
-    <script src="assets/jquery/dist/jquery.min.js"></script>
     <script src="assets/popper.js/dist/umd/popper.min.js"></script>
     <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/pace-progress/pace.min.js"></script>
     <script src="assets/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
     <script src="assets/@coreui/coreui/dist/js/coreui.min.js"></script>
     <!-- Plugins and scripts required by this view-->
-    <script src="assets/chart.js/dist/Chart.min.js"></script>
     <script src="assets/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
-    <script src="assets/js/main.js"></script>
   </body>
 </html>
