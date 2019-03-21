@@ -54,6 +54,10 @@
                 <a class="nav-link" href="/rating-system/add-hod">
                     <i class="nav-icon icon-drop"></i>Create HOD Account</a>
                 </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/rating-system/hod_details">
+                    <i class="nav-icon icon-drop"></i>HOD</a>
+                </li>
                 <?php
               }
             ?>

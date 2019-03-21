@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2019 at 01:46 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Generation Time: Mar 20, 2019 at 08:46 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 5.6.39
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,18 @@ SET time_zone = "+00:00";
 --
 -- Database: `aicte`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `acr_points`
+--
+
+CREATE TABLE `acr_points` (
+  `serial` int(11) NOT NULL,
+  `faculty_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `points` int(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -98,6 +110,15 @@ CREATE TABLE `departments` (
   `department_code` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `departments`
+--
+
+INSERT INTO `departments` (`id`, `university_code`, `department_name`, `department_code`) VALUES
+(1, 0, 'Computer Science', 'CSE'),
+(2, 0, 'Electrical', 'EC'),
+(3, 0, 'Mechanical', 'ME');
+
 -- --------------------------------------------------------
 
 --
@@ -108,20 +129,23 @@ CREATE TABLE `faculty` (
   `serial` int(2) NOT NULL,
   `university_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `contact` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
   `qualification` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `date_of_joining` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `date_of_joining` date NOT NULL,
   `department` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `level` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `faculty_id` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+  `faculty_id` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `address` text COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(500) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `faculty`
 --
 
-INSERT INTO `faculty` (`serial`, `university_code`, `name`, `qualification`, `date_of_joining`, `department`, `level`, `faculty_id`) VALUES
-(1, 'geuddn', 'Aditya Saxena', '26', '01:01:2018 23:21', '1', '1', 'FACT101'),
-(2, 'geuddn', 'Aman Misra', '26', '03:04:2018 20:00', '1', '1', 'FACT102');
+INSERT INTO `faculty` (`serial`, `university_code`, `name`, `contact`, `qualification`, `date_of_joining`, `department`, `level`, `faculty_id`, `address`, `email`) VALUES
+(1, 'geuddn', 'faculty2', '1242312312', '26', '2019-03-06', '1', '1', 'FACT101', 'asdSDsad', 'SAFsdfDSF'),
+(2, 'geuddn', 'Aman Misra', '', '26', '2019-03-14', '1', '1', 'FACT102', '', '');
 
 -- --------------------------------------------------------
 
@@ -146,6 +170,18 @@ INSERT INTO `faculty_dept` (`id`, `name`) VALUES
 (5, 'Fine Arts'),
 (6, 'Design'),
 (7, 'Sciences and Humanities');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `input_qualification`
+--
+
+CREATE TABLE `input_qualification` (
+  `serial` int(11) NOT NULL,
+  `faculty_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `qualification` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -649,6 +685,12 @@ INSERT INTO `user_login` (`id`, `code`, `username`, `password`, `role`) VALUES
 --
 
 --
+-- Indexes for table `acr_points`
+--
+ALTER TABLE `acr_points`
+  ADD PRIMARY KEY (`serial`);
+
+--
 -- Indexes for table `activity`
 --
 ALTER TABLE `activity`
@@ -683,6 +725,12 @@ ALTER TABLE `faculty`
 --
 ALTER TABLE `faculty_dept`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `input_qualification`
+--
+ALTER TABLE `input_qualification`
+  ADD PRIMARY KEY (`serial`);
 
 --
 -- Indexes for table `institute`
@@ -770,7 +818,7 @@ ALTER TABLE `departmental_activities`
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `faculty`
@@ -800,7 +848,7 @@ ALTER TABLE `levels`
 -- AUTO_INCREMENT for table `min_qualifications`
 --
 ALTER TABLE `min_qualifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `min_requirements`
