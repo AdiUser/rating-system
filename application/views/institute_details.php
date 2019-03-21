@@ -16,7 +16,7 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>HOD</title>
+    <title>Institute Admin</title>
     <!-- Icons-->
     <link href="assets/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
     <link href="assets/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
@@ -27,7 +27,6 @@
     <link href="assets/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
-    <script src="assets/jquery/dist/jquery.min.js"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
 
@@ -53,26 +52,26 @@
       <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
         <span class="navbar-toggler-icon"></span>
       </button>
-      
+
       <ul class="nav navbar-nav ml-auto">
-       
+
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             <img class="img-avatar" src="assets/img/index.jpg" alt="">
           </a>
           <div class="dropdown-menu dropdown-menu-right">
-            
+
             <a class="dropdown-item" href="#">
               <i class="fa fa-user"></i> Profile</a>
             <a class="dropdown-item" href="#">
               <i class="fa fa-wrench"></i> Settings</a>
-            
+
             <a class="dropdown-item" href="#">
               <i class="fa fa-lock"></i> Logout</a>
           </div>
         </li>
       </ul>
-      
+    
     </header>
     <div class="app-body">
      <?php require_once('side-bar.php')?>
@@ -81,12 +80,12 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item">Home</li>
           <li class="breadcrumb-item">
-            <a href="hod_details">HOD</a>
+            <a href="Institute_admin">Institute</a>
           </li>
           <li class="breadcrumb-item">
-            <a href="hod_details">Add HOD Details</a>
+            <a href="Institute_admin">Institute Details</a>
           </li>
-          
+
         </ol>
         <div class="container-fluid">
           <div class="animated fadeIn">
@@ -96,7 +95,7 @@
                       <div class="card-header">
                           <i class="fa fa-align-justify"></i>
                           <!-- <i class="icons font-2xl d-block mt-5 cui-file"></i> -->
-                          HOD Details
+                            Institute Details
                       </div>
                       <div class="card-body">
                           <div id="accordion" role="tablist">
@@ -104,130 +103,147 @@
                                   <div class="card-header" id="headingThree" role="tab">
                                       <h5 class="mb-0">
                                           <a class="" data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                                            <i class="icons font-1xl mt-5 cui-user-follow paddRight10"></i></i>Add HOD Details</a>
+                                            <i class="icons font-1xl mt-5 cui-user-follow paddRight10"></i>Add Institute Data</a>
                                       </h5>
                                   </div>
                                   <div class="collapse show" id="collapseThree" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion" style="">
                                     <div class="card-body">
-                                    <div class="card">
-                                       
+                                        <div class="card">
+                                       <form class="form" method="post">
                                         <div class="card-body">
                                         <div class="row" style="margin-bottom:20px">
                                           <div class="col-md-3">
-                                            <div class="media">
-                                              <img src="./assets/index.jpg" style="width:100%">
+                                            <div class="media" style="height:120px;width:120px">
+                                              <img src="./assets/index.jpg">
                                             </div>
                                           </div>
                                           <div class="col-md-9">
-                                            <button class="btn btn-primary" type="button" style="margin-top:80px">+ Upload</button>
+                                            <h2 style="text-align:center">Institute Name</h2>
+                                            <button class="btn btn-primary" type="button" style="margin-top:50px">+ Upload</button>
                                           </div>
                                         </div>
-                                        <?php
-                                          if(isset($faculty_details[0]))
-                                              $d = $faculty_details[0];  
-                                        ?>
-                                        <form id="faculty_form" method="post">
-                                          <div class="form-group row">
-                                              <div class="col-md-2">
-                                                  <label for="company">Name</label>
-                                              </div>
-                                              <div class="col-md-8">
-                                                  <input class="form-control" name="faculty_name" id="company" type="text" placeholder="Enter HOD name"value="<?=$d->name?$d->name:''?>"> 
-                                              </div>
-                                          </div>
-                                              <div class="form-group row">
-                                                  <div class="col-md-2">
-                                                      <label for="vat">Contact</label>
-                                                  </div>
-                                                  <div class="col-md-5">
-                                                    <input class="form-control" name="faculty_contact" id="vat" type="text" placeholder="Contact" value="<?=$d->contact?$d->contact:''?>"> 
-                                                  </div>
-                                              </div>
-                                            
-                                            <div class="form-group row">
-                                              <div class="col-md-2">
-                                                  <label for="street">Address</label>
-                                              </div>
-                                              <div class="col-md-8">
-                                                  <input class="form-control" name="faculty_address" id="street" type="text" placeholder="Enter your address" value="<?=$d->address?$d->address:''?>"> 
-                                              </div>
-                                            </div>
-                                            <div class="form-group row">
-                                              <div class="col-md-2">
-                                                  <label for="street">Email</label>
-                                              </div>
-                                              <div class="col-md-8">
-                                                  <input class="form-control" id="street" name="faculty_email" type="text" placeholder="Enter email"value="<?=$d->email?$d->email:''?>"> 
-                                              </div>
-                                            </div>
-                                            <div class="form-group row">
-                                              <div class="col-md-2">
-                                                  <label for="street">Date Of Joining</label>
+                                          <div class="row">
+                                              <div class="col-md-7">
+                                                <div class="form-group" method="post">
+                                                  <label for="company">Institute Name</label>
+                                                  <input class="form-control" name="uname" id="company" type="text" placeholder="Enter your Institute name">
+                                                </div>
                                               </div>
                                               <div class="col-md-5">
-                                                  <input class="form-control" id="street" type="text" placeholder="dd/mm/yyyy" value="<?=$d->date_of_joining?$d->date_of_joining:''?>" disabled> 
+                                                <div class="form-group" method="post">
+                                                  <label for="vat">Institute Code</label>
+                                                  <input class="form-control" name="ucode" id="vat" type="text" placeholder="PL1234567890">
+                                                </div>
                                               </div>
                                             </div>
-                                            <div class="form-group row">
-                                              <div class="col-md-2">
-                                                  <label for="street">Department</label>
+                                            
+                                            <div class="row">
+                                              <div class="col-md-4">
+                                                <div class="form-group" method="post">
+                                                  <label for="street">State</label>
+                                                  <input class="form-control" name="ustate" id="street" type="text" placeholder="Select State name">
+                                                </div>
                                               </div>
-                                              <div class="col-md-8">
-                                                  <input class="form-control" id="street" type="text" placeholder="Enter department" value="<?=$d->department_name?$d->department_name:''?>" disabled>
+                                              <div class="col-md-4">
+                                                <div class="form-group" method="post">
+                                                  <label for="street">District</label>
+                                                  <input class="form-control" name="udistrict" id="street" type="text" placeholder="Enter district name">
+                                                </div>
                                               </div>
-                                            </div>
-                                            <div class="form-group row">
-                                              <div class="col-md-2">
-                                                  <label for="street">Level</label>
-                                              </div>
-                                              <div class="col-md-8">
-                                                  <input class="form-control" id="street" type="text" placeholder="Enter level" value="<?=$d->level?$d->level_name:''?>" disabled>
-                                              </div>
-                                            </div>
-                                            <div class="form-group row">
-                                              <div class="col-md-2">
-                                                  <label for="street">Faculty ID</label>
-                                              </div>
-                                              <div class="col-md-8">
-                                                  <input class="form-control" id="street" type="text" placeholder="Enter faculty Id" value="<?=$d->faculty_id?$d->faculty_id:''?>" disabled>
+                                              <div class="col-md-4">
+                                                <div class="form-group" method="post">
+                                                  <label for="street">Postal Code</label>
+                                                  <input class="form-control" name="postal" id="street" type="text" placeholder="Enter postal code">
+                                                </div>
                                               </div>
                                             </div>
-                                            </form>
+                                            <div class="row">
+                                            <div class="col-md">
+                                                <div class="form-group" method="post">
+                                                  <label for="company">Institute Address</label>
+                                                  <input class="form-control" name="uaddress" id="company" type="text" placeholder="Enter your Institute address">
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-group" method="post">
+                                                  <label for="company">Contact Number</label>
+                                                  <input class="form-control" name="ucontact" id="company" type="text" placeholder="Enter your Institute address">
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="row">
+                                            <div class="col-md">
+                                                <div class="form-group" method="post">
+                                                  <label for="company">Email</label>
+                                                  <input class="form-control" name="email" id="company" type="text" placeholder="Enter Institute email address">
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="row">
+                                              <div class="col-md-12">
+                                                <div class="form-group">
+                                                  <div class="row">
+                                                    <div class="col-md-4"><label for="">Is this a Central Institute</label></div>
+                                                    <div class="col-md-5">
+                                                  <label class="switch switch-label switch-pill switch-outline-success-alt"> 
+                                                  <input class="switch-input" type="checkbox">
+                                                  <span class="switch-slider" data-checked="✓" data-unchecked="✕"></span>
+                                                  </label>
+                                                </div>
+                                                </div>
+                                                </div>
+                                              </div>
+                                            </div>
                                         </div>
                                         <div class="card-footer">
-                                          <button class="btn btn-sm btn-primary"  id="faculty_submit" type="submit">
+                                          <button class="btn btn-sm btn-primary" type="submit" name="submit">
                                               <i class="fa fa-dot-circle-o"></i> Submit</button>
                                           <button class="btn btn-sm btn-danger" type="reset">
                                               <i class="fa fa-ban"></i> Reset</button>
+                                        </div>
+                                        <?php
+                                        $servername = "localhost";
+                                        $username = "root";
+                                        $password = "";
+                                        $dbname = "aicte";
+                                        
+                                        // Create connection
+                                        $conn = mysqli_connect($servername, $username, $password, $dbname);
+                                        // Check connection
+                                        if (!$conn) {
+                                            die("Connection failed: " . mysqli_connect_error());
+                                        }
+                                            if(isset($_POST['submit']))
+                                            {
+                                            $Institute_code=$_POST['ucode'];
+                                            $Institute_name=$_POST['uname'];
+                                            $state=$_POST['ustate'];
+                                            $postal_code=$_POST['postal'];
+                                            $district=$_POST['udistrict'];
+                                            $contact=$_POST['ucontact'];
+                                            $Institute_address=$_POST['uaddress'];
+                                            $email=$_POST['email'];
+                                            $sql = "INSERT INTO aicte_admin (Institute_code, Institute_name,`state`,district,postal_code,contact,Institute_address, email)
+                                            VALUES ('$Institute_code', '$Institute_name','$state','$district','$postal_code','$contact',' $Institute_address', '$email')";
+                                            
+                                        if (mysqli_query($conn, $sql)) {
+                                            
+                                        } else {
+                                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                        }
+                                      }
+                                        mysqli_close($conn);
+                                       ?>
+                                           </form>
+                                        </div> 
                                       </div>
-                                    </div> 
-                                  </div>
-                                  </div>
+                                      
                               </div>
-                              
                               </div>
-                              <script>
-                                                $('#faculty_submit').on("click", function(){
-                                                  var formData = $("#faculty_form").serialize();
-                                                  
-                                                  $.ajax({
-                                                    method: "POST",
-                                                    url: "update-hod-profile",
-                                                    data: formData,
-                                                    beforeSend: function() {
-                                                      alert(formData);
-                                                    },
-                                                    success: function(data){
-                                                      if(data=='1') {
-                                                        alert('SUCCESS');
-                                                      }
-                                                      else{
-                                                        alert('ERROR');
-                                                      }
-                                                    }
-                                                  });
-                                                });
-                                              </script>
+                              </div>
+
                              
                           </div>
                       </div>
@@ -244,7 +260,7 @@
                         </div>
                         <div class="info-section">
                           <div class="name"><a href="">
-                            Graphic Era Deemed to be University
+                            Graphic Era Deemed to be Institute
                             </a>
                           </div>
                           <div class="location d-flex">
@@ -265,7 +281,7 @@
                         </div>
                         <div class="info-section">
                           <div class="name"><a href="">
-                            DIT University
+                            DIT Institute
                             </a>
                           </div>
                           <div class="location d-flex">
@@ -286,7 +302,7 @@
                         </div>
                         <div class="info-section">
                           <div class="name"><a href="">
-                            Dehradun University
+                            Dehradun Institute
                             </a>
                           </div>
                           <div class="location d-flex">
@@ -310,24 +326,24 @@
           </div>
         </div>
       </main>
-      
+     
     </div>
     <footer class="app-footer">
-      <div>
+      <div >
         <a href="https://www.aicte-india.org">AICTE</a>
         <span>&copy; 2019 AICTE</span>
       </div>
     </footer>
     <!-- CoreUI and necessary plugins-->
-    
+    <script src="assets/jquery/dist/jquery.min.js"></script>
     <script src="assets/popper.js/dist/umd/popper.min.js"></script>
     <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/pace-progress/pace.min.js"></script>
     <script src="assets/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
     <script src="assets/@coreui/coreui/dist/js/coreui.min.js"></script>
     <!-- Plugins and scripts required by this view-->
-  
+    <script src="assets/chart.js/dist/Chart.min.js"></script>
     <script src="assets/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
-    
+    <script src="assets/js/main.js"></script>
   </body>
 </html>

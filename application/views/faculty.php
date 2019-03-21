@@ -173,7 +173,7 @@
                                                       <label for="vat">Contact</label>
                                                   </div>
                                                   <div class="col-md-5">
-                                                    <input class="form-control" name="faculty_contact" id="vat" type="text" placeholder="Contact" value="<?=$d->contact?$d->contact:''?>">
+                                                    <input class="form-control" name="faculty_contact" id="vat" type="text" placeholder="Contact" value="<?=isset($d->contact)?$d->contact:''?>">
                                                   </div>
                                               </div>
                                             
@@ -183,7 +183,7 @@
                                               </div>
                                               <div class="col-md-8">
                                                   <input class="form-control" name="faculty_address" id="street" type="text" placeholder="Enter your address"
-                                                  value="<?=$d->address?$d->address:''?>">
+                                                  value="<?=isset($d->address)?$d->address:''?>">
                                               </div>
                                             </div>
                                             <div class="form-group row">
@@ -192,7 +192,7 @@
                                               </div>
                                               <div class="col-md-8">
                                                   <input class="form-control" name="faculty_email" id="street" type="text" placeholder="Enter email"
-                                                  value="<?=$d->email?$d->email:''?>">
+                                                  value="<?=isset($d->email)?$d->email:''?>">
                                               </div>
                                             </div>
                                             <div class="form-group row">
@@ -200,7 +200,7 @@
                                                   <label for="street">Date Of Joining</label>
                                               </div>
                                               <div class="col-md-5">
-                                                  <input class="form-control" name="joining_date" id="street" type="date" placeholder="dd/mm/yyyy" value="<?=$d->date_of_joining?$d->date_of_joining:''?>" disabled> 
+                                                  <input class="form-control" name="joining_date" id="street" type="date" placeholder="dd/mm/yyyy" value="<?=isset($d->date_of_joining)?$d->date_of_joining:''?>" disabled> 
                                               </div>
                                             </div>
                                             <div class="form-group row">

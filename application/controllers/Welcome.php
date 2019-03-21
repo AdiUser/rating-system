@@ -39,16 +39,18 @@ class Welcome extends CI_Controller {
 		$this->load->view("add_university");
 	}
 	public function faculty() {
-		$faculty_id = "fact101"; // will come from session
-		$res = $this->db->where(["faculty_id" => $faculty_id])->get("faculty")->result();
+		$faculty_id = "FACT101"; // will come from session
+		$data = array();
+		//$res = $this->db->where(["faculty_id" => $faculty_id])->get("faculty")->result();
 		$res = $this->db->select("*")
 			->from("faculty")
 			->join("levels", "levels.id = faculty.level")
 			->join("departments", "departments.id = faculty.department")
-			->where(["faculty_id"=>$faculty_id])
-			->get();
-		if (sizeof($res) >0 ) {
-			$data["faculty_details"] = $res->result();
+			->where("faculty_id", $faculty_id)
+			->get()->result();
+			echo json_encode($res);
+		if (sizeof($res) > 0) {
+			$data["faculty_details"] = $res;
 		}
 		$this->load->view("faculty", $data);
 	}
@@ -57,22 +59,26 @@ class Welcome extends CI_Controller {
 		$this->load->view("add_hod");
 	}
 	public function hod_details() {
-		$faculty_id = "fact101"; // will come from session
+		$faculty_id = "fact102"; // will come from session
 		$res = $this->db->where(["faculty_id" => $faculty_id])->get("faculty")->result();
 		$res = $this->db->select("*")
 			->from("faculty")
 			->join("levels", "levels.id = faculty.level")
 			->join("departments", "departments.id = faculty.department")
-			->where(["faculty_id"=>$faculty_id])
-			->get();
+			->where("faculty_id", $faculty_id)
+			->get()->result();
 		if (sizeof($res) >0 ) {
-			$data["faculty_details"] = $res->result();
+			$data["faculty_details"] = $res;
 		}
 		$this->load->view("hod_details",$data);
 	}
 	public function add_institution() {
 
 		$this->load->view("add_institution");
+	}
+	public function add_institute() {
+
+		$this->load->view("add_institute");
 	}
 	public function add_department() {
 
@@ -82,6 +88,10 @@ class Welcome extends CI_Controller {
 	public function university_admin() {
 
 		$this->load->view("university_admin");
+	}
+	public function institute_admin() {
+
+		$this->load->view("institute_details");
 	}
 
 	public function HOD_show_faculty() {

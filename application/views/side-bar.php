@@ -1,6 +1,13 @@
 <?php
     
-    $accessControll = 0;
+   $user = $this->session->user;
+   $org = $this->session->organisation;
+   if (isset($org[0]->is_state_university))
+      $is_state = $org[0]->is_state_university;
+   else 
+    $is_state = 0;
+   $user_type = $user[0]->role;
+   $accessControll = 0;
 
 ?>
  <div class="sidebar" style="z-index: 1">
@@ -16,36 +23,21 @@
             <!-- // -->
             <li class="nav-title">Upload Data </li>
             <?php 
-              if ($accessControll == 0) {
+              if ($user_type == "university") {
+                  if ($is_state == 1) {
+                    ?>
+                <li class="nav-item">
+                  <a class="nav-link" href="/rating-system/add-institute">
+                    <i class="nav-icon icon-drop"></i> Add New Institutes</a>
+                </li>
+                    <?php
+                  }
                 ?>
-                <li class="nav-item">
-                  <a class="nav-link" href="/rating-system/add-university">
-                    <i class="nav-icon icon-drop"></i> Add University</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/rating-system/faculty">
-                    <i class="nav-icon icon-drop"></i>Faculty</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/rating-system/facultyQualifications">
-                    <i class="nav-icon icon-drop"></i>Qualifications</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="HOD/faculty-list">
-                    <i class="nav-icon icon-drop"></i>Faculty List</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="/rating-system/faculty-activity">
-                    <i class="nav-icon icon-drop"></i>Activities</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="/rating-system/university-admin">
-                    <i class="nav-icon icon-drop"></i>Univesity Admin</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="/rating-system/add-institution">
-                    <i class="nav-icon icon-drop"></i>Add Institutions</a>
-                </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="/rating-system/university-admin">
+                      <i class="nav-icon icon-drop"></i>Edit Univesity Details</a>
+                  </li>
+               
                 <li class="nav-item">
                 <a class="nav-link" href="/rating-system/add-department">
                     <i class="nav-icon icon-drop"></i>Add Department</a>
@@ -55,12 +47,118 @@
                     <i class="nav-icon icon-drop"></i>Create HOD Account</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/rating-system/hod_details">
-                    <i class="nav-icon icon-drop"></i>HOD</a>
+                  <a class="nav-link" href="HOD/faculty-list">
+                    <i class="nav-icon icon-drop"></i>Faculty List</a>
                 </li>
-                <?php
-              }
-            ?>
+
+                  <?php
+                    }
+                    else if($user_type == 'head-of-department') {
+                      ?>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/rating-system/hod_details">
+                        <i class="nav-icon icon-drop"></i>Edit Details</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="/rating-system/add-faculty">
+                        <i class="nav-icon icon-drop"></i> Add Faculty</a>
+                      </li>
+                      
+                      
+                      <li class="nav-item">
+                        <a class="nav-link" href="HOD/faculty-list">
+                          <i class="nav-icon icon-drop"></i>Faculty List</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/rating-system/faculty-activity">
+                          <i class="nav-icon icon-drop"></i>Add/Edit Activities</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/rating-system/facultyQualifications">
+                          <i class="nav-icon icon-drop"></i>Qualifications</a>
+                      </li>
+                      <?php
+                    }
+                    else if ($user_type == 'faculty') {
+                      ?>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/rating-system/faculty-details">
+                        <i class="nav-icon icon-drop"></i>Edit Details</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/rating-system/faculty-activity">
+                          <i class="nav-icon icon-drop"></i>Add/Edit Activities</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/rating-system/facultyQualifications">
+                          <i class="nav-icon icon-drop"></i>Qualifications</a>
+                      </li>
+
+                      <?php
+                    }
+                    else if($user_type == "admin") {
+                      ?>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/rating-system/add-university">
+                          <i class="nav-icon icon-drop"></i> Add University</a>
+                        </li>
+                                 
+                      <?php
+                    }
+
+                    else if($user_type == "institute") {
+                      ?>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/rating-system/university-details">
+                      <i class="nav-icon icon-drop"></i>Edit Institute Details</a>
+                  </li>
+               
+                <li class="nav-item">
+                <a class="nav-link" href="/rating-system/add-department">
+                    <i class="nav-icon icon-drop"></i>Add Department</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/rating-system/add-hod">
+                    <i class="nav-icon icon-drop"></i>Create HOD Account</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/rating-system/faculty-list">
+                    <i class="nav-icon icon-drop"></i>Faculty List</a>
+                </li>
+                      <?php
+                    }
+                  ?>
+                 <!-- <li class="nav-item">
+                  <a class="nav-link" href="/rating-system/add-university">
+                    <i class="nav-icon icon-drop"></i> Add University</a>
+                                 </li>
+                                 
+                 
+                                 <li class="nav-item">
+                  <a class="nav-link" href="/rating-system/faculty">
+                    <i class="nav-icon icon-drop"></i>Faculty</a>
+                                 </li>
+                                 <li class="nav-item">
+                  <a class="nav-link" href="/rating-system/facultyQualifications">
+                    <i class="nav-icon icon-drop"></i>Qualifications</a>
+                                 </li>
+                                 
+                                 <li class="nav-item">
+                                 <a class="nav-link" href="/rating-system/faculty-activity">
+                    <i class="nav-icon icon-drop"></i>Activities</a>
+                                 </li>
+                                
+                                 <li class="nav-item">
+                                 <a class="nav-link" href="/rating-system/add-institution">
+                    <i class="nav-icon icon-drop"></i>Add Institutions</a>
+                                 </li>
+                                 
+                                 
+                                 <li class="nav-item">
+                                 <a class="nav-link" href="/rating-system/hod_details">
+                    <i class="nav-icon icon-drop"></i>HOD</a>
+                                 </li>
+                                -->
             
             <!-- <li class="nav-item">
               <a class="nav-link" href="typography.html">
