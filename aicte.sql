@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2019 at 07:27 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 5.6.39
+-- Generation Time: Mar 21, 2019 at 07:38 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -105,19 +105,26 @@ CREATE TABLE `departmental_activities` (
 
 CREATE TABLE `departments` (
   `id` int(10) NOT NULL,
-  `university_code` int(10) DEFAULT NULL,
+  `org_id` varchar(100) DEFAULT NULL,
   `department_name` varchar(100) DEFAULT NULL,
-  `department_code` varchar(50) DEFAULT NULL
+  `department_code` varchar(50) DEFAULT NULL,
+  `is_active` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `departments`
 --
 
-INSERT INTO `departments` (`id`, `university_code`, `department_name`, `department_code`) VALUES
-(1, 0, 'Computer Science', 'CSE'),
-(2, 0, 'Electrical', 'EC'),
-(3, 0, 'Mechanical', 'ME');
+INSERT INTO `departments` (`id`, `org_id`, `department_name`, `department_code`, `is_active`) VALUES
+(1, '0', 'Computer Science', 'CSE', 1),
+(2, '0', 'Electrical', 'EC', 1),
+(3, '0', 'Mechanical', 'ME', 1),
+(4, 'GEUDDN', 'Computer Sciece', 'CSE', 1),
+(5, 'GEUDDN', 'Mechanical Engg.', 'ME', 1),
+(6, 'GEUDDN', 'Biotech', 'BIO1Z6', 1),
+(7, 'GEUDDN', 'dfghjk', 'dfghjk', 1),
+(8, 'GEUDDN', 'fgjkl', 'y', 1),
+(9, 'GEUDDN', 'dsfg', 'sdfd', 0);
 
 -- --------------------------------------------------------
 
@@ -144,8 +151,8 @@ CREATE TABLE `faculty` (
 --
 
 INSERT INTO `faculty` (`serial`, `university_code`, `name`, `contact`, `qualification`, `date_of_joining`, `department`, `level`, `faculty_id`, `address`, `email`) VALUES
-(1, 'geuddn', 'faculty2', '1242312312', '26', '2019-03-06', '1', '1', 'FACT101', 'asdSDsad', 'SAFsdfDSF'),
-(2, 'geuddn', 'Aman Misra', '', '26', '2019-03-14', '1', '1', 'FACT102', '', '');
+(1, 'geuddn', 'faculty2', '9897171001', '26', '2019-03-06', '1', '1', 'FACT101', 'asdSDsad', 'SAFsdfDSF'),
+(2, 'geuddn', 'Aman Misra', '', '26', '2019-03-14', '1', '6', 'FACT102', '', '');
 
 -- --------------------------------------------------------
 
@@ -174,23 +181,6 @@ INSERT INTO `faculty_dept` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `faculty_promotion`
---
-
-CREATE TABLE `faculty_promotion` (
-  `id` int(2) NOT NULL,
-  `faculty_id` int(10) DEFAULT NULL,
-  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `position` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `promotion_to` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `service_years` int(50) DEFAULT NULL,
-  `feedback_score` int(50) DEFAULT NULL,
-  `salary` int(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `input_qualification`
 --
 
@@ -199,6 +189,13 @@ CREATE TABLE `input_qualification` (
   `faculty_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `qualification` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `input_qualification`
+--
+
+INSERT INTO `input_qualification` (`serial`, `faculty_id`, `qualification`) VALUES
+(0, 'FACT5672', '29,36,41');
 
 -- --------------------------------------------------------
 
@@ -211,15 +208,18 @@ CREATE TABLE `institute` (
   `parent_university_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `institute_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `institute_name` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
-  `state` varchar(10) COLLATE utf8_unicode_ci NOT NULL
+  `state` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `district` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `postal_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `institute`
 --
 
-INSERT INTO `institute` (`serial`, `parent_university_code`, `institute_code`, `institute_name`, `state`) VALUES
-(1, 'GEUDDN', 'GEHUDDN', 'Graphic Era Hill Uni', 'Uttrakhand');
+INSERT INTO `institute` (`serial`, `parent_university_code`, `institute_code`, `institute_name`, `state`, `district`, `postal_code`) VALUES
+(1, 'GEUDDN', 'GEHUDDN1', 'Graphic Era Hill Uni', 'Uttrakhand', '', ''),
+(2, 'GEUDDN', '6789', 'GEU-INST', 'Uttrakhand', 'Dehradun', '248002');
 
 -- --------------------------------------------------------
 
@@ -665,15 +665,23 @@ CREATE TABLE `university` (
   `university_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `university_name` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `state` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `is_state_university` int(2) NOT NULL
+  `is_state_university` int(2) NOT NULL,
+  `district` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `postal_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `address` text COLLATE utf8_unicode_ci NOT NULL,
+  `contact` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `logo` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `university`
 --
 
-INSERT INTO `university` (`serial`, `university_code`, `university_name`, `state`, `is_state_university`) VALUES
-(1, 'GEUDDN', 'Graphic Era Universi', 'Uttrakhand', 1);
+INSERT INTO `university` (`serial`, `university_code`, `university_name`, `state`, `is_state_university`, `district`, `postal_code`, `address`, `contact`, `email`, `logo`) VALUES
+(1, 'GEUDDN', 'Graphic Era University', 'Uttrakhand', 1, 'fghjkl', '2346578', 'ertyuiertyui', '344567890', '34567890', 'assets/img/4e274bf64c69ac5604d4997fcbcd70a8.jpg'),
+(7, '6567899', 'My Custom University 2', 'DFGHJK', 1, 'FGHJK', '56879900', '', '', '', ''),
+(11, 'GHJK', 'GHSDHJ', 'GHJK', 1, 'HJK', 'JK', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -696,10 +704,11 @@ CREATE TABLE `user_login` (
 INSERT INTO `user_login` (`id`, `code`, `username`, `password`, `role`) VALUES
 (1, 'GEUDDN', 'geu', '61dfe5971515d0d8ba5f6c5f99e5700c', 'university'),
 (2, 'GEHUDDN', 'gehu', '4a6a6e51843d2ba4a67c344825ab4ab1', 'institute'),
-(3, 'GEU', 'admin1', 'e10adc3949ba59abbe56e057f20f883e', 'university'),
-(4, 'GEUDDN', 'faculty1', '9256f177e09e1f3f6f860a86373b3aad', 'faculty'),
-(5, 'GEUDDN', 'student', 'e13dd027be0f2152ce387ac0ea83d863', 'student'),
-(6, 'GEUDDN', 'hod1', '9256f177e09e1f3f6f860a86373b3aad', 'head-of-department');
+(3, 'geuddn', 'hod', '17d84f171d54c301fabae1391a125c4e', 'head-of-department'),
+(4, 'geuddn', 'faculty', 'd561c7c03c1f2831904823a95835ff5f', 'faculty'),
+(5, 'geuddn', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
+(8, 'GHJK', 'GHJK', 'cdee058ed6a1c749a0a987a0147ab9e8', 'university'),
+(9, '6789', '6789', '46d045ff5190f6ea93739da6c0aa19bc', 'institute');
 
 --
 -- Indexes for dumped tables
@@ -745,12 +754,6 @@ ALTER TABLE `faculty`
 -- Indexes for table `faculty_dept`
 --
 ALTER TABLE `faculty_dept`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `faculty_promotion`
---
-ALTER TABLE `faculty_promotion`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -845,7 +848,7 @@ ALTER TABLE `departmental_activities`
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `faculty`
@@ -860,16 +863,10 @@ ALTER TABLE `faculty_dept`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `faculty_promotion`
---
-ALTER TABLE `faculty_promotion`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `institute`
 --
 ALTER TABLE `institute`
-  MODIFY `serial` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `serial` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `levels`
@@ -917,13 +914,13 @@ ALTER TABLE `test`
 -- AUTO_INCREMENT for table `university`
 --
 ALTER TABLE `university`
-  MODIFY `serial` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `serial` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `user_login`
 --
 ALTER TABLE `user_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
