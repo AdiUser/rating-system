@@ -247,9 +247,6 @@
                                 echo "<pre>".print_r($ids, true);
                                 $collection_ids = $ids['qualification'] . "," . $val;
                                 echo "<br>--".$collection_ids . "--";
-                                
-                                
-
                                 $sql = "UPDATE input_qualification SET qualification = '$collection_ids' WHERE faculty_id = '$faculty_id'";
                                 echo "<br>".$sql;
                                 if(mysqli_query($conn, $sql)) {

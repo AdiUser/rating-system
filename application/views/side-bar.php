@@ -35,23 +35,23 @@
                     <i class="nav-icon icon-drop"></i>Faculty List</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/rating-system/faculty_activity">
+                <a class="nav-link" href="/rating-system/faculty-activity">
                     <i class="nav-icon icon-drop"></i>Activities</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/rating-system/university_admin">
+                <a class="nav-link" href="/rating-system/university-admin">
                     <i class="nav-icon icon-drop"></i>Univesity Admin</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/rating-system/add_institution">
+                <a class="nav-link" href="/rating-system/add-institution">
                     <i class="nav-icon icon-drop"></i>Add Institutions</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/rating-system/add_department">
+                <a class="nav-link" href="/rating-system/add-department">
                     <i class="nav-icon icon-drop"></i>Add Department</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/rating-system/add_hod">
+                <a class="nav-link" href="/rating-system/add-hod">
                     <i class="nav-icon icon-drop"></i>Create HOD Account</a>
                 </li>
                 <?php
