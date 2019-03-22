@@ -98,8 +98,8 @@
                       <table class="table-responsive-sm table-bordered">
                       <thead>
                       <tr>
-                      <td>Qualification</td>
-                      <td>Proof</td>
+                        <th>Qualifications required for promotion</th>
+                        <th>Proof</th>
                       </tr>
                       </thead>
                       <tbody>

@@ -139,6 +139,7 @@ class Api extends CI_Controller {
 			$organisation = $this->getUserOrganisation($user[0]->code);		
 			if (in_array($user[0]->role, $faculties)) {
 				// get user object.
+				echo "INSIDE";
 				$user_details = $this->getUser($user[0]->username);
 				$this->session->set_userdata("user_details", $user_details);
 				echo json_encode($user_details);
@@ -152,7 +153,6 @@ class Api extends CI_Controller {
 			echo 0;
 		}
 		
-
 	}
 
 	public function update_faculty_profile() {
