@@ -27,6 +27,7 @@
     <link href="assets/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" />
         <script src="assets/jquery/dist/jquery.min.js"></script>
 
     <script>
@@ -199,7 +200,26 @@
                                       alert($("#hod-add-form").serialize());
                                     },  
                                     success: function(data) {
+                                      if(data==1) {
+                                                    iziToast.show({
+                                                        title: 'Success',
+                                                        message: 'HOD Added Successfully',
+                                                        position: 'topCenter',
+                                                        color: 'green',
+                                                        timeout: '2500'
+                                                    });
+                                                  }
+                                                  else{
+                                                          iziToast.error({
+                                                          title: 'Error',
+                                                          message: 'Could Not Add HOD',
+                                                          position: 'topCenter',
+                                                          color: 'red',
+                                                          timeout: '2500'
+                                                       });
+                                                  }
                                       alert(data);
+
                                       $("#hod-add-form").trigger("reset");
                                     },
                                     error: function() {
@@ -340,6 +360,7 @@
     <script src="assets/pace-progress/pace.min.js"></script>
     <script src="assets/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
     <script src="assets/@coreui/coreui/dist/js/coreui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script> 
     <!-- Plugins and scripts required by this view-->
     <script src="assets/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
   </body>
