@@ -136,7 +136,7 @@ class Api extends CI_Controller {
 		$faculties = array("head-of-department", "faculty");	
 		if ($result && $result->num_rows() == 1) {
 			$user = $result->result();
-			$organisation = $this->getUserOrganisation($user[0]->username);		
+			$organisation = $this->getUserOrganisation($user[0]->code);		
 			if (in_array($user[0]->role, $faculties)) {
 				// get user object.
 				echo "INSIDE";
@@ -152,7 +152,6 @@ class Api extends CI_Controller {
 			echo 0;
 		}
 		
-
 	}
 
 	public function update_faculty_profile() {
