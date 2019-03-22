@@ -174,7 +174,7 @@ class Welcome extends CI_Controller {
 			}
 		}
 		$data['qualifications'] = $ids_verbose;
-		echo "<pre>".print_r($this->session, true);
+		//echo "<pre>".print_r($this->session, true);
 		$this->load->view("faculty_qualifications", $data);
 	}
 	
