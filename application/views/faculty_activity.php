@@ -27,6 +27,8 @@
     <link href="assets/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+        <script src="assets/jquery/dist/jquery.min.js"></script>
+
     <script>
       window.dataLayer = window.dataLayer || [];
 
@@ -94,38 +96,34 @@
                    <div class="card-header">
                 <h5>Add/Edit Department Activities</h5>
               </div>
+              <form action="" id="activity-form" method="post" enctype="multipart/form-data">
               <div class="card-body">
+                
                 <table class="table table-bordered">
                   <thead>
                     <tr><th>Activity Name </th>
-                    <th>Semester</th>
-                    <th>Points</th>
+                    <th>Activity Type</th>
+                    <th>Proof</th>
                     <th>Settings</th>
                   </tr></thead>
-                  <tbody id="dept-activities-item">
-                    <tr id="abc">
-                      <td>Supported in Department Level Hackathon</td>
-                      <td>2</td>
-                      <td>3</td>
-                      <td>
-                        <button class="btn btn-danger dept-activities-delete-old" data-delete="abc"> 
-                          <i class="icons font-1xl d-block cui-circle-x"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    
-                  <tr id="str12185407188466757"><td><input type="text" name="activity[]" class="form-control" placeholder="Enter Activity name..."></td><td><select name="semister[]" id="" class="form-control"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select></td><td><input type="number" name="points[]" class="form-control"></td><td><button class="btn btn-danger dept-activities-delete-new" data-delete="str12185407188466757"><i class="icons font-1xl d-block cui-circle-x"></i></button></td> </tr></tbody>
+                  
+                    <tbody id="activities-item">
+                     
+                      
+                   </tbody>
+                 
                 </table>
                 <div class="row">
                   <div class="col-md-3">
-                    <button class="btn btn-pill btn-block btn-info" type="button" id="dept-activities-add">Add More...</button>
+                    <button class="btn btn-pill btn-block btn-info" type="button" id="activity-add">Add More...</button>
                   </div>
                   <div class="col-md-3">
-                  <button class="btn btn-pill btn-block btn-success" type="button">Save <i class="icons font-1xl cui-check paddLeft10"></i></button>
+                  <button class="btn btn-pill btn-block btn-success" type="submit" id="activity-save-btn">Save <i class="icons font-1xl cui-check paddLeft10"></i></button>
 
                   </div>
                 </div>
               </div>
+            </form>
                  
               </div>  
           </div>
@@ -133,22 +131,101 @@
       </main>
      
     </div>
+    <script>
+        $(function(){
+          $("#activity-form").submit(function(e){
+            e.preventDefault();
+             var dataString = new FormData($("#activity-form"));
+
+              $.ajax({
+                  type: "POST",
+                  url: "save-activities",
+                  data: dataString,
+                  processData: false,
+                  contentType: false,
+                  beforeSend: function() {
+                    alert(dataString);
+                  },
+                  success: function(data){
+                      // alert('Successful!');
+                      alert(data);
+                      $("#dept-item").prepend(data);
+                      $("#departments").trigger("reset");
+                  },
+                  error: function(a,b,c) {
+                    alert("Error");
+                  }
+
+              });
+
+              return false;  //stop the actual form post !important!
+
+          });
+      });
+    </script>
+    <script>
+      $(document).ready(function(){
+          $(document).on("click", ".activity-delete", function(e) {
+          e.preventDefault();
+          console.log($(this)[0].dataset);
+          var dataset = $(this)[0].dataset;
+          $.ajax({
+            method: "GET",
+            url: "delete-activity",
+            data: {id: dataset.id},
+            beforeSend: function() {
+              alert(dataset.id);
+            },
+            success: function(data) {
+              alert('SUCCESS');
+              alert(dataset.delete);
+              $("#"+dataset.delete).remove();
+
+              // SHOW FANCY ALERT BOX.
+            },
+            error: function() {
+              alert("ERROR!");
+            }
+          });
+        }); 
+
+         $(".dept-delete-old").on("click", function() {
+          console.log($(this)[0].dataset.delete);
+        }); 
+
+        $("#activity-add").on("click", function() {
+          var id = "str"+ Math.random().toString().split(".")[1];
+          var txt = '<tr id="'+id+'">'+
+                          '<td><input type="text" name="name[]" class="form-control" placeholder="Enter Activity Name..." required><input type="text" value="'+id+'" name="field-id[]" style="display: none">'+'</td>'+
+                          
+                          '<td>'+
+                            '<select name="activity-type" class="form-control" required><option value="social">Social Activity</option><option value="departmental">Departmental Activity</option><option value="institutional">Institutional Activity</option></select>'+
+                          '</td>'+
+                          '<td><input type="file" name="proof" class="form-control" required></td>'+
+                          '<td><button class="btn btn-danger activity-delete" data-delete="'+id+'" >'+
+                            '<i class="icons font-1xl d-block cui-circle-x"></i>'+
+                          '</button></td>'+
+                       ' </tr>';
+                       console.log(txt)
+          $("#activities-item").append(txt);
+        });
+
+      });
+    </script>
     <footer class="app-footer">
+      
       <div>
         <a href="https://www.aicte-india.org">AICTE</a>
         <span>&copy; 2019 AICTE</span>
       </div>
     </footer>
     <!-- CoreUI and necessary plugins-->
-    <script src="assets/jquery/dist/jquery.min.js"></script>
     <script src="assets/popper.js/dist/umd/popper.min.js"></script>
     <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/pace-progress/pace.min.js"></script>
     <script src="assets/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
     <script src="assets/@coreui/coreui/dist/js/coreui.min.js"></script>
     <!-- Plugins and scripts required by this view-->
-    <script src="assets/chart.js/dist/Chart.min.js"></script>
     <script src="assets/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
-    <script src="assets/js/main.js"></script>
   </body>
 </html>

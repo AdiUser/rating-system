@@ -27,6 +27,8 @@
     <link href="assets/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+        <script src="assets/jquery/dist/jquery.min.js"></script>
+
     <script>
       window.dataLayer = window.dataLayer || [];
 
@@ -109,14 +111,14 @@
                                   <div class="collapse show" id="collapseThree" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion" style="">
                                     <div class="card-body">
                                     <div class="card">
-                                       
+                                       <form action="" id="hod-add-form">
                                         <div class="card-body">
                                           <div class="form-group row">
                                               <div class="col-md-2">
                                                   <label for="company">Name</label>
                                               </div>
                                               <div class="col-md-8">
-                                                  <input class="form-control" id="company" type="text" placeholder="Enter HOD name">
+                                                  <input class="form-control" name="name" type="text" placeholder="Enter HOD name">
                                               </div>
                                           </div>
                                             
@@ -125,7 +127,7 @@
                                                   <label for="street">Date Of Joining</label>
                                               </div>
                                               <div class="col-md-5">
-                                                  <input class="form-control" id="street" type="text" placeholder="dd/mm/yyyy">
+                                                  <input class="form-control" name="date_of_joining" type="date" placeholder="dd/mm/yyyy">
                                               </div>
                                             </div>
                                             <div class="form-group row">
@@ -133,36 +135,51 @@
                                                   <label for="street">Department</label>
                                               </div>
                                               <div class="col-md-8">
-                                                  <input class="form-control" id="street" type="text" placeholder="Enter department">
+                                                  <!-- <input class="form-control" id="street" type="text" placeholder="Enter department"> -->
+                                                  <?php 
+                                                  echo "<select name='department' class='form-control'>";
+                                                      if($departments != null) {
+                                                        
+                                                        foreach ($departments as $key => $val) {
+                                                                ?>
+                                                                  <option value="<?=$val->id?>"><?=$val->department_name;?></option>
+                                                                <?php
+                                                              }   
+                                                           
+                                                      }
+                                                      echo "<select>";
+                                                  ?>
+                                                  
                                               </div>
                                             </div>
-                                            <div class="form-group row">
+                                            <!-- <div class="form-group row">
                                               <div class="col-md-2">
                                                   <label for="street">Subject</label>
                                               </div>
                                               <div class="col-md-8">
                                                   <input class="form-control" id="street" type="text" placeholder="Enter suject">
                                               </div>
-                                            </div>
-                                            <div class="form-group row">
+                                            </div> -->
+                                            <!-- <div class="form-group row">
                                               <div class="col-md-2">
                                                   <label for="street">Level</label>
                                               </div>
                                               <div class="col-md-8">
                                                   <input class="form-control" id="street" type="text" placeholder="Enter level">
                                               </div>
-                                            </div>
-                                            <div class="form-group row">
+                                            </div> -->
+                                            <!-- <div class="form-group row">
                                               <div class="col-md-2">
                                                   <label for="street">Faculty ID</label>
                                               </div>
                                               <div class="col-md-8">
                                                   <input class="form-control" id="street" type="text" placeholder="Enter faculty Id">
                                               </div>
-                                            </div>
+                                            </div> -->
                                         </div>
+                                        </form>
                                         <div class="card-footer">
-                                          <button class="btn btn-sm btn-primary" type="submit">
+                                          <button class="btn btn-sm btn-primary" id="hod-add-btn">
                                               <i class="fa fa-dot-circle-o"></i> Submit</button>
                                           <button class="btn btn-sm btn-danger" type="reset">
                                               <i class="fa fa-ban"></i> Reset</button>
@@ -171,6 +188,26 @@
                                   </div>
                                   </div>
                               </div>
+                              <script>
+                                $("#hod-add-btn").on("click", function(e){
+                                  e.preventDefault();
+                                  $.ajax({
+                                    method: "GET",
+                                    url: "save-hod-details",
+                                    data: $("#hod-add-form").serialize(),
+                                    beforeSend: function() {
+                                      alert($("#hod-add-form").serialize());
+                                    },  
+                                    success: function(data) {
+                                      alert(data);
+                                      $("#hod-add-form").trigger("reset");
+                                    },
+                                    error: function() {
+                                      alert("errorQ");
+                                    }
+                                  });
+                                });
+                              </script>
                               <div class="card mb-0">
                                   <div class="card-header" id="headingOne" role="tab">
                                       <h5 class="mb-0">
@@ -298,15 +335,12 @@
       </div>
     </footer>
     <!-- CoreUI and necessary plugins-->
-    <script src="assets/jquery/dist/jquery.min.js"></script>
     <script src="assets/popper.js/dist/umd/popper.min.js"></script>
     <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/pace-progress/pace.min.js"></script>
     <script src="assets/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
     <script src="assets/@coreui/coreui/dist/js/coreui.min.js"></script>
     <!-- Plugins and scripts required by this view-->
-    <script src="assets/chart.js/dist/Chart.min.js"></script>
     <script src="assets/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
-    <script src="assets/js/main.js"></script>
   </body>
 </html>

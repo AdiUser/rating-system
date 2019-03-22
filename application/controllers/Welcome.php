@@ -38,6 +38,19 @@ class Welcome extends CI_Controller {
 
 		$this->load->view("add_university");
 	}
+
+	public function getDepartments($code) {
+		$res = $this->db->select("*")
+				->where("org_id", $code)
+				->where("is_active", 1)
+				->get("departments");
+		if ($res) {
+			return $res->result();
+		}
+		else {
+			return null;
+		}
+	}
 	
 	public function faculty() {
 		$faculty_id = "FACT101"; // will come from session
@@ -55,12 +68,15 @@ class Welcome extends CI_Controller {
 		}
 		$this->load->view("faculty", $data);
 	}
-	public function add_hod() {
 
-		$this->load->view("add_hod");
+	public function add_hod() {
+		$org_id = $this->session->user[0]->code;
+		$data["departments"] = $this->getDepartments($org_id);
+		$this->load->view("add_hod", $data);
 	}
+	
 	public function hod_details() {
-		$faculty_id = "fact102"; // will come from session
+		$faculty_id = $this->session->user[0]->username; // will come from session
 		$res = $this->db->where(["faculty_id" => $faculty_id])->get("faculty")->result();
 		$res = $this->db->select("*")
 			->from("faculty")
@@ -84,8 +100,9 @@ class Welcome extends CI_Controller {
 		$this->load->view("add_institute", $data);
 	}
 	public function add_department() {
-
-		$this->load->view("add_department");
+		$org_code = $this->session->user[0]->code;
+		$data['departments'] = $this->getDepartments($org_code);
+		$this->load->view("add_department",$data);
 	}
 
 
@@ -109,7 +126,15 @@ class Welcome extends CI_Controller {
 	}
 
 	public function HOD_add_faculty() {
-		$this->load->view("add_faculty");
+		$res = $this->db->select("*")
+				->from("faculty")
+				->join("departments", "faculty.department = departments.id")
+				->where("faculty_id", $this->session->user[0]->username)
+				->get()->result();
+		if ($res) {
+			$data["fac"] = $res;
+		}
+		$this->load->view("add_faculty", $data);
 	}
 	public function facultyQualifications() {
 		$department_id=1;
