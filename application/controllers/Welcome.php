@@ -136,10 +136,20 @@ class Welcome extends CI_Controller {
 		}
 		$this->load->view("add_faculty", $data);
 	}
-	public function facultyQualifications() {
-		$department_id=1;
-		$level=11;
-		$faculty_id = "FACT5672";
+	public function get_next_level($id) {
+		$res = $this->db->where(['id' => $id])->get("levels")->result();
+		if(count($res) > 0)
+			return $res[0]->level_id;
+		return null;
+	}
+
+	public function faculty_qualifications() {
+		$user_details = $this->session->user_details[0];
+		$department_id= 1; //$user_details->department;
+		$level= $user_details->level;
+		$level = $this->get_next_level($user_details->level+1);
+
+		$faculty_id = $this->session->user[0]->username;
 		$arr=$this->db->where(['department'=>$department_id,'level'=>$level])
 		->get('min_requirements')->result();
 		$ids_to_show = array();
@@ -164,11 +174,29 @@ class Welcome extends CI_Controller {
 			}
 		}
 		$data['qualifications'] = $ids_verbose;
-		$this->load->view("facultyQualifications", $data);
+		echo "<pre>".print_r($this->session, true);
+		$this->load->view("faculty_qualifications", $data);
 	}
-	public function faculty_activity() {
+	
+	public function get_activities($faculty_id, $type = NULL) {
+		$res = $this->db->select("*")
+				->from("activity")
+				->where("faculty_id", $faculty_id);
+		if ($type != NULL)
+			$res = $res->where("type", $type);
 
-		$this->load->view("faculty_activity");
+		$res = $res->get()->result();
+
+		if(count($res) > 0)
+			return $res;
+		return null;
+	}
+
+
+	public function faculty_activity() {
+		$user = $this->session->user[0];
+		$data['activities'] = $this->get_activities($user->username);
+		$this->load->view("faculty_activity", $data);
 	}
 
 	public function load_file($file) {

@@ -96,7 +96,7 @@
                    <div class="card-header">
                 <h5>Add/Edit Department Activities</h5>
               </div>
-              <form action="" id="activity-form" method="post" enctype="multipart/form-data">
+              <form id="activity-form" method="post" enctype="multipart/form-data">
               <div class="card-body">
                 
                 <table class="table table-bordered">
@@ -108,6 +108,24 @@
                   </tr></thead>
                   
                     <tbody id="activities-item">
+                      <?php
+                          if($activities != null) {
+                            foreach($activities as $activity) {
+                              $rand = "str".rand(10,4234).rand(3,324234);
+                              ?><tr id="<?=$rand?>">
+                                  <td><?=$activity->name?></td>
+                                  <td><?=$activity->type?></td>
+                                  <td><?=$activity->report?></td>
+                                  <td>
+                                    <button class="btn btn-danger activity-delete" data-id="<?=$activity->serial?>" data-delete="<?=$rand?>">
+                                      <i class="icons font-1xl d-block cui-circle-x"></i>
+                                    </button>
+                                  </td>
+                                </tr>
+                              <?php
+                            }
+                          }
+                      ?>
                      
                       
                    </tbody>
@@ -135,14 +153,17 @@
         $(function(){
           $("#activity-form").submit(function(e){
             e.preventDefault();
-             var dataString = new FormData($("#activity-form"));
+             var dataString = new FormData($("#activity-form")[0]);
+             console.log($("#activity-form"))
+             console.log(dataString)
 
               $.ajax({
                   type: "POST",
                   url: "save-activities",
                   data: dataString,
-                  processData: false,
+                  cache: false,
                   contentType: false,
+                  processData: false,
                   beforeSend: function() {
                     console.log("formData");
                     for(var pair of dataString.entries()) {
@@ -151,9 +172,10 @@
                   },
                   success: function(data){
                       // alert('Successful!');
-                      alert(data);
-                      $("#dept-item").prepend(data);
-                      $("#departments").trigger("reset");
+                      console.log(data);
+
+                      $("#activities-item").prepend(data);
+                      $("#activity-form").trigger("reset");
                   },
                   error: function(a,b,c) {
                     alert("Error");
@@ -195,20 +217,22 @@
          $(".dept-delete-old").on("click", function() {
           console.log($(this)[0].dataset.delete);
         }); 
-
+         ind = 0;
         $("#activity-add").on("click", function() {
           var id = "str"+ Math.random().toString().split(".")[1];
+          
           var txt = '<tr id="'+id+'">'+
                           '<td><input type="text" name="name[]" class="form-control" placeholder="Enter Activity Name..." required><input type="text" value="'+id+'" name="field-id[]" style="display: none">'+'</td>'+
                           
                           '<td>'+
-                            '<select name="activity-type" class="form-control" required><option value="social">Social Activity</option><option value="departmental">Departmental Activity</option><option value="institutional">Institutional Activity</option></select>'+
+                            '<select name="activity-type[]" class="form-control" required><option value="social">Social Activity</option><option value="departmental">Departmental Activity</option><option value="institutional">Institutional Activity</option></select>'+
                           '</td>'+
-                          '<td><input type="file" name="proof[]" class="form-control" required></td>'+
+                          '<td><input type="file" name="proof-'+ind+'" class="form-control" required></td>'+
                           '<td><button class="btn btn-danger activity-delete" data-delete="'+id+'" >'+
                             '<i class="icons font-1xl d-block cui-circle-x"></i>'+
                           '</button></td>'+
                        ' </tr>';
+                       ind = ind + 1;
                        console.log(txt)
           $("#activities-item").append(txt);
         });

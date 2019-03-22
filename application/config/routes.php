@@ -58,8 +58,6 @@ $route['login'] = 'welcome/login';
 
 //ajax route.
 $route['login-user'] = 'api/login_user';
-$route['save-activities'] = 'api/save_activities';
-$route['delete-activity'] = 'api/delete_activity';
 
 $route['save-department'] = 'api/save_departments';
 $route['delete-department'] = 'api/delete_department';
@@ -90,6 +88,6 @@ $route['faculty-details'] = 'welcome/faculty';
 $route['university-details'] = 'welcome/university_admin';
 $route['institute-details'] = 'welcome/institute_admin';
 $route['faculty-list'] = 'welcome/HOD_show_faculty';
-$route['facultyQualifications'] = 'welcome/facultyQualifications';
+$route['faculty-qualifications'] = 'welcome/faculty_qualifications';
 $route['faculty-activity'] = 'welcome/faculty_activity';
 $route['upload-file'] = 'welcome/import';
