@@ -49,7 +49,7 @@ class Welcome extends CI_Controller {
 			->join("departments", "departments.id = faculty.department")
 			->where("faculty_id", $faculty_id)
 			->get()->result();
-			echo json_encode($res);
+
 		if (sizeof($res) > 0) {
 			$data["faculty_details"] = $res;
 		}

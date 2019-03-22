@@ -47,7 +47,7 @@
                     <i class="nav-icon icon-drop"></i>Create HOD Account</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="HOD/faculty-list">
+                  <a class="nav-link" href="/rating-system/faculty-list">
                     <i class="nav-icon icon-drop"></i>Faculty List</a>
                 </li><li class="nav-item">
                   <a class="nav-link" href="/rating-system/faculty_promotion">
