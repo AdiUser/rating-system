@@ -103,6 +103,20 @@
                     <th>Settings</th>
                   </thead>
                   <tbody id="dept-item">
+                    <?php 
+                        if ($departments != null) {
+                            foreach($departments as $dept ) {
+                              $rand = rand(10, 100000);
+                              ?>
+                                <tr id="<?=$rand?>">
+                                  <td><?=$dept->department_name?></td><td><?=$dept->department_code?></td>
+                                  <td><button class="btn btn-danger dept-delete-new" data-id="<?=$dept->id?>" data-delete="<?=$rand?>"><i class="icons font-1xl d-block cui-circle-x"></i></button>
+                                  </td>
+                                </tr>
+                              <?php
+                            }
+                        }
+                    ?>
                     
                   </tbody>
                 </table>
@@ -210,7 +224,7 @@
           $("#dept-item").append(txt);
         });
 
-      })
+      });
     </script>
     <script src="assets/popper.js/dist/umd/popper.min.js"></script>
     <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>

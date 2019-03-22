@@ -27,6 +27,8 @@
     <link href="/rating-system/assets/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+        <script src="/rating-system/assets/jquery/dist/jquery.min.js"></script>
+
     <script>
       window.dataLayer = window.dataLayer || [];
 
@@ -107,6 +109,7 @@
                                       </h5>
                                   </div>
                                   <div class="collapse show" id="collapseThree" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion" style="">
+                                    <form action="" id="add-faculty-form">
                                     <div class="card-body">
                                         <div class="card">
                                        <form class="form" method="post">
@@ -115,13 +118,14 @@
                                             <div class="col-md-5">
                                                 <div class="form-group" method="post">
                                                   <label for="vat">University Code</label>
-                                                  <input class="form-control" name="ucode" id="vat" type="text" placeholder="PL1234567890" disabled="">
+                                                  <input class="form-control" name="ucode" id="vat" type="text" placeholder="PL1234567890" value="<?=isset($fac[0]->university_code)?$fac[0]->university_code:''?>" disabled="">
                                                 </div>
                                               </div>
                                               <div class="col-md-7">
                                                 <div class="form-group" method="post">
                                                   <label for="company">Department</label>
-                                                  <input class="form-control" name="uname" id="company" type="text" value="Human Science" disabled="">
+                                                  <input class="form-control" name="uname" id="company" type="text" value="<?=isset($fac[0]->department_name)?$fac[0]->department_name:''?>" disabled="">
+                                                  <input type="text" name="department" value="<?=isset($fac[0]->id)?$fac[0]->id:''?>" style="display: none">
                                                 </div>
                                               </div>
                                             </div>
@@ -135,7 +139,7 @@
                                               <div class="col-md-6">
                                                 <div class="form-group">
                                                   <label for="">Faculty Level</label>
-                                                  <select name="faculty_level" id="" class="form-control">
+                                                  <select name="faculty-level" id="" class="form-control">
                                                     <option value="" disabled="" selected="">Select Faculty Level</option>
                                                     <option value="9A">Lecturer - 9A</option>
                                                     <option value="10">Lecturer -10</option>
@@ -149,19 +153,19 @@
                                               <div class="col-md-6">
                                                 <div class="form-group">
                                                   <label for="">Faculty Email</label>
-                                                  <input type="text" class="form-control" placeholder="Enter Faculty email...">
+                                                  <input type="text" name="faculty-email" class="form-control" placeholder="Enter Faculty email...">
                                                 </div>
                                               </div>
                                                <div class="col-md-6">
                                                 <div class="form-group">
                                                   <label for="">Joining Date</label>
-                                                  <input type="date" name="joing-date" class="form-control">
+                                                  <input type="date" name="faculty-joining-date" class="form-control">
                                                 </div>
                                               </div>
                                             </div>
                                         </div>
                                         <div class="card-footer">
-                                          <button class="btn btn-sm btn-primary" type="submit" name="faculty-single-input">
+                                          <button class="btn btn-sm btn-primary" id="add-faculty-btn" name="faculty-single-input">
                                               <i class="fa fa-dot-circle-o"></i> Submit</button>
                                           <button class="btn btn-sm btn-danger" type="reset">
                                               <i class="fa fa-ban"></i> Reset</button>
@@ -170,9 +174,29 @@
                                            </form>
                                         </div> 
                                       </div>
+                                    </form>
                                       
                               </div>
                               </div>
+                              <script>
+                                $("#add-faculty-btn").on("click", function(e) {
+                                  e.preventDefault();
+                                  $.ajax({
+                                    method: "GET",
+                                    url: "save-faculty",
+                                    data: $("#add-faculty-form").serialize(),
+                                    beforeSend: function() {
+                                      alert($("#add-faculty-form").serialize())
+                                    },
+                                    success: function(data) {
+                                      alert(data);
+                                    },
+                                    error:function() {
+                                      alert("error");
+                                    }
+                                  });
+                                });
+                              </script>
                               <div class="card mb-0">
                                   <div class="card-header" id="headingOne" role="tab">
                                       <h5 class="mb-0">
@@ -301,16 +325,13 @@
       
     </footer>
     <!-- CoreUI and necessary plugins-->
-    <script src="/rating-system/assets/jquery/dist/jquery.min.js"></script>
     <script src="/rating-system/assets/popper.js/dist/umd/popper.min.js"></script>
     <script src="/rating-system/assets/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/rating-system/assets/pace-progress/pace.min.js"></script>
     <script src="/rating-system/assets/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
     <script src="/rating-system/assets/@coreui/coreui/dist/js/coreui.min.js"></script>
     <!-- Plugins and scripts required by this view-->
-    <script src="/rating-system/assets/chart.js/dist/Chart.min.js"></script>
     <script src="/rating-system/assets/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
    
-    <script src="/rating-system/assets/js/main.js"></script>
   </body>
 </html>

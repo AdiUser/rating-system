@@ -11,7 +11,7 @@ class Api extends CI_Controller {
 	}
 	public function delete_activity() {
 		$id = $this->input->get("id");
-		$res = $this->db->set('isActive', 0)
+		$res = $this->db->set('is_active', 0)
 				->where(array('id' => $id))
 				->update('departmental_activities');
 		//$res = $this->db->replace("departmental_activities", array('isActive' => 0));
@@ -35,7 +35,7 @@ class Api extends CI_Controller {
 			echo 0;
 		}
 	}
-	public function save_activities() {
+	/*public function save_activities() {
 		$hod_id = "4567"; // from session.
 		$faculty_id = "5678"; // from form.
 
@@ -71,7 +71,7 @@ class Api extends CI_Controller {
 		else {
 			echo 0;
 		}
-	}
+	}*/
 
 	public function save_departments() {
 		$hod_id = "4567"; // from session.
@@ -126,16 +126,33 @@ class Api extends CI_Controller {
 		return $organisation;
 	}
 
+	public function getUser($faculty_id){
+		$res = $this->db->select("*")
+				->from("faculty")
+				->where("faculty_id", $faculty_id)
+				->get()->result();
+		if ($res)
+			return $res;
+		return null;
+
+	}
+
 	public function login_user() {
 		$code = $this->input->post("code");
 		$username = $this->input->post("username");
 		$pass = md5($this->input->post("password"));
 		$sql = "SELECT * FROM user_login WHERE code = '$code' AND username = '$username' AND password = '$pass'";
 		$result = $this->db->query($sql);
-			
+		
+		$faculties = array("head-of-department", "faculty");			
 		if ($result && $result->num_rows() == 1) {
 			$user = $result->result();
 			$organisation = $this->getUserOrganisation($user[0]->code);
+			if (in_array($user[0]->role, $faculties)) {
+				// get user object.
+				$user_details = $this->getUser($user[0]->username);
+				$this->session->set_userdata("user_details", $user_details);
+			}
 			$this->session->set_userdata('user',$user);
 			$this->session->set_userdata('organisation', $organisation);
 			// redirect based on user-type/role.
@@ -273,4 +290,116 @@ class Api extends CI_Controller {
 
 		}
 	}
+
+	public function save_hod_details() {
+		$faculty_id = "FAC".rand(1, 10000).rand(5, 3000);
+		$details = array(
+			"name" => $this->input->get("name"),
+			"date_of_joining" =>$this->input->get("date_of_joining"),
+			"department" => $this->input->get("department"),
+			"faculty_id" => $faculty_id,
+			"level" => 6,
+			"university_code" => $this->session->user[0]->code
+		);
+		$login = array(
+			"code" => $this->session->user[0]->code,
+			"username" => $faculty_id,
+			"password" => md5($faculty_id),
+			"role" => "head-of-department"
+		);
+
+		$res = $this->db->insert("faculty", $details);
+		$login_create = $this->db->insert("user_login", $login);
+		if ($res && $login_create) {
+			echo 1;
+		}
+		else {
+			echo 0;
+		}
+
+	}
+
+	public function save_faculty() {
+		$faculty_id = "FACF".rand(1,90000).rand(3,661).rand(2,9543);
+		$details = array(
+			"name" => $this->input->get("faculty-name"),
+			"date_of_joining" => $this->input->get("faculty-joining-date"),
+			"level" => $this->input->get("faculty-level"),
+			"faculty_id" => $faculty_id,
+			"university_code" => $this->session->user[0]->code,
+			"department" => $this->input->get("department")
+		);
+		$login = array(
+			"code" => $this->session->user[0]->code,
+			"username" => $faculty_id,
+			"password" => md5($faculty_id),
+			"role" => "faculty"
+		);
+		$res = $this->db->insert("faculty", $details);
+		$login_create = $this->db->insert("user_login", $login);
+		if ($res && $login_create) {
+			echo 1;
+		}
+		else {
+			echo 0;
+		}
+	}
+
+	public function save_activities() {
+		$config['upload_path']="assets/img";
+        $config['allowed_types']='gif|jpg|png|PNG|JPEG|JPG|docx|doc|txt|xls|xlsx';
+        $config['encrypt_name'] = TRUE;
+        $this->load->library('upload',$config);
+
+
+		$hod_id = "4567"; // from session.
+		$faculty_id = "5678"; // from form.
+		$org_id = $this->session->user[0]->code;
+		$name = $this->input->post("name");
+		$type = $this->input->post("activity-type");
+		//$proof = $_FILES['proof'];
+		echo json_encode($_FILES);
+		$field_id = $this->input->post("field-id");
+
+		$insert_ids = array();
+		$count = 0;
+		$str = "";
+		foreach($name as $key=>$val) {
+			$image = null;
+			if($this->upload->do_upload($proof[$key])){
+	            $data = array('upload_data' => $this->upload->data());
+	 
+	            $title= $this->input->post('title');
+	            $image= $data['upload_data']['file_name']; 
+	           
+			}
+			else {
+				echo $this->upload->display_errors();
+			}
+			$details = array(
+				"faculty_id" => $this->user[0]->username,
+				"name" => $name[$key],
+				"type" => $type[$key],
+				"report" => $image
+			);
+			$res = $this->db->insert("activity", $details);
+			$idx = $this->db->insert_id();
+			array_push($insert_ids, $idx);
+			if ($res) {
+				$count++;
+				$str .= '<tr id="'.$field_id[$key].'"><td>'.$name[$key].'</td><td>'.$type[$key].'</td>';
+				$str .= '<td>'.$image.'td';
+				$str .= '<td><button class="btn btn-danger activity-delete" data-id="'.$idx.'" data-delete="'.$field_id[$key].'"><i class="icons font-1xl d-block cui-circle-x"></i></button></td></tr>'; 
+			}
+		}
+
+		if ($count == sizeof($name)) {
+			echo $str;
+		}
+		else {
+			echo 0;
+		}
+
+	}
+
 }
