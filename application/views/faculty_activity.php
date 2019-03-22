@@ -144,7 +144,10 @@
                   processData: false,
                   contentType: false,
                   beforeSend: function() {
-                    alert(dataString);
+                    console.log("formData");
+                    for(var pair of dataString.entries()) {
+                       console.log(pair[0]+ ', '+ pair[1]); 
+                    }
                   },
                   success: function(data){
                       // alert('Successful!');
@@ -201,7 +204,7 @@
                           '<td>'+
                             '<select name="activity-type" class="form-control" required><option value="social">Social Activity</option><option value="departmental">Departmental Activity</option><option value="institutional">Institutional Activity</option></select>'+
                           '</td>'+
-                          '<td><input type="file" name="proof" class="form-control" required></td>'+
+                          '<td><input type="file" name="proof[]" class="form-control" required></td>'+
                           '<td><button class="btn btn-danger activity-delete" data-delete="'+id+'" >'+
                             '<i class="icons font-1xl d-block cui-circle-x"></i>'+
                           '</button></td>'+
