@@ -105,27 +105,30 @@
                                             <i class="icons font-1xl mt-5 cui-user-follow paddRight10"></i></i>Add Faculty Details</a>
                                       </h5>
                                   </div>
+                                  <?php $o = $user_details[0]; ?>
                                   <div class="collapse show" id="collapseThree" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion" style="">
                                     <div class="card-body">
-                                    <div class="card">
-                                       
+                                        <div class="card">
                                         <div class="card-body">
                                         <div class="row" style="margin-bottom:20px">
                                           <div class="col-md-3">
-                                            <div class="medi">
-                                              <img id="user-img" src="./assets/index.jpg" style="max-width:120px;max-height: 110px;border-radius: 50%">
+                                            <div class="media">
+                                              <img src="<?=isset($o->pic)?$o->pic:'assets/index.jpg'?>" id="user-img">
+
                                             </div>
                                           </div>
                                           <div class="col-md-9">
-                                          <form action="" id="pic-upload">
-                                            <input type="file" id = "pic" onchange="readURL(this);" name="file_upload" style="display: none;">
-                                          </form>
-                                            <button class="btn btn-primary" type="button" style="margin-top:80px" id="upload-btn">+ Upload</button>
+                                            <form action="" id="img-submit">
+                                            <input type="file" id="pic" onchange="readURL(this);" name="file_upload" style="display: none;">
+                                            </form>
+                                          
+                                            <button class="btn btn-primary"id="upload-btn" type="button" style="margin-top:50px">+ Upload</button>
                                           </div>
-                                          <script>
+                                        </div>
+                                        <script>
                                             $("#upload-btn").on("click", function() {
                                               $("#pic").click();
-                                            })
+                                            });
 
                                             function readURL(input) {
                                                 if (input.files && input.files[0]) {
@@ -139,22 +142,42 @@
                                                     };
 
                                                     reader.readAsDataURL(input.files[0]);
-                                                    $.ajax({
-                                                      method: "POST",
-                                                      url: "Welcome.php",
-                                                      data: new FormData(this),
-                                                      success: function(data){
-                                                        if(data =='true')
-                                                        window.location.reload();
-                                                        else
-                                                        alert('Error! Please Try Again')
-                                                      }
-                                                    })
+                                                    console.log($("#pic").val());
+                                                    alert("Ee");
+                                                    $("#img-submit").submit();
+                                                    
                                                 }
                                             }
+                                            $("#img-submit").on("submit", function(e) {
+                                              
+                                              e.preventDefault();
+                                              $.ajax({
+                                                method: "POST",
+                                                url: "save-faculty-img",
+                                                data: new FormData(this),
+                                                processData:false,
+                                                contentType:false,
+                                                cache:false,
+                                                async:false,
+                                                beforeSend: function(){
+                                                  var formData = new FormData(this);
+                                                  for (var [key, value] of formData.entries()) { 
+                                                    console.log(key, value);
+                                                  }
+                                                  alert("ww");
+                                                },
+                                                success: function(data) {
+                                                  alert(data);
+                                                },
+                                                error: function() {
+                                                  alert("error");
+                                                }
+
+                                              });
+                                            });
 
                                           </script>
-                                        </div>
+
                                         <?php
                                           if(isset($faculty_details[0]))
                                               $d = $faculty_details[0];  

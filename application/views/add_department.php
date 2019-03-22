@@ -27,6 +27,7 @@
     <link href="assets/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css">
     <script>
       window.dataLayer = window.dataLayer || [];
 
@@ -163,7 +164,24 @@
                   },
                   success: function(data){
                       // alert('Successful!');
-                      alert(data);
+                      if(data==1) {
+                                        iziToast.show({
+                                          title: 'Success',
+                                          message: 'Details Updated Successfully',
+                                          position: 'topCenter',
+                                           color: 'green',
+                                          timeout: '2500'
+                                        });
+                                      }
+                                     else{
+                                        iziToast.error({
+                                           title: 'Error',
+                                            message: 'Could not Update Details',
+                                            position: 'topCenter',
+                                            color: 'red',
+                                            timeout: '2500'
+                                        });
+                                                  }
                       $("#dept-item").prepend(data);
                       $("#departments").trigger("reset");
                   },
@@ -234,5 +252,6 @@
     <!-- Plugins and scripts required by this view-->
     <script src="assets/chart.js/dist/Chart.min.js"></script>
     <script src="assets/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>  
   </body>
 </html>

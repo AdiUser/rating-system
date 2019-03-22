@@ -25,6 +25,7 @@
     <!-- Main styles for this application-->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" />
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
         <script src="assets/jquery/dist/jquery.min.js"></script>
@@ -125,7 +126,7 @@
                                             <form action="" id="img-submit">
                                             <input type="file" id="pic" onchange="readURL(this);" name="file_upload" style="display: none;">
                                             </form>
-                                            <!-- <h2 style="text-align:center"><?=$o->university_name?></h2> -->
+
                                             <button class="btn btn-primary"id="upload-btn" type="button" style="margin-top:50px">+ Upload</button>
                                           </div>
                                         </div>
@@ -168,7 +169,25 @@
                                                   }
                                                 },
                                                 success: function(data) {
-                                                  alert(data);
+                                                  
+                                                  if(data==1) {
+                                                    iziToast.show({
+                                                        title: 'Success',
+                                                        message: 'Image Updated Successfully',
+                                                        position: 'topCenter',
+                                                        color: 'green',
+                                                        timeout: '2500'
+                                                    });
+                                                  }
+                                                  else{
+                                                          iziToast.error({
+                                                          title: 'Error',
+                                                          message: 'Could not Update Image',
+                                                          position: 'topCenter',
+                                                          color: 'red',
+                                                          timeout: '2500'
+                                                       });
+                                                  }
                                                 },
                                                 error: function() {
                                                   alert("error");
@@ -259,11 +278,28 @@
                                               beforeSend: function() {
                                                 alert(formData);
                                               },
-                                              success: function() {
-                                                alert("done");
+                                              success: function(data) {
+                                                if(data==1) {
+                                                    iziToast.show({
+                                                        title: 'Success',
+                                                        message: 'Details Updated Successfully',
+                                                        position: 'topCenter',
+                                                        color: 'green',
+                                                        timeout: '2500'
+                                                    });
+                                                  }
+                                                  else{
+                                                          iziToast.error({
+                                                          title: 'Error',
+                                                          message: 'Could not Update Details',
+                                                          position: 'topCenter',
+                                                          color: 'red',
+                                                          timeout: '2500'
+                                                       });
+                                                  }
                                               },
                                               error: function(){
-                                                alert("error");
+                                                     
                                               }
                                             });
                                           });
@@ -373,6 +409,6 @@
     <script src="assets/@coreui/coreui/dist/js/coreui.min.js"></script>
     <!-- Plugins and scripts required by this view-->
     <script src="assets/chart.js/dist/Chart.min.js"></script>
-    <script src="assets/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>    <script src="assets/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
   </body>
 </html>

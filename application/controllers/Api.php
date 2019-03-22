@@ -9,19 +9,7 @@ class Api extends CI_Controller {
 	public function index() {
 	
 	}
-	public function delete_activity() {
-		$id = $this->input->get("id");
-		$res = $this->db->set('is_active', 0)
-				->where(array('id' => $id))
-				->update('departmental_activities');
-		//$res = $this->db->replace("departmental_activities", array('isActive' => 0));
-		if ($res) {
-			echo 1;
-		}
-		else {
-			echo 0;
-		}
-	}
+	
 	public function delete_department() {
 		$id = $this->input->get("id");
 		$res = $this->db->set('is_active', 0)
@@ -129,6 +117,7 @@ class Api extends CI_Controller {
 	public function getUser($faculty_id){
 		$res = $this->db->select("*")
 				->from("faculty")
+				->join("levels", "levels.level_id = faculty.level")
 				->where("faculty_id", $faculty_id)
 				->get()->result();
 		if ($res)
@@ -144,14 +133,15 @@ class Api extends CI_Controller {
 		$sql = "SELECT * FROM user_login WHERE code = '$code' AND username = '$username' AND password = '$pass'";
 		$result = $this->db->query($sql);
 		
-		$faculties = array("head-of-department", "faculty");			
+		$faculties = array("head-of-department", "faculty");	
 		if ($result && $result->num_rows() == 1) {
 			$user = $result->result();
-			$organisation = $this->getUserOrganisation($user[0]->code);
+			$organisation = $this->getUserOrganisation($user[0]->code);		
 			if (in_array($user[0]->role, $faculties)) {
 				// get user object.
 				$user_details = $this->getUser($user[0]->username);
 				$this->session->set_userdata("user_details", $user_details);
+				echo json_encode($user_details);
 			}
 			$this->session->set_userdata('user',$user);
 			$this->session->set_userdata('organisation', $organisation);
@@ -291,6 +281,39 @@ class Api extends CI_Controller {
 		}
 	}
 
+	public function save_faculty_image() {
+
+		$user = $this->session->user[0];
+
+		$config['upload_path']="assets/img";
+        $config['allowed_types']='gif|jpg|png|PNG|JPEG|JPG';
+        $config['encrypt_name'] = TRUE;
+         
+        $this->load->library('upload',$config);
+        if($this->upload->do_upload("file_upload")){
+            $data = array('upload_data' => $this->upload->data());
+ 
+            $title= $this->input->post('title');
+            $image= $data['upload_data']['file_name']; 
+            $details = array(
+			"logo" => "assets/img/".$image
+			);
+
+			$res = $this->db->set($details)->where("faculty_id", $user->username)->update("faculty");
+			if ($this->db->affected_rows() == 1) {
+				$this->session->set_userdata("user_details", $this->getUser($user->username));
+				echo 1;
+			}
+			else {
+				echo 0;
+			}
+		}
+		else {
+			 echo  $this->upload->display_errors();
+
+		}
+	}
+
 	public function save_hod_details() {
 		$faculty_id = "FAC".rand(1, 10000).rand(5, 3000);
 		$details = array(
@@ -346,7 +369,7 @@ class Api extends CI_Controller {
 	}
 
 	public function save_activities() {
-		$config['upload_path']="assets/img";
+		$config['upload_path']="assets/img/proof";
         $config['allowed_types']='gif|jpg|png|PNG|JPEG|JPG|docx|doc|txt|xls|xlsx';
         $config['encrypt_name'] = TRUE;
         $this->load->library('upload',$config);
@@ -359,6 +382,7 @@ class Api extends CI_Controller {
 		$type = $this->input->post("activity-type");
 		//$proof = $_FILES['proof'];
 		echo json_encode($_FILES);
+		//echo count($_FILES['proof']['name']);
 		$field_id = $this->input->post("field-id");
 
 		$insert_ids = array();
@@ -366,18 +390,19 @@ class Api extends CI_Controller {
 		$str = "";
 		foreach($name as $key=>$val) {
 			$image = null;
-			if($this->upload->do_upload($proof[$key])){
+			if($this->upload->do_upload("proof-".$key)){
 	            $data = array('upload_data' => $this->upload->data());
 	 
-	            $title= $this->input->post('title');
-	            $image= $data['upload_data']['file_name']; 
+	            //$title = $this->input->post('title');
+	            $image = $data['upload_data']['file_name']; 
 	           
 			}
 			else {
 				echo $this->upload->display_errors();
+				die();
 			}
 			$details = array(
-				"faculty_id" => $this->user[0]->username,
+				"faculty_id" => $this->session->user[0]->username,
 				"name" => $name[$key],
 				"type" => $type[$key],
 				"report" => $image
@@ -388,7 +413,7 @@ class Api extends CI_Controller {
 			if ($res) {
 				$count++;
 				$str .= '<tr id="'.$field_id[$key].'"><td>'.$name[$key].'</td><td>'.$type[$key].'</td>';
-				$str .= '<td>'.$image.'td';
+				$str .= '<td>'.$image.'</td>';
 				$str .= '<td><button class="btn btn-danger activity-delete" data-id="'.$idx.'" data-delete="'.$field_id[$key].'"><i class="icons font-1xl d-block cui-circle-x"></i></button></td></tr>'; 
 			}
 		}
@@ -400,6 +425,19 @@ class Api extends CI_Controller {
 			echo 0;
 		}
 
+	}
+	public function delete_activity() {
+		$id = $this->input->get("id");
+		$res = $this->db->set('is_active', 0)
+				->where(array('serial' => $id))
+				->update('activity');
+		//$res = $this->db->replace("departmental_activities", array('isActive' => 0));
+		if ($this->db->affected_rows() == 1) {
+			echo 1;
+		}
+		else {
+			echo 0;
+		}
 	}
 
 }
