@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2019 at 07:38 AM
+-- Generation Time: Mar 22, 2019 at 08:30 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -44,6 +44,7 @@ CREATE TABLE `activity` (
   `serial` int(2) NOT NULL,
   `faculty_id` int(10) NOT NULL,
   `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `type` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `report` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `verified` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -119,12 +120,13 @@ INSERT INTO `departments` (`id`, `org_id`, `department_name`, `department_code`,
 (1, '0', 'Computer Science', 'CSE', 1),
 (2, '0', 'Electrical', 'EC', 1),
 (3, '0', 'Mechanical', 'ME', 1),
-(4, 'GEUDDN', 'Computer Sciece', 'CSE', 1),
+(4, 'GEUDDN', 'Computer Science', 'CSE', 1),
 (5, 'GEUDDN', 'Mechanical Engg.', 'ME', 1),
 (6, 'GEUDDN', 'Biotech', 'BIO1Z6', 1),
-(7, 'GEUDDN', 'dfghjk', 'dfghjk', 1),
-(8, 'GEUDDN', 'fgjkl', 'y', 1),
-(9, 'GEUDDN', 'dsfg', 'sdfd', 0);
+(7, 'GEUDDN', 'dfghjk', 'dfghjk', 0),
+(8, 'GEUDDN', 'fgjkl', 'y', 0),
+(9, 'GEUDDN', 'dsfg', 'sdfd', 0),
+(10, 'GEUDDN', 'gfgghjkl', 'hgjkl', 0);
 
 -- --------------------------------------------------------
 
@@ -143,16 +145,20 @@ CREATE TABLE `faculty` (
   `level` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `faculty_id` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `address` text COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(500) COLLATE utf8_unicode_ci NOT NULL
+  `email` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `pic` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `faculty`
 --
 
-INSERT INTO `faculty` (`serial`, `university_code`, `name`, `contact`, `qualification`, `date_of_joining`, `department`, `level`, `faculty_id`, `address`, `email`) VALUES
-(1, 'geuddn', 'faculty2', '9897171001', '26', '2019-03-06', '1', '1', 'FACT101', 'asdSDsad', 'SAFsdfDSF'),
-(2, 'geuddn', 'Aman Misra', '', '26', '2019-03-14', '1', '6', 'FACT102', '', '');
+INSERT INTO `faculty` (`serial`, `university_code`, `name`, `contact`, `qualification`, `date_of_joining`, `department`, `level`, `faculty_id`, `address`, `email`, `pic`) VALUES
+(1, 'geuddn', 'faculty2', '9897171001', '26', '2019-03-06', '1', '1', 'FACT101', 'asdSDsad', 'SAFsdfDSF', ''),
+(2, 'geuddn', 'Aman Misra', '', '26', '2019-03-14', '1', '6', 'FACT102', '', '', ''),
+(5, 'GEUDDN', 'HOD Aman Saxena New', '', '', '2020-02-03', '4', '6', 'FAC89352170', '', '', ''),
+(6, 'GEUDDN', 'HOD Aditya Saxena', '', '', '2009-02-02', '4', '6', 'FAC63341992', '', '', ''),
+(7, 'GEUDDN', 'gfghjk', '', '', '2019-02-03', '4', '9A', 'FACF87192445071', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -679,7 +685,7 @@ CREATE TABLE `university` (
 --
 
 INSERT INTO `university` (`serial`, `university_code`, `university_name`, `state`, `is_state_university`, `district`, `postal_code`, `address`, `contact`, `email`, `logo`) VALUES
-(1, 'GEUDDN', 'Graphic Era University', 'Uttrakhand', 1, 'fghjkl', '2346578', 'ertyuiertyui', '344567890', '34567890', 'assets/img/4e274bf64c69ac5604d4997fcbcd70a8.jpg'),
+(1, 'GEUDDN', 'Graphic Era University', 'Uttrakhand', 1, 'fghjkl', '2346578', 'ertyuiertyui', '344567890', '34567890', 'assets/img/dd3fbcb6766fcfccc8412cf02917ecbe.jpg'),
 (7, '6567899', 'My Custom University 2', 'DFGHJK', 1, 'FGHJK', '56879900', '', '', '', ''),
 (11, 'GHJK', 'GHSDHJ', 'GHJK', 1, 'HJK', 'JK', '', '', '', '');
 
@@ -708,7 +714,9 @@ INSERT INTO `user_login` (`id`, `code`, `username`, `password`, `role`) VALUES
 (4, 'geuddn', 'faculty', 'd561c7c03c1f2831904823a95835ff5f', 'faculty'),
 (5, 'geuddn', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
 (8, 'GHJK', 'GHJK', 'cdee058ed6a1c749a0a987a0147ab9e8', 'university'),
-(9, '6789', '6789', '46d045ff5190f6ea93739da6c0aa19bc', 'institute');
+(9, '6789', '6789', '46d045ff5190f6ea93739da6c0aa19bc', 'institute'),
+(10, 'GEUDDN', 'FAC63341992', '27f217228db365d93739090ad3d74618', 'head-of-department'),
+(11, 'GEUDDN', 'FACF87192445071', '7fd5f62297216dfd83324ca17d54b5bb', 'faculty');
 
 --
 -- Indexes for dumped tables
@@ -848,13 +856,13 @@ ALTER TABLE `departmental_activities`
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
-  MODIFY `serial` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `serial` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `faculty_dept`
@@ -920,7 +928,7 @@ ALTER TABLE `university`
 -- AUTO_INCREMENT for table `user_login`
 --
 ALTER TABLE `user_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
