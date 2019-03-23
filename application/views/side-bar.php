@@ -69,7 +69,7 @@
                       
                       
                       <li class="nav-item">
-                        <a class="nav-link" href="HOD/faculty-list">
+                        <a class="nav-link" href="/rating-system/faculty-list">
                           <i class="nav-icon icon-drop"></i>Faculty List</a>
                       </li>
                       <li class="nav-item">
@@ -77,7 +77,7 @@
                           <i class="nav-icon icon-drop"></i>Add/Edit Activities</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="/rating-system/facultyQualifications">
+                        <a class="nav-link" href="/rating-system/faculty-qualifications">
                           <i class="nav-icon icon-drop"></i>Qualifications</a>
                       </li>
                       <?php
@@ -93,7 +93,7 @@
                           <i class="nav-icon icon-drop"></i>Add/Edit Activities</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="/rating-system/facultyQualifications">
+                        <a class="nav-link" href="/rating-system/faculty-qualifications">
                           <i class="nav-icon icon-drop"></i>Qualifications</a>
                       </li>
 
