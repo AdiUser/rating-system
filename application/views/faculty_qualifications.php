@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--
 * CoreUI - Free Bootstrap Admin Template
@@ -27,6 +28,8 @@
     <link href="assets/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+        <script src="assets/jquery/dist/jquery.min.js"></script>
+
     <script>
       window.dataLayer = window.dataLayer || [];
 
@@ -92,9 +95,9 @@
                           <!-- <i class="icons font-2xl d-block mt-5 cui-file"></i> -->
                           Add Qualifications
                       </div>
-                      <form action="/rating-system/facultyQualifications" method="post">
+                      <form action="" method="post">
                       <div class="card-body">
-                      <form action="facultyQualifications.php" method="post">
+                      <form id="qualification-form">
                       <table class="table-responsive-sm table-bordered">
                       <thead>
                       <tr>
@@ -111,19 +114,18 @@
                                   <td>
                                   <div class="form-check" style="margin-bottom:5px">
                                       <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input" name="qualification[]" value="<?=$qualification['id']?>"><?=$qualification['name']?>
+                                        <input type="checkbox" class="form-check-input" name="qualification" value="<?=$qualification['id']?>" <?=$qualification['is_editable']?"":"disabled"?>><?=$qualification['name']?>
                                       </label>
                                     </div>
                                     </td>
                                     <td>
                                       <div class="form-group row">
-                                            
-                                                <div class="col-md-9">
-                                                  <input id="file-input" type="file" name="upload_file">
-                                                </div>
+                                        <div class="col-md-9">
+                                          <input class="form-control" id="proof-<?=$qualification['id']?>" type="file" name="proof-<?=$qualification['id']?>">
                                         </div>
-                                      </td>
-                                    </tr>
+                                      </div>
+                                    </td>
+                                  </tr>
                             <?php
                           }
                         }
@@ -132,81 +134,48 @@
                         </table>
                         </div>
                         <div class="card-footer">
-                              <button class="btn btn-sm btn-primary" name="submit" type="submit">
+                              <button class="btn btn-sm btn-primary" id="qualification-form-btn" type="button" >
                                   <i class="fa fa-dot-circle-o"></i> Submit</button>
                                     <button class="btn btn-sm btn-danger" type="reset">
                                       <i class="fa fa-ban"></i> Reset</button>
                         </div>  
                         </form>
+                        <script type="text/javascript">
+                          $("#qualification-form-btn").on("click", function(e) {
+                            e.preventDefault();
+                            var formData = new FormData();
+                            var favorite = [];
+                            $.each($("input[name='qualification']:checked"), function(){            
+                                favorite.push($(this).val());
+                                formData.append("proof-"+$(this).val(),document.getElementById("proof-"+$(this).val()).files[0]);
+                            });
+
+                            formData.append('qualification',favorite);
+                            $.ajax({
+                              method: "POST",
+                              url: "update-qualifications",
+                              data: formData,
+                              cache: false,
+                              contentType: false,
+                              processData: false,
+                              beforeSend: function() {
+                                console.log("formData");
+                              for(var pair of formData.entries()) {
+                                 console.log(pair[0]+ ', '+ pair[1]); 
+                              }
+                              },
+                              success: function(data) {
+                                console.log(data);
+                              },
+                              error: function(a,err,xx) {
+                                alert("error");
+                              }
+                            });
+                            //return false;
+                          });
+                        </script>
                    
-                   <?php 
-                    $servername = "localhost";
-                    $username = "root";
-                    $password = "";
-                    $dbname = "aicte";
-                    $faculty_id = "FACT5672";
-                    
-                    // Create connection
-                    $conn = mysqli_connect($servername, $username, $password, $dbname);
-                    // Check connection
-                    if (!$conn) {
-                        die("Connection failed: " . mysqli_connect_error());
-                    }
-                        if(isset($_POST['submit'])) {
-                          
-                          $qualification = array($_POST['qualification']);
-                         
-                          if(!empty($qualification)){
-                          $val = implode(",", $qualification[0]);
-                          $count = "SELECT COUNT(*) AS count from input_qualification where faculty_id='$faculty_id'";
-                          echo "<br>".$count;
-                          $xx = mysqli_query($conn, $count);
-                          if ($xx) {
-                            $count = mysqli_fetch_assoc($xx);
-                            if ($count['count'] == 1) {
-                              // update
-                              $sql = "SELECT qualification from input_qualification  WHERE faculty_id = '$faculty_id' ";
-                              $qual = mysqli_query($conn,$sql);
-                              if($qual) {
-                                $ids = mysqli_fetch_assoc($qual);
-                                echo "<pre>".print_r($ids, true);
-                                $collection_ids = $ids['qualification'] . "," . $val;
-                                echo "<br>--".$collection_ids . "--";
-                                $sql = "UPDATE input_qualification SET qualification = '$collection_ids' WHERE faculty_id = '$faculty_id'";
-                                echo "<br>".$sql;
-                                if(mysqli_query($conn, $sql)) {
-                                  // success msg.
-                                }
-                                else {
-                                  die('error! 35');
-                                }
-                              }
-                              else {
-                                die("error! 33");
-                              }
-                              
-                            }
-                            else {
-                              // insert
-                              $sql = "INSERT INTO input_qualification (faculty_id,qualification)
-                                  VALUES ('$faculty_id','$val')";
-                                  
-                              if (mysqli_query($conn, $sql)) {
-                                
-                              } else {
-                                  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                              }
-                            }
-                          }
-                          else {
-                            die("error! 34");
-                          }
-                          
-                              
-                        }
-                      }
-                    mysqli_close($conn);
-                   ?>
+                   
 
                 </div> 
                 </div> 
@@ -252,15 +221,12 @@
       </div>
     </footer>
     <!-- CoreUI and necessary plugins-->
-    <script src="assets/jquery/dist/jquery.min.js"></script>
     <script src="assets/popper.js/dist/umd/popper.min.js"></script>
     <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/pace-progress/pace.min.js"></script>
     <script src="assets/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
     <script src="assets/@coreui/coreui/dist/js/coreui.min.js"></script>
     <!-- Plugins and scripts required by this view-->
-    <script src="assets/chart.js/dist/Chart.min.js"></script>
     <script src="assets/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
-    <script src="assets/js/main.js"></script>
   </body>
 </html>

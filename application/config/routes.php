@@ -72,7 +72,9 @@ $route['save-university-img'] = 'api/save_university_image';
 $route['save-faculty-img'] = 'api/save_faculty_image';
 $route['save-activities'] = 'api/save_activities';
 $route['delete-activity'] = 'api/delete_activity';
+$route['update-qualifications'] = 'api/update_qualifications';
 
+//static routes
 $route['add-institute'] = 'welcome/add_institute';
 $route['add-institution'] = 'welcome/add_institution';
 $route['add-department'] = 'welcome/add_department';

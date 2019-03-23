@@ -156,6 +156,11 @@ class Welcome extends CI_Controller {
 		->get('min_requirements')->result();
 		$ids_to_show = array();
 		$ids_verbose = array();
+		$ids_to_disable = array(); //get ids that are already added by the faculty, and diable them.
+		$res_disable = $this->db->where("faculty_id", $faculty_id)->get("input_qualification");
+		if ($res_disable->num_rows() == 1) {
+			$id_X = explode(",",$res_disable->result()[0]->qualification);
+		}
 		foreach($arr as $key=>$val) {
 			$ids = explode(",", $val->qualifications);
 			foreach($ids as $key=>$x) {
@@ -169,12 +174,34 @@ class Welcome extends CI_Controller {
 					->get('min_qualifications')
 					->result();
 			if ($data) {
-				array_push($ids_verbose, ['id'=> $data[0]->id,'name'=>$data[0]->qualification_name]);
+				if (isset($id_X) && sizeof($id_X)>0) {
+					if (in_array($val, $id_X)) {
+						// id is already maked by the the faculty. 
+						array_push($ids_verbose, ['id'=> $data[0]->id,
+							'name'=>$data[0]->qualification_name,
+							'is_editable' => false
+						]);
+					}
+					else {
+						array_push($ids_verbose, ['id'=> $data[0]->id,
+							'name'=>$data[0]->qualification_name,
+							'is_editable' => true
+						]);
+					}
+				}
+				else {
+					array_push($ids_verbose, ['id'=> $data[0]->id,
+							'name'=>$data[0]->qualification_name,
+							'is_editable' => true
+						]);
+				}
+				
 			}
 			else {
 				die('error occured');
 			}
 		}
+
 		$data['qualifications'] = $ids_verbose;
 		//echo "<pre>".print_r($this->session, true);
 		$this->load->view("faculty_qualifications", $data);
