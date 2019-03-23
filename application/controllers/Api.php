@@ -117,11 +117,7 @@ class Api extends CI_Controller {
 	public function getUser($faculty_id){
 		$res = $this->db->select("*")
 				->from("faculty")
-<<<<<<< HEAD
 				->join("levels", "levels.id = faculty.level")
-=======
-				->join("levels", "levels.level_id = faculty.level")
->>>>>>> 08653c5b07351c1da86aa7736b7f822edab33b5b
 				->where("faculty_id", $faculty_id)
 				->get()->result();
 		if ($res)
