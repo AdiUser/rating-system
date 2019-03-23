@@ -135,8 +135,7 @@ class Welcome extends CI_Controller {
 		if ($res) {
 			$data["fac"] = $res;
 		}
-
-		$this->load->view("add_faculty", $data);
+		$this->load->view("add_faculty", $res);
 	}
 	public function get_next_level($id) {
 		$res = $this->db->where(['id' => $id])->get("levels")->result();

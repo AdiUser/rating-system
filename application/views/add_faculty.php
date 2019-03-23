@@ -219,7 +219,7 @@
                                   <div class="card-header" id="headingOne" role="tab">
                                       <h5 class="mb-0">
                                           <a data-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
-                                            <i class=" cui-file h5 paddRight10"></i>Upload an Excel File</a>
+                                            <i class="fa fa-file-excel-o fa-md paddRight10"></i>Upload an Excel File</a>
                                       </h5>
                                   </div>
                                   <div class="collapse" id="collapseOne" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" style="">

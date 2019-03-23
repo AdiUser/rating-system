@@ -134,7 +134,8 @@
                 </table>
                 <div class="row">
                   <div class="col-md-3">
-                    <button class="btn btn-pill btn-block btn-info" type="button" id="activity-add">Add More...</button>
+                    <button class="btn btn-pill btn-block btn-info" type="button" id="activity-add">
+                    <i class="fa fa-plus fa-md paddLeft10"></i>Add More...</button>
                   </div>
                   <div class="col-md-3">
                   <button class="btn btn-pill btn-block btn-success" type="submit" id="activity-save-btn">Save <i class="icons font-1xl cui-check paddLeft10"></i></button>
