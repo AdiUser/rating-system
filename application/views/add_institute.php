@@ -198,7 +198,7 @@
                               <div class="card mb-0">
                                 <div class="card-header" id="headingTwo" role="tab">
                                   <h5 class="mb-0">
-                                    <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Add Institute via Excel</a>
+                                    <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-file-excel-o fa-md paddRight10"></i></i>Add Institute via Excel</a>
                                   </h5>
                                   </div>
                                   <div class="collapse" id="collapseTwo" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">

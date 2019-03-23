@@ -127,7 +127,7 @@
                                             <input type="file" id="pic" onchange="readURL(this);" name="file_upload" style="display: none;">
                                             </form>
 
-                                            <button class="btn btn-primary"id="upload-btn" type="button" style="margin-top:50px">+ Upload</button>
+                                            <button class="btn btn-primary"id="upload-btn" type="button" style="margin-top:50px"><i class="fa fa-plus fa-md"></i> Upload</button>
                                           </div>
                                         </div>
                                         <script>

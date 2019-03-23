@@ -119,7 +119,7 @@
                                             </div>
                                           </div>
                                           <div class="col-md-9">
-                                            <button class="btn btn-primary" type="button" style="margin-top:80px">+ Upload</button>
+                                            <button class="btn btn-primary" type="button" style="margin-top:80px"><i class="fa fa-plus fa-md"></i> Upload</button>
                                           </div>
                                         </div>
                                         <?php
@@ -134,7 +134,7 @@
                                                   <label for="company">Name</label>
                                               </div>
                                               <div class="col-md-8">
-                                                  <input class="form-control" name="faculty_name" id="company" type="text" placeholder="Enter HOD name"value="<?=$d->name?$d->name:''?>"> 
+                                                    <input class="form-control" name="faculty_name" id="company" type="text" placeholder="Enter HOD name"value="<?=$d->name?$d->name:''?>"> 
                                               </div>
                                           </div>
                                               <div class="form-group row">

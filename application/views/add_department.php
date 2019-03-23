@@ -123,7 +123,8 @@
                 </table>
                 <div class="row">
                   <div class="col-md-3">
-                    <button class="btn btn-pill btn-block btn-info" type="button" id="dept-add">Add More...</button>
+                    <button class="btn btn-pill btn-block btn-info" type="button" id="dept-add">
+                    <i class="fa fa-plus fa-md paddLeft10"></i>Add More...</button>
                   </div>
                   <div class="col-md-3">
                      <button class="btn btn-pill btn-block btn-success" id="departments-save-btn" type="submit">Save <i class="icons font-1xl cui-check paddLeft10"></i></button>
