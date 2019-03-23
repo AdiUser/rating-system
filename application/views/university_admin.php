@@ -106,7 +106,7 @@
                                   <div class="card-header" id="headingThree" role="tab">
                                       <h5 class="mb-0">
                                           <a class="" data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                                            <i class="icons font-1xl mt-5 cui-user-follow paddRight10"></i>Add University Data</a>
+                                            <i class="icons font-1xl mt-5 cui-user-follow paddRight10"></i>Edit University Data</a>
                                       </h5>
                                   </div>
                                     <?php $o = $org[0]; ?>
