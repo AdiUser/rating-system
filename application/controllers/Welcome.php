@@ -58,7 +58,7 @@ class Welcome extends CI_Controller {
 		//$res = $this->db->where(["faculty_id" => $faculty_id])->get("faculty")->result();
 		$res = $this->db->select("*")
 			->from("faculty")
-			->join("levels", "levels.level_id = faculty.level")
+			->join("levels", "levels.id = faculty.level")
 			->join("departments", "departments.id = faculty.department")
 			->where("faculty_id", $faculty_id)
 			->get()->result();
