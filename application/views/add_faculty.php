@@ -26,6 +26,7 @@
     <link href="/rating-system/assets/css/style.css" rel="stylesheet">
     <link href="/rating-system/assets/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" />
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
         <script src="/rating-system/assets/jquery/dist/jquery.min.js"></script>
 
@@ -189,7 +190,24 @@
                                       alert($("#add-faculty-form").serialize())
                                     },
                                     success: function(data) {
-                                      alert(data);
+                                      if(data==1) {
+                                                    iziToast.show({
+                                                        title: 'Success',
+                                                        message: 'Faculty Added Successfully',
+                                                        position: 'topCenter',
+                                                        color: 'green',
+                                                        timeout: '2500'
+                                                    });
+                                                  }
+                                                  else{
+                                                          iziToast.error({
+                                                          title: 'Error',
+                                                          message: 'Could not Add Faculty',
+                                                          position: 'topCenter',
+                                                          color: 'red',
+                                                          timeout: '2500'
+                                                       });
+                                                  }
                                     },
                                     error:function() {
                                       alert("error");
@@ -331,6 +349,7 @@
     <script src="/rating-system/assets/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
     <script src="/rating-system/assets/@coreui/coreui/dist/js/coreui.min.js"></script>
     <!-- Plugins and scripts required by this view-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>    <script src="assets/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
     <script src="/rating-system/assets/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
    
   </body>

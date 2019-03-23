@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 22, 2019 at 08:30 AM
+-- Generation Time: Mar 23, 2019 at 09:50 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -41,13 +41,31 @@ CREATE TABLE `acr_points` (
 --
 
 CREATE TABLE `activity` (
-  `serial` int(2) NOT NULL,
-  `faculty_id` int(10) NOT NULL,
-  `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `serial` int(10) NOT NULL,
+  `faculty_id` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   `type` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `report` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `verified` int(2) NOT NULL
+  `report` text COLLATE utf8_unicode_ci NOT NULL,
+  `verified` int(2) NOT NULL,
+  `is_active` int(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `activity`
+--
+
+INSERT INTO `activity` (`serial`, `faculty_id`, `name`, `type`, `report`, `verified`, `is_active`) VALUES
+(1, '0', 'fhghj', 'd', '0459c4957a773c835c58', 0, 1),
+(2, '0', 'sf', 'e', '3ef8493bb5d4b77b0285', 0, 1),
+(3, '0', 'fhghj', 'd', 'a8b77fff25bf737107c6', 0, 1),
+(4, '0', 'sf', 'e', '3057c7a290e98c20b8a2', 0, 1),
+(5, '0', 'fhghj', 'd', '142e7f705dfb30f28b43', 0, 1),
+(6, '0', 'sf', 'e', '4a905ded909171368504', 0, 1),
+(7, 'hod', 'My Activity', 'd', '7b06965fade7fdbeef42932558c44cda.jpg', 0, 0),
+(8, 'hod', 'Ammy did that', 'i', '0266f6fc8a6986a27a780300110e6407.jpg', 0, 1),
+(9, 'hod', 'I did that ', 'd', '5c97ebbc11fa3d0c3a8388ade12ae3a9.jpg', 0, 1),
+(10, 'hod', 'I did that', 'departmental', '304338169e3c3f8d4b4a33d29e398a6b.jpg', 0, 1),
+(11, 'hod', 'My New Activity', 'departmental', '1b4495b1ed3669dd2fbaf15b52cd8a3d.jpg', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -250,8 +268,8 @@ INSERT INTO `levels` (`id`, `level_id`, `level_name`, `level_package_group`) VAL
 (3, '11', 'Lecturer (Senior Scale)', '68900'),
 (4, '12', 'Lecturer (Selection Grade -I)', '79800'),
 (5, '13A1', 'Lecturer (Selection Grade -II) ', '131400'),
-(6, '13A1', 'Head of the Department\r\n(HoD)', '131400'),
-(7, '13A1', 'Principal', '131400');
+(6, '13A-HOD', 'Head of the Department\r\n(HoD)', '131400'),
+(7, '13A-P', 'Principal', '131400');
 
 -- --------------------------------------------------------
 
@@ -584,6 +602,20 @@ INSERT INTO `min_requirements` (`id`, `department`, `level`, `type`, `qualificat
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `qualification_proof`
+--
+
+CREATE TABLE `qualification_proof` (
+  `id` int(11) NOT NULL,
+  `faculty_id` varchar(100) NOT NULL,
+  `qualification_id` varchar(10) NOT NULL,
+  `proof` text NOT NULL,
+  `is_active` int(11) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `rating`
 --
 
@@ -795,6 +827,12 @@ ALTER TABLE `min_requirements`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `qualification_proof`
+--
+ALTER TABLE `qualification_proof`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `rating`
 --
 ALTER TABLE `rating`
@@ -838,7 +876,7 @@ ALTER TABLE `user_login`
 -- AUTO_INCREMENT for table `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `serial` int(2) NOT NULL AUTO_INCREMENT;
+  MODIFY `serial` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `aicte_admin`
@@ -893,6 +931,12 @@ ALTER TABLE `min_qualifications`
 --
 ALTER TABLE `min_requirements`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=251;
+
+--
+-- AUTO_INCREMENT for table `qualification_proof`
+--
+ALTER TABLE `qualification_proof`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `rating`

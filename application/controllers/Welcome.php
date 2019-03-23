@@ -53,19 +53,20 @@ class Welcome extends CI_Controller {
 	}
 	
 	public function faculty() {
-		$faculty_id = "FACT101"; // will come from session
+		$faculty_id = $this->session->user[0]->username; // will come from session
 		$data = array();
 		//$res = $this->db->where(["faculty_id" => $faculty_id])->get("faculty")->result();
 		$res = $this->db->select("*")
 			->from("faculty")
-			->join("levels", "levels.id = faculty.level")
+			->join("levels", "levels.level_id = faculty.level")
 			->join("departments", "departments.id = faculty.department")
 			->where("faculty_id", $faculty_id)
 			->get()->result();
-
 		if (sizeof($res) > 0) {
 			$data["faculty_details"] = $res;
 		}
+		$data["user_details"] = $this->session->user_details;
+		//echo "<pre>".print_r($this->session, true);
 		$this->load->view("faculty", $data);
 	}
 
@@ -112,7 +113,7 @@ class Welcome extends CI_Controller {
 		$org = $this->session->organisation[0];
 		$data["user"] = $user;
 		$data["org"] = $org;
-		echo json_encode($org);
+		
 		$this->load->view("university_admin",$data);
 	}
 	public function institute_admin() {
@@ -134,7 +135,7 @@ class Welcome extends CI_Controller {
 		if ($res) {
 			$data["fac"] = $res;
 		}
-		$this->load->view("add_faculty", $data);
+		$this->load->view("add_faculty", $res);
 	}
 	public function get_next_level($id) {
 		$res = $this->db->where(['id' => $id])->get("levels")->result();

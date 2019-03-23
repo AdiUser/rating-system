@@ -117,7 +117,11 @@ class Api extends CI_Controller {
 	public function getUser($faculty_id){
 		$res = $this->db->select("*")
 				->from("faculty")
+<<<<<<< HEAD
 				->join("levels", "levels.id = faculty.level")
+=======
+				->join("levels", "levels.level_id = faculty.level")
+>>>>>>> 08653c5b07351c1da86aa7736b7f822edab33b5b
 				->where("faculty_id", $faculty_id)
 				->get()->result();
 		if ($res)
@@ -142,6 +146,7 @@ class Api extends CI_Controller {
 				echo "INSIDE";
 				$user_details = $this->getUser($user[0]->username);
 				$this->session->set_userdata("user_details", $user_details);
+				echo json_encode($user_details);
 			}
 			$this->session->set_userdata('user',$user);
 			$this->session->set_userdata('organisation', $organisation);
@@ -268,6 +273,39 @@ class Api extends CI_Controller {
 			$res = $this->db->set($details)->where("university_code", $user->code)->update("university");
 			if ($this->db->affected_rows() == 1) {
 				$this->session->set_userdata("organisation", $this->getUserOrganisation($user->code));
+				echo 1;
+			}
+			else {
+				echo 0;
+			}
+		}
+		else {
+			 echo  $this->upload->display_errors();
+
+		}
+	}
+
+	public function save_faculty_image() {
+
+		$user = $this->session->user[0];
+
+		$config['upload_path']="assets/img";
+        $config['allowed_types']='gif|jpg|png|PNG|JPEG|JPG';
+        $config['encrypt_name'] = TRUE;
+         
+        $this->load->library('upload',$config);
+        if($this->upload->do_upload("file_upload")){
+            $data = array('upload_data' => $this->upload->data());
+ 
+            $title= $this->input->post('title');
+            $image= $data['upload_data']['file_name']; 
+            $details = array(
+			"logo" => "assets/img/".$image
+			);
+
+			$res = $this->db->set($details)->where("faculty_id", $user->username)->update("faculty");
+			if ($this->db->affected_rows() == 1) {
+				$this->session->set_userdata("user_details", $this->getUser($user->username));
 				echo 1;
 			}
 			else {

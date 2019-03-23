@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-* CoreUI - Free Bootstrap Admin Template
+* CoreUI - Free Bootstrap ADmin Template
 * @version v2.1.12
 * @link https://coreui.io
 * Copyright (c) 2018 creativeLabs Łukasz Holeczek
@@ -124,7 +124,9 @@
                                         </div>
                                         <?php
                                           if(isset($faculty_details[0]))
-                                              $d = $faculty_details[0];  
+                                              $d = $faculty_details[0];
+                                          else
+                                            $d = null;   
                                         ?>
                                         <form id="faculty_form" method="post">
                                           <div class="form-group row">
