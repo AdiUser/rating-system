@@ -142,6 +142,7 @@ class Api extends CI_Controller {
 				echo "INSIDE";
 				$user_details = $this->getUser($user[0]->username);
 				$this->session->set_userdata("user_details", $user_details);
+				echo $user[0]->username;
 				echo json_encode($user_details);
 			}
 			$this->session->set_userdata('user',$user);
