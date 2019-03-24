@@ -122,8 +122,23 @@ class Welcome extends CI_Controller {
 	}
 
 	public function HOD_show_faculty() {
+		$res = $this->db->select("*")
+					->from("faculty")
+					->join("faculty_dept","faculty_dept.id = faculty.department")
+					->join("levels", "levels.id = faculty.level")
+					->where("university_code", $this->session->user[0]->code)
+					->where("faculty_id !=", $this->session->user[0]->username)
+					->get()
+					->result();
+		if (sizeof($res) > 0) {
+			$data['faculties'] = $res;
+		}
+		else {
+			$data['faculties'] = null;
+		}
 
-		$this->load->view("faculty_list");
+
+		$this->load->view("faculty_list",$data);
 	}
 
 	public function HOD_add_faculty() {
@@ -135,7 +150,7 @@ class Welcome extends CI_Controller {
 		if ($res) {
 			$data["fac"] = $res;
 		}
-		$this->load->view("add_faculty", $res);
+		$this->load->view("add_faculty", $data);
 	}
 	public function get_next_level($id) {
 		$res = $this->db->where(['id' => $id])->get("levels")->result();

@@ -156,8 +156,8 @@
           $("#activity-form").submit(function(e){
             e.preventDefault();
              var dataString = new FormData($("#activity-form")[0]);
-             console.log($("#activity-form"))
-             console.log(dataString)
+             console.log($("#activity-form"));
+             console.log(dataString);
 
               $.ajax({
                   type: "POST",
@@ -173,24 +173,24 @@
                     }
                   },
                   success: function(data){
-                    if(data==1) {
-                                            iziToast.show({
-                                                title: 'Success',
-                                                message: 'Activity Added Successfully',
-                                                position: 'topCenter',
-                                                color: 'green',
-                                                timeout: '2500'
-                                            });
-                              }
-                              else{
-                                    iziToast.error({
-                                          title: 'Error',
-                                          message: 'Could not Add Activity',
-                                          position: 'topCenter',
-                                          color: 'red',
-                                          timeout: '2500'
-                                        });
-                                  }
+                    if(data == 1) {
+                      iziToast.show({
+                          title: 'Success',
+                          message: 'Activity Added Successfully',
+                          position: 'topCenter',
+                          color: 'green',
+                          timeout: '2500'
+                      });
+                    }
+                    else{
+                          iziToast.error({
+                                title: 'Error',
+                                message: 'Could not Add Activity',
+                                position: 'topCenter',
+                                color: 'red',
+                                timeout: '2500'
+                              });
+                        }
                       console.log(data);
 
                       $("#activities-item").prepend(data);
@@ -221,24 +221,24 @@
               alert(dataset.id);
             },
             success: function(data) {
-              if(data==1) {
-                                            iziToast.show({
-                                                title: 'Success',
-                                                message: 'Activity Deleted Successfully',
-                                                position: 'topCenter',
-                                                color: 'green',
-                                                timeout: '2500'
-                                            });
-                              }
-                              else{
-                                    iziToast.error({
-                                          title: 'Error',
-                                          message: 'Could not Delete Activity',
-                                          position: 'topCenter',
-                                          color: 'red',
-                                          timeout: '2500'
-                                        });
-                                  }
+              if(data) {
+                  iziToast.show({
+                      title: 'Success',
+                      message: 'Activity Deleted Successfully',
+                      position: 'topCenter',
+                      color: 'green',
+                      timeout: '2500'
+                  });
+              }
+              else if(data == 0) {
+                    iziToast.error({
+                          title: 'Error',
+                          message: 'Could not Delete Activity',
+                          position: 'topCenter',
+                          color: 'red',
+                          timeout: '2500'
+                        });
+                  }
               alert(dataset.delete);
               $("#"+dataset.delete).remove();
 

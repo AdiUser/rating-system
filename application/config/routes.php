@@ -64,6 +64,7 @@ $route['delete-department'] = 'api/delete_department';
 
 $route['save-hod-details'] = 'api/save_hod_details';
 $route['save-faculty'] = 'api/save_faculty';
+$route['save-acr'] = 'api/save_acr';
 
 $route["update-university-profile"] = "api/update_university_profile";
 $route['update-faculty-profile']='api/update_faculty_profile';
@@ -73,6 +74,10 @@ $route['save-faculty-img'] = 'api/save_faculty_image';
 $route['save-activities'] = 'api/save_activities';
 $route['delete-activity'] = 'api/delete_activity';
 $route['update-qualifications'] = 'api/update_qualifications';
+$route['get-faculty-data']  = 'api/get_faculty_data';
+$route['verify-activity'] = 'api/verify_activity';
+$route['teaching-process-delete'] = 'api/teaching_process_delete';
+$route['teaching-process-add'] = 'api/teaching_process_add';
 
 //static routes
 $route['add-institute'] = 'welcome/add_institute';

@@ -22,43 +22,44 @@ class Api extends CI_Controller {
             echo 0;
         }
     }
-    /*public function save_activities() {
-    $hod_id = "4567"; // from session.
-    $faculty_id = "5678"; // from form.
-    
-    $p = $this->input->post("points");
-    $sem = $this->input->post("semester");
-    $a_name = $this->input->post("activity");
-    $field_id = $this->input->post("field-id");
-    $insert_ids = array();
-    $count = 0;
-    $str = "";
-    foreach($a_name as $key=>$val) {
-    $details = array(
-    "hod_id" => $hod_id,
-    "faculty_id" => $faculty_id,
-    "activity_name" => $a_name[$key],
-    "semester" => $sem[$key],
-    "points" => $p[$key]
-    );
-    $res = $this->db->insert("departmental_activities", $details);
-    $idx = $this->db->insert_id();
-    array_push($insert_ids, $idx);
-    if ($res) {
-    $count++;
-    $str .= '<tr id="'.$field_id[$key].'"><td>'.$a_name[$key].'</td><td>'.$sem[$key].'</td><td>'.$p[$key].'</td>';
-    $str .= '<td><button class="btn btn-danger dept-activities-delete-new" data-id="'.$idx.'" data-delete="'.$field_id[$key].'"><i class="icons font-1xl d-block cui-circle-x"></i></button></td></tr>'; 
+    public function save_acr() {
+        $faculty_id = $this->input->post("faculty-id"); // from form.
+        $p = $this->input->post("points");
+        $year = $this->input->post("year");
+        $a_name = $this->input->post("activity");
+        $field_id = $this->input->post("field-id");
+        $insert_ids = array();
+        $count = 0;
+        $str = "";
+        
+        foreach($a_name as $key=>$val) {
+            
+            $details = array(
+                "faculty_id" => $faculty_id[$key],
+                "acr_year" => $year[$key],
+                "points" => $p[$key]
+            );
+            
+            $res = $this->db->insert("acr_points", $details);
+            $idx = $this->db->insert_id();
+            
+            array_push($insert_ids, $idx);
+            
+            if ($res) {
+                $count++;
+                $str .= '<tr id="'.$field_id[$key].'"><td>'.$a_name[$key].'</td><td>'.$year[$key].'</td><td>'.$p[$key].'</td>';
+                $str .= '<td><button class="btn btn-danger dept-activities-delete-new" data-id="'.$idx.'" data-delete="'.$field_id[$key].'"><i class="icons font-1xl d-block cui-circle-x"></i></button></td></tr>'; 
+                }
+            }
+        
+        
+        if ($count == sizeof($p)) {
+            echo $str;
+        }
+        else {
+            echo 0;
+        }
     }
-    }
-    
-    
-    if ($count == sizeof($p)) {
-    echo $str;
-    }
-    else {
-    echo 0;
-    }
-    }*/
     
     public function save_departments() {
         $hod_id     = "4567"; // from session.
@@ -194,7 +195,7 @@ class Api extends CI_Controller {
     }
     
     public function update_hod_profile() {
-        $faculty_id = "FACT101"; // from session
+        $faculty_id = $this->session->user[0]->username; // from session
         
         $name    = $this->input->post("faculty_name");
         $contact = $this->input->post("faculty_contact");
@@ -483,7 +484,7 @@ class Api extends CI_Controller {
 	        $res = $this->db->select("*")->from("input_qualification")->where("faculty_id", $faculty_id)->get();
 	        if ($res->num_rows() == 1) {
 	            $res = $res->result();
-	            echo "<pre>" . print_r($res, true);
+	            //echo "<pre>" . print_r($res, true);
 	            $collection_ids = $res[0]->qualification . "," . $val;
 	            $res            = $this->db->set(array(
 	                "qualification" => $collection_ids
@@ -519,6 +520,161 @@ class Api extends CI_Controller {
         }
         
         return null;
+    }
+    public function teaching_process_add() {
+        $sem = $this->input->post("semester");
+        $years = $this->input->post("year");
+        $codes = $this->input->post("subject");
+        $total_classes = $this->input->post("totalClasses");
+        $classes = $this->input->post("classes");
+        $faculty_id = $this->input->post("faculty-id");
+        $field_id = $this->input->post("field-id");
+        $successful_uploads = 0;
+        $insert_ids = array();
+        $str = "";
+
+        foreach ($sem as $key => $val) {
+            $img = $this->upload_file("proof-".$key);
+            if ($img != NULL) {
+                $to_save = array(
+                    "faculty_id" => $faculty_id[$key],
+                    "semester" => $sem[$key],
+                    "year" => $years[$key],
+                    "subject_code" => $codes[$key],
+                    "total_classes" => $total_classes[$key],
+                    "held_classes" => $classes[$key],
+                    "teaching_proof" => $img
+                );
+                $res = $this->db->insert("teaching_process", $to_save);
+                $idx     = $this->db->insert_id();
+                array_push($insert_ids, $idx);
+                if ($res) {
+                    $str .= '<tr id="' . $field_id[$key] . '"><td>' . $sem[$key] . '</td><td>' . $years[$key] . '</td><td>'. $codes[$key] .'</td><td>'.$total_classes[$key].'</td><td>'.$classes[$key].'</td>';
+                    $str .= '<td>' . $img . '</td>';
+                    $str .= '<td><button class="btn btn-danger teaching-process-delete" data-id="' . $idx . '" data-delete="' . $field_id[$key] . '"><i class="icons font-1xl d-block cui-circle-x"></i></button></td></tr>';
+                }
+                $successful_uploads++;
+            }
+
+        }
+        $data = array();
+        if ($successful_uploads == count($sem)) {
+           
+           echo $str;
+        }
+        else {
+            $data['result'] = 0;
+            echo json_encode($data);
+        }
+
+        return null;
+    }
+    public function teaching_process_delete() {
+        $id = $this->input->get("id");
+        $res = $this->db->set(array("is_active" => 0))
+                    ->where("serial", $id)
+                    ->update("teaching_process");
+
+        if ($this->db->affected_rows() == 1){
+            echo 1;
+        }
+        else {
+            echo 0;
+        }
+        return null;
+    }
+
+    public function get_faculty_data() {
+        //sleep(3);
+        $faculty_id = $this->input->get("facultyId");
+        $type = $this->input->get("type"); // to differetiate b/w institute and HOD
+        
+        // type = 1 ->HOD
+        // TYPE = 0 -> Institute/University
+        
+        $semester = 1; //getSemester(`date`) calculate semester a/c to date.
+        $data = array();
+        // get user details
+        $details = $this->db->select("*")
+                        ->from("faculty")
+                        ->join("levels", "levels.id = faculty.level")
+                        ->join("faculty_dept", "faculty_dept.id = faculty.department")
+                        ->where("faculty_id", $faculty_id)
+                        ->get()
+                        ->result();
+        // get user activities
+        $activities = $this->db->where("faculty_id", $faculty_id)
+                           ->where("sem", 1)
+                           ->where("is_verified", 0);
+
+
+        if ($type == 1) {
+            $activities = $activities->where("type != ", "institute");
+        } 
+        else {
+            $activities = $activities->where("type", "institute");
+        }
+
+        $activities = $activities->get("activity")->result();
+
+        // get user qualifiations that need to be verified
+        $to_get = array("qualification_name", "qualification_proof.id","qualification_proof.proof" );
+        $qualifications = $this->db->select($to_get)
+                                ->from("qualification_proof")
+                                ->join("min_qualifications", "min_qualifications.id = qualification_proof.qualification_id")
+                                ->where('faculty_id', $faculty_id)
+                                ->where("is_verified", 0)
+                                ->where("is_active", 1)
+                                ->get()->result();
+
+        // get ACR for user
+        $acr = $this->db->where("faculty_id", $faculty_id)
+                    ->where("is_active", 1)
+                    ->get("acr_points")
+                    ->result();
+
+        // get teaching process scores
+        $teaching_process = $this->db->where("faculty_id", $faculty_id)
+                                 ->where("is_active", 1)
+                                 ->get("teaching_process")
+                                 ->result();
+
+        $data['acr'] = $acr;
+        $data['teaching_process'] = $teaching_process;
+        $data['qualifications'] = $qualifications;
+        $data['details'] = $details;
+        $data['activities'] = $activities;
+
+        
+        echo json_encode($data);
+        return null;
+    }
+
+    public function verify_activity() {
+        $activity_id = $this->input->post("activity");
+        $qualification_id = $this->input->post("qualification");
+        
+        if ($activity_id == -1) {
+            $id = $qualification_id;
+            $index = "id";
+            $table = "qualification_proof";
+        }
+        else {
+            $id = $activity_id;
+            $index = "serial"; 
+            $table = "activity";
+        }
+        
+        $res = $this->db->set(array("is_verified" => 1))
+                    ->where($index, $id)
+                    ->update($table);
+
+        if ($this->db->affected_rows() == 1) {
+            echo 1;
+        }
+        else {
+            echo 0;
+        }
     }
     
 }

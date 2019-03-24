@@ -209,27 +209,27 @@
                               
                               </div>
                               <script>
-                                                $('#faculty_submit').on("click", function(){
-                                                  var formData = $("#faculty_form").serialize();
-                                                  
-                                                  $.ajax({
-                                                    method: "POST",
-                                                    url: "update-hod-profile",
-                                                    data: formData,
-                                                    beforeSend: function() {
-                                                      alert(formData);
-                                                    },
-                                                    success: function(data){
-                                                      if(data=='1') {
-                                                        alert('SUCCESS');
-                                                      }
-                                                      else{
-                                                        alert('ERROR');
-                                                      }
-                                                    }
-                                                  });
-                                                });
-                                              </script>
+                                $('#faculty_submit').on("click", function(){
+                                  var formData = $("#faculty_form").serialize();
+                                  
+                                  $.ajax({
+                                    method: "POST",
+                                    url: "update-hod-profile",
+                                    data: formData,
+                                    beforeSend: function() {
+                                      alert(formData);
+                                    },
+                                    success: function(data){
+                                      if(data=='1') {
+                                        alert('SUCCESS');
+                                      }
+                                      else{
+                                        alert('ERROR');
+                                      }
+                                    }
+                                  });
+                                });
+                              </script>
                              
                           </div>
                       </div>

@@ -28,10 +28,16 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" />
+
     <link rel="stylesheet" href="/rating-system/assets/css/user-model.css">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+
     <script src="/rating-system/assets/jquery/dist/jquery.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script>
+             <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>   
+
 
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -100,543 +106,57 @@
             <table id="example" class="display table table-responsive-sm table-sm" style="width:100%">
         <thead>
             <tr>
+                <th></th>
+                <th colspan="2">Details</th>
+                <th colspan="3">Facult Promotional Details</th>
+            </tr>
+            <tr>
                 <th>Name</th>
                 <th>Position</th>
-                <th>Age</th>
                 <th>Years of Service</th>
                 <th>Student Feedback Score (out of 25)</th>
-                <th>Salary</th>
+                <th>Salary Group (INR)</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>
-                  <div class="d-flex align-middle">
-                    <div class="faculty-img">
-                      <img src="https://via.placeholder.com/50" alt="">
-                    </div> 
-                    <div class="faculty-name">
-                      <a href="#" class="f-name" data-target="faculty-id">Tiger Nixon</a>     
-                    </div>   
-                  </div>
-                
-                </td>
-                <td>Lecturer(9)</td>
-                <td>32</td>
-                <td>4</td>
-                <td>2011/04/25</td>
-                <td>$320,800</td>
-            </tr>
-            <tr>
-                <td>
-                  <div class="d-flex align-middle">
-                    <div class="faculty-img">
-                      <img src="https://via.placeholder.com/50" alt="">
-                    </div> 
-                    <div class="faculty-name">
-                      Tiger Nixon     
-                    </div>   
-                  </div>
-                
-                </td>
-                <td>Lecturer(9)</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011/07/25</td>
-                <td>$170,750</td>
-            </tr>
-            <tr>
-                <td>
-                  <div class="d-flex align-middle">
-                    <div class="faculty-img">
-                      <img src="https://via.placeholder.com/50" alt="">
-                    </div> 
-                    <div class="faculty-name">
-                      Tiger Nixon     
-                    </div>   
-                  </div>
-                
-                </td>
 
-                <td>Lecturer(10)</td>                
-                <td>San Francisco</td>
-                <td>66</td>
-                <td>2009/01/12</td>
-                <td>$86,000</td>
-            </tr>
-            <tr>
-                <td>
-                  <div class="d-flex align-middle">
-                    <div class="faculty-img">
-                      <img src="https://via.placeholder.com/50" alt="">
-                    </div> 
-                    <div class="faculty-name">
-                      Tiger Nixon     
-                    </div>   
-                  </div>
-                
-                </td>
-                <td>Senior Javascript Developer</td>
-                <td>Edinburgh</td>
-                <td>22</td>
-                <td>2012/03/29</td>
-                <td>$433,060</td>
-            </tr>
-            <tr>
-                <td>
-                  <div class="d-flex align-middle">
-                    <div class="faculty-img">
-                      <img src="https://via.placeholder.com/50" alt="">
-                    </div> 
-                    <div class="faculty-name">
-                      Tiger Nixon     
-                    </div>   
-                  </div>
-                
-                </td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>33</td>
-                <td>2008/11/28</td>
-                <td>$162,700</td>
-            </tr>
-            <tr>
-                <td>
-                  <div class="d-flex align-middle">
-                    <div class="faculty-img">
-                      <img src="https://via.placeholder.com/50" alt="">
-                    </div> 
-                    <div class="faculty-name">
-                      Tiger Nixon     
-                    </div>   
-                  </div>
-                
-                </td>
-                <td>Integration Specialist</td>
-                <td>New York</td>
-                <td>61</td>
-                <td>2012/12/02</td>
-                <td>$372,000</td>
-            </tr>
-            <tr>
-                <td>Herrod Chandler</td>
-                <td>Sales Assistant</td>
-                <td>San Francisco</td>
-                <td>59</td>
-                <td>2012/08/06</td>
-                <td>$137,500</td>
-            </tr>
-            <tr>
-                <td>Rhona Davidson</td>
-                <td>Integration Specialist</td>
-                <td>Tokyo</td>
-                <td>55</td>
-                <td>2010/10/14</td>
-                <td>$327,900</td>
-            </tr>
-            <tr>
-                <td>Colleen Hurst</td>
-                <td>Javascript Developer</td>
-                <td>San Francisco</td>
-                <td>39</td>
-                <td>2009/09/15</td>
-                <td>$205,500</td>
-            </tr>
-            <tr>
-                <td>Sonya Frost</td>
-                <td>Software Engineer</td>
-                <td>Edinburgh</td>
-                <td>23</td>
-                <td>2008/12/13</td>
-                <td>$103,600</td>
-            </tr>
-            <tr>
-                <td>Jena Gaines</td>
-                <td>Office Manager</td>
-                <td>London</td>
-                <td>30</td>
-                <td>2008/12/19</td>
-                <td>$90,560</td>
-            </tr>
-            <tr>
-                <td>Quinn Flynn</td>
-                <td>Support Lead</td>
-                <td>Edinburgh</td>
-                <td>22</td>
-                <td>2013/03/03</td>
-                <td>$342,000</td>
-            </tr>
-            <tr>
-                <td>Charde Marshall</td>
-                <td>Regional Director</td>
-                <td>San Francisco</td>
-                <td>36</td>
-                <td>2008/10/16</td>
-                <td>$470,600</td>
-            </tr>
-            <tr>
-                <td>Haley Kennedy</td>
-                <td>Senior Marketing Designer</td>
-                <td>London</td>
-                <td>43</td>
-                <td>2012/12/18</td>
-                <td>$313,500</td>
-            </tr>
-            <tr>
-                <td>Tatyana Fitzpatrick</td>
-                <td>Regional Director</td>
-                <td>London</td>
-                <td>19</td>
-                <td>2010/03/17</td>
-                <td>$385,750</td>
-            </tr>
-            <tr>
-                <td>Michael Silva</td>
-                <td>Marketing Designer</td>
-                <td>London</td>
-                <td>66</td>
-                <td>2012/11/27</td>
-                <td>$198,500</td>
-            </tr>
-            <tr>
-                <td>Paul Byrd</td>
-                <td>Chief Financial Officer (CFO)</td>
-                <td>New York</td>
-                <td>64</td>
-                <td>2010/06/09</td>
-                <td>$725,000</td>
-            </tr>
-            <tr>
-                <td>Gloria Little</td>
-                <td>Systems Administrator</td>
-                <td>New York</td>
-                <td>59</td>
-                <td>2009/04/10</td>
-                <td>$237,500</td>
-            </tr>
-            <tr>
-                <td>Bradley Greer</td>
-                <td>Software Engineer</td>
-                <td>London</td>
-                <td>41</td>
-                <td>2012/10/13</td>
-                <td>$132,000</td>
-            </tr>
-            <tr>
-                <td>Dai Rios</td>
-                <td>Personnel Lead</td>
-                <td>Edinburgh</td>
-                <td>35</td>
-                <td>2012/09/26</td>
-                <td>$217,500</td>
-            </tr>
-            <tr>
-                <td>Jenette Caldwell</td>
-                <td>Development Lead</td>
-                <td>New York</td>
-                <td>30</td>
-                <td>2011/09/03</td>
-                <td>$345,000</td>
-            </tr>
-            <tr>
-                <td>Yuri Berry</td>
-                <td>Chief Marketing Officer (CMO)</td>
-                <td>New York</td>
-                <td>40</td>
-                <td>2009/06/25</td>
-                <td>$675,000</td>
-            </tr>
-            <tr>
-                <td>Caesar Vance</td>
-                <td>Pre-Sales Support</td>
-                <td>New York</td>
-                <td>21</td>
-                <td>2011/12/12</td>
-                <td>$106,450</td>
-            </tr>
-            <tr>
-                <td>Doris Wilder</td>
-                <td>Sales Assistant</td>
-                <td>Sidney</td>
-                <td>23</td>
-                <td>2010/09/20</td>
-                <td>$85,600</td>
-            </tr>
-            <tr>
-                <td>Angelica Ramos</td>
-                <td>Chief Executive Officer (CEO)</td>
-                <td>London</td>
-                <td>47</td>
-                <td>2009/10/09</td>
-                <td>$1,200,000</td>
-            </tr>
-            <tr>
-                <td>Gavin Joyce</td>
-                <td>Developer</td>
-                <td>Edinburgh</td>
-                <td>42</td>
-                <td>2010/12/22</td>
-                <td>$92,575</td>
-            </tr>
-            <tr>
-                <td>Jennifer Chang</td>
-                <td>Regional Director</td>
-                <td>Singapore</td>
-                <td>28</td>
-                <td>2010/11/14</td>
-                <td>$357,650</td>
-            </tr>
-            <tr>
-                <td>Brenden Wagner</td>
-                <td>Software Engineer</td>
-                <td>San Francisco</td>
-                <td>28</td>
-                <td>2011/06/07</td>
-                <td>$206,850</td>
-            </tr>
-            <tr>
-                <td>Fiona Green</td>
-                <td>Chief Operating Officer (COO)</td>
-                <td>San Francisco</td>
-                <td>48</td>
-                <td>2010/03/11</td>
-                <td>$850,000</td>
-            </tr>
-            <tr>
-                <td>Shou Itou</td>
-                <td>Regional Marketing</td>
-                <td>Tokyo</td>
-                <td>20</td>
-                <td>2011/08/14</td>
-                <td>$163,000</td>
-            </tr>
-            <tr>
-                <td>Michelle House</td>
-                <td>Integration Specialist</td>
-                <td>Sidney</td>
-                <td>37</td>
-                <td>2011/06/02</td>
-                <td>$95,400</td>
-            </tr>
-            <tr>
-                <td>Suki Burks</td>
-                <td>Developer</td>
-                <td>London</td>
-                <td>53</td>
-                <td>2009/10/22</td>
-                <td>$114,500</td>
-            </tr>
-            <tr>
-                <td>Prescott Bartlett</td>
-                <td>Technical Author</td>
-                <td>London</td>
-                <td>27</td>
-                <td>2011/05/07</td>
-                <td>$145,000</td>
-            </tr>
-            <tr>
-                <td>Gavin Cortez</td>
-                <td>Team Leader</td>
-                <td>San Francisco</td>
-                <td>22</td>
-                <td>2008/10/26</td>
-                <td>$235,500</td>
-            </tr>
-            <tr>
-                <td>Martena Mccray</td>
-                <td>Post-Sales support</td>
-                <td>Edinburgh</td>
-                <td>46</td>
-                <td>2011/03/09</td>
-                <td>$324,050</td>
-            </tr>
-            <tr>
-                <td>Unity Butler</td>
-                <td>Marketing Designer</td>
-                <td>San Francisco</td>
-                <td>47</td>
-                <td>2009/12/09</td>
-                <td>$85,675</td>
-            </tr>
-            <tr>
-                <td>Howard Hatfield</td>
-                <td>Office Manager</td>
-                <td>San Francisco</td>
-                <td>51</td>
-                <td>2008/12/16</td>
-                <td>$164,500</td>
-            </tr>
-            <tr>
-                <td>Hope Fuentes</td>
-                <td>Secretary</td>
-                <td>San Francisco</td>
-                <td>41</td>
-                <td>2010/02/12</td>
-                <td>$109,850</td>
-            </tr>
-            <tr>
-                <td>Vivian Harrell</td>
-                <td>Financial Controller</td>
-                <td>San Francisco</td>
-                <td>62</td>
-                <td>2009/02/14</td>
-                <td>$452,500</td>
-            </tr>
-            <tr>
-                <td>Timothy Mooney</td>
-                <td>Office Manager</td>
-                <td>London</td>
-                <td>37</td>
-                <td>2008/12/11</td>
-                <td>$136,200</td>
-            </tr>
-            <tr>
-                <td>Jackson Bradshaw</td>
-                <td>Director</td>
-                <td>New York</td>
-                <td>65</td>
-                <td>2008/09/26</td>
-                <td>$645,750</td>
-            </tr>
-            <tr>
-                <td>Olivia Liang</td>
-                <td>Support Engineer</td>
-                <td>Singapore</td>
-                <td>64</td>
-                <td>2011/02/03</td>
-                <td>$234,500</td>
-            </tr>
-            <tr>
-                <td>Bruno Nash</td>
-                <td>Software Engineer</td>
-                <td>London</td>
-                <td>38</td>
-                <td>2011/05/03</td>
-                <td>$163,500</td>
-            </tr>
-            <tr>
-                <td>Sakura Yamamoto</td>
-                <td>Support Engineer</td>
-                <td>Tokyo</td>
-                <td>37</td>
-                <td>2009/08/19</td>
-                <td>$139,575</td>
-            </tr>
-            <tr>
-                <td>Thor Walton</td>
-                <td>Developer</td>
-                <td>New York</td>
-                <td>61</td>
-                <td>2013/08/11</td>
-                <td>$98,540</td>
-            </tr>
-            <tr>
-                <td>Finn Camacho</td>
-                <td>Support Engineer</td>
-                <td>San Francisco</td>
-                <td>47</td>
-                <td>2009/07/07</td>
-                <td>$87,500</td>
-            </tr>
-            <tr>
-                <td>Serge Baldwin</td>
-                <td>Data Coordinator</td>
-                <td>Singapore</td>
-                <td>64</td>
-                <td>2012/04/09</td>
-                <td>$138,575</td>
-            </tr>
-            <tr>
-                <td>Zenaida Frank</td>
-                <td>Software Engineer</td>
-                <td>New York</td>
-                <td>63</td>
-                <td>2010/01/04</td>
-                <td>$125,250</td>
-            </tr>
-            <tr>
-                <td>Zorita Serrano</td>
-                <td>Software Engineer</td>
-                <td>San Francisco</td>
-                <td>56</td>
-                <td>2012/06/01</td>
-                <td>$115,000</td>
-            </tr>
-            <tr>
-                <td>Jennifer Acosta</td>
-                <td>Junior Javascript Developer</td>
-                <td>Edinburgh</td>
-                <td>43</td>
-                <td>2013/02/01</td>
-                <td>$75,650</td>
-            </tr>
-            <tr>
-                <td>Cara Stevens</td>
-                <td>Sales Assistant</td>
-                <td>New York</td>
-                <td>46</td>
-                <td>2011/12/06</td>
-                <td>$145,600</td>
-            </tr>
-            <tr>
-                <td>Hermione Butler</td>
-                <td>Regional Director</td>
-                <td>London</td>
-                <td>47</td>
-                <td>2011/03/21</td>
-                <td>$356,250</td>
-            </tr>
-            <tr>
-                <td>Lael Greer</td>
-                <td>Systems Administrator</td>
-                <td>London</td>
-                <td>21</td>
-                <td>2009/02/27</td>
-                <td>$103,500</td>
-            </tr>
-            <tr>
-                <td>Jonas Alexander</td>
-                <td>Developer</td>
-                <td>San Francisco</td>
-                <td>30</td>
-                <td>2010/07/14</td>
-                <td>$86,500</td>
-            </tr>
-            <tr>
-                <td>Shad Decker</td>
-                <td>Regional Director</td>
-                <td>Edinburgh</td>
-                <td>51</td>
-                <td>2008/11/13</td>
-                <td>$183,000</td>
-            </tr>
-            <tr>
-                <td>Michael Bruce</td>
-                <td>Javascript Developer</td>
-                <td>Singapore</td>
-                <td>29</td>
-                <td>2011/06/27</td>
-                <td>$183,000</td>
-            </tr>
-            <tr>
-                <td>Donna Snider</td>
-                <td>Customer Support</td>
-                <td>New York</td>
-                <td>27</td>
-                <td>2011/01/25</td>
-                <td>$112,000</td>
-            </tr>
+            <?php
+                if ($faculties != NULL) {
+                    foreach ($faculties as $f) {
+                        ?>
+                        <tr>
+                            <td>
+                              <div class="d-flex align-middle">
+                                <div class="faculty-img">
+                                  <img src="<?=($f->pic)?$f->pic:'https://via.placeholder.com/50';?>" alt="">
+                                </div> 
+                                <div class="faculty-name">
+                                  <a href="#" class="f-name" data-target="<?=$f->faculty_id?>"><?=$f->name?></a>     
+                                </div>   
+                              </div>
+                            </td>
+                            <td><?=$f->level_name?></td>
+                            <td>
+                            <?php 
+                                // calculating years between 2 dates.
+                                $d = new DateTime($f->date_of_joining);
+                                $d2 = new DateTime(date("Y-m-d"));
+                                $diff = $d2->diff($d);
+                                echo $diff->y." Years, ". $diff->m . " Months "
+                            ?>
+                            </td>
+                            <td>2011/04/25</td>
+                            <td><?=$f->level_package_group?></td>
+                        </tr>
+
+                        <?php
+                    }
+                }   
+            ?>
+            
+            
         </tbody>
-        <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </tfoot>
+        
     </table>
            
           </div>
@@ -652,76 +172,70 @@
       </div>
     </footer>
     <div id="user-model">
+        <input type="text" id="faculty-id-hidden" style="display: none">
       <div class="user-info d-flex">
         <div class="user-img">
           <img src="https://via.placeholder.com/150" alt="">
         </div>
         <div class="user-text-info">
-          <div class="name">
+          <div class="name" id="f-name">
             Aditya Saxena
           </div>
-          <div class="date-joining">
+          <div class="date-joining" id="f-d-joining">
             2nd April, 2014
           </div>
-          <div class="level">
+          <div class="level" id="f-level">
             Lecturer - 9A 
           </div>
         </div>
          <div class="institute-logo">
-        <img src="https://via.placeholder.com/150" alt="">
+        <img src="https://via.placeholder.com/150" alt="" id="f-image">
       </div>
       </div>
       <hr>
       <div class="options-area">
-        <div class="row">
-              <div class="col-md-6">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Verify Activities and Qualifications</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Qualifications for promotion</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Add ACR Scores</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#teaching-process" role="tab" aria-controls="contact" aria-selected="false">Add Teaching Process Scores</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="row">
+        <div class="col-md-10 offset-1">
             <div class="card">
               <div class="card-header">
                 <h5>Qualifications and activities to verify</h5>
               </div>
               <div class="card-body">
-                <table class="table table-bordered verify-table">
+                <table class="table table-bordered verify-table" id="activities-table">
                   <thead>
                     <th>Qualification/Activity</th>
                     <th>Proof</th>
+                    <th>Entry Type</th>
                     <th>Verify</th>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>Completed Master's degree.</td>
-                      <td><a href=""><i class="icons font-1xl d-block cui-file"></i></a></td>
-                      <td>
-                        <button class="btn btn-block btn-sm btn-success v-btn" type="button">Verify</button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Completed 3 weeks of MOOC Training</td>
-                      <td><a href=""><i class="icons font-1xl d-block cui-file"></i></a></td>
-                      <td><button class="btn btn-block btn-sm btn-success v-btn" type="button">Verify</button></td>
-                    </tr>
-                    <tr>
-                      <td>Done 5 Weeks of service on Lecturer Level 9A level.</td>
-                      <td><a href=""><i class="icons font-1xl d-block cui-file"></i></a></td>
-                      <td><button class="btn btn-block btn-sm btn-success v-btn" type="button">Verify</button></td>
-                    </tr>
-                    <tr>
-                      <td>Participated in CSIT Development Drive</td>
-                      <td><a href=""><i class="icons font-1xl d-block cui-file"></i></a></td>
-                      <td><button class="btn btn-block btn-sm btn-success v-btn" type="button">Verify</button></td>
-                    </tr>
-                    <tr>
-                      <td>Completed two eight weeks duration MOOCS courses with E-Certification by NPTEL -AICTE</td>
-                      <td><a href=""><i class="icons font-1xl d-block cui-file"></i></a></td>
-                      <td><button class="btn btn-block btn-sm btn-success v-btn" type="button">Verify</button></td>
-                    </tr>
+                  <tbody id="activities-table-body">
+                   
                   </tbody>
                 </table>
               </div>
             </div>
-          </div>
-          
-          <div class="col-md-6">
-            <div class="card">
+        </div>
+    </div>
+      
+  </div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+       <div class="card">
               <div class="card-header">
                 <h5>Canditate Qualifications for next level</h5>    
               </div>
@@ -748,12 +262,11 @@
                 </div>
               </div>
             </div>
-          </div>
-      
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-            <div class="card">
+  </div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+       <div class="row">
+           <div class="col-md-10 offset-1">
+                <div class="card">
               <div class="card-header">
                 <h5>Add/Edit Department Activities</h5>
               </div>
@@ -762,11 +275,11 @@
                 <table class="table table-bordered">
                   <thead>
                     <th>Activity Name </th>
-                    <th>Semester</th>
+                    <th>Year</th>
                     <th>Points</th>
                     <th>Settings</th>
                   </thead>
-                  <tbody id="dept-activities-item">
+                  <tbody id="acr-items">
                     
                   </tbody>
                 </table>
@@ -788,7 +301,7 @@
 
                               $.ajax({
                                   type: "POST",
-                                  url: "/rating-system/HOD/save-activities",
+                                  url: "/rating-system/save-acr",
                                   data: dataString,
                                   beforeSend: function() {
                                     alert(dataString);
@@ -796,7 +309,7 @@
                                   success: function(data){
                                       // alert('Successful!');
                                       alert(data);
-                                      $("#dept-activities-item").prepend(data);
+                                      $("#acr-items").prepend(data);
                                       $("#activity").trigger("reset");
                                   },
                                   error: function(a,b,c) {
@@ -812,70 +325,214 @@
                 </script>
               </div>
             </div>
-            
-          </div>
-          <div class="col-md-6">
-            <div class="card">
-              <div class="card-header">
-                <h5>ACR</h5>
-              </div>
-              <div class="card-body">
-              <form id="activity" method="post">
-                <table class="table table-bordered">
-                  <thead>
-                    <th>Activity Name </th>
-                    <th>Year</th>
-                    <th>Points</th>
-                  </thead>
-                  <!--Change the Functions Accordingly to add acr points in acr_points database -->
-                  <tbody id="dept-activities-item">   
-                  </tbody>
-                </table>
-                <div class="row">
-                  <div class="col-md-3">
-                    <button class="btn btn-pill btn-block btn-info" type="button" id="dept-activities-add">Add More...</button>
-                  </div>
-                  <div class="col-md-3">
-                     <button class="btn btn-pill btn-block btn-success" id="activity-save-btn"" type="submit">Save <i class="icons font-1xl cui-check paddLeft10"></i></button>
-
-                  </div>
-                </div>
-                </form>
-
-                <script>
-                        $(function(){
-                          $("#activity-save-btn").on("click", function(){
-                             var dataString = $("#activity").serialize();
-
-                              $.ajax({
-                                  type: "POST",
-                                  url: "/rating-system/HOD/save-activities",
-                                  data: dataString,
-                                  beforeSend: function() {
-                                    alert(dataString);
-                                  },
-                                  success: function(data){
-                                      // alert('Successful!');
-                                      alert(data);
-                                      $("#dept-activities-item").prepend(data);
-                                      $("#activity").trigger("reset");
-                                  },
-                                  error: function(a,b,c) {
-                                    alert("Error");
-                                  }
-
-                              });
-
-                              return false;  //stop the actual form post !important!
-
-                          });
-                      });
-                </script>
-              </div>
-            </div>
-            
-          </div>
+           </div>
+       </div>
+  </div>
+  <div class="tab-pane fade" id="teaching-process" role="tabpanel" aria-labelledby="teaching-process">
+    <div class="card">
+        <div class="card-header">
+            <h5>Teaching Process Scorecard</h5>
         </div>
+    <form id="teaching-process-form">
+    
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <th>Semester</th>
+                    <th>Year</th>
+                    <th>Subject Code</th>
+                    <th>Scheduled Classes</th>
+                    <th>Held Classes</th>
+                    <th>Proof</th>
+                    <th>Setting</th>
+                </thead>
+                <tbody id="teaching-process-items">
+                    <!-- <tr>
+                        <td>
+                            <select name="semester[]" id="" class="form-control">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" name="year[]" class="form-control" placeholder="YYYY-YY">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" name="subject[]" placeholder="Subject Code...">
+                        </td>
+                        <td>
+                            <input type="number" class="form-control" name="totalClasses[]" placeholder="Total Classes...">
+                        </td>
+                        <td>
+                            <input type="number" class="form-control" name="classes[]" placeholder="Held Clasess..">
+                        </td>
+                        <td>
+                            <input type="file" name="proof[]">
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer">
+            <div class="row">
+              <div class="col-md-3">
+                <button class="btn btn-pill btn-block btn-info" type="button" id="teaching-process-add">Add More...</button>
+              </div>
+              <div class="col-md-3">
+                 <button class="btn btn-pill btn-block btn-success" id="teaching-process-save-btn" type="submit">Save <i class="icons font-1xl cui-check paddLeft10"></i></button>
+
+              </div>
+            </div>
+        </div>
+    </form>
+        <script>
+            var ind = 0;
+            $("#teaching-process-add").on("click", function() {
+              var id = "str"+ Math.random().toString().split(".")[1];
+              var faculty_id = $("#faculty-id-hidden").val();
+              var txt = '<tr id="'+id+'">\
+                              <td>\
+                            <select name="semester[]" id="" class="form-control">\
+                                <option value="1">1</option>\
+                                <option value="2">2</option>\
+                                <option value="3">3</option>\
+                                <option value="4">4</option>\
+                                <option value="5">5</option>\
+                                <option value="6">6</option>\
+                                <option value="7">7</option>\
+                                <option value="8">8</option>\
+                            </select>\
+                            <input type="text" value="'+id+'" name="field-id[]" style="display: none">\
+                            <input type="text" name="faculty-id[]" value="'+ faculty_id +'" style="display: none">\
+                        </td>\
+                        <td>\
+                            <input type="text" name="year[]" class="form-control" placeholder="YYYY-YY">\
+                        </td>\
+                        <td>\
+                            <input type="text" class="form-control" name="subject[]" placeholder="Subject Code...">\
+                        </td>\
+                        <td>\
+                            <input type="number" class="form-control" name="totalClasses[]" placeholder="Total Classes...">\
+                        </td>\
+                        <td>\
+                            <input type="number" class="form-control" name="classes[]" placeholder="Held Clasess..">\
+                        </td>\
+                        <td>\
+                            <input type="file" name="proof-'+ ind +'">\
+                        </td>\
+                        <td><button class="btn btn-danger teaching-process-delete" data-delete="'+id+'" >'+
+                            '<i class="icons font-1xl d-block cui-circle-x"></i>'+
+                          '</button></td>\
+                            </tr>';
+                           console.log(txt)
+                           ind = ind + 1;
+              $("#teaching-process-items").append(txt);
+            });
+
+            $("#teaching-process-form").submit(function(e){
+            e.preventDefault();
+             var dataString = new FormData($("#teaching-process-form")[0]);
+
+              $.ajax({
+                  type: "POST",
+                  url: "teaching-process-add",
+                  data: dataString,
+                  cache: false,
+                  contentType: false,
+                  processData: false,
+                  beforeSend: function() {
+                    console.log("formData");
+                    for(var pair of dataString.entries()) {
+                       console.log(pair[0]+ ', '+ pair[1]); 
+                    }
+                  },
+                  success: function(data){
+                    if(data) {
+                      iziToast.show({
+                          title: 'Success',
+                          message: 'Activity Added Successfully',
+                          position: 'topCenter',
+                          color: 'green',
+                          timeout: '2500'
+                      });
+                      $("#teaching-process-items").prepend(data);
+                      $("#teaching-process-form").trigger("reset");
+                    }
+                    else{
+                          iziToast.error({
+                                title: 'Error',
+                                message: 'Could not Add Activity',
+                                position: 'topCenter',
+                                color: 'red',
+                                timeout: '2500'
+                              });
+                        }
+                      console.log(data);
+
+                      $("#activities-item").prepend(data);
+                      $("#activity-form").trigger("reset");
+                  },
+                  error: function(a,b,c) {
+                    alert("Error");
+                  }
+
+              });
+
+              return false;  //stop the actual form post !important!
+
+          });
+     
+            $(document).on("click", ".teaching-process-delete", function(e) {
+              e.preventDefault();
+              var dataset = $(this)[0].dataset;
+              $.ajax({
+                method: "GET",
+                url: "teaching-process-delete",
+                data: {id: dataset.id},
+                beforeSend: function() {
+                  //alert(dataset.id);
+                },
+                success: function(data) {
+                  if(data == 1) {
+                      iziToast.show({
+                          title: 'Success',
+                          message: 'Activity Deleted Successfully',
+                          position: 'topCenter',
+                          color: 'green',
+                          timeout: '2500'
+                      });
+                  }
+                  else if (data == 0) {
+                        iziToast.error({
+                              title: 'Error',
+                              message: 'Could not Delete Activity',
+                              position: 'topCenter',
+                              color: 'red',
+                              timeout: '2500'
+                            });
+                      }
+                  $("#"+dataset.delete).remove();
+
+                  // SHOW FANCY ALERT BOX.
+                },
+                error: function() {
+                  alert("ERROR!");
+                }
+              });
+        }); 
+
+        </script>
+    </div>
+  </div>
+</div>
+       
+        
       </div>
      
 
@@ -893,81 +550,208 @@
     <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.bootstrap4.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script>
      <script type="text/javascript" src="/rating-system/assets/js/tooltips.js" class="view-script"></script>
     <script>
-        
-$(document).ready(function() {
-    $("#example").DataTable();
-    $("#user-model").iziModal({
-      fullscreen: true,
-      width: "90%",
-      onOpening: function(modal) {
-      //  console.log(event.target.dataset.target);
-      }
-    });
-    //$("#user-model").iziModal("open");
-    $(".f-name").on('click', function(event){
-        event.preventDefault();
-        $("#user-model").iziModal("open");
-    });
-
-    $(document).on("click", ".dept-activities-delete-new", function(e) {
-      e.preventDefault();
-      console.log($(this)[0].dataset);
-      var dataset = $(this)[0].dataset;
-      $.ajax({
-        method: "GET",
-        url: "/rating-system/HOD/delete-activity",
-        data: {id: dataset.id},
-        beforeSend: function() {
-          alert(dataset.id);
-        },
-        success: function(data) {
-          alert('SUCCESS');
-          alert(dataset.delete);
-          $("#"+dataset.delete).remove();
-
-          // SHOW FANCY ALERT BOX.
-        },
-        error: function() {
-          alert("ERROR!");
-        }
-      });
-    }); 
-
-     $(".dept-activities-delete-old").on("click", function() {
-      console.log($(this)[0].dataset.delete);
-    }); 
-
-    $("#dept-activities-add").on("click", function() {
-      var id = "str"+ Math.random().toString().split(".")[1];
-      var txt = '<tr id="'+id+'">'+
-                      '<td><input type="text" name="activity[]" class="form-control" placeholder="Enter Activity name..."><input type="text" value="'+id+'" name="field-id[]" style="display: none">'+'</td>'+
+        function makeList(table, tableBody, activities, qualifications, 
+            acr, teaching_process) {
+            var txt = "";
+            var acrtxt = "";
+            var ttxt = "";
+            $("#activities-table").show();
+            activities.forEach(function(item) {
+                txt += "<tr>" +
+                 "<td>"+ item.name +"</td>" + 
+                 "<td><a href='"+item.report+"'><i class='icons font-1xl d-block cui-file'>&nbsp;Download File</i></a></td>" +
+                 "<td>Activity</td>" +
+                 "<td><button class='btn btn-block btn-sm btn-success v-btn' type='button' data-qualification='-1' data-activity='"+item.serial+"'>Verify</button></td>" +
+                 "</tr>"; 
                       
-                      '<td>'+
-                        '<select name="semester[]" id="" class="form-control">'+
-                          '<option value="1">1</option>'+
-                          '<option value="2">2</option>'+
-                          '<option value="3">3</option>'+
-                          '<option value="4">4</option>'+
-                          '<option value="5">5</option>'+
-                          '<option value="6">6</option>'+
-                          '<option value="7">7</option>'+
-                          '<option value="8">8</option>'+
-                        '</select>'+
-                      '</td>'+
-                      '<td><input type="number" name="points[]" class="form-control"></td>'+
-                      '<td><button class="btn btn-danger dept-activities-delete-new" data-delete="'+id+'" >'+
-                        '<i class="icons font-1xl d-block cui-circle-x"></i>'+
-                      '</button></td>'+
-                   ' </tr>';
-                   console.log(txt)
-      $("#dept-activities-item").append(txt);
-    });
+            });
+            qualifications.forEach(function(item) {
+                txt += "<tr>" +
+                 "<td>"+ item.qualification_name +"</td>" + 
+                 "<td><a href='"+item.proof+"'><i class='icons font-1xl d-block cui-file'>&nbsp;Download File</i></a></td>" +
+                 "<td>Qualification</td>" +
+                 "<td><button class='btn btn-block btn-sm btn-success v-btn' type='button' data-activity='-1' data-qualification='"+item.id+"'>Verify</button></td>" +
+                 "</tr>"; 
+                      
+            });
+            acr.forEach(function(item) {
+                acrtxt += "<tr>" +
+                 "<td>"+ "ACR" +"</td>" + 
+                 "<td>"+item.acr_year+"</td>" +
+                 "<td>"+item.points+"</td>" +
+                 "<td><button class='btn btn-sm btn-danger acr-del-btn' type='button' data-acr='"+item.serial+"'><i class='icons font-1xl d-block cui-circle-x'></i></button></td>" +
+                 "</tr>"; 
+                      
+            });
+            teaching_process.forEach(function(item) {
+                ttxt += "<tr id="+ item.serial+">" +
+                 "<td>"+ item.semester +"</td>" + 
+                 "<td>"+item.year+"</td>" +
+                 "<td>"+item.subject_code+"</td>" +
+                 "<td>"+item.total_classes+"</td>" +
+                 "<td>"+item.held_classes+"</td>" +
+                 "<td><a href='"+item.teaching_proof+"'><i class='icons font-1xl d-block cui-file'>&nbsp;Download File</i></a></td>" +
+                 "<td><button class='btn btn-sm btn-danger teaching-process-delete' type='button' data-id='"+item.serial+"' data-delete='"+item.serial+"'><i class='icons font-1xl d-block cui-circle-x'></i></button></td>" +
+                 "</tr>"; 
+                      
+            });
 
-    
-});
+            if (teaching_process.length > 0)
+                $("#teaching-process-items").html(ttxt);
+
+            if (acr.length > 0)
+                $("#acr-items").html(acrtxt);
+            $("#"+tableBody).html(txt);
+        }
+
+        $(document).on("click", ".v-btn", function(e){
+            e.preventDefault();
+            // e.target.dataset.activity
+            console.log(e);
+
+            $.ajax({
+                method: "POST",
+                url: "/rating-system/verify-activity",
+                data: {
+                    activity : e.target.dataset.activity, 
+                    qualification: e.target.dataset.qualification
+                },
+                beforeSend: function() {
+                  //   loading here.
+                },
+                success: function(data) {
+                    if(data == 1) {
+                        alert("s");
+                    }
+                    else {
+                        alert("failed");
+                    }
+                },
+                error: function() {
+                    alert("error");                
+                }
+            });
+        });
+
+        $(document).ready(function() {
+            $("#example").DataTable();
+            $("#user-model").iziModal({
+              fullscreen: true,
+              width: "90%",
+              onOpening: function(modal) {
+                // set faculty-id in hidden input for ACR use.
+                $("#faculty-id-hidden").val(event.target.dataset.target);
+                $.ajax({
+                    method: "GET",
+                    url: "/rating-system/get-faculty-data",
+                    data: {facultyId: event.target.dataset.target, type: 1},
+                    beforeSend: function() {
+                        console.log({facultyId: event.target.dataset.target, type: 1});
+                        modal.startLoading();
+                    },
+                    success: function(data) {
+                        data = JSON.parse(data);
+
+                        // data.activities for activities
+                        // data.details for faculty details.
+                        // data.qualifications for faculty qalifications.
+                        // data.acr for faculty acr.
+                        
+                        if (data.details.length > 0) {
+                            var details = data.details[0];
+                            $("#f-name").html(details.name);
+                            if (details.email.length  == 0){
+                                $("#f-d-joining").html("Email Not Availabel");
+                            }
+                            else {
+                                $("#f-d-joining").html(details.email);
+                            }
+                            $("#f-level").html(details.level_name);
+                        }
+                        
+                        console.log(data);
+                        if (data.activities.length > 0 || 
+                            data.qualifications.length > 0 ||
+                            data.acr.length > 0 ||
+                            data.teaching_process.length > 0
+                            ) {
+                            makeList("activities-table", 
+                                "activities-table-body", 
+                                data.activities,
+                                data.qualifications,
+                                data.acr,
+                                data.teaching_process);
+                        }
+                        else {
+                            $("#activities-table").hide();
+                            // show no activities present message.
+                        }
+                        modal.stopLoading();
+                    },
+                    error: function(a, xhr, b) {
+                        console.log(xhr);
+                        modal.stopLoading();
+                    }
+                });
+              }
+            });
+            //$("#user-model").iziModal("open");
+            $(".f-name").on('click', function(event){
+                event.preventDefault();
+                $("#user-model").iziModal("open");
+            });
+
+            $(document).on("click", ".dept-activities-delete-new", function(e) {
+              e.preventDefault();
+              console.log($(this)[0].dataset);
+              var dataset = $(this)[0].dataset;
+              $.ajax({
+                method: "GET",
+                url: "/rating-system/HOD/delete-activity",
+                data: {id: dataset.id},
+                beforeSend: function() {
+                  alert(dataset.id);
+                },
+                success: function(data) {
+                  alert('SUCCESS');
+                  alert(dataset.delete);
+                  $("#"+dataset.delete).remove();
+
+                  // SHOW FANCY ALERT BOX.
+                },
+                error: function() {
+                  alert("ERROR!");
+                }
+              });
+            }); 
+
+             $(".dept-activities-delete-old").on("click", function() {
+              console.log($(this)[0].dataset.delete);
+            }); 
+
+            $("#dept-activities-add").on("click", function() {
+              var id = "str"+ Math.random().toString().split(".")[1];
+              var faculty_id = $("#faculty-id-hidden").val();
+              var txt = '<tr id="'+id+'">'+
+                              '<td><input type="text" name="activity[]" class="form-control" placeholder="Enter Activity name..."><input type="text" value="'+id+'" name="field-id[]" style="display: none"><input type="text" name="faculty-id[]" value="'+ faculty_id +'" style="display: none">'+'</td>'+
+                              
+                              '<td>'+
+                                '<input name="year[]" id="" class="form-control" placeholder="YYYY-YY">'+
+                                  
+                              '</td>'+
+                              '<td><input type="number" name="points[]" class="form-control"></td>'+
+                              '<td><button class="btn btn-danger dept-activities-delete-new" data-delete="'+id+'" >'+
+                                '<i class="icons font-1xl d-block cui-circle-x"></i>'+
+                              '</button></td>'+
+                           ' </tr>';
+                           console.log(txt)
+              $("#acr-items").append(txt);
+            });
+
+            
+        });
       </script>
   </body>
 </html>

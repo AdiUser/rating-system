@@ -109,7 +109,7 @@
                                             <i class="icons font-1xl mt-5 cui-user-follow paddRight10"></i>Edit University Data</a>
                                       </h5>
                                   </div>
-                                    <?php $o = $org[0]; ?>
+                                    <?php $o = $org[0]; $user = $user[0]; ?>
 
                                   <div class="collapse show" id="collapseThree" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion" style="">
                                     <div class="card-body">
@@ -209,7 +209,7 @@
                                               <div class="col-md-5">
                                                 <div class="form-group" method="post">
                                                   <label for="vat">University Code</label>
-                                                  <input class="form-control" name="ucode" id="vat" type="text" placeholder="University Code..." value="<?=isset($o->university_code)?$o->university_code:''?>" disabled required>
+                                                  <input class="form-control" name="ucode" id="vat" type="text" placeholder="University Code..." value="<?=isset($user->username)?$user->username:''?>" disabled required>
                                                 </div>
                                               </div>
                                             </div>
