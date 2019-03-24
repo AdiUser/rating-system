@@ -191,23 +191,23 @@
                                     },
                                     success: function(data) {
                                       if(data==1) {
-                                                    iziToast.show({
-                                                        title: 'Success',
-                                                        message: 'Faculty Added Successfully',
-                                                        position: 'topCenter',
-                                                        color: 'green',
-                                                        timeout: '2500'
-                                                    });
-                                                  }
-                                                  else{
-                                                          iziToast.error({
-                                                          title: 'Error',
-                                                          message: 'Could not Add Faculty',
-                                                          position: 'topCenter',
-                                                          color: 'red',
-                                                          timeout: '2500'
-                                                       });
-                                                  }
+                                        iziToast.show({
+                                            title: 'Success',
+                                            message: 'Faculty Added Successfully',
+                                            position: 'topCenter',
+                                            color: 'green',
+                                            timeout: '2500'
+                                        });
+                                      }
+                                      else{
+                                              iziToast.error({
+                                              title: 'Error',
+                                              message: 'Could not Add Faculty',
+                                              position: 'topCenter',
+                                              color: 'red',
+                                              timeout: '2500'
+                                           });
+                                      }
                                     },
                                     error:function() {
                                       alert("error");
