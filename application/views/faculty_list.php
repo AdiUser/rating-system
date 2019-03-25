@@ -196,22 +196,22 @@
       <div class="options-area">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
-    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Verify Activities and Qualifications</a>
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><span class="d-flex"><i class="icons font-1xl cui-note"></i>&nbsp;<h6>Verify Activities and Qualifications</h6></span></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Qualifications for promotion</a>
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><span class="d-flex"><i class="icons font-1xl cui-map"></i>&nbsp;<h6>Qualifications for promotion</h6></span></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Add ACR Scores</a>
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><span class="d-flex"><i class="icons font-1xl cui-layers"></i>&nbsp;<h6>Add ACR Scores</h6></span></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#teaching-process" role="tab" aria-controls="contact" aria-selected="false">Add Teaching Process Scores</a>
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#teaching-process" role="tab" aria-controls="contact" aria-selected="false"><span class="d-flex"><i class="icons font-1xl cui-note"></i>&nbsp;<h6>Add Teaching Process Scores</h6></span></a>
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
     <div class="row">
-        <div class="col-md-10 offset-1">
+        <div class="col-md-8">
             <div class="card">
               <div class="card-header">
                 <h5>Qualifications and activities to verify</h5>
@@ -229,6 +229,20 @@
                   </tbody>
                 </table>
               </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Info</h5>
+                </div>
+                <div class="card-body">
+                    <p class="info-tab">
+                        
+                        This tab features all the Activities and Qualifications a faculty can add to there profile. Use this control panel to verify the Actvities and Qaulifications added by the faculty.
+                        
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -268,7 +282,7 @@
            <div class="col-md-10 offset-1">
                 <div class="card">
               <div class="card-header">
-                <h5>Add/Edit Department Activities</h5>
+                <h5>Add/Edit ACR Activities</h5>
               </div>
               <div class="card-body">
               <form id="activity" method="post">
@@ -638,8 +652,8 @@
         $(document).ready(function() {
             $("#example").DataTable();
             $("#user-model").iziModal({
-              fullscreen: true,
-              width: "90%",
+              fullscreen: false,
+              width: "80%",
               onOpening: function(modal) {
                 // set faculty-id in hidden input for ACR use.
                 $("#faculty-id-hidden").val(event.target.dataset.target);

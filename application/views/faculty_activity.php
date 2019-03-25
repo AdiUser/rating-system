@@ -92,7 +92,7 @@
         <div class="container-fluid">
           <div class="animated fadeIn">
             <div class="row">
-                <div class="col-md-8 offset-md-0">
+                <div class="col-md-12 offset-md-0">
                    <div class="card">
                    <div class="card-header">
                 <h5>Add/Edit Department Activities</h5>
@@ -103,6 +103,9 @@
                 <table class="table table-bordered">
                   <thead>
                     <tr><th>Activity Name </th>
+                      <th>Semester</th>
+                      <th>Year From</th>
+                      <th>Year To</th>
                     <th>Activity Type</th>
                     <th>Proof</th>
                     <th>Settings</th>
@@ -115,8 +118,12 @@
                               $rand = "str".rand(10,4234).rand(3,324234);
                               ?><tr id="<?=$rand?>">
                                   <td><?=$activity->name?></td>
+                                  <td><?=$activity->sem?></td>
+                                  <td><?=$activity->year_from?></td>
+                                  <td><?=$activity->year_to?></td>
                                   <td><?=$activity->type?></td>
                                   <td><?=$activity->report?></td>
+
                                   <td>
                                     <button class="btn btn-danger activity-delete" data-id="<?=$activity->serial?>" data-delete="<?=$rand?>">
                                       <i class="icons font-1xl d-block cui-circle-x"></i>
@@ -173,7 +180,7 @@
                     }
                   },
                   success: function(data){
-                    if(data == 1) {
+                    if(data) {
                       iziToast.show({
                           title: 'Success',
                           message: 'Activity Added Successfully',
@@ -182,7 +189,7 @@
                           timeout: '2500'
                       });
                     }
-                    else{
+                    else if (data == 0){
                           iziToast.error({
                                 title: 'Error',
                                 message: 'Could not Add Activity',
@@ -259,7 +266,9 @@
           
           var txt = '<tr id="'+id+'">'+
                           '<td><input type="text" name="name[]" class="form-control" placeholder="Enter Activity Name..." required><input type="text" value="'+id+'" name="field-id[]" style="display: none">'+'</td>'+
-                          
+                          '<td><select name="semester[]" class="form-control"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select></td>' +
+                          '<td><input type="text" name="year-from[]" class="form-control" placeholder="year from..."></td>' +
+                          '<td><input type="text" name="year-to[]" class="form-control" placeholder="year to..."></td>' +
                           '<td>'+
                             '<select name="activity-type[]" class="form-control" required><option value="social">Social Activity</option><option value="departmental">Departmental Activity</option><option value="institutional">Institutional Activity</option></select>'+
                           '</td>'+

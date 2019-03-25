@@ -6,7 +6,12 @@
 * Copyright (c) 2018 creativeLabs Łukasz Holeczek
 * Licensed under MIT (https://coreui.io/license)
 -->
-
+ <?php
+  if(isset($faculty_details[0]))
+      $d = $faculty_details[0];
+  else
+    $d = null;   
+?>
 <html lang="en">
   <head>
     <base href="./">
@@ -27,6 +32,8 @@
     <link href="assets/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" />
+
     <script src="assets/jquery/dist/jquery.min.js"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -115,19 +122,86 @@
                                         <div class="row" style="margin-bottom:20px">
                                           <div class="col-md-3">
                                             <div class="media">
-                                              <img src="./assets/index.jpg" style="width:100%">
+                                              <img id="user-img" src="<?=isset($d->pic)?$d->pic:'assets/index.jpg'?>" style="width:100%">
                                             </div>
                                           </div>
                                           <div class="col-md-9">
-                                            <button class="btn btn-primary" type="button" style="margin-top:80px"><i class="fa fa-plus fa-md"></i> Upload</button>
+                                            <form action="" id="img-submit">
+                                            <input type="file" id="pic" onchange="readURL(this);" name="file_upload" style="display: none;">
+                                            </form>
+
+                                            <button class="btn btn-primary" id="upload-btn" type="button" style="margin-top:50px"><i class="fa fa-plus fa-md"></i> Upload</button>
                                           </div>
+                                          <script>
+                                            $("#upload-btn").on("click", function() {
+                                              $("#pic").click();
+                                            });
+
+                                            function readURL(input) {
+                                                if (input.files && input.files[0]) {
+                                                    var reader = new FileReader();
+
+                                                    reader.onload = function (e) {
+                                                        $('#user-img')
+                                                            .attr('src', e.target.result)
+                                                            .width(120)
+                                                            .height(120);
+                                                    };
+
+                                                    reader.readAsDataURL(input.files[0]);
+                                                    console.log($("#pic").val());
+                                                    $("#img-submit").submit();
+                                                    
+                                                }
+                                            }
+                                            $("#img-submit").submit(function(e) {
+                                              e.preventDefault();
+                                              $.ajax({
+                                                method: "POST",
+                                                url: "save-faculty-img",
+                                                data: new FormData(this),
+                                                processData:false,
+                                                contentType:false,
+                                                cache:false,
+                                                async:false,
+                                                beforeSend: function(){
+                                                  var formData = new FormData(this);
+                                                  for (var [key, value] of formData.entries()) { 
+                                                    console.log(key, value);
+                                                  }
+                                                },
+                                                success: function(data) {
+                                                  
+                                                  if(data==1) {
+                                                    iziToast.show({
+                                                        title: 'Success',
+                                                        message: 'Image Updated Successfully',
+                                                        position: 'topCenter',
+                                                        color: 'green',
+                                                        timeout: '2500'
+                                                    });
+                                                  }
+                                                  else{
+                                                          iziToast.error({
+                                                          title: 'Error',
+                                                          message: 'Could not Update Image',
+                                                          position: 'topCenter',
+                                                          color: 'red',
+                                                          timeout: '2500'
+                                                       });
+                                                  }
+                                                },
+                                                error: function() {
+                                                  alert("error");
+                                                }
+
+                                              });
+                                            });
+
+                                          </script>
                                         </div>
-                                        <?php
-                                          if(isset($faculty_details[0]))
-                                              $d = $faculty_details[0];
-                                          else
-                                            $d = null;   
-                                        ?>
+
+                                       
                                         <form id="faculty_form" method="post">
                                           <div class="form-group row">
                                               <div class="col-md-2">
@@ -220,12 +294,24 @@
                                       alert(formData);
                                     },
                                     success: function(data){
-                                      if(data=='1') {
-                                        alert('SUCCESS');
+                                      if(data) {
+                                        iziToast.show({
+                                            title: 'Success',
+                                            message: 'Activity Added Successfully',
+                                            position: 'topCenter',
+                                            color: 'green',
+                                            timeout: '2500'
+                                        });
                                       }
-                                      else{
-                                        alert('ERROR');
-                                      }
+                                      else if (data == 0){
+                                            iziToast.error({
+                                                  title: 'Error',
+                                                  message: 'Could not Add Activity',
+                                                  position: 'topCenter',
+                                                  color: 'red',
+                                                  timeout: '2500'
+                                                });
+                                          }
                                     }
                                   });
                                 });
@@ -328,6 +414,8 @@
     <script src="assets/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
     <script src="assets/@coreui/coreui/dist/js/coreui.min.js"></script>
     <!-- Plugins and scripts required by this view-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>   
+
   
     <script src="assets/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
     

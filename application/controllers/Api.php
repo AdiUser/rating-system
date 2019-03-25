@@ -310,7 +310,7 @@ class Api extends CI_Controller {
             $title   = $this->input->post('title');
             $image   = $data['upload_data']['file_name'];
             $details = array(
-                "logo" => "assets/img/" . $image
+                "pic" => "assets/img/" . $image
             );
             
             $res = $this->db->set($details)
@@ -388,11 +388,12 @@ class Api extends CI_Controller {
         $this->load->library('upload', $config);
         
         
-        $hod_id     = "4567"; // from session.
-        $faculty_id = "5678"; // from form.
         $org_id     = $this->session->user[0]->code;
         $name       = $this->input->post("name");
         $type       = $this->input->post("activity-type");
+        $semester = $this->input->post("semester");
+        $year_from = $this->input->post("year-from");
+        $year_to = $this->input->post("year-to");
         //$proof = $_FILES['proof'];
         echo json_encode($_FILES);
         //echo count($_FILES['proof']['name']);
@@ -419,6 +420,9 @@ class Api extends CI_Controller {
                 "faculty_id" => $this->session->user[0]->username,
                 "name" => $name[$key],
                 "type" => $type[$key],
+                "sem" => $semester[$key],
+                "year_from" => $year_from[$key],
+                "year_to" => $year_to[$key],
                 "report" => $image
             );
             $res     = $this->db->insert("activity", $details);
@@ -426,7 +430,8 @@ class Api extends CI_Controller {
             array_push($insert_ids, $idx);
             if ($res) {
                 $count++;
-                $str .= '<tr id="' . $field_id[$key] . '"><td>' . $name[$key] . '</td><td>' . $type[$key] . '</td>';
+                $str .= '<tr id="' . $field_id[$key] . '"><td>' . $name[$key] . '</td><td>' . $semester[$key] . '</td>';
+                $str .='<td>'.$year_from[$key].'</td><td>'.$year_to[$key].'</td><td>'.$type[$key].'</td>';
                 $str .= '<td>' . $image . '</td>';
                 $str .= '<td><button class="btn btn-danger activity-delete" data-id="' . $idx . '" data-delete="' . $field_id[$key] . '"><i class="icons font-1xl d-block cui-circle-x"></i></button></td></tr>';
             }
