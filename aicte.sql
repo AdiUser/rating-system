@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2019 at 09:50 AM
+-- Generation Time: Mar 25, 2019 at 09:21 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -30,9 +30,21 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `acr_points` (
   `serial` int(11) NOT NULL,
-  `faculty_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `points` int(30) NOT NULL
+  `faculty_id` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `points` int(30) NOT NULL,
+  `acr_year` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `is_active` int(11) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `acr_points`
+--
+
+INSERT INTO `acr_points` (`serial`, `faculty_id`, `points`, `acr_year`, `is_active`) VALUES
+(1, 'F', 4, '2018-19', 1),
+(2, 'F', 4, '2018-19', 1),
+(3, 'FACF66616561843', 5, '2018-19', 1),
+(4, 'FACF66616561843', 7, '2018-17', 1);
 
 -- --------------------------------------------------------
 
@@ -45,8 +57,11 @@ CREATE TABLE `activity` (
   `faculty_id` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   `type` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `sem` int(11) NOT NULL,
+  `year_from` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
+  `year_to` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
   `report` text COLLATE utf8_unicode_ci NOT NULL,
-  `verified` int(2) NOT NULL,
+  `is_verified` int(2) NOT NULL,
   `is_active` int(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -54,18 +69,27 @@ CREATE TABLE `activity` (
 -- Dumping data for table `activity`
 --
 
-INSERT INTO `activity` (`serial`, `faculty_id`, `name`, `type`, `report`, `verified`, `is_active`) VALUES
-(1, '0', 'fhghj', 'd', '0459c4957a773c835c58', 0, 1),
-(2, '0', 'sf', 'e', '3ef8493bb5d4b77b0285', 0, 1),
-(3, '0', 'fhghj', 'd', 'a8b77fff25bf737107c6', 0, 1),
-(4, '0', 'sf', 'e', '3057c7a290e98c20b8a2', 0, 1),
-(5, '0', 'fhghj', 'd', '142e7f705dfb30f28b43', 0, 1),
-(6, '0', 'sf', 'e', '4a905ded909171368504', 0, 1),
-(7, 'hod', 'My Activity', 'd', '7b06965fade7fdbeef42932558c44cda.jpg', 0, 0),
-(8, 'hod', 'Ammy did that', 'i', '0266f6fc8a6986a27a780300110e6407.jpg', 0, 1),
-(9, 'hod', 'I did that ', 'd', '5c97ebbc11fa3d0c3a8388ade12ae3a9.jpg', 0, 1),
-(10, 'hod', 'I did that', 'departmental', '304338169e3c3f8d4b4a33d29e398a6b.jpg', 0, 1),
-(11, 'hod', 'My New Activity', 'departmental', '1b4495b1ed3669dd2fbaf15b52cd8a3d.jpg', 0, 0);
+INSERT INTO `activity` (`serial`, `faculty_id`, `name`, `type`, `sem`, `year_from`, `year_to`, `report`, `is_verified`, `is_active`) VALUES
+(1, '0', 'fhghj', 'd', 0, '', '', '0459c4957a773c835c58', 0, 0),
+(2, '0', 'sf', 'e', 0, '', '', '3ef8493bb5d4b77b0285', 0, 1),
+(3, '0', 'fhghj', 'd', 0, '', '', 'a8b77fff25bf737107c6', 0, 1),
+(4, '0', 'sf', 'e', 0, '', '', '3057c7a290e98c20b8a2', 0, 1),
+(5, '0', 'fhghj', 'd', 0, '', '', '142e7f705dfb30f28b43', 0, 1),
+(6, '0', 'sf', 'e', 0, '', '', '4a905ded909171368504', 0, 1),
+(7, 'hod', 'My Activity', 'd', 0, '', '', '7b06965fade7fdbeef42932558c44cda.jpg', 0, 0),
+(8, 'hod', 'Ammy did that', 'i', 0, '', '', '0266f6fc8a6986a27a780300110e6407.jpg', 0, 1),
+(9, 'hod', 'I did that ', 'd', 0, '', '', '5c97ebbc11fa3d0c3a8388ade12ae3a9.jpg', 0, 1),
+(10, 'hod', 'I did that', 'departmental', 0, '', '', '304338169e3c3f8d4b4a33d29e398a6b.jpg', 0, 1),
+(11, 'hod', 'My New Activity', 'departmental', 0, '', '', '1b4495b1ed3669dd2fbaf15b52cd8a3d.jpg', 0, 0),
+(12, 'FACF87192445071', 'Aditya ', 'departmental', 1, '', '', 'c8039d9ec5a0db3934f79d789596f1c7.jpg', 0, 0),
+(13, 'FACF66616561843', 'Lab and IT services', 'departmental', 1, '', '', '4cd6e7c1b27831febd898757cf8e6389.jpg', 1, 0),
+(14, 'FACF66616561843', 'Cultural Activity Fest', 'social', 1, '', '', '5df9d6ac3dba0f4b9f868ab8d0c0b5c5.png', 0, 0),
+(15, 'FACF228661427967', 'New Activity ', 'social', 1, '', '', '8ce25af6d43daead690f4725914fcce0.jpg', 1, 1),
+(16, 'FACF228661427967', 'New Activity - 2', 'departmental', 1, '', '', '5abbb0a703605782133107d539c73608.jpg', 0, 1),
+(17, 'FAC7712734', 'My New Activity HOD', 'institutional', 0, '', '', 'c715eed7f98ac7151cc321d811fc32c8.jpg', 0, 0),
+(18, 'FAC7712734', 'My New Activity HOD-2', 'departmental', 0, '', '', '7da1b66997a2332aa522fbd4a353ca4d.jpg', 0, 0),
+(19, 'FAC7712734', 'My HOD Activity', 'departmental', 3, '2018', '2019', 'cb539f6d9772e595e0a624e50b48017c.jpg', 0, 1),
+(20, 'FAC7712734', 'HOD Activity HHA', 'departmental', 2, '2018', '2019', '3acf4cb152ab582b76a33641ca35eeb1.jpg', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -144,7 +168,8 @@ INSERT INTO `departments` (`id`, `org_id`, `department_name`, `department_code`,
 (7, 'GEUDDN', 'dfghjk', 'dfghjk', 0),
 (8, 'GEUDDN', 'fgjkl', 'y', 0),
 (9, 'GEUDDN', 'dsfg', 'sdfd', 0),
-(10, 'GEUDDN', 'gfgghjkl', 'hgjkl', 0);
+(10, 'GEUDDN', 'gfgghjkl', 'hgjkl', 0),
+(11, 'BISHOP', 'Technology / Education', 'TECH', 1);
 
 -- --------------------------------------------------------
 
@@ -155,11 +180,11 @@ INSERT INTO `departments` (`id`, `org_id`, `department_name`, `department_code`,
 CREATE TABLE `faculty` (
   `serial` int(2) NOT NULL,
   `university_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `contact` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
-  `qualification` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `qualification` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `date_of_joining` date NOT NULL,
-  `department` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `department` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `level` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `faculty_id` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `address` text COLLATE utf8_unicode_ci NOT NULL,
@@ -172,11 +197,19 @@ CREATE TABLE `faculty` (
 --
 
 INSERT INTO `faculty` (`serial`, `university_code`, `name`, `contact`, `qualification`, `date_of_joining`, `department`, `level`, `faculty_id`, `address`, `email`, `pic`) VALUES
-(1, 'geuddn', 'faculty2', '9897171001', '26', '2019-03-06', '1', '1', 'FACT101', 'asdSDsad', 'SAFsdfDSF', ''),
+(1, 'geuddn', 'HOD Anmol Siva Ready', '98917171001', '26', '2019-03-06', '1', '1', 'FACT101', 'Flat No. 456, Big Clown Cottage', 'anmolreadyy@gmail.com', ''),
 (2, 'geuddn', 'Aman Misra', '', '26', '2019-03-14', '1', '6', 'FACT102', '', '', ''),
 (5, 'GEUDDN', 'HOD Aman Saxena New', '', '', '2020-02-03', '4', '6', 'FAC89352170', '', '', ''),
 (6, 'GEUDDN', 'HOD Aditya Saxena', '', '', '2009-02-02', '4', '6', 'FAC63341992', '', '', ''),
-(7, 'GEUDDN', 'gfghjk', '', '', '2019-02-03', '4', '9A', 'FACF87192445071', '', '', '');
+(7, 'GEUDDN', 'Aditya Saxena', '9897171001', '', '2019-02-03', '4', '1', 'FACF87192445071', '333/1 Beharipur Civil Lines Bareilly', 'adityasaxena503@fmail.con', ''),
+(8, 'BISHOP', 'HOD Anmol Siva Ready', '9891771001', '', '2016-02-02', '1', '6', 'FAC7712734', 'Flat 234, Big Butt Cotteges', 'readyy@gmail.com', 'assets/img/5fd5a4e5c8c4027a3924bd22db890a33.jpg'),
+(9, 'BISHOP', 'FACULTY Anam Ali', '', '', '2010-11-26', '1', '1', 'FACF428144713880', '', '', ''),
+(10, 'BISHOP', 'FACULTY Aman Saxena', '', '', '2011-11-26', '1', '1', 'FACF631305285720', '', '', ''),
+(11, 'BISHOP', 'FACULTY Aditya Saxen', '', '', '2011-11-26', '1', '1', 'FACF694551514792', '', '', ''),
+(12, 'BISHOP', 'FACULTY Suman Saxena', '', '', '2011-11-26', '1', '2', 'FACF161012001347', '', '', ''),
+(13, 'BISHOP', 'FACULTY Ylog Saxena', '', '', '2009-11-26', '1', '3', 'FACF54491606193', '', '', ''),
+(14, 'BISHOP', 'FACULTY Yaman Gupta', '9897171001', '', '2009-11-26', '1', '5', 'FACF228661427967', '342 Radhe Madhe, Krishna Conclave, Bareilly', 'yaman@gmail.com', ''),
+(15, 'BISHOP', 'FACULTY Kallol Reddy', '9897171001', '', '2013-11-26', '1', '2', 'FACF66616561843', '3567, Subash Nagar, Bareilly', 'reddyready@gmail.ocm', 'assets/img/4aa0af438c3ea33f4adb89c95ecf4ad0.jpg');
 
 -- --------------------------------------------------------
 
@@ -186,14 +219,14 @@ INSERT INTO `faculty` (`serial`, `university_code`, `name`, `contact`, `qualific
 
 CREATE TABLE `faculty_dept` (
   `id` int(11) NOT NULL,
-  `name` varchar(500) NOT NULL
+  `dept_name` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `faculty_dept`
 --
 
-INSERT INTO `faculty_dept` (`id`, `name`) VALUES
+INSERT INTO `faculty_dept` (`id`, `dept_name`) VALUES
 (1, 'Engineering / Technology'),
 (2, 'Pharmacy'),
 (3, 'Hotel Management and Catering Technology'),
@@ -219,7 +252,10 @@ CREATE TABLE `input_qualification` (
 --
 
 INSERT INTO `input_qualification` (`serial`, `faculty_id`, `qualification`) VALUES
-(0, 'FACT5672', '29,36,41');
+(1, 'FACT5672', '29,36,41'),
+(3, 'FACF87192445071', '30,29,36'),
+(4, 'FACF66616561843', '36,41'),
+(5, 'FAC7712734', '66,67,68');
 
 -- --------------------------------------------------------
 
@@ -243,7 +279,8 @@ CREATE TABLE `institute` (
 
 INSERT INTO `institute` (`serial`, `parent_university_code`, `institute_code`, `institute_name`, `state`, `district`, `postal_code`) VALUES
 (1, 'GEUDDN', 'GEHUDDN1', 'Graphic Era Hill Uni', 'Uttrakhand', '', ''),
-(2, 'GEUDDN', '6789', 'GEU-INST', 'Uttrakhand', 'Dehradun', '248002');
+(2, 'GEUDDN', '6789', 'GEU-INST', 'Uttrakhand', 'Dehradun', '248002'),
+(3, 'BISHOP', 'BISHOP1', 'Bishop Sec. Institute', 'UP', 'Bareilly', '248001');
 
 -- --------------------------------------------------------
 
@@ -610,8 +647,22 @@ CREATE TABLE `qualification_proof` (
   `faculty_id` varchar(100) NOT NULL,
   `qualification_id` varchar(10) NOT NULL,
   `proof` text NOT NULL,
-  `is_active` int(11) NOT NULL DEFAULT '1'
+  `is_active` int(11) NOT NULL DEFAULT '1',
+  `is_verified` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `qualification_proof`
+--
+
+INSERT INTO `qualification_proof` (`id`, `faculty_id`, `qualification_id`, `proof`, `is_active`, `is_verified`) VALUES
+(1, 'FACF87192445071', '29', 'C:/xampp/htdocs/rating-system/assets/proof/DataFile3.txt', 1, 0),
+(2, 'FACF87192445071', '36', 'C:/xampp/htdocs/rating-system/assets/proof/DataFile4.txt', 1, 0),
+(3, 'FACF66616561843', '36', 'C:/xampp/htdocs/rating-system/assets/proof/AICTE_LOGO.png', 1, 1),
+(4, 'FACF66616561843', '41', 'C:/xampp/htdocs/rating-system/assets/proof/logo_new.png', 1, 0),
+(5, 'FAC7712734', '66', 'C:/xampp/htdocs/rating-system/assets/proof/83d48d1f66ce6041a22c015cf2092038.jpg', 1, 0),
+(6, 'FAC7712734', '67', 'C:/xampp/htdocs/rating-system/assets/proof/436c847bfdbd3e46d912cb1a7f4ae043.jpg', 1, 0),
+(7, 'FAC7712734', '68', 'C:/xampp/htdocs/rating-system/assets/proof/3ef8493bb5d4b77b0285b9eb50333541.jpg', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -662,6 +713,33 @@ CREATE TABLE `student_feedback` (
   `keywords` text NOT NULL,
   `remarks` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teaching_process`
+--
+
+CREATE TABLE `teaching_process` (
+  `serial` int(11) NOT NULL,
+  `faculty_id` varchar(50) NOT NULL,
+  `semester` int(11) NOT NULL,
+  `year` varchar(10) NOT NULL,
+  `subject_code` varchar(100) NOT NULL,
+  `total_classes` int(11) NOT NULL,
+  `held_classes` int(11) NOT NULL,
+  `teaching_proof` mediumtext NOT NULL,
+  `is_active` int(11) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `teaching_process`
+--
+
+INSERT INTO `teaching_process` (`serial`, `faculty_id`, `semester`, `year`, `subject_code`, `total_classes`, `held_classes`, `teaching_proof`, `is_active`) VALUES
+(1, 'FACF66616561843', 1, '2018-19', 'TET-10', 2, 1, 'C:/xampp/htdocs/rating-system/assets/proof/AICTE_LOGO2.png', 0),
+(13, 'FACF66616561843', 1, '2017-18', 'TET-EE', 9, 5, 'C:/xampp/htdocs/rating-system/assets/proof/c498a0a34722b2ff14ed20f0151e91b16.jpg', 1),
+(14, 'FACF66616561843', 1, '4567', '5678', 568, 5678, 'C:/xampp/htdocs/rating-system/assets/proof/geu.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -719,7 +797,8 @@ CREATE TABLE `university` (
 INSERT INTO `university` (`serial`, `university_code`, `university_name`, `state`, `is_state_university`, `district`, `postal_code`, `address`, `contact`, `email`, `logo`) VALUES
 (1, 'GEUDDN', 'Graphic Era University', 'Uttrakhand', 1, 'fghjkl', '2346578', 'ertyuiertyui', '344567890', '34567890', 'assets/img/dd3fbcb6766fcfccc8412cf02917ecbe.jpg'),
 (7, '6567899', 'My Custom University 2', 'DFGHJK', 1, 'FGHJK', '56879900', '', '', '', ''),
-(11, 'GHJK', 'GHSDHJ', 'GHJK', 1, 'HJK', 'JK', '', '', '', '');
+(11, 'GHJK', 'Grand High Jam Kuth', 'GHJK', 1, 'Kashmir', '290118', '33/1 New Red Street, White Villa', '9897171001', 'adityasaxne$@gmail.com', 'assets/img/7bb36ff7f4051bac875fb9f886677b63.jpg'),
+(12, 'BISHOP', 'Bishop Conrad Senior Secondary Institute', 'UP', 1, 'Bareilly', '248001', '52 Cant, Near White Villa', '9897171001', 'pingus@bishop.co.in', 'assets/img/1d7b932ecbf88915c937b0ca6b6fabcd.jpg');
 
 -- --------------------------------------------------------
 
@@ -748,7 +827,17 @@ INSERT INTO `user_login` (`id`, `code`, `username`, `password`, `role`) VALUES
 (8, 'GHJK', 'GHJK', 'cdee058ed6a1c749a0a987a0147ab9e8', 'university'),
 (9, '6789', '6789', '46d045ff5190f6ea93739da6c0aa19bc', 'institute'),
 (10, 'GEUDDN', 'FAC63341992', '27f217228db365d93739090ad3d74618', 'head-of-department'),
-(11, 'GEUDDN', 'FACF87192445071', '7fd5f62297216dfd83324ca17d54b5bb', 'faculty');
+(11, 'GEUDDN', 'FACF87192445071', '7fd5f62297216dfd83324ca17d54b5bb', 'faculty'),
+(13, 'BISHOP', 'BISHOP', '1834d375f684613c725d039a10db1976', 'university'),
+(14, 'BISHOP1', 'BISHOP1', 'a00474d79eec08234e69c6dc7b893910', 'institute'),
+(15, 'BISHOP', 'FAC7712734', '180ab0bb6108b51bc66cef70f648fe04', 'head-of-department'),
+(16, 'BISHOP', 'FACF428144713880', '4721cdff879e7721bd2dab62e6f4cd19', 'faculty'),
+(17, 'BISHOP', 'FACF631305285720', 'ded0405659c19d74a7cef697e520fe9b', 'faculty'),
+(18, 'BISHOP', 'FACF694551514792', 'fca5aaffe57655ee779d78ff64fdf9ad', 'faculty'),
+(19, 'BISHOP', 'FACF161012001347', '7e840be443ab751b1976799703e1610c', 'faculty'),
+(20, 'BISHOP', 'FACF54491606193', '7e1ea12f235ac2947ede5ba600b82a88', 'faculty'),
+(21, 'BISHOP', 'FACF228661427967', '816662ddd9eded893c07d41d1019a08d', 'faculty'),
+(22, 'BISHOP', 'FACF66616561843', '5e87cc9828dbe83f069aac6ad715224b', 'faculty');
 
 --
 -- Indexes for dumped tables
@@ -851,6 +940,12 @@ ALTER TABLE `student_feedback`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `teaching_process`
+--
+ALTER TABLE `teaching_process`
+  ADD PRIMARY KEY (`serial`);
+
+--
 -- Indexes for table `test`
 --
 ALTER TABLE `test`
@@ -873,10 +968,16 @@ ALTER TABLE `user_login`
 --
 
 --
+-- AUTO_INCREMENT for table `acr_points`
+--
+ALTER TABLE `acr_points`
+  MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `serial` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `serial` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `aicte_admin`
@@ -894,13 +995,13 @@ ALTER TABLE `departmental_activities`
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
-  MODIFY `serial` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `serial` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `faculty_dept`
@@ -909,10 +1010,16 @@ ALTER TABLE `faculty_dept`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `input_qualification`
+--
+ALTER TABLE `input_qualification`
+  MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `institute`
 --
 ALTER TABLE `institute`
-  MODIFY `serial` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `serial` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `levels`
@@ -936,7 +1043,7 @@ ALTER TABLE `min_requirements`
 -- AUTO_INCREMENT for table `qualification_proof`
 --
 ALTER TABLE `qualification_proof`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `rating`
@@ -957,6 +1064,12 @@ ALTER TABLE `student_feedback`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `teaching_process`
+--
+ALTER TABLE `teaching_process`
+  MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
 -- AUTO_INCREMENT for table `test`
 --
 ALTER TABLE `test`
@@ -966,13 +1079,13 @@ ALTER TABLE `test`
 -- AUTO_INCREMENT for table `university`
 --
 ALTER TABLE `university`
-  MODIFY `serial` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `serial` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `user_login`
 --
 ALTER TABLE `user_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
