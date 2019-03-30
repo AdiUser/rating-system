@@ -19,7 +19,7 @@
 - There should be an Interface for HODs to manage faculty members. 
 - There must be a way for the University Admin to terminate a faculty.
 - _Additional Features_
-	- Ability to generate Department-Wise reports.
+	- Ability to generate Department-wise reports.
 
 #### HOD Level
 - Improve the Excel File upload input box.
