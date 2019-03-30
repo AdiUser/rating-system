@@ -8,7 +8,7 @@
 - Add a new interface for viewing specific University details.
 	- The interface must be made in such a way that University Details should include all other sub-level info like University Admin, Related Departments with their HOD, faculty, and students info for the present year.
 - A way to add/edit/delete values and qualities on which students will rate the facuties.
--  Add a new interface or a list view to show recently promoted faculties.
+- Add a new interface or a list view to show recently promoted faculties.
 - _Additional Features_
 	- A button for generating reports at various level. 
 
@@ -18,17 +18,19 @@
     - The validations should be done in such a manner that no backend checks must be needed.
 - There should be an Interface for HODs to manage faculty members. 
 - There must be a way for the University Admin to terminate a faculty.
-- Ability to generate Department-Wise reports.
+- _Additional Features_
+	- Ability to generate Department-Wise reports.
 
 #### HOD Level
 - Improve the Excel File upload input box.
 - Add Validation for the sample Excel File.
     - The validations should be done in such a manner that no backend checks must be needed.
--An Interface for Adding new Faculties.
+- An Interface for Adding new Faculties.
 - An Interface for viewing Faculty Details.
 - An Interface for adding/editing qualifications for an individual.
 	- Qualifications may vary according to Diploma or Degree. 
-- Ability to generate the Annual Faculty Report.
+- _Additional Features_
+	- Ability to generate the Annual Faculty Report.
 
 #### Student Level
 - View Faculty List, semester wise.
