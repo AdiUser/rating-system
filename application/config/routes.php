@@ -99,3 +99,5 @@ $route['faculty-list'] = 'welcome/HOD_show_faculty';
 $route['faculty-qualifications'] = 'welcome/faculty_qualifications';
 $route['faculty-activity'] = 'welcome/faculty_activity';
 $route['upload-file'] = 'welcome/import';
+$route['feedback'] = 'welcome/feedback';
+$route['add-faculty-technical'] = 'welcome/add_faculty_technical';

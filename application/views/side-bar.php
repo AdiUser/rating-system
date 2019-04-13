@@ -20,6 +20,15 @@
                 <i class="nav-icon cui-dashboard"></i> Dashboard
               </a>
             </li>
+			  		<li class="nav-item">
+                        <a class="nav-link" href="/rating-system/feedback">
+                          <i class="nav-icon icon-note"></i>Feedback</a>
+                      </li>
+			  
+			  		<li class="nav-item">
+                        <a class="nav-link" href="/rating-system/add-faculty-technical">
+                          <i class="nav-icon icon-user-follow"></i>Add-Faculty-Technical</a>
+                      </li>
             <!-- // -->
             <li class="nav-title">Upload Data </li>
             <?php 

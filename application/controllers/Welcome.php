@@ -38,6 +38,11 @@ class Welcome extends CI_Controller {
 
 		$this->load->view("add_university");
 	}
+	
+	public function feedback() {
+
+		$this->load->view("feedback");
+	}
 
 	public function getDepartments($code) {
 		$res = $this->db->select("*")
@@ -151,6 +156,18 @@ class Welcome extends CI_Controller {
 			$data["fac"] = $res;
 		}
 		$this->load->view("add_faculty", $data);
+	}
+	
+	public function add_faculty_technical() {
+		$res = $this->db->select("*")
+				->from("faculty")
+				->join("departments", "faculty.department = departments.id")
+				->where("faculty_id", $this->session->user[0]->username)
+				->get()->result();
+		if ($res) {
+			$data["fac"] = $res;
+		}
+		$this->load->view("add_faculty_technical", $data);
 	}
 	public function get_next_level($id) {
 		$res = $this->db->where(['id' => $id])->get("levels")->result();
