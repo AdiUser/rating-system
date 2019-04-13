@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2019 at 09:21 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Generation Time: Apr 11, 2019 at 07:07 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -744,6 +744,177 @@ INSERT INTO `teaching_process` (`serial`, `faculty_id`, `semester`, `year`, `sub
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `technical`
+--
+
+CREATE TABLE `technical` (
+  `id` int(11) NOT NULL,
+  `qualification_name` varchar(1000) NOT NULL,
+  `meta_qualification` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `technical`
+--
+
+INSERT INTO `technical` (`id`, `qualification_name`, `meta_qualification`) VALUES
+(101, 'B. E. / B. Tech. / B. S. and M. E. / M. Tech. / M. S. or Integrated M. Tech. in relevant branch\r\nwith first class or equivalent in any one of the degrees.', 'B. E. / B. Tech. / B. S. and M. E. / M. Tech. / M. S. or Integrated M. Tech. in relevant branch\r\nwith first class or equivalent in any one of the degrees.'),
+(102, 'Bachelor’s Degree in any discipline and Master’s Degree in Business Administration / PGDM /\r\nC. A. / ICWA/ M. Com. with First Class or equivalent and two years of professional experience\r\nafter acquiring the degree of Master’s degree.', 'Bachelor’s Degree in any discipline and Master’s Degree in Business Administration / PGDM /\r\nC. A. / ICWA/ M. Com. with First Class or equivalent and two years of professional experience\r\nafter acquiring the degree of Master’s degree.'),
+(103, 'B. Pharm. and M. Pharm. in the relevant specialization with First Class or equivalent in any one\r\nof the two degrees.', 'B. Pharm. and M. Pharm. in the relevant specialization with First Class or equivalent in any one\r\nof the two degrees.'),
+(104, 'B. E. / B. Tech. / B. S. and M.E. / M. Tech. / M. S. or Integrated M. Tech. in relevant branch with\r\nFirst Class or equivalent in any one of the degrees', 'B. E. / B. Tech. / B. S. and M.E. / M. Tech. / M. S. or Integrated M. Tech. in relevant branch with\r\nFirst Class or equivalent in any one of the degrees'),
+(105, 'B. E., B. Tech. and MCA with First Class or equivalent in any one of the two degrees', 'B. E., B. Tech. and MCA with First Class or equivalent in any one of the two degrees'),
+(106, 'Graduation of three years’ duration with Mathematics as a compulsory subject and MCA with\r\nFirst Class or equivalent with 2 years of relevant experience after acquiring degree of MCA', 'Graduation of three years’ duration with Mathematics as a compulsory subject and MCA with\r\nFirst Class or equivalent with 2 years of relevant experience after acquiring degree of MCA'),
+(107, 'Minimum 4 years Bachelor’s Degree in HMCT and Master’s Degree in HMCT or in relevant\r\ndisciplines with First Class or equivalent in any one of the two degrees.', 'Minimum 4 years Bachelor’s Degree in HMCT and Master’s Degree in HMCT or in relevant\r\ndisciplines with First Class or equivalent in any one of the two degrees.'),
+(108, 'Minimum 4 years Bachelor’s Degree in HMCT with First Class or equivalent and minimum of 5\r\nyears of relevant experience at a managerial level not less than Assistant Manager in a 4 - star\r\nHotel or in a similar position in the hospitality industry/ tourism industry', 'Minimum 4 years Bachelor’s Degree in HMCT with First Class or equivalent and minimum of 5\r\nyears of relevant experience at a managerial level not less than Assistant Manager in a 4 - star\r\nHotel or in a similar position in the hospitality industry/ tourism industry'),
+(109, 'B. Arch. and M. Arch. or equivalent Master’s degree in an allied field with First Class in any one\r\nof the two degrees, and minimum 2 years’ experience in the Architecture profession.', 'B. Arch. and M. Arch. or equivalent Master’s degree in an allied field with First Class in any one\r\nof the two degrees, and minimum 2 years’ experience in the Architecture profession.'),
+(110, 'B. Arch. with First class or equivalent and minimum of 5 years’ experience in the Architecture\r\nprofession', 'B. Arch. with First class or equivalent and minimum of 5 years’ experience in the Architecture\r\nprofession'),
+(111, 'Bachelor’s degree in Architecture / Planning / Civil Engineering or Master’s degree in\r\nGeography / Economics / Sociology or equivalent AND Master of Planning or equivalent with\r\nFirst class or equivalent in either in Master of Planning or any above degrees with 2 years of\r\nrelevant experience', 'Bachelor’s degree in Architecture / Planning / Civil Engineering or Master’s degree in\r\nGeography / Economics / Sociology or equivalent AND Master of Planning or equivalent with\r\nFirst class or equivalent in either in Master of Planning or any above degrees with 2 years of\r\nrelevant experience'),
+(112, 'Bachelor’s Degree or minimum 4 year Diploma in any one of the streams of Design, Fine Arts,\r\nApplied Arts and Architecture or Bachelor’s degree in Engineering with First class or equivalent', 'Bachelor’s Degree or minimum 4 year Diploma in any one of the streams of Design, Fine Arts,\r\nApplied Arts and Architecture or Bachelor’s degree in Engineering with First class or equivalent'),
+(113, 'Master’s degree or equivalent Post Graduate Diploma in relevant disciplines with First Class or\r\nequivalent in a concerned / relevant /allied subject of Industrial Design / Visual Communication /\r\nFine Arts / Applied Arts / Architecture / Interaction Design / New Media Studies / Design\r\nManagement / Ergonomics / Human Factors Engineering / Indian Craft Studies and related fields\r\nof Engineering or Design.', 'Master’s degree or equivalent Post Graduate Diploma in relevant disciplines with First Class or\r\nequivalent in a concerned / relevant /allied subject of Industrial Design / Visual Communication /\r\nFine Arts / Applied Arts / Architecture / Interaction Design / New Media Studies / Design\r\nManagement / Ergonomics / Human Factors Engineering / Indian Craft Studies and related fields\r\nof Engineering or Design.'),
+(114, 'Minimum 2 years of professional design experience in Industry / research organization / Design\r\nstudios', 'Minimum 2 years of professional design experience in Industry / research organization / Design\r\nstudios'),
+(115, 'Bachelor’s and Master’s degree in the relevant branch with First Class or equivalent in any one\r\nof the two degrees and minimum 2 years of relevant professional experience', 'Bachelor’s and Master’s degree in the relevant branch with First Class or equivalent in any one\r\nof the two degrees and minimum 2 years of relevant professional experience'),
+(116, 'The qualifications for recruitment and promotions for faculty in the disciplines of Basic Sciences,\r\nSocial Science and Humanities shall be as per the UGC Notification No. F.1-2/2017(EC/PS)\r\nDated 18th July, 2018 and UGC guidelines issued from time to time.', 'The qualifications for recruitment and promotions for faculty in the disciplines of Basic Sciences,\r\nSocial Science and Humanities shall be as per the UGC Notification No. F.1-2/2017(EC/PS)\r\nDated 18th July, 2018 and UGC guidelines issued from time to time.'),
+(117, 'Qualifications prescribed for the post of Assistant Professor', 'Qualifications prescribed for the post of Assistant Professor'),
+(118, 'Qualifications prescribed for the post of Assistant Professor', 'Qualifications prescribed for the post of Assistant Professor'),
+(119, 'Should have satisfied any one of the below mentioned set of requirements', 'Should have satisfied any one of the below mentioned set of requirements'),
+(120, 'Qualifications as prescribed for the post of Assistant Professor (Senior Scale)', 'Qualifications as prescribed for the post of Assistant Professor (Senior Scale)'),
+(121, 'Should have completed minimum training requirements as per Annexure - III.', 'Should have completed minimum training requirements as per Annexure - III.'),
+(122, 'Should have satisfied any one of the below mentioned set of requirements.', 'Should have satisfied any one of the below mentioned set of requirements.'),
+(123, 'Ph.D. degree in the relevant field and First class or equivalent at either Bachelor’s or Master’s\r\nlevel in the relevant branch', 'Ph.D. degree in the relevant field and First class or equivalent at either Bachelor’s or Master’s\r\nlevel in the relevant branch'),
+(124, 'At least total 6 research publications in SCI journals / UGC / AICTE approved list of journals', 'At least total 6 research publications in SCI journals / UGC / AICTE approved list of journals'),
+(125, 'Minimum of 8 years of experience in teaching / research / industry out of which at least 2 years\r\nshall be Post Ph.D. experience.', 'Minimum of 8 years of experience in teaching / research / industry out of which at least 2 years\r\nshall be Post Ph.D. experience.'),
+(126, 'Ph. D. degree in relevant field and First class or equivalent at either Bachelor’s or Master’s level\r\nin the relevant branch', 'Ph. D. degree in relevant field and First class or equivalent at either Bachelor’s or Master’s level\r\nin the relevant branch'),
+(127, 'Should have completed minimum training requirements as per Annexure – III', 'Should have completed minimum training requirements as per Annexure – III'),
+(128, 'Should have satisfied any one of the below mentioned set of requirements.', 'Should have satisfied any one of the below mentioned set of requirements.'),
+(129, 'Ph. D. degree in relevant field and First class or equivalent at either Bachelor’s or Master’s level\r\nin the relevant branch', 'Ph. D. degree in relevant field and First class or equivalent at either Bachelor’s or Master’s level\r\nin the relevant branch'),
+(130, 'Minimum of 10 years of experience in teaching / research / industry out of which at least 3 years\r\nshall be at a post equivalent to that of an Associate Professor', 'Minimum of 10 years of experience in teaching / research / industry out of which at least 3 years\r\nshall be at a post equivalent to that of an Associate Professor'),
+(131, 'At least 6 research publications at the level of Associate Professor in SCI journals / UGC /\r\nAICTE approved list of journals and at least 2 successful Ph.D. guided as Supervisor / Cosupervisor till the date of eligibility of promotion', 'At least 6 research publications at the level of Associate Professor in SCI journals / UGC /\r\nAICTE approved list of journals and at least 2 successful Ph.D. guided as Supervisor / Cosupervisor till the date of eligibility of promotion'),
+(132, 'At least 10 research publications at the level of Associate Professor in SCI journals / UGC /\r\nAICTE approved list of journals till the date of eligibility of promotion.', 'At least 10 research publications at the level of Associate Professor in SCI journals / UGC /\r\nAICTE approved list of journals till the date of eligibility of promotion.'),
+(133, 'Ph. D. degree in relevant field and First Class or equivalent at either Bachelor’s or Master’s level\r\nin the relevant branch', 'Ph. D. degree in relevant field and First Class or equivalent at either Bachelor’s or Master’s level\r\nin the relevant branch'),
+(134, 'Should have satisfied any one of the below mentioned set of requirements', 'Should have satisfied any one of the below mentioned set of requirements'),
+(135, 'Ph. D. degree in the relevant field', 'Ph. D. degree in the relevant field'),
+(136, 'Minimum ten years of experience in the cadre of Professor', 'Minimum ten years of experience in the cadre of Professor'),
+(137, 'At least 8 research publications in SCI journals / UGC / AICTE approved list of journals, should\r\nhave at least 2 successful Ph. D. guided as Supervisor / Co-Supervisor as a Professor', 'At least 8 research publications in SCI journals / UGC / AICTE approved list of journals, should\r\nhave at least 2 successful Ph. D. guided as Supervisor / Co-Supervisor as a Professor'),
+(138, 'At least 8 research publications in SCI journals / UGC / AICTE approved list of journals, should\r\nhave provided academic leadership as institution head at least for 3 years at the level of Professor', 'At least 8 research publications in SCI journals / UGC / AICTE approved list of journals, should\r\nhave provided academic leadership as institution head at least for 3 years at the level of Professor'),
+(139, 'At least 8 research publications in SCI journals / UGC / AICTE approved list of journals, should\r\nhave provided educational leadership at state / national level at least for 3 years at the level of\r\nProfessor.', 'At least 8 research publications in SCI journals / UGC / AICTE approved list of journals, should\r\nhave provided educational leadership at state / national level at least for 3 years at the level of\r\nProfessor.'),
+(140, 'At least one patent awarded', 'At least one patent awarded'),
+(141, 'Development of one MOOC course applicable at national platform', 'Development of one MOOC course applicable at national platform'),
+(142, 'Ph. D. degree and First Class or equivalent at either Bachelor’s or Master’s level in the relevant\r\nbranch', 'Ph. D. degree and First Class or equivalent at either Bachelor’s or Master’s level in the relevant\r\nbranch'),
+(143, 'At least two successful Ph.D. guided as supervisor / Co-Supervisor and minimum 8 research\r\npublications in SCI journals / UGC / AICTE approved list of journals', 'At least two successful Ph.D. guided as supervisor / Co-Supervisor and minimum 8 research\r\npublications in SCI journals / UGC / AICTE approved list of journals'),
+(144, 'Minimum 15 years of experience in teaching / research/ industry, out of which at least 3 years\r\nshall be at the post equivalent to that of Professor', 'Minimum 15 years of experience in teaching / research/ industry, out of which at least 3 years\r\nshall be at the post equivalent to that of Professor');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `technical_level`
+--
+
+CREATE TABLE `technical_level` (
+  `id` int(100) NOT NULL,
+  `level_id` varchar(500) NOT NULL,
+  `level_name` varchar(500) NOT NULL,
+  `level_package_group` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `technical_level`
+--
+
+INSERT INTO `technical_level` (`id`, `level_id`, `level_name`, `level_package_group`) VALUES
+(1, '10', 'Assistant Professor', '57700'),
+(2, '11', 'Assistant Professor (Senior Scale)', '68900'),
+(3, '12', 'Assistant Professor (Selection Grade)', '79800'),
+(4, '13A1', 'Associate Professor ', '131400'),
+(5, '14', 'Professor', '144200'),
+(6, '15', 'Senior Professor', '182200'),
+(7, '14', 'Principal/Director', '144200');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `technical_min_qualification`
+--
+
+CREATE TABLE `technical_min_qualification` (
+  `id` int(100) NOT NULL,
+  `qualification_name` varchar(500) NOT NULL,
+  `meta_qualification` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `technical_min_qualification`
+--
+
+INSERT INTO `technical_min_qualification` (`id`, `qualification_name`, `meta_qualification`) VALUES
+(51, 'B. E. / B.  Tech. /  B. S. and  M.  E. /  M.  Tech. / M. S. or Integrated M.  Tech. in relevant branch with first class or equivalent in any one of the degrees.', 'B. E. / B.  Tech. /  B. S. and  M.  E. /  M.  Tech. / M. S. or Integrated M.  Tech. in relevant branch with first class or equivalent in any one of the degrees.'),
+(52, 'Bachelor’s Degree in any discipline and Master’s Degree in Business Administration / PGDM / C. A. / ICWA/ M. Com.  with First Class or equivalent and two years of professional experience after acquiring the degree of Master’s degree. ', 'Bachelor’s Degree in any discipline and Master’s Degree in Business Administration / PGDM / C. A. / ICWA/ M. Com.  with First Class or equivalent and two years of professional experience after acquiring the degree of Master’s degree. '),
+(53, 'B. Pharm. and M. Pharm. in the relevant specialization with First Class or equivalent in any one of the two degrees.', 'B. Pharm. and M. Pharm. in the relevant specialization with First Class or equivalent in any one of the two degrees.'),
+(54, 'B. E. / B. Tech. / B. S. and M.E. / M. Tech. / M. S. or Integrated M. Tech. in relevant branch with First Class or equivalent in any one of the degrees.', 'B. E., B. Tech. and MCA with First Class or equivalent in any one of the two degrees.'),
+(55, 'B. E. / B. Tech. / B. S. and M.E. / M. Tech. / M. S. or Integrated M. Tech. in relevant branch with First Class or equivalent in any one of the degrees.', 'Graduation  of  three  years’  duration  with  Mathematics  as  a  compulsory  subject  and  MCA  with First Class or equivalent with 2 years of relevant experience after acquiring degree of MCA'),
+(56, 'Minimum  4  years  Bachelor’s  Degree  in  HMCT  and  Master’s  Degree  in  HMCT  or  in  relevant disciplines with First Class or equivalent in any one of the two degrees.', 'Minimum 4 years Bachelor’s Degree in HMCT with First Class or equivalent and minimum of 5 years  of  relevant  experience  at  a  managerial  level not  less  than  Assistant  Manager  in  a  4  -  star Hotel or in a similar position in the hospitality industry/ tourism industry.'),
+(57, 'B. Arch. and M. Arch. or equivalent Master’s degree in an allied field with First Class in any one of the two degrees, and minimum 2 years’ experience in the Architecture profession.', 'B.  Arch.  with  First  class  or  equivalent  and  minimum of  5  years’ experience  in the  Architecture profession.'),
+(58, 'Bachelor’s   degree   in   Architecture   /   Planning   /   Civil   Engineering   or   Master’s   degree   in Geography  /  Economics  /  Sociology  or  equivalent  AND  Master  of  Planning  or  equivalent  with First  class  or  equivalent  in  either  in  Master  of  Planning  or  any  above  degrees  with  2  years  of relevant experience', 'Bachelor’s   degree   in   Architecture   /   Planning   /   Civil   Engineering   or   Master’s   degree   in Geography  /  Economics  /  Sociology  or  equivalent  AND  Master  of  Planning  or  equivalent  with First  class  or  equivalent  in  either  in  Master  of  Planning  or  any  above  degrees  with  2  years  of relevant experience'),
+(59, 'Bachelor’s Degree or minimum 4 year Diploma in any one of the streams of Design, Fine Arts, Applied Arts and Architecture or Bachelor’s degree in Engineering with First class or equivalent', 'Bachelor’s Degree or minimum 4 year Diploma in any one of the streams of Design, Fine Arts, Applied Arts and Architecture or Bachelor’s degree in Engineering with First class or equivalent'),
+(60, 'Master’s degree or equivalent Post Graduate Diploma in relevant disciplines with First  Class or equivalent in a concerned / relevant /allied subject of Industrial Design / Visual Communication / Fine  Arts / Applied  Arts / Architecture / Interaction  Design / New  Media  Studies / Design Management / Ergonomics / Human Factors Engineering / Indian Craft Studies and related fields of Engineering or Design', 'Master’s degree or equivalent Post Graduate Diploma in relevant disciplines with First  Class or equivalent in a concerned / relevant /allied subject of Industrial Design / Visual Communication / Fine  Arts / Applied  Arts / Architecture / Interaction  Design / New  Media  Studies / Design Management / Ergonomics / Human Factors Engineering / Indian Craft Studies and related fields of Engineering or Design'),
+(61, 'Minimum 2 years of professional design experience in Industry / research organization  /Design studios.', 'Minimum 2 years of professional design experience in Industry / research organization  /Design studios.'),
+(62, 'Bachelor’s and Master’s degree in the relevant branch with  First Class or equivalent in any one of the two degrees and minimum 2 years of relevant professional experience.', 'Bachelor’s and Master’s degree in the relevant branch with  First Class or equivalent in any one of the two degrees and minimum 2 years of relevant professional experience.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `technical_requirement`
+--
+
+CREATE TABLE `technical_requirement` (
+  `id` int(11) NOT NULL,
+  `department` varchar(50) NOT NULL,
+  `level` varchar(100) NOT NULL,
+  `type` varchar(100) NOT NULL,
+  `qualification` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `technical_requirement`
+--
+
+INSERT INTO `technical_requirement` (`id`, `department`, `level`, `type`, `qualification`) VALUES
+(51, '', '10', 'd', '101'),
+(52, '', '10', 'd', '102'),
+(53, '', '10', 'd', '103'),
+(54, '', '10', 'd', '104'),
+(55, '', '10', 'd', '105'),
+(56, '', '10', 'd', '106'),
+(57, '', '10', 'd', '104,105'),
+(58, '', '10', 'd', '104,106'),
+(59, '', '10', 'd', '105,106'),
+(60, '', '10', 'd', '107'),
+(61, '', '10', 'd', '108'),
+(62, '', '10', 'd', '107,108'),
+(63, '', '10', 'd', '109'),
+(64, '', '10', 'd', '110'),
+(65, '', '10', 'd', '109,110'),
+(66, '', '10', 'd', '111'),
+(67, '', '10', 'd', '112,113,114'),
+(68, '', '10', 'd', '115'),
+(69, '', '10', 'd', '116'),
+(70, '', '11', 'p', '117,118,119'),
+(71, '', '12', 'p', '120,121,122'),
+(72, '', '13A1', 'd', '123,124,125'),
+(73, '', '13A1', 'p', '126,127,128'),
+(74, '', '14', 'd', '129,130,131'),
+(75, '', '14', 'd', '129,130,132'),
+(76, '', '14', 'p', '133,134'),
+(77, '', '15', 'p', '135,136,137,140'),
+(78, '', '15', 'p', '135,136,138,140'),
+(79, '', '15', 'p', '135,136,139,140'),
+(80, '', '15', 'p', '135,136,137,141'),
+(81, '', '15', 'p', '135,136,138,141'),
+(82, '', '15', 'p', '135,136,139,141'),
+(83, '', '14', 'd', '142,143,144');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `test`
 --
 
@@ -944,6 +1115,30 @@ ALTER TABLE `student_feedback`
 --
 ALTER TABLE `teaching_process`
   ADD PRIMARY KEY (`serial`);
+
+--
+-- Indexes for table `technical`
+--
+ALTER TABLE `technical`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `technical_level`
+--
+ALTER TABLE `technical_level`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `technical_min_qualification`
+--
+ALTER TABLE `technical_min_qualification`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `technical_requirement`
+--
+ALTER TABLE `technical_requirement`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `test`
