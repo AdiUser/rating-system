@@ -297,7 +297,7 @@
                                       if(data) {
                                         iziToast.show({
                                             title: 'Success',
-                                            message: 'Activity Added Successfully',
+                                            message: 'Details Updated Successfully',
                                             position: 'topCenter',
                                             color: 'green',
                                             timeout: '2500'
@@ -306,7 +306,7 @@
                                       else if (data == 0){
                                             iziToast.error({
                                                   title: 'Error',
-                                                  message: 'Could not Add Activity',
+                                                  message: 'Could not Update Details',
                                                   position: 'topCenter',
                                                   color: 'red',
                                                   timeout: '2500'

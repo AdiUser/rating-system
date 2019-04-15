@@ -78,6 +78,7 @@ $route['get-faculty-data']  = 'api/get_faculty_data';
 $route['verify-activity'] = 'api/verify_activity';
 $route['teaching-process-delete'] = 'api/teaching_process_delete';
 $route['teaching-process-add'] = 'api/teaching_process_add';
+$route['upload-time-table'] = 'api/upload_time_table';
 
 //static routes
 $route['add-institute'] = 'welcome/add_institute';

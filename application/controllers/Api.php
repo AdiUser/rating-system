@@ -681,5 +681,9 @@ class Api extends CI_Controller {
             echo 0;
         }
     }
+	
+	public function upload_time_table() {
+		$this->load->view("time_table");
+	}
     
 }

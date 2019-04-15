@@ -258,6 +258,10 @@
                                                       <i class="fa fa-ban"></i>
                                                       Reset
                                                   </button>
+												  <button class="btn btn-sm btn-success" type="reset">
+                                                      <i class="fa fa-download"></i>
+                                                      Template
+                                                  </button>
                                               </div>
                                           </div>
                                       </div></div>
