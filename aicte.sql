@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2019 at 07:07 AM
+-- Generation Time: May 02, 2019 at 05:29 AM
 -- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.1
+-- PHP Version: 5.6.39
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -89,7 +89,8 @@ INSERT INTO `activity` (`serial`, `faculty_id`, `name`, `type`, `sem`, `year_fro
 (17, 'FAC7712734', 'My New Activity HOD', 'institutional', 0, '', '', 'c715eed7f98ac7151cc321d811fc32c8.jpg', 0, 0),
 (18, 'FAC7712734', 'My New Activity HOD-2', 'departmental', 0, '', '', '7da1b66997a2332aa522fbd4a353ca4d.jpg', 0, 0),
 (19, 'FAC7712734', 'My HOD Activity', 'departmental', 3, '2018', '2019', 'cb539f6d9772e595e0a624e50b48017c.jpg', 0, 1),
-(20, 'FAC7712734', 'HOD Activity HHA', 'departmental', 2, '2018', '2019', '3acf4cb152ab582b76a33641ca35eeb1.jpg', 0, 1);
+(20, 'FAC7712734', 'HOD Activity HHA', 'departmental', 2, '2018', '2019', '3acf4cb152ab582b76a33641ca35eeb1.jpg', 0, 1),
+(21, 'FAC63341992', 'asa', 'social', 1, '', '', 'aa41a6862f82e885b30c2bef65f7c86c.jpg', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -117,13 +118,7 @@ CREATE TABLE `aicte_admin` (
 
 INSERT INTO `aicte_admin` (`serial`, `university_code`, `university_name`, `state`, `district`, `postal_code`, `contact`, `university_address`, `email`, `verfied`, `excel`) VALUES
 (1, 123, 'abc', '', 'abc', 0, 123, ' abc', 'xyz', 0, ''),
-(2, 12345678, 'graphic era deemed t', '', 'uttarakhan', 0, 1122334455, ' clement town, dehra', 'geuddn@gmail.com', 0, ''),
-(3, 0, '', '', '', 0, 0, ' ', '', 0, ''),
-(4, 0, '', '', '', 0, 0, ' ', '', 0, ''),
-(5, 0, '', '', '', 0, 0, ' ', '', 0, ''),
-(6, 0, '', '', '', 0, 0, ' ', '', 0, ''),
-(7, 0, '', '', '', 0, 0, ' ', '', 0, ''),
-(8, 0, '', '', '', 0, 0, ' ', '', 0, '');
+(2, 12345678, 'graphic era deemed t', '', 'uttarakhan', 0, 1122334455, ' clement town, dehra', 'geuddn@gmail.com', 0, '');
 
 -- --------------------------------------------------------
 
@@ -200,7 +195,7 @@ INSERT INTO `faculty` (`serial`, `university_code`, `name`, `contact`, `qualific
 (1, 'geuddn', 'HOD Anmol Siva Ready', '98917171001', '26', '2019-03-06', '1', '1', 'FACT101', 'Flat No. 456, Big Clown Cottage', 'anmolreadyy@gmail.com', ''),
 (2, 'geuddn', 'Aman Misra', '', '26', '2019-03-14', '1', '6', 'FACT102', '', '', ''),
 (5, 'GEUDDN', 'HOD Aman Saxena New', '', '', '2020-02-03', '4', '6', 'FAC89352170', '', '', ''),
-(6, 'GEUDDN', 'HOD Aditya Saxena', '', '', '2009-02-02', '4', '6', 'FAC63341992', '', '', ''),
+(6, 'GEUDDN', 'HOD Aditya Saxena', '', '', '2009-02-02', '4', '6', 'FAC63341992', '', '', 'assets/img/84859365aa0d63d8bf2a87cab6c7453e.jpg'),
 (7, 'GEUDDN', 'Aditya Saxena', '9897171001', '', '2019-02-03', '4', '1', 'FACF87192445071', '333/1 Beharipur Civil Lines Bareilly', 'adityasaxena503@fmail.con', ''),
 (8, 'BISHOP', 'HOD Anmol Siva Ready', '9891771001', '', '2016-02-02', '1', '6', 'FAC7712734', 'Flat 234, Big Butt Cotteges', 'readyy@gmail.com', 'assets/img/5fd5a4e5c8c4027a3924bd22db890a33.jpg'),
 (9, 'BISHOP', 'FACULTY Anam Ali', '', '', '2010-11-26', '1', '1', 'FACF428144713880', '', '', ''),
@@ -209,7 +204,8 @@ INSERT INTO `faculty` (`serial`, `university_code`, `name`, `contact`, `qualific
 (12, 'BISHOP', 'FACULTY Suman Saxena', '', '', '2011-11-26', '1', '2', 'FACF161012001347', '', '', ''),
 (13, 'BISHOP', 'FACULTY Ylog Saxena', '', '', '2009-11-26', '1', '3', 'FACF54491606193', '', '', ''),
 (14, 'BISHOP', 'FACULTY Yaman Gupta', '9897171001', '', '2009-11-26', '1', '5', 'FACF228661427967', '342 Radhe Madhe, Krishna Conclave, Bareilly', 'yaman@gmail.com', ''),
-(15, 'BISHOP', 'FACULTY Kallol Reddy', '9897171001', '', '2013-11-26', '1', '2', 'FACF66616561843', '3567, Subash Nagar, Bareilly', 'reddyready@gmail.ocm', 'assets/img/4aa0af438c3ea33f4adb89c95ecf4ad0.jpg');
+(15, 'BISHOP', 'FACULTY Kallol Reddy', '9897171001', '', '2013-11-26', '1', '2', 'FACF66616561843', '3567, Subash Nagar, Bareilly', 'reddyready@gmail.ocm', 'assets/img/4aa0af438c3ea33f4adb89c95ecf4ad0.jpg'),
+(16, 'BISHOP', 'Bishop_faculty', '', '', '2019-04-23', '1', '10', 'FACF298562939312', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -744,20 +740,46 @@ INSERT INTO `teaching_process` (`serial`, `faculty_id`, `semester`, `year`, `sub
 -- --------------------------------------------------------
 
 --
--- Table structure for table `technical`
+-- Table structure for table `technical_level`
 --
 
-CREATE TABLE `technical` (
+CREATE TABLE `technical_level` (
+  `id` int(100) NOT NULL,
+  `level_id` varchar(500) NOT NULL,
+  `level_name` varchar(500) NOT NULL,
+  `level_package_group` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `technical_level`
+--
+
+INSERT INTO `technical_level` (`id`, `level_id`, `level_name`, `level_package_group`) VALUES
+(1, '10', 'Assistant Professor', '57700'),
+(2, '11', 'Assistant Professor (Senior Scale)', '68900'),
+(3, '12', 'Assistant Professor (Selection Grade)', '79800'),
+(4, '13A1', 'Associate Professor ', '131400'),
+(5, '14', 'Professor', '144200'),
+(6, '15', 'Senior Professor', '182200'),
+(7, '14', 'Principal/Director', '144200');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `technical_min_qualifications`
+--
+
+CREATE TABLE `technical_min_qualifications` (
   `id` int(11) NOT NULL,
   `qualification_name` varchar(1000) NOT NULL,
   `meta_qualification` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `technical`
+-- Dumping data for table `technical_min_qualifications`
 --
 
-INSERT INTO `technical` (`id`, `qualification_name`, `meta_qualification`) VALUES
+INSERT INTO `technical_min_qualifications` (`id`, `qualification_name`, `meta_qualification`) VALUES
 (101, 'B. E. / B. Tech. / B. S. and M. E. / M. Tech. / M. S. or Integrated M. Tech. in relevant branch\r\nwith first class or equivalent in any one of the degrees.', 'B. E. / B. Tech. / B. S. and M. E. / M. Tech. / M. S. or Integrated M. Tech. in relevant branch\r\nwith first class or equivalent in any one of the degrees.'),
 (102, 'Bachelor’s Degree in any discipline and Master’s Degree in Business Administration / PGDM /\r\nC. A. / ICWA/ M. Com. with First Class or equivalent and two years of professional experience\r\nafter acquiring the degree of Master’s degree.', 'Bachelor’s Degree in any discipline and Master’s Degree in Business Administration / PGDM /\r\nC. A. / ICWA/ M. Com. with First Class or equivalent and two years of professional experience\r\nafter acquiring the degree of Master’s degree.'),
 (103, 'B. Pharm. and M. Pharm. in the relevant specialization with First Class or equivalent in any one\r\nof the two degrees.', 'B. Pharm. and M. Pharm. in the relevant specialization with First Class or equivalent in any one\r\nof the two degrees.'),
@@ -806,62 +828,6 @@ INSERT INTO `technical` (`id`, `qualification_name`, `meta_qualification`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `technical_level`
---
-
-CREATE TABLE `technical_level` (
-  `id` int(100) NOT NULL,
-  `level_id` varchar(500) NOT NULL,
-  `level_name` varchar(500) NOT NULL,
-  `level_package_group` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `technical_level`
---
-
-INSERT INTO `technical_level` (`id`, `level_id`, `level_name`, `level_package_group`) VALUES
-(1, '10', 'Assistant Professor', '57700'),
-(2, '11', 'Assistant Professor (Senior Scale)', '68900'),
-(3, '12', 'Assistant Professor (Selection Grade)', '79800'),
-(4, '13A1', 'Associate Professor ', '131400'),
-(5, '14', 'Professor', '144200'),
-(6, '15', 'Senior Professor', '182200'),
-(7, '14', 'Principal/Director', '144200');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `technical_min_qualification`
---
-
-CREATE TABLE `technical_min_qualification` (
-  `id` int(100) NOT NULL,
-  `qualification_name` varchar(500) NOT NULL,
-  `meta_qualification` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `technical_min_qualification`
---
-
-INSERT INTO `technical_min_qualification` (`id`, `qualification_name`, `meta_qualification`) VALUES
-(51, 'B. E. / B.  Tech. /  B. S. and  M.  E. /  M.  Tech. / M. S. or Integrated M.  Tech. in relevant branch with first class or equivalent in any one of the degrees.', 'B. E. / B.  Tech. /  B. S. and  M.  E. /  M.  Tech. / M. S. or Integrated M.  Tech. in relevant branch with first class or equivalent in any one of the degrees.'),
-(52, 'Bachelor’s Degree in any discipline and Master’s Degree in Business Administration / PGDM / C. A. / ICWA/ M. Com.  with First Class or equivalent and two years of professional experience after acquiring the degree of Master’s degree. ', 'Bachelor’s Degree in any discipline and Master’s Degree in Business Administration / PGDM / C. A. / ICWA/ M. Com.  with First Class or equivalent and two years of professional experience after acquiring the degree of Master’s degree. '),
-(53, 'B. Pharm. and M. Pharm. in the relevant specialization with First Class or equivalent in any one of the two degrees.', 'B. Pharm. and M. Pharm. in the relevant specialization with First Class or equivalent in any one of the two degrees.'),
-(54, 'B. E. / B. Tech. / B. S. and M.E. / M. Tech. / M. S. or Integrated M. Tech. in relevant branch with First Class or equivalent in any one of the degrees.', 'B. E., B. Tech. and MCA with First Class or equivalent in any one of the two degrees.'),
-(55, 'B. E. / B. Tech. / B. S. and M.E. / M. Tech. / M. S. or Integrated M. Tech. in relevant branch with First Class or equivalent in any one of the degrees.', 'Graduation  of  three  years’  duration  with  Mathematics  as  a  compulsory  subject  and  MCA  with First Class or equivalent with 2 years of relevant experience after acquiring degree of MCA'),
-(56, 'Minimum  4  years  Bachelor’s  Degree  in  HMCT  and  Master’s  Degree  in  HMCT  or  in  relevant disciplines with First Class or equivalent in any one of the two degrees.', 'Minimum 4 years Bachelor’s Degree in HMCT with First Class or equivalent and minimum of 5 years  of  relevant  experience  at  a  managerial  level not  less  than  Assistant  Manager  in  a  4  -  star Hotel or in a similar position in the hospitality industry/ tourism industry.'),
-(57, 'B. Arch. and M. Arch. or equivalent Master’s degree in an allied field with First Class in any one of the two degrees, and minimum 2 years’ experience in the Architecture profession.', 'B.  Arch.  with  First  class  or  equivalent  and  minimum of  5  years’ experience  in the  Architecture profession.'),
-(58, 'Bachelor’s   degree   in   Architecture   /   Planning   /   Civil   Engineering   or   Master’s   degree   in Geography  /  Economics  /  Sociology  or  equivalent  AND  Master  of  Planning  or  equivalent  with First  class  or  equivalent  in  either  in  Master  of  Planning  or  any  above  degrees  with  2  years  of relevant experience', 'Bachelor’s   degree   in   Architecture   /   Planning   /   Civil   Engineering   or   Master’s   degree   in Geography  /  Economics  /  Sociology  or  equivalent  AND  Master  of  Planning  or  equivalent  with First  class  or  equivalent  in  either  in  Master  of  Planning  or  any  above  degrees  with  2  years  of relevant experience'),
-(59, 'Bachelor’s Degree or minimum 4 year Diploma in any one of the streams of Design, Fine Arts, Applied Arts and Architecture or Bachelor’s degree in Engineering with First class or equivalent', 'Bachelor’s Degree or minimum 4 year Diploma in any one of the streams of Design, Fine Arts, Applied Arts and Architecture or Bachelor’s degree in Engineering with First class or equivalent'),
-(60, 'Master’s degree or equivalent Post Graduate Diploma in relevant disciplines with First  Class or equivalent in a concerned / relevant /allied subject of Industrial Design / Visual Communication / Fine  Arts / Applied  Arts / Architecture / Interaction  Design / New  Media  Studies / Design Management / Ergonomics / Human Factors Engineering / Indian Craft Studies and related fields of Engineering or Design', 'Master’s degree or equivalent Post Graduate Diploma in relevant disciplines with First  Class or equivalent in a concerned / relevant /allied subject of Industrial Design / Visual Communication / Fine  Arts / Applied  Arts / Architecture / Interaction  Design / New  Media  Studies / Design Management / Ergonomics / Human Factors Engineering / Indian Craft Studies and related fields of Engineering or Design'),
-(61, 'Minimum 2 years of professional design experience in Industry / research organization  /Design studios.', 'Minimum 2 years of professional design experience in Industry / research organization  /Design studios.'),
-(62, 'Bachelor’s and Master’s degree in the relevant branch with  First Class or equivalent in any one of the two degrees and minimum 2 years of relevant professional experience.', 'Bachelor’s and Master’s degree in the relevant branch with  First Class or equivalent in any one of the two degrees and minimum 2 years of relevant professional experience.');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `technical_requirement`
 --
 
@@ -878,7 +844,7 @@ CREATE TABLE `technical_requirement` (
 --
 
 INSERT INTO `technical_requirement` (`id`, `department`, `level`, `type`, `qualification`) VALUES
-(51, '', '10', 'd', '101'),
+(51, '1', '10', 'd', '101'),
 (52, '', '10', 'd', '102'),
 (53, '', '10', 'd', '103'),
 (54, '', '10', 'd', '104'),
@@ -944,6 +910,21 @@ INSERT INTO `test` (`serial`, `firstname`, `lastname`, `email`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `time_table`
+--
+
+CREATE TABLE `time_table` (
+  `serial` int(11) NOT NULL,
+  `year` int(11) NOT NULL,
+  `semester` int(11) NOT NULL,
+  `section` char(5) COLLATE utf8_unicode_ci NOT NULL,
+  `proof` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `is_active` int(11) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `university`
 --
 
@@ -952,6 +933,7 @@ CREATE TABLE `university` (
   `university_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `university_name` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `state` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `technical_diploma` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `is_state_university` int(2) NOT NULL,
   `district` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `postal_code` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -965,11 +947,15 @@ CREATE TABLE `university` (
 -- Dumping data for table `university`
 --
 
-INSERT INTO `university` (`serial`, `university_code`, `university_name`, `state`, `is_state_university`, `district`, `postal_code`, `address`, `contact`, `email`, `logo`) VALUES
-(1, 'GEUDDN', 'Graphic Era University', 'Uttrakhand', 1, 'fghjkl', '2346578', 'ertyuiertyui', '344567890', '34567890', 'assets/img/dd3fbcb6766fcfccc8412cf02917ecbe.jpg'),
-(7, '6567899', 'My Custom University 2', 'DFGHJK', 1, 'FGHJK', '56879900', '', '', '', ''),
-(11, 'GHJK', 'Grand High Jam Kuth', 'GHJK', 1, 'Kashmir', '290118', '33/1 New Red Street, White Villa', '9897171001', 'adityasaxne$@gmail.com', 'assets/img/7bb36ff7f4051bac875fb9f886677b63.jpg'),
-(12, 'BISHOP', 'Bishop Conrad Senior Secondary Institute', 'UP', 1, 'Bareilly', '248001', '52 Cant, Near White Villa', '9897171001', 'pingus@bishop.co.in', 'assets/img/1d7b932ecbf88915c937b0ca6b6fabcd.jpg');
+INSERT INTO `university` (`serial`, `university_code`, `university_name`, `state`, `technical_diploma`, `is_state_university`, `district`, `postal_code`, `address`, `contact`, `email`, `logo`) VALUES
+(1, 'GEUDDN', 'Graphic Era University', 'Uttrakhand', 'diploma', 1, 'fghjkl', '2346578', 'ertyuiertyui', '344567890', '34567890', 'assets/img/dd3fbcb6766fcfccc8412cf02917ecbe.jpg'),
+(7, '6567899', 'My Custom University 2', 'DFGHJK', '', 1, 'FGHJK', '56879900', '', '', '', ''),
+(11, 'GHJK', 'Grand High Jam Kuth', 'GHJK', '', 1, 'Kashmir', '290118', '33/1 New Red Street, White Villa', '9897171001', 'adityasaxne$@gmail.com', 'assets/img/7bb36ff7f4051bac875fb9f886677b63.jpg'),
+(12, 'BISHOP', 'Bishop Conrad Senior Secondary Institute', 'UP', 'technical', 1, 'Bareilly', '248001', '52 Cant, Near White Villa', '9897171001', 'pingus@bishop.co.in', 'assets/img/1d7b932ecbf88915c937b0ca6b6fabcd.jpg'),
+(13, '1231324124', 'ABCDEFGH', 'Uttarakhand', '', 1, 'Dehradun', '248001', '', '', '', ''),
+(14, '12413131', 'ABCDEFGHIJKLM', 'Uttarakhand', 'diploma', 1, 'Dehradun', '248001', '', '', '', ''),
+(15, '1234567890', 'XYZ University', 'Delhi', 'technical', 1, 'Delhi', '11001100', '', '', '', ''),
+(21, '5674567567', 'ABCDEFGHIJKLM', 'West Bengal', 'diploma', 0, 'Kolkata', '12312413', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -979,6 +965,7 @@ INSERT INTO `university` (`serial`, `university_code`, `university_name`, `state
 
 CREATE TABLE `user_login` (
   `id` int(11) NOT NULL,
+  `login_type` enum('Login','Feedback') NOT NULL,
   `code` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
@@ -989,26 +976,36 @@ CREATE TABLE `user_login` (
 -- Dumping data for table `user_login`
 --
 
-INSERT INTO `user_login` (`id`, `code`, `username`, `password`, `role`) VALUES
-(1, 'GEUDDN', 'geu', '61dfe5971515d0d8ba5f6c5f99e5700c', 'university'),
-(2, 'GEHUDDN', 'gehu', '4a6a6e51843d2ba4a67c344825ab4ab1', 'institute'),
-(3, 'geuddn', 'hod', '17d84f171d54c301fabae1391a125c4e', 'head-of-department'),
-(4, 'geuddn', 'faculty', 'd561c7c03c1f2831904823a95835ff5f', 'faculty'),
-(5, 'geuddn', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
-(8, 'GHJK', 'GHJK', 'cdee058ed6a1c749a0a987a0147ab9e8', 'university'),
-(9, '6789', '6789', '46d045ff5190f6ea93739da6c0aa19bc', 'institute'),
-(10, 'GEUDDN', 'FAC63341992', '27f217228db365d93739090ad3d74618', 'head-of-department'),
-(11, 'GEUDDN', 'FACF87192445071', '7fd5f62297216dfd83324ca17d54b5bb', 'faculty'),
-(13, 'BISHOP', 'BISHOP', '1834d375f684613c725d039a10db1976', 'university'),
-(14, 'BISHOP1', 'BISHOP1', 'a00474d79eec08234e69c6dc7b893910', 'institute'),
-(15, 'BISHOP', 'FAC7712734', '180ab0bb6108b51bc66cef70f648fe04', 'head-of-department'),
-(16, 'BISHOP', 'FACF428144713880', '4721cdff879e7721bd2dab62e6f4cd19', 'faculty'),
-(17, 'BISHOP', 'FACF631305285720', 'ded0405659c19d74a7cef697e520fe9b', 'faculty'),
-(18, 'BISHOP', 'FACF694551514792', 'fca5aaffe57655ee779d78ff64fdf9ad', 'faculty'),
-(19, 'BISHOP', 'FACF161012001347', '7e840be443ab751b1976799703e1610c', 'faculty'),
-(20, 'BISHOP', 'FACF54491606193', '7e1ea12f235ac2947ede5ba600b82a88', 'faculty'),
-(21, 'BISHOP', 'FACF228661427967', '816662ddd9eded893c07d41d1019a08d', 'faculty'),
-(22, 'BISHOP', 'FACF66616561843', '5e87cc9828dbe83f069aac6ad715224b', 'faculty');
+INSERT INTO `user_login` (`id`, `login_type`, `code`, `username`, `password`, `role`) VALUES
+(1, 'Login', 'GEUDDN', 'geu', '61dfe5971515d0d8ba5f6c5f99e5700c', 'university'),
+(2, 'Login', 'GEHUDDN', 'gehu', '4a6a6e51843d2ba4a67c344825ab4ab1', 'institute'),
+(3, 'Login', 'geuddn', 'hod', '17d84f171d54c301fabae1391a125c4e', 'head-of-department'),
+(4, 'Login', 'geuddn', 'faculty', 'd561c7c03c1f2831904823a95835ff5f', 'faculty'),
+(5, 'Login', 'aicte', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
+(8, 'Login', 'GHJK', 'GHJK', 'cdee058ed6a1c749a0a987a0147ab9e8', 'university'),
+(9, 'Login', '6789', '6789', '46d045ff5190f6ea93739da6c0aa19bc', 'institute'),
+(10, 'Login', 'GEUDDN', 'FAC63341992', '27f217228db365d93739090ad3d74618', 'head-of-department'),
+(11, 'Login', 'GEUDDN', 'FACF87192445071', '7fd5f62297216dfd83324ca17d54b5bb', 'faculty'),
+(13, 'Login', 'BISHOP', 'BISHOP', '1834d375f684613c725d039a10db1976', 'university'),
+(14, 'Login', 'BISHOP1', 'BISHOP1', 'a00474d79eec08234e69c6dc7b893910', 'institute'),
+(15, 'Login', 'BISHOP', 'FAC7712734', '180ab0bb6108b51bc66cef70f648fe04', 'head-of-department'),
+(16, 'Login', 'BISHOP', 'FACF428144713880', '4721cdff879e7721bd2dab62e6f4cd19', 'faculty'),
+(17, 'Login', 'BISHOP', 'FACF631305285720', 'ded0405659c19d74a7cef697e520fe9b', 'faculty'),
+(18, 'Login', 'BISHOP', 'FACF694551514792', 'fca5aaffe57655ee779d78ff64fdf9ad', 'faculty'),
+(19, 'Login', 'BISHOP', 'FACF161012001347', '7e840be443ab751b1976799703e1610c', 'faculty'),
+(20, 'Login', 'BISHOP', 'FACF54491606193', '7e1ea12f235ac2947ede5ba600b82a88', 'faculty'),
+(21, 'Login', 'BISHOP', 'FACF228661427967', '816662ddd9eded893c07d41d1019a08d', 'faculty'),
+(22, 'Login', 'BISHOP', 'FACF66616561843', '5e87cc9828dbe83f069aac6ad715224b', 'faculty'),
+(23, 'Login', '1231324124', '1231324124', '2146f28a0f17a6d529df7071c99991ae', 'university'),
+(24, 'Login', '12413131', '12413131', '5d2df67629dd8144cc51e922203e28b3', 'university'),
+(25, 'Login', '1234567890', '1234567890', 'e807f1fcf82d132f9bb018ca6738a19f', 'university'),
+(26, 'Login', '1234567890', '1234567890', 'e807f1fcf82d132f9bb018ca6738a19f', 'university'),
+(27, 'Login', '1234567890', '1234567890', 'e807f1fcf82d132f9bb018ca6738a19f', 'university'),
+(28, 'Login', '1234567890', '1234567890', 'e807f1fcf82d132f9bb018ca6738a19f', 'university'),
+(29, 'Login', '1234567890', '1234567890', 'e807f1fcf82d132f9bb018ca6738a19f', 'university'),
+(30, 'Login', '1234567890', '1234567890', 'e807f1fcf82d132f9bb018ca6738a19f', 'university'),
+(31, 'Login', '5674567567', '5674567567', '1f71f47da20047376b5d55057a258954', 'university'),
+(32, 'Login', 'BISHOP', 'FACF298562939312', '08744c3d5a580177916b6d725222dbf3', 'faculty');
 
 --
 -- Indexes for dumped tables
@@ -1117,21 +1114,15 @@ ALTER TABLE `teaching_process`
   ADD PRIMARY KEY (`serial`);
 
 --
--- Indexes for table `technical`
---
-ALTER TABLE `technical`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `technical_level`
 --
 ALTER TABLE `technical_level`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `technical_min_qualification`
+-- Indexes for table `technical_min_qualifications`
 --
-ALTER TABLE `technical_min_qualification`
+ALTER TABLE `technical_min_qualifications`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1144,6 +1135,12 @@ ALTER TABLE `technical_requirement`
 -- Indexes for table `test`
 --
 ALTER TABLE `test`
+  ADD PRIMARY KEY (`serial`);
+
+--
+-- Indexes for table `time_table`
+--
+ALTER TABLE `time_table`
   ADD PRIMARY KEY (`serial`);
 
 --
@@ -1172,13 +1169,13 @@ ALTER TABLE `acr_points`
 -- AUTO_INCREMENT for table `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `serial` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `serial` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `aicte_admin`
 --
 ALTER TABLE `aicte_admin`
-  MODIFY `serial` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `serial` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `departmental_activities`
@@ -1196,7 +1193,7 @@ ALTER TABLE `departments`
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
-  MODIFY `serial` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `serial` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `faculty_dept`
@@ -1271,16 +1268,22 @@ ALTER TABLE `test`
   MODIFY `serial` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `time_table`
+--
+ALTER TABLE `time_table`
+  MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `university`
 --
 ALTER TABLE `university`
-  MODIFY `serial` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `serial` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `user_login`
 --
 ALTER TABLE `user_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

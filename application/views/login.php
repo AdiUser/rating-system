@@ -6,7 +6,7 @@
     <!-- Meta-Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <meta name="keywords" content="Business Login Form a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+    <meta name="keywords">
     <script>
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
@@ -135,6 +135,11 @@
                     <p>Enter your details to login.</p>
                     <p style="color: red" id="msg"></p>
                     <form action="#" method="post" id="login-form">
+						<label>Login Type</label>
+						<div class="input-group">
+							<span class="fa fa-envelope" aria-hidden="true"></span>
+							 <input type="text" id="login_type" name="login_type" placeholder="Enter Your Institute/University Code" required="">
+						</div>
                         <label>Institute/University Code</label>
                         <div class="input-group">
                             <span class="fa fa-envelope" aria-hidden="true"></span>
@@ -167,7 +172,7 @@
 
         <!-- footer -->
         <div class="footer">
-            <p>&copy; 2018 AICTE. All Rights Reserved | Design by <a href="#" target="blank">Graphic Era University</a></p>
+            <p>&copy; 2019 AICTE. All Rights Reserved | Design by <a href="#" target="blank">Graphic Era University</a></p>
         </div>
         <!-- footer -->
     </div>

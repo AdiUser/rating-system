@@ -16,7 +16,7 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>Activity</title>
+    <title>Time Table</title>
     <!-- Icons-->
     <link href="assets/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
     <link href="assets/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
@@ -97,35 +97,32 @@
                    <div class="card-header">
                 <h5>Add/Edit Department Activities</h5>
               </div>
-              <form id="activity-form" method="post" enctype="multipart/form-data">
+              <form id="timetable-form" method="post" enctype="multipart/form-data">
               <div class="card-body">
                 
                 <table class="table table-bordered">
                   <thead>
-                    <tr><th>Activity Name </th>
-                      <th>Semester</th>
-                      <th>Year From</th>
-                      <th>Year To</th>
-                    <th>Activity Type</th>
+                    <tr>
+						<th>Year</th>
+						 <th>Semester</th>
+                      <th>Section</th>
                     <th>Proof</th>
                     <th>Settings</th>
                   </tr></thead>
                   
-                    <tbody id="activities-item">
+                    <tbody id="timetable-item">
                       <?php
-                          if($activities != null) {
-                            foreach($activities as $activity) {
+                          if($years != null) {
+                            foreach($years as $year) {
                               $rand = "str".rand(10,4234).rand(3,324234);
                               ?><tr id="<?=$rand?>">
-                                  <td><?=$activity->name?></td>
-                                  <td><?=$activity->sem?></td>
-                                  <td><?=$activity->year_from?></td>
-                                  <td><?=$activity->year_to?></td>
-                                  <td><?=$activity->type?></td>
-                                  <td><?=$activity->report?></td>
+                                  <td><?=$year->year?></td>
+                                  <td><?=$year->semester?></td>
+                                  <td><?=$year->section?></td>
+                                  <td><?=$year->proof?></td>
 
                                   <td>
-                                    <button class="btn btn-danger activity-delete" data-id="<?=$activity->serial?>" data-delete="<?=$rand?>">
+                                    <button class="btn btn-danger timetable-delete" data-id="<?=$timetable->serial?>" data-delete="<?=$rand?>">
                                       <i class="icons font-1xl d-block cui-circle-x"></i>
                                     </button>
                                   </td>
@@ -141,7 +138,7 @@
                 </table>
                 <div class="row">
                   <div class="col-md-3">
-                    <button class="btn btn-pill btn-block btn-info" type="button" id="activity-add">
+                    <button class="btn btn-pill btn-block btn-info" type="button" id="timetable-add">
                     <i class="fa fa-plus fa-md paddLeft10"></i>Add More...</button>
                   </div>
                   <div class="col-md-3">
@@ -160,15 +157,15 @@
     </div>
     <script>
         $(function(){
-          $("#activity-form").submit(function(e){
+          $("#timetable-form").submit(function(e){
             e.preventDefault();
-             var dataString = new FormData($("#activity-form")[0]);
-             console.log($("#activity-form"));
+             var dataString = new FormData($("#timetable-form")[0]);
+             console.log($("#timetable-form"));
              console.log(dataString);
 
               $.ajax({
                   type: "POST",
-                  url: "save-activities",
+                  url: "save-timetable",
                   data: dataString,
                   cache: false,
                   contentType: false,
@@ -183,7 +180,7 @@
                     if(data) {
                       iziToast.show({
                           title: 'Success',
-                          message: 'Activity Added Successfully',
+                          message: 'Time Table Added Successfully',
                           position: 'topCenter',
                           color: 'green',
                           timeout: '2500'
@@ -192,7 +189,7 @@
                     else if (data == 0){
                           iziToast.error({
                                 title: 'Error',
-                                message: 'Could not Add Activity',
+                                message: 'Could not Add Time Table',
                                 position: 'topCenter',
                                 color: 'red',
                                 timeout: '2500'
@@ -200,8 +197,8 @@
                         }
                       console.log(data);
 
-                      $("#activities-item").prepend(data);
-                      $("#activity-form").trigger("reset");
+                      $("#timetable-item").prepend(data);
+                      $("#timetable-form").trigger("reset");
                   },
                   error: function(a,b,c) {
                     alert("Error");
@@ -216,13 +213,13 @@
     </script>
     <script>
       $(document).ready(function(){
-          $(document).on("click", ".activity-delete", function(e) {
+          $(document).on("click", ".timetable-delete", function(e) {
           e.preventDefault();
           console.log($(this)[0].dataset);
           var dataset = $(this)[0].dataset;
           $.ajax({
             method: "GET",
-            url: "delete-activity",
+            url: "delete-timetable",
             data: {id: dataset.id},
             beforeSend: function() {
               alert(dataset.id);
@@ -231,7 +228,7 @@
               if(data) {
                   iziToast.show({
                       title: 'Success',
-                      message: 'Activity Deleted Successfully',
+                      message: 'Time Table Deleted Successfully',
                       position: 'topCenter',
                       color: 'green',
                       timeout: '2500'
@@ -240,7 +237,7 @@
               else if(data == 0) {
                     iziToast.error({
                           title: 'Error',
-                          message: 'Could not Delete Activity',
+                          message: 'Could not Delete Time Table',
                           position: 'topCenter',
                           color: 'red',
                           timeout: '2500'
@@ -261,25 +258,21 @@
           console.log($(this)[0].dataset.delete);
         }); 
          ind = 0;
-        $("#activity-add").on("click", function() {
+        $("#timetable-add").on("click", function() {
           var id = "str"+ Math.random().toString().split(".")[1];
           
           var txt = '<tr id="'+id+'">'+
-                          '<td><input type="text" name="name[]" class="form-control" placeholder="Enter Activity Name..." required><input type="text" value="'+id+'" name="field-id[]" style="display: none">'+'</td>'+
+                          '<td><input type="text" placeholder="Year" name="year[]" class="form-control" required></td>' +
                           '<td><select name="semester[]" class="form-control"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select></td>' +
-                          '<td><input type="text" name="year-from[]" class="form-control" placeholder="year from..."></td>' +
-                          '<td><input type="text" name="year-to[]" class="form-control" placeholder="year to..."></td>' +
-                          '<td>'+
-                            '<select name="activity-type[]" class="form-control" required><option value="social">Social Activity</option><option value="departmental">Departmental Activity</option><option value="institutional">Institutional Activity</option></select>'+
-                          '</td>'+
+                          '<td><input type="text" name="section[]" class="form-control" placeholder="Section" required></td>' +
                           '<td><input type="file" name="proof-'+ind+'" class="form-control" required></td>'+
-                          '<td><button class="btn btn-danger activity-delete" data-delete="'+id+'" >'+
+                          '<td><button class="btn btn-danger timetable-delete" data-delete="'+id+'" >'+
                             '<i class="icons font-1xl d-block cui-circle-x"></i>'+
                           '</button></td>'+
                        ' </tr>';
                        ind = ind + 1;
                        console.log(txt)
-          $("#activities-item").append(txt);
+          $("#timetable-item").append(txt);
         });
 
       });

@@ -213,9 +213,10 @@
                                             $postal_code=$_POST['postal'];
                                             $district=$_POST['udistrict'];
                                             $isState = $_POST['isState'];
+											$university_type=$_POST['university-type'];
 
-                                            $sql = "INSERT INTO university (university_code, university_name,`state`,district,postal_code,is_state_university)
-                                            VALUES ('$university_code', '$university_name','$state','$district','$postal_code','$isState')";
+                                            $sql = "INSERT INTO university (university_code, university_name,`state`,`technical_diploma`,district,postal_code,is_state_university)
+                                            VALUES ('$university_code', '$university_name','$state','$university_type','$district','$postal_code','$isState')";
                                            $p = md5($university_code);
                                             $create_login = "INSERT INTO user_login (code, username, password, role) values ('$university_code','$university_code','$p','university')";
 
@@ -237,7 +238,7 @@
                               <div class="card mb-0">
                                 <div class="card-header" id="headingTwo" role="tab">
                                   <h5 class="mb-0">
-                                  <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Add Universities via Excel</a>
+                                  <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-file-excel-o fa-md paddRight10"></i>Add Universities via Excel</a>
                                   </h5>
                                   </div>
                                   <div class="collapse" id="collapseTwo" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
@@ -261,16 +262,15 @@
                                                       <i class="fa fa-ban"></i>
                                                       Reset
                                                   </button>
-												  <button class="btn btn-sm btn-success" type="reset">
-                                                      <i class="fa fa-download"></i>
-                                                      Template
-                                                  </button>
+												  <button class="btn btn-sm btn-success" type="file" name="template-download">
+                                                      <a href="template.php?file=Template" download style="color: white"><i class="fa fa-download"></i>Template</a>
+												 </button>
                                               </div>
 										</div>
                                     </div>
                                   </div>
                                 </div>
-                              </div>
+                 </div>
 
                              
                           </div>

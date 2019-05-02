@@ -74,91 +74,82 @@
 		</ul>
     </header>
 	  
+	  <div class="container-flui">
+	  	<div class="card">
+			<div class="card-header">Login Details</div>
+			<div class="card-body">
+				<div class="row">
+					<p>University Id:</p>
+				</div>
+				<div class="row">
+					<div class="col">
+						<p>Course:</p>
+					</div>
+					<div class="col">
+						<p>Branch:</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<p>Semester:</p>
+					</div>
+					<div class="col">
+						<p>Batch:</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	  </div>
 	  
-<div class="card">	  
-	<div class="card-header">
-		<i class="fa fa-align-justify"></i> Bordered Table</div>
-		<div class="card-body">
-			<table class="table table-responsive-sm table-bordered">
-				<thead>
-					<tr>
-						<th style="width: 25%">Qualities</th>
-						<th>Faculty 1</th>
-						<th>Faculty 2</th>
-						<th>Faculty 3</th>
-						<th>Faculty 4</th>
-						<th>Faculty 5</th>
-						<th>Faculty 6</th>
-						<th>Faculty 7</th>
-						<th>Faculty8</th>
-					</tr>
-				</thead>
- 				<tbody>
-					<tr>
+	  <div class="card">
+	  	<div class="card-header">Student Details</div>
+		 <div class="card-body">
+		  	
+<ul class="nav nav-tabs" role="tablist">
+<li class="nav-item active">
+<a class="nav-link" data-toggle="tab" href="#faculty1" role="tab" aria-controls="faculty1" aria-selected="false">Faculty1</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" data-toggle="tab" href="#faculty2" role="tab" aria-controls="faculty2" aria-selected="false">Faculty2</a>
+</li>
+<li class="nav-item">
+<a class="nav-link " data-toggle="tab" href="#faculty3" role="tab" aria-controls="faculty3" aria-selected="true">Faculty3</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" data-toggle="tab" href="#faculty4" role="tab" aria-controls="faculty4" aria-selected="false">Faculty4</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" data-toggle="tab" href="#faculty5" role="tab" aria-controls="faculty5" aria-selected="false">Faculty5</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" data-toggle="tab" href="#faculty6" role="tab" aria-controls="faculty6" aria-selected="false">Faculty6</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" data-toggle="tab" href="#faculty7" role="tab" aria-controls="faculty7" aria-selected="false">Faculty7</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" data-toggle="tab" href="#faculty8" role="tab" aria-controls="faculty8" aria-selected="false">Faculty8</a>
+</li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active show" id="faculty1" role="tabpanel">
+	<div class="card">
+			<div class="card-header">Student Details</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-sm-8">
+						<div class="card">
+							<div class="card-body">
+								<table class="table table-responsive-sm table-bordered">
+									<thead>
+										<tr>
+											<td style="width: 80%">Qualities</td>
+											<td style="width: 13%">Rating</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
 						<td>Has the Teacher covered entire Syllabus as prescribed by University/ College/ Board?</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
 						<td>
 							<select class="form-control" name="" id="">
 								<option value="1">1</option>
@@ -180,138 +171,13 @@
 								<option value="5">5</option>
 							</select>
 						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
 					</tr>
 					<tr>
 						<td>Effectiveness of Teacher in terms of :
 							(a) Technical content/course content 	
 							(b) Communication skills 	
-							(c) Use of teaching aids /td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
+							(c) Use of teaching aids
+							</td>
 						<td>
 							<select class="form-control" name="" id="">
 								<option value="1">1</option>
@@ -333,136 +199,10 @@
 								<option value="5">5</option>
 							</select>
 						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
 					</tr>
 					
 					<tr>
 						<td>Motivation and inspiration for students to learn </td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
 						<td>
 							<select class="form-control" name="" id="">
 								<option value="1">1</option>
@@ -487,136 +227,10 @@
 								<option value="5">5</option>
 							</select>
 						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
 					</tr>
 					
 					<tr>
 						<td>Clarity of expectations of students </td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
 						<td>
 							<select class="form-control" name="" id="">
 								<option value="1">1</option>
@@ -639,6 +253,10 @@
 								<option value="5">5</option>
 							</select>
 						</td>
+					</tr>
+					
+					<tr>
+						<td>Willingness to offer help and advice to students. </td>
 						<td>
 							<select class="form-control" name="" id="">
 								<option value="1">1</option>
@@ -648,6 +266,51 @@
 								<option value="5">5</option>
 							</select>
 						</td>
+					</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="card" style="height: 95%">
+								<div class="card-header">Comments</div>
+								<div class="card-body">
+									<div class="form-group">
+										<textarea class="form-control" rows="10" name="comment"></textarea>
+									</div>
+									<select class="form-control" name="" id="">
+											<option value="1">Comment1</option>
+											<option value="2">Comment2</option>
+											<option value="3">Comment3</option>
+											<option value="4">Comment4</option>
+											<option value="5">Comment5</option>
+									</select>
+								</div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>	
+</div>
+<div class="tab-pane" id="faculty2" role="tabpanel">
+	<div class="card">
+			<div class="card-header">Student Details</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-sm-8">
+						<div class="card">
+							<div class="card-body">
+								<table class="table table-responsive-sm table-bordered">
+									<thead>
+										<tr>
+											<td style="width: 80%">Qualities</td>
+											<td style="width: 13%">Rating</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+						<td>Has the Teacher covered entire Syllabus as prescribed by University/ College/ Board?</td>
 						<td>
 							<select class="form-control" name="" id="">
 								<option value="1">1</option>
@@ -657,6 +320,9 @@
 								<option value="5">5</option>
 							</select>
 						</td>
+					</tr>
+					<tr>
+						<td>Has the Teacher covered relevant topics beyond syllabus </td>
 						<td>
 							<select class="form-control" name="" id="">
 								<option value="1">1</option>
@@ -666,6 +332,13 @@
 								<option value="5">5</option>
 							</select>
 						</td>
+					</tr>
+					<tr>
+						<td>Effectiveness of Teacher in terms of :
+							(a) Technical content/course content 	
+							(b) Communication skills 	
+							(c) Use of teaching aids
+							</td>
 						<td>
 							<select class="form-control" name="" id="">
 								<option value="1">1</option>
@@ -675,6 +348,9 @@
 								<option value="5">5</option>
 							</select>
 						</td>
+					</tr>
+					<tr>
+						<td>Pace on which contents were covered </td>
 						<td>
 							<select class="form-control" name="" id="">
 								<option value="1">1</option>
@@ -684,6 +360,10 @@
 								<option value="5">5</option>
 							</select>
 						</td>
+					</tr>
+					
+					<tr>
+						<td>Motivation and inspiration for students to learn </td>
 						<td>
 							<select class="form-control" name="" id="">
 								<option value="1">1</option>
@@ -693,6 +373,38 @@
 								<option value="5">5</option>
 							</select>
 						</td>
+					</tr>
+					
+					<tr>
+						<td>Support for the development of Students’ skill
+							(a) Practical demonstration 
+							(b) Hands on training </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Clarity of expectations of students </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Feedback provided on Students’ progress </td>
 						<td>
 							<select class="form-control" name="" id="">
 								<option value="1">1</option>
@@ -715,60 +427,51 @@
 								<option value="5">5</option>
 							</select>
 						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
-						<td>
-							<select class="form-control" name="" id="">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</td>
+					</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="card" style="height: 95%">
+								<div class="card-header">Comments</div>
+								<div class="card-body">
+									<div class="form-group">
+										<textarea class="form-control" rows="10" name="comment"></textarea>
+									</div>
+									<select class="form-control" name="" id="">
+											<option value="1">Comment1</option>
+											<option value="2">Comment2</option>
+											<option value="3">Comment3</option>
+											<option value="4">Comment4</option>
+											<option value="5">Comment5</option>
+									</select>
+								</div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>	
+</div>
+<div class="tab-pane" id="faculty3" role="tabpanel">
+	<div class="card">
+			<div class="card-header">Student Details</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-sm-8">
+						<div class="card">
+							<div class="card-body">
+								<table class="table table-responsive-sm table-bordered">
+									<thead>
+										<tr>
+											<td style="width: 80%">Qualities</td>
+											<td style="width: 13%">Rating</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+						<td>Has the Teacher covered entire Syllabus as prescribed by University/ College/ Board?</td>
 						<td>
 							<select class="form-control" name="" id="">
 								<option value="1">1</option>
@@ -779,13 +482,949 @@
 							</select>
 						</td>
 					</tr>
-				</tbody>
-			</table>
+					<tr>
+						<td>Has the Teacher covered relevant topics beyond syllabus </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Effectiveness of Teacher in terms of :
+							(a) Technical content/course content 	
+							(b) Communication skills 	
+							(c) Use of teaching aids
+							</td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Pace on which contents were covered </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Motivation and inspiration for students to learn </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Support for the development of Students’ skill
+							(a) Practical demonstration 
+							(b) Hands on training </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Clarity of expectations of students </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Feedback provided on Students’ progress </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Willingness to offer help and advice to students. </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="card" style="height: 95%">
+								<div class="card-header">Comments</div>
+								<div class="card-body">
+									<div class="form-group">
+										<textarea class="form-control" rows="10" name="comment"></textarea>
+									</div>
+									<select class="form-control" name="" id="">
+											<option value="1">Comment1</option>
+											<option value="2">Comment2</option>
+											<option value="3">Comment3</option>
+											<option value="4">Comment4</option>
+											<option value="5">Comment5</option>
+									</select>
+								</div>
+						</div>
+					</div>
+				</div>
 		</div>
+	</div>	
 </div>
-	  
-	  
-	  
+<div class="tab-pane" id="faculty4" role="tabpanel">
+	<div class="card">
+			<div class="card-header">Student Details</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-sm-8">
+						<div class="card">
+							<div class="card-body">
+								<table class="table table-responsive-sm table-bordered">
+									<thead>
+										<tr>
+											<td style="width: 80%">Qualities</td>
+											<td style="width: 13%">Rating</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+						<td>Has the Teacher covered entire Syllabus as prescribed by University/ College/ Board?</td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Has the Teacher covered relevant topics beyond syllabus </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Effectiveness of Teacher in terms of :
+							(a) Technical content/course content 	
+							(b) Communication skills 	
+							(c) Use of teaching aids
+							</td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Pace on which contents were covered </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Motivation and inspiration for students to learn </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Support for the development of Students’ skill
+							(a) Practical demonstration 
+							(b) Hands on training </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Clarity of expectations of students </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Feedback provided on Students’ progress </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Willingness to offer help and advice to students. </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="card" style="height: 95%">
+								<div class="card-header">Comments</div>
+								<div class="card-body">
+									<div class="form-group">
+										<textarea class="form-control" rows="10" name="comment"></textarea>
+									</div>
+									<select class="form-control" name="" id="">
+											<option value="1">Comment1</option>
+											<option value="2">Comment2</option>
+											<option value="3">Comment3</option>
+											<option value="4">Comment4</option>
+											<option value="5">Comment5</option>
+									</select>
+								</div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+</div>
+<div class="tab-pane" id="faculty5" role="tabpanel">
+	<div class="card">
+			<div class="card-header">Student Details</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-sm-8">
+						<div class="card">
+							<div class="card-body">
+								<table class="table table-responsive-sm table-bordered">
+									<thead>
+										<tr>
+											<td style="width: 80%">Qualities</td>
+											<td style="width: 13%">Rating</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+						<td>Has the Teacher covered entire Syllabus as prescribed by University/ College/ Board?</td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Has the Teacher covered relevant topics beyond syllabus </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Effectiveness of Teacher in terms of :
+							(a) Technical content/course content 	
+							(b) Communication skills 	
+							(c) Use of teaching aids
+							</td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Pace on which contents were covered </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Motivation and inspiration for students to learn </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Support for the development of Students’ skill
+							(a) Practical demonstration 
+							(b) Hands on training </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Clarity of expectations of students </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Feedback provided on Students’ progress </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Willingness to offer help and advice to students. </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="card" style="height: 95%">
+								<div class="card-header">Comments</div>
+								<div class="card-body">
+									<div class="form-group">
+										<textarea class="form-control" rows="10" name="comment"></textarea>
+									</div>
+									<select class="form-control" name="" id="">
+											<option value="1">Comment1</option>
+											<option value="2">Comment2</option>
+											<option value="3">Comment3</option>
+											<option value="4">Comment4</option>
+											<option value="5">Comment5</option>
+									</select>
+								</div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>	
+</div>
+<div class="tab-pane" id="faculty6" role="tabpanel">
+	<div class="card">
+			<div class="card-header">Student Details</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-sm-8">
+						<div class="card">
+							<div class="card-body">
+								<table class="table table-responsive-sm table-bordered">
+									<thead>
+										<tr>
+											<td style="width: 80%">Qualities</td>
+											<td style="width: 13%">Rating</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+						<td>Has the Teacher covered entire Syllabus as prescribed by University/ College/ Board?</td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Has the Teacher covered relevant topics beyond syllabus </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Effectiveness of Teacher in terms of :
+							(a) Technical content/course content 	
+							(b) Communication skills 	
+							(c) Use of teaching aids
+							</td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Pace on which contents were covered </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Motivation and inspiration for students to learn </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Support for the development of Students’ skill
+							(a) Practical demonstration 
+							(b) Hands on training </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+
+					</tr>
+					
+					<tr>
+						<td>Clarity of expectations of students </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Feedback provided on Students’ progress </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Willingness to offer help and advice to students. </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="card" style="height: 95%">
+								<div class="card-header">Comments</div>
+								<div class="card-body">
+									<div class="form-group">
+										<textarea class="form-control" rows="10" name="comment"></textarea>
+									</div>
+									<select class="form-control" name="" id="">
+											<option value="1">Comment1</option>
+											<option value="2">Comment2</option>
+											<option value="3">Comment3</option>
+											<option value="4">Comment4</option>
+											<option value="5">Comment5</option>
+									</select>
+								</div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>	
+</div>
+<div class="tab-pane" id="faculty7" role="tabpanel">
+	<div class="card">
+			<div class="card-header">Student Details</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-sm-8">
+						<div class="card">
+							<div class="card-body">
+								<table class="table table-responsive-sm table-bordered">
+									<thead>
+										<tr>
+											<td style="width: 80%">Qualities</td>
+											<td style="width: 13%">Rating</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+						<td>Has the Teacher covered entire Syllabus as prescribed by University/ College/ Board?</td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Has the Teacher covered relevant topics beyond syllabus </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Effectiveness of Teacher in terms of :
+							(a) Technical content/course content 	
+							(b) Communication skills 	
+							(c) Use of teaching aids
+							</td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Pace on which contents were covered </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Motivation and inspiration for students to learn </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Support for the development of Students’ skill
+							(a) Practical demonstration 
+							(b) Hands on training </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Clarity of expectations of students </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Feedback provided on Students’ progress </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Willingness to offer help and advice to students. </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="card" style="height: 95%">
+								<div class="card-header">Comments</div>
+								<div class="card-body">
+									<div class="form-group">
+										<textarea class="form-control" rows="10" name="comment"></textarea>
+									</div>
+									<select class="form-control" name="" id="">
+											<option value="1">Comment1</option>
+											<option value="2">Comment2</option>
+											<option value="3">Comment3</option>
+											<option value="4">Comment4</option>
+											<option value="5">Comment5</option>
+									</select>
+								</div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>	
+</div>
+<div class="tab-pane" id="faculty8" role="tabpanel">
+	<div class="card">
+			<div class="card-header">Student Details</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-sm-8">
+						<div class="card">
+							<div class="card-body">
+								<table class="table table-responsive-sm table-bordered">
+									<thead>
+										<tr>
+											<td style="width: 80%">Qualities</td>
+											<td style="width: 13%">Rating</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+						<td>Has the Teacher covered entire Syllabus as prescribed by University/ College/ Board?</td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Has the Teacher covered relevant topics beyond syllabus </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Effectiveness of Teacher in terms of :
+							(a) Technical content/course content 	
+							(b) Communication skills 	
+							(c) Use of teaching aids
+							</td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Pace on which contents were covered </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Motivation and inspiration for students to learn </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Support for the development of Students’ skill
+							(a) Practical demonstration 
+							(b) Hands on training </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Clarity of expectations of students </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Feedback provided on Students’ progress </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Willingness to offer help and advice to students. </td>
+						<td>
+							<select class="form-control" name="" id="">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="card" style="height: 95%">
+								<div class="card-header">Comments</div>
+								<div class="card-body">
+									<div class="form-group">
+										<textarea class="form-control" rows="10" name="comment"></textarea>
+									</div>
+									<select class="form-control" name="" id="">
+											<option value="1">Comment1</option>
+											<option value="2">Comment2</option>
+											<option value="3">Comment3</option>
+											<option value="4">Comment4</option>
+											<option value="5">Comment5</option>
+									</select>
+								</div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>	
+</div>
+</div>
+
+		  </div>
+	  </div>
 	  
     <footer class="app-footer">
       <div>

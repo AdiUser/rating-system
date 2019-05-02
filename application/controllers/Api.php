@@ -682,8 +682,76 @@ class Api extends CI_Controller {
         }
     }
 	
-	public function upload_time_table() {
+	public function save_timetable() {
 		$this->load->view("time_table");
-	}
-    
+		 $config['upload_path']   = "assets/img/proof";
+        $config['allowed_types'] = 'gif|jpg|png|PNG|JPEG|JPG|docx|doc|txt|xls|xlsx';
+        $config['encrypt_name']  = TRUE;
+        $this->load->library('upload', $config);
+        
+        
+        $org_id     = $this->session->user[0]->code;
+        $year       = $this->input->post("year");
+        $semester = $this->input->post("semester");
+        $section = $this->input->post("section");
+        //$proof = $_FILES['proof'];
+        echo json_encode($_FILES);
+        //echo count($_FILES['proof']['name']);
+        $field_id = $this->input->post("field-id");
+        
+        $insert_ids = array();
+        $count      = 0;
+        $str        = "";
+        foreach ($year as $key => $val) {
+            $image = null;
+            if ($this->upload->do_upload("proof-" . $key)) {
+                $data = array(
+                    'upload_data' => $this->upload->data()
+                );
+                
+                //$title = $this->input->post('title');
+                $image = $data['upload_data']['file_name'];
+                
+            } else {
+                echo $this->upload->display_errors();
+                die();
+            }
+            $details = array(
+                "year" => $year[$key],
+                "semester" => $semester[$key],
+                "section" => $section[$key],
+                "proof" => $image
+            );
+            $res     = $this->db->insert("time_table", $details);
+            $idx     = $this->db->insert_id();
+            array_push($insert_ids, $idx);
+            if ($res) {
+                $count++;
+                $str .= '<tr id="' . $field_id[$key] . '"><td>' . $year[$key] . '</td><td>' . $semester[$key] . '</td>';
+                $str .='<td>'.$section[$key].'</td>';
+                $str .= '<td>' . $image . '</td>';
+                $str .= '<td><button class="btn btn-danger timetable-delete" data-id="' . $idx . '" data-delete="' . $field_id[$key] . '"><i class="icons font-1xl d-block cui-circle-x"></i></button></td></tr>';
+            }
+        }
+        
+        if ($count == sizeof($year)) {
+            echo $str;
+        } else {
+            echo 0;
+        }
+        
+		
+}
+	 public function delete_timetable() {
+        $id  = $this->input->get("id");
+        $res = $this->db->set('is_active', 0)->where(array(
+            'serial' => $id
+        ))->update('time_table');
+        //$res = $this->db->replace("departmental_activities", array('isActive' => 0));
+        if ($this->db->affected_rows() == 1) {
+            echo 1;
+        } else {
+            echo 0;
+        }
+    }
 }

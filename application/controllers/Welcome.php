@@ -44,6 +44,13 @@ class Welcome extends CI_Controller {
 		$this->load->view("feedback");
 	}
 
+	
+	public function feedback_dashboard() {
+
+		$this->load->view("feedback_dashboard");
+	}
+
+	
 	public function getDepartments($code) {
 		$res = $this->db->select("*")
 				->where("org_id", $code)
@@ -178,7 +185,7 @@ class Welcome extends CI_Controller {
 
 	public function faculty_qualifications() {
 		$user_details = $this->session->user_details[0];
-		$department_id= 1; //$user_details->department;
+		$department_id = 1; //$user_details->department;
 		$level= $user_details->level;
 		$level = $this->get_next_level($user_details->level+1);
 
@@ -292,5 +299,68 @@ class Welcome extends CI_Controller {
 	public function faculty_promotion() {
 
 		$this->load->view("faculty_promotion");
+	}
+
+
+		public function faculty_qualifications_technical() {
+		$user_details = $this->session->user_details[0];
+		$department_id = 1; //$user_details->department;
+		$level= $user_details->level;
+		$level = $this->get_next_level($user_details->level+1);
+
+		$faculty_id = $this->session->user[0]->username;
+		$arr=$this->db->where(['department'=>$department_id,'level'=>$level])
+		->get('technical_requirement')->result();
+		$ids_to_show = array();
+		$ids_verbose = array();
+		$ids_to_disable = array(); //get ids that are already added by the faculty, and diable them.
+		$res_disable = $this->db->where("faculty_id", $faculty_id)->get("input_qualification");
+		if ($res_disable->num_rows() == 1) {
+			$id_X = explode(",",$res_disable->result()[0]->qualification);
+		}
+		foreach($arr as $key=>$val) {
+			$ids = explode(",", $val->qualifications);
+			foreach($ids as $key=>$x) {
+				if (!in_array($x, $ids_to_show))
+					array_push($ids_to_show, $x);
+			}
+		}
+		
+		foreach($ids_to_show as $key=>$val) {
+			$data = $this->db->where(['id'=>$val])
+					->get('technical_min_qualifications')
+					->result();
+			if ($data) {
+				if (isset($id_X) && sizeof($id_X)>0) {
+					if (in_array($val, $id_X)) {
+						// id is already maked by the the faculty. 
+						array_push($ids_verbose, ['id'=> $data[0]->id,
+							'name'=>$data[0]->qualification_name,
+							'is_editable' => false
+						]);
+					}
+					else {
+						array_push($ids_verbose, ['id'=> $data[0]->id,
+							'name'=>$data[0]->qualification_name,
+							'is_editable' => true
+						]);
+					}
+				}
+				else {
+					array_push($ids_verbose, ['id'=> $data[0]->id,
+							'name'=>$data[0]->qualification_name,
+							'is_editable' => true
+						]);
+				}
+				
+			}
+			else {
+				die('error occured');
+			}
+		}
+
+		$data['qualifications'] = $ids_verbose;
+		//echo "<pre>".print_r($this->session, true);
+		$this->load->view("faculty_qualifications", $data);
 	}
 }
